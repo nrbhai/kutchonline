@@ -1,0 +1,20 @@
+{
+	"name": "kutchonline",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": ["nodejs_compat"],
+	"routes": [
+		"kutchonline.com/*",
+		"bhuj.kutchonline.com/*"
+	],
+	"kv_namespaces": [
+		{ "binding": "SESSION", "id": "86453496a5d2452eb7a7582f6a9dbc52" }
+	],
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true
+}
