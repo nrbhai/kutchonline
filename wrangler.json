@@ -1,0 +1,16 @@
+{
+  "name": "kutchonline",
+  "compatibility_date": "2025-10-08",
+  "main": "worker.js",
+  "routes": [
+    { "pattern": "kutchonline.com/*", "zone_name": "kutchonline.com" },
+    { "pattern": "bhuj.kutchonline.com/*", "zone_name": "kutchonline.com" }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
