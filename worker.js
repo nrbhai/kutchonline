@@ -4,8 +4,9 @@ export default {
 		const url = new URL(request.url);
 
 		if (host.startsWith("bhuj.")) {
+			url.hostname = "kutchonline.com";
 			url.pathname = "/bhuj/";
-			return env.ASSETS.fetch(new Request(url.toString(), request));
+			return env.ASSETS.fetch(url.toString());
 		}
 
 		return env.ASSETS.fetch(request);
