@@ -710,16 +710,6 @@ function initCategoryPage() {
             document.body.classList.remove('search-active');
         }, 200);
     });
-
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.trim();
-        const queryLow = query.toLowerCase();
-        const filtered = data.providers.filter(p =>
-            p.name.toLowerCase().includes(queryLow) ||
-            p.area.toLowerCase().includes(queryLow) ||
-            p.phone.includes(queryLow)
-        );
-        renderProviders(filtered, container, query);
 }
 
 function highlightText(text, query) {
