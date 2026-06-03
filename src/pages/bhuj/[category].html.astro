@@ -1,0 +1,1381 @@
+---
+import BhujLayout from "../../layouts/BhujLayout.astro";
+
+export async function getStaticPaths() {
+  const data = (await import("../../data/data.json")).default;
+  const standardPaths = data.map((cat) => {
+    return {
+      params: { category: `${cat.id}-in-bhuj` },
+      props: {
+        categoryData: cat,
+        allCategories: data,
+        categorySlug: `${cat.id}-in-bhuj`
+      }
+    };
+  });
+
+  const LONG_TAIL_PAGES = [
+    {
+        name: 'Wedding Choreographer',
+        slug: 'wedding-choreographer',
+        primary_id: 'choreographers-dance',
+        hero_icon: 'celebration'
+    },
+    {
+        name: 'Sangeet Choreographer',
+        slug: 'sangeet-choreographer',
+        primary_id: 'choreographers-dance',
+        hero_icon: 'music_note'
+    },
+    {
+        name: 'Dance Classes',
+        slug: 'dance-classes',
+        primary_id: 'choreographers-dance',
+        hero_icon: 'self_improvement'
+    }
+  ];
+
+  const longTailPaths = LONG_TAIL_PAGES.map((page) => {
+    const primaryCat = data.find(c => c.id === page.primary_id) || { providers: [], gu_name: '' };
+    return {
+      params: { category: `${page.slug}-in-bhuj` },
+      props: {
+        categoryData: {
+          ...primaryCat,
+          id: page.slug,
+          name: page.name,
+          icon: page.hero_icon,
+          gu_name: page.name
+        },
+        allCategories: data,
+        categorySlug: `${page.slug}-in-bhuj`
+      }
+    };
+  });
+
+  return [...standardPaths, ...longTailPaths];
+}
+
+const { categoryData, allCategories, categorySlug } = Astro.props;
+const category = categorySlug;
+
+const providers = categoryData.providers || [];
+
+const isTruthy = (value: unknown) => {
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'number') return value === 1;
+  const text = String(value || '').toLowerCase().trim();
+  return text === 'yes' || text === 'true' || text === '1';
+};
+
+type Provider = {
+  name: string; phone: string; area: string; address: string;
+  place_id: string; webpage: string; badge: string;
+  verified: string; top_rated: string;
+  tags: string[];
+  [key: string]: unknown;
+};
+
+const sortedProviders = [...providers].sort((a: Provider, b: Provider) => {
+  const aVerified = isTruthy(a.verified);
+  const aTopRated = isTruthy(a.top_rated);
+  const bVerified = isTruthy(b.verified);
+  const bTopRated = isTruthy(b.top_rated);
+
+  const aTier1 = aVerified && aTopRated;
+  const bTier1 = bVerified && bTopRated;
+  if (aTier1 && !bTier1) return -1;
+  if (!aTier1 && bTier1) return 1;
+  if (aVerified && !bVerified) return -1;
+  if (!aVerified && bVerified) return 1;
+  return 0;
+});
+
+const getRelatedCategories = (categoryName: string, allCats: typeof allCategories) => {
+  const RELATED_GROUPS = {
+    'home_services': ['Electrician', 'Plumber', 'Carpenter / Furniture', 'Masons / Kadia', 'Pest Control', 'Tank Cleaning', 'AC & Fridge Repair', 'Interior Designer', 'Modular Kitchen', 'POP/False Ceiling', 'Tiles Fitter', 'Tiles & Sanitary'],
+    'medical': ['Hospitals', 'Doctors MBBS', 'Doctors MD Physician', 'Dentist', 'Ayurvedic Doctors', 'Homeopathy Doctors', 'Physiotherapists', 'Nurses', 'Laboratory', 'Medical store', 'Ambulance', 'Nutritionists/Dieticians'],
+    'business_services': ['CA', 'Accounting Services', 'GST/Accounting Services', 'Financial Advisor', 'Insurance Agent', 'Insurance Companies', 'Mutual Fund Advisors', 'Share Brokers / Stock Market', 'Tax Consultant', 'Notary', 'Advocate / Lawyer'],
+    'tech_services': ['Computer Sales & Repair', 'Laptop Repairs', 'CCTV Installation', 'Digital Marketing', 'Website Designers', 'Graphic Designers', 'Software Developers', 'Printer Repairs', 'Mobile Repairing'],
+    'construction': ['Civil Contractor', 'Civil Engineers', 'Construction Material', 'Aluminium Fabrication', 'Hardware Stores', 'Interior Designer', 'Modular Kitchen', 'Tiles & Sanitary'],
+    'events': ['Photographers / Videographers', 'Decorators', 'Event Planners', 'Caterers', 'Flower Shops', 'Tent & Sound System', 'Bridal Wear', 'Choreographers'],
+    'vehicles': ['Car Mechanic', 'Bike & Car Rentals', 'Taxi', 'Tours & Travels', 'Transport / Tempo Services', 'Tyre/Puncture Shop', 'EV Dealers', 'RTO Agent', 'Car Driving School', 'Motor Driving School'],
+    'food': ['Restaurants', 'Caterers', 'Bakery', 'Sweet shop / Mithai', 'Cafes Tea & Coffee', 'Cold Storage', 'Kirana Stores', 'Milk Delivery'],
+    'education': ['Coaching classes', 'Tuition Classes', 'Schools', 'Computer Classes', 'Teachers', 'JEE-NEET Coaching', 'Guitar Teacher'],
+    'real_estate': ['Estate Agent', 'Builders - Developers', 'Civil Contractor', 'Civil Engineers', 'Interior Designer', 'Construction Material'],
+    'personal_care': ['Hair Stylist ( M / F )', 'Fashion Designer', 'Cloths Merchant', 'Bridal Wear', 'Tattoo Shop', 'Tailor'],
+    'travel': ['Hotels', 'Homestays', 'Tours & Travels', 'Taxi', 'Bike & Car Rentals', 'Trekking - Adventure Tours'],
+  };
+
+  const related = new Set();
+  for (const [, group_cats] of Object.entries(RELATED_GROUPS)) {
+    if (group_cats.includes(categoryName)) {
+      for (const cat of group_cats) {
+        if (cat !== categoryName && allCats.some(c => c.name === cat)) {
+          related.add(cat);
+        }
+      }
+    }
+  }
+
+  let relatedList = Array.from(related);
+  if (relatedList.length > 6) relatedList = relatedList.slice(0, 6);
+  if (relatedList.length === 0) {
+    relatedList = allCats.filter(c => c.name !== categoryName).slice(0, 6).map(c => c.name);
+  }
+  return relatedList.map(name => allCats.find(c => c.name === name)).filter(Boolean);
+};
+
+const relatedCats = getRelatedCategories(categoryData.name, allCategories);
+
+const title = `Best ${categoryData.name} in Bhuj (2026) – Contact Numbers, Verified Listings | bhuj.kutchonline.com`;
+const description = `Find verified ${categoryData.name} in Bhuj with contact numbers, ratings, and addresses. Search top-rated local ${categoryData.name.toLowerCase()} serving Madhapar, Sanskar Nagar, and surrounding areas.`;
+
+const buildKeywords = (name: string) => {
+  const base = name.toLowerCase().trim();
+  return [`${base} in bhuj`, `${base} near me`, `best ${base} near me`, `top ${base} near me`, `verified ${base} near me`, `${base} bhuj`, `best ${base} bhuj`, `${base} bhuj contact number`, `${base} in bhuj kutch`, `${base} bhuj gujarat`].join(', ');
+};
+
+const keywords = buildKeywords(categoryData.name);
+const canonicalPath = `${category}.html`;
+
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": categoryData.name,
+      "provider": { "@type": "LocalBusiness", "name": "bhuj.kutchonline.com", "url": "https://bhuj.kutchonline.com" },
+      "areaServed": { "@type": "City", "name": "Bhuj" },
+      "hasOfferCatalog": { "@type": "OfferCatalog", "name": `${categoryData.name} in Bhuj`, "itemListElement": [{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": `Verified ${categoryData.name} Services` } }] }
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": `${categoryData.name} in Bhuj`,
+      "description": `Find verified ${categoryData.name.toLowerCase()} in Bhuj, Kutch, Gujarat.`,
+      "url": `https://bhuj.kutchonline.com/${canonicalPath}`,
+      "telephone": "+91-9825034580",
+      "email": "contact@kutchonline.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Bhuj", "addressRegion": "Gujarat", "addressCountry": "IN", "postalCode": "370001" },
+      "geo": { "@type": "GeoCoordinates", "latitude": "23.2420", "longitude": "69.6669" },
+      "areaServed": { "@type": "City", "name": "Bhuj" },
+      "priceRange": "$$"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bhuj.kutchonline.com/" },
+        { "@type": "ListItem", "position": 2, "name": `${categoryData.name} in Bhuj`, "item": `https://bhuj.kutchonline.com/${canonicalPath}` }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": `How to find the best ${categoryData.name} in Bhuj?`, "acceptedAnswer": { "@type": "Answer", "text": `bhuj.kutchonline.com provides a verified list of ${categoryData.name.toLowerCase()} in Bhuj with contact numbers and ratings. Look for providers with Verified and Top Rated badges.` } },
+        { "@type": "Question", "name": `Are these ${categoryData.name} verified?`, "acceptedAnswer": { "@type": "Answer", "text": `Yes, many ${categoryData.name.toLowerCase()} on bhuj.kutchonline.com are verified. We check contact details and business information.` } },
+        { "@type": "Question", "name": `What areas do these ${categoryData.name} serve?`, "acceptedAnswer": { "@type": "Answer", "text": `The ${categoryData.name.toLowerCase()} listed here primarily serve Bhuj city and surrounding areas in Kutch district, Gujarat.` } }
+      ]
+    }
+  ]
+});
+
+const formatPhoneForWA = (phone: string) => {
+  const clean = phone.replace(/\D/g, '');
+  return clean.length === 10 ? `91${clean}` : clean;
+};
+
+const getInitial = (name: string) => name ? name.trim()[0].toUpperCase() : '?';
+
+const AVATAR_COLORS = [
+  ['#dbeafe','#1d4ed8'], ['#dcfce7','#15803d'], ['#fef9c3','#a16207'],
+  ['#fce7f3','#9d174d'], ['#ede9fe','#6d28d9'], ['#ffedd5','#c2410c'],
+  ['#e0f2fe','#0369a1'], ['#f0fdf4','#166534'],
+];
+const getAvatarColor = (name: string) => AVATAR_COLORS[(name?.charCodeAt(0) || 0) % AVATAR_COLORS.length];
+---
+
+<BhujLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonicalPath={canonicalPath}
+  structuredData={structuredData}
+  bodyClass="page-category"
+>
+  <main class="cat-page">
+
+    <!-- ── HERO ─────────────────────────────────────── -->
+    <section class="cat-hero">
+      <div class="cat-hero-inner">
+        <div class="cat-hero-content">
+          <nav class="cat-breadcrumb" aria-label="Breadcrumb">
+            <a href="/bhuj/" class="crumb-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Home
+            </a>
+            <svg class="crumb-sep" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="crumb-current">{categoryData.name}</span>
+          </nav>
+
+          <div class="cat-hero-title-row">
+            <div class="cat-hero-icon" aria-hidden="true">
+              {categoryData.icon && categoryData.icon !== "❓" ? categoryData.icon : "📌"}
+            </div>
+            <div>
+              <h1 class="cat-hero-h1">{categoryData.name} <span class="cat-hero-city">in Bhuj</span></h1>
+              {categoryData.gu_name && categoryData.gu_name !== categoryData.name && (
+                <p class="cat-hero-gu">{categoryData.gu_name} · ભુજ</p>
+              )}
+            </div>
+          </div>
+
+          <div class="cat-hero-meta">
+            <span class="cat-count-pill" id="results-count">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              {providers.length} provider{providers.length === 1 ? '' : 's'}
+            </span>
+            <span class="cat-meta-sep" aria-hidden="true">·</span>
+            <span class="cat-meta-free">Free to contact</span>
+          </div>
+
+          <div class="cat-search-wrap">
+            <div class="cat-search-field">
+              <svg class="cat-search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input
+                type="search"
+                id="search-input"
+                class="cat-search-input"
+                placeholder={`Search ${categoryData.name}...`}
+                autocomplete="off"
+                aria-label={`Search ${categoryData.name} providers`}
+              />
+              <button class="cat-search-clear" id="search-clear" aria-label="Clear search" hidden>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <p class="cat-search-hint">Verified &amp; Top Rated providers appear first</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROVIDER LIST ─────────────────────────────── -->
+    <div class="cat-body">
+
+      {providers.length === 0 ? (
+        <div class="cat-empty">
+          <div class="cat-empty-icon">🔍</div>
+          <h2 class="cat-empty-h">Coming Soon</h2>
+          <p class="cat-empty-p">We're collecting verified {categoryData.name.toLowerCase()} in Bhuj. Check back soon!</p>
+          <a href="/bhuj/" class="cat-empty-back">← Back to all categories</a>
+        </div>
+      ) : (
+        <ul class="provider-list" id="provider-list" role="list">
+          {sortedProviders.map((pRaw, index) => {
+            const p = pRaw as Provider;
+            const isV = isTruthy(p.verified);
+            const isTR = isTruthy(p.top_rated);
+            const cleanPhone = formatPhoneForWA(p.phone || '');
+            const mapsUrl = p.place_id
+              ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ' ' + (p.area || 'Bhuj') + ' Bhuj')}&query_place_id=${p.place_id}`
+              : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ' ' + (p.area || 'Bhuj') + ' Bhuj Kutch Gujarat India')}`;
+            const [avatarBg, avatarColor] = getAvatarColor(p.name || '');
+
+            let tier = '';
+            if (isV && isTR) tier = 'tier-elite';
+            else if (isTR) tier = 'tier-top';
+            else if (isV) tier = 'tier-verified';
+
+            const showAd = index === (sortedProviders.length > 4 ? 2 : Math.floor(sortedProviders.length / 2));
+
+            return (
+              <>
+                <li class={`pcard ${tier}`} data-name={p.name?.toLowerCase()} data-area={p.area?.toLowerCase()} data-phone={p.phone}>
+
+
+
+
+
+                  <div class="pcard-top">
+                    {/* Avatar */}
+                    <div class="pcard-avatar" style={`background:${avatarBg};color:${avatarColor}`} aria-hidden="true">
+                      {getInitial(p.name)}
+                    </div>
+
+                    {/* Info */}
+                    <div class="pcard-info">
+                      <div class="pcard-name-row">
+                        <span class="pcard-name">{p.name}</span>
+                        <div class="pcard-badges">
+                          {isV && isTR && (
+                            <span class="pbadge pbadge-elite">
+                              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                              Trusted
+                            </span>
+                          )}
+                          {isV && (
+                            <span class="pbadge pbadge-verified">
+                              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                              Verified
+                            </span>
+                          )}
+                          {isTR && !isV && (
+                            <span class="pbadge pbadge-top">
+                              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                              Top Rated
+                            </span>
+                          )}
+                          {p.badge && <span class="pbadge pbadge-custom">{p.badge}</span>}
+                        </div>
+                      </div>
+
+                      <div class="pcard-meta-row">
+                        <span class="pcard-area">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                          {p.area || 'Bhuj'}
+                        </span>
+                        {p.tags && p.tags.length > 0 && p.tags.slice(0, 2).map(t => (
+                          <span class="pcard-tag">{t}</span>
+                        ))}
+                      </div>
+
+                      {p.address && (
+                        <p class="pcard-address">
+                          {p.address}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Phone + Primary CTA */}
+                  <div class="pcard-phone-row">
+                    <a href={`tel:${p.phone}`} class="pcard-phone-link" aria-label={`Call ${p.name}`}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+                      {p.phone}
+                    </a>
+                    <a href={`tel:${p.phone}`} class="pcard-call-btn" aria-label={`Call ${p.name}`}>
+                      Call Now
+                    </a>
+                  </div>
+
+                  {/* Secondary actions */}
+                  <div class="pcard-actions">
+                    <a href={`https://wa.me/${cleanPhone}`} target="_blank" rel="noopener noreferrer" class="paction paction-wa">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.479 2 2 6.479 2 12c0 1.883.522 3.641 1.425 5.146L2 22l4.984-1.311A9.953 9.953 0 0012 22c5.521 0 10-4.479 10-10S17.521 2 11.999 2zm.001 18.182a8.175 8.175 0 01-4.17-1.143l-.298-.177-3.091.812.825-3.013-.196-.309A8.167 8.167 0 013.818 12c0-4.512 3.67-8.182 8.182-8.182 4.513 0 8.182 3.67 8.182 8.182 0 4.513-3.669 8.182-8.182 8.182z"/></svg>
+                      WhatsApp
+                    </a>
+
+                    <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="paction paction-maps">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Maps
+                    </a>
+
+                    {p.webpage ? (
+                      <a href={p.webpage} target="_blank" rel="noopener noreferrer" class="paction paction-web">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        Website
+                      </a>
+                    ) : (
+                      <button class="paction paction-disabled" disabled aria-disabled="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        Website
+                      </button>
+                    )}
+                  </div>
+
+                </li>
+
+                {/* Inline promotion cards */}
+                {showAd && (
+                  <li class="promo-row" aria-label="Promotion">
+                    <div class="promo-card promo-verify">
+                      <div class="promo-tag">Limited Offer</div>
+                      <h3 class="promo-h">Get <em>Verified</em> on Bhuj's #1 Directory</h3>
+                      <p class="promo-p">Build trust. Get more calls from local customers in Bhuj.</p>
+                      <p class="promo-gu">વેરિફાઈડ બેજ સાથે વધુ વિશ્વાસ અને વધુ ગ્રાહકો.</p>
+                      <div class="promo-bottom">
+                        <div class="promo-price">
+                          <strong>₹699</strong>
+                          <span>/ year</span>
+                        </div>
+                        <a href="/bhuj/offers" class="promo-cta promo-cta-light">Get Verified →</a>
+                      </div>
+                    </div>
+                    <div class="promo-card promo-toprated">
+                      <div class="promo-tag promo-tag-light">Best Value</div>
+                      <h3 class="promo-h">Top Rated Badge + Custom Webpage</h3>
+                      <p class="promo-p">Show your full business profile with products, services &amp; photos.</p>
+                      <p class="promo-gu">પ્રોડક્ટ્સ અને સર્વિસ સાથે કસ્ટમ વેબપેજ — માત્ર ₹1299/વર્ષ.</p>
+                      <div class="promo-bottom">
+                        <div class="promo-price promo-price-light">
+                          <strong>₹1299</strong>
+                          <span>/ year</span>
+                        </div>
+                        <a href="/bhuj/offers" class="promo-cta promo-cta-dark">Get Webpage →</a>
+                      </div>
+                    </div>
+                  </li>
+                )}
+              </>
+            );
+          })}
+        </ul>
+      )}
+
+      <!-- No results state (shown by JS) -->
+      <div class="cat-noresult" id="no-result" hidden>
+        <div class="cat-empty-icon">😕</div>
+        <p>No providers match your search. Try a different name or area.</p>
+      </div>
+
+      <!-- ── SEO SECTIONS ───────────────────────────── -->
+      <div class="info-grid">
+
+        <section class="info-card" aria-labelledby="about-heading">
+          <h2 id="about-heading" class="info-h">About {categoryData.name} in Bhuj</h2>
+          <p class="info-p">bhuj.kutchonline.com is Bhuj's trusted local directory for verified {categoryData.name.toLowerCase()}. All providers serve Bhuj, Madhapar, Bhujodi, Vijay Nagar and surrounding Kutch areas. Verified contacts · real listings · free to browse.</p>
+          <p class="info-p info-gu">bhuj.kutchonline.com એ ભુજ, કચ્છ માટેની Trusted Local Directory છે. Verified {categoryData.name} શોધો, Contact Details ચેક કરો અને સીધો Call કરો.</p>
+        </section>
+
+        <section class="info-card" aria-labelledby="faq-heading">
+          <h2 id="faq-heading" class="info-h">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-q">How to find the best {categoryData.name} in Bhuj?</summary>
+              <p class="faq-a">Check for Verified and Top Rated badges. Verified providers have confirmed contact details and appear at the top of the list.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">Are these listings verified?</summary>
+              <p class="faq-a">Many {categoryData.name.toLowerCase()} on bhuj.kutchonline.com are verified. Look for the ✔ Verified badge for confirmed contact details.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-q">What areas are covered?</summary>
+              <p class="faq-a">Bhuj city, Madhapar, Bhujodi, Vijay Nagar, Sanskar Nagar, Mirzapar and all of Kutch district, Gujarat.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="info-card related-card" aria-labelledby="related-heading">
+          <h2 id="related-heading" class="info-h">Related Services in Bhuj</h2>
+          <div class="related-chips">
+            {relatedCats.filter(cat => cat != null).map(cat => (
+              <a href={`/bhuj/${cat!.id}-in-bhuj.html`} class="related-chip">
+                <span class="chip-icon">{cat!.icon}</span>
+                {cat!.name}
+              </a>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</BhujLayout>
+
+<style is:global>
+/* ── PAGE BASE ──────────────────────────────────── */
+.page-category {
+  background: #f1f5f9 !important;
+  min-height: 100vh;
+}
+
+.cat-page {
+  min-height: 100vh;
+}
+
+/* ── HERO ───────────────────────────────────────── */
+.cat-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 32px 20px 40px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.cat-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 70% 50%, rgba(59,130,246,0.06) 0%, transparent 60%),
+                    radial-gradient(circle at 10% 80%, rgba(96,165,250,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cat-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Breadcrumb */
+.cat-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.crumb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.crumb-link:hover { color: #2563eb; }
+
+.crumb-sep { color: #94a3b8; flex-shrink: 0; }
+
+.crumb-current {
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+/* Title row */
+.cat-hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.cat-hero-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  flex-shrink: 0;
+}
+
+.cat-hero-h1 {
+  font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+
+.cat-hero-city {
+  color: #2563eb;
+}
+
+.cat-hero-gu {
+  color: #475569;
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Meta row */
+.cat-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cat-count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+
+.cat-meta-sep { color: #cbd5e1; font-size: 0.75rem; }
+
+.cat-meta-free {
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Search */
+.cat-search-wrap { max-width: 520px; }
+
+.cat-search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cat-search-ico {
+  position: absolute;
+  left: 14px;
+  color: #64748b;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.cat-search-input {
+  width: 100%;
+  padding: 13px 40px 13px 40px;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+}
+.cat-search-input::placeholder { color: #94a3b8; }
+.cat-search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.15), 0 4px 12px rgba(15,23,42,0.08);
+}
+
+.cat-search-clear {
+  position: absolute;
+  right: 12px;
+  background: #e2e8f0;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: background 0.2s;
+}
+.cat-search-clear:hover { background: #cbd5e1; }
+
+.cat-search-hint {
+  color: #64748b;
+  font-size: 0.73rem;
+  margin: 7px 0 0 2px;
+  font-weight: 600;
+}
+
+/* ── BODY ───────────────────────────────────────── */
+.cat-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* ── EMPTY STATES ───────────────────────────────── */
+.cat-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 12px rgba(15,23,42,0.04);
+}
+
+.cat-empty-icon { font-size: 3rem; margin-bottom: 16px; }
+
+.cat-empty-h {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.cat-empty-p {
+  color: #64748b;
+  font-size: 0.92rem;
+  margin: 0 0 24px;
+}
+
+.cat-empty-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #eff6ff;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.cat-empty-back:hover { background: #dbeafe; }
+
+.cat-noresult {
+  text-align: center;
+  padding: 40px 20px;
+  color: #64748b;
+  font-size: 0.92rem;
+}
+.cat-noresult .cat-empty-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+
+/* ── PROVIDER LIST ──────────────────────────────── */
+.provider-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Redesigned to 2 columns on desktop for spacing */
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .provider-list { grid-template-columns: 1fr; }
+}
+
+/* ── PROVIDER CARD ──────────────────────────────── */
+.pcard {
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+}
+
+/* Tiered Card Backgrounds, Borders, & Glows */
+.pcard.tier-elite {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15), 0 2px 10px rgba(245, 158, 11, 0.08);
+}
+.pcard.tier-verified {
+  background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
+  border: 2px solid #10b981;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.12), 0 2px 10px rgba(16, 185, 129, 0.06);
+}
+.pcard.tier-top, .pcard-standard, .pcard:not([class*="tier-"]) {
+  background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* Hover Elevations & Scale */
+.pcard.tier-elite:hover { border-color: #f59e0b; box-shadow: 0 20px 40px rgba(245, 158, 11, 0.28); transform: translateY(-4px); }
+.pcard.tier-verified:hover { border-color: #10b981; box-shadow: 0 20px 40px rgba(16, 185, 129, 0.24); transform: translateY(-4px); }
+.pcard.tier-top:hover, .pcard:not([class*="tier-"]):hover { border-color: #94a3b8; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1); transform: translateY(-4px); }
+
+/* Top section: avatar + info */
+.pcard-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pcard-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.pcard-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.pcard-name-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+
+
+.pcard-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.pcard-badges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Badges */
+.pbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 850;
+  padding: 5px 12px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.pbadge-verified {
+  background: #d1fae5;
+  color: #064e3b;
+  border: 1.5px solid #10b981;
+}
+
+.pbadge-top {
+  background: #eff6ff;
+  color: #1e3a8a;
+  border: 1.5px solid #3b82f6;
+}
+
+.pbadge-elite {
+  background: #fef3c7;
+  color: #78350f;
+  border: 1.5px solid #fbbf24;
+}
+
+.pbadge-custom {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* Meta row */
+.pcard-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pcard-area {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.pcard-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+/* Tiered Custom Tag Fills */
+.pcard.tier-elite .pcard-tag { background: #fef3c7; color: #78350f; border-color: #fbbf24; }
+.pcard.tier-top .pcard-tag { background: #d1fae5; color: #064e3b; border-color: #6ee7b7; }
+.pcard.tier-verified .pcard-tag { background: #d1fae5; color: #064e3b; border-color: #6ee7b7; }
+.pcard:not([class*="tier-"]) .pcard-tag { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
+
+.pcard-address {
+  font-size: 0.75rem;
+  color: #475569;
+  margin: 6px 0 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Phone & Call CTA Rows */
+.pcard-phone-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  margin-top: auto;
+  border-top: 1px solid #cbd5e1;
+}
+
+.pcard.tier-elite .pcard-phone-row { border-top-color: #fbbf24; }
+.pcard.tier-top .pcard-phone-row { border-top-color: #10b981; }
+.pcard.tier-verified .pcard-phone-row { border-top-color: #10b981; }
+
+.pcard-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+.pcard-phone-link:hover { color: #2563eb; }
+.pcard-phone-link svg { color: #2563eb; flex-shrink: 0; }
+
+.pcard-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.pcard.tier-elite .pcard-call-btn {
+  background: #f59e0b;
+  color: #451a03;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+.pcard.tier-elite .pcard-call-btn:hover {
+  background: #d97706;
+  color: #ffffff;
+}
+
+.pcard.tier-top .pcard-call-btn {
+  background: #10b981;
+  color: #022c22;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+.pcard.tier-top .pcard-call-btn:hover {
+  background: #059669;
+  color: #ffffff;
+}
+
+.pcard.tier-verified .pcard-call-btn {
+  background: #10b981;
+  color: #022c22;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+.pcard.tier-verified .pcard-call-btn:hover {
+  background: #059669;
+  color: #ffffff;
+}
+
+.pcard:not([class*="tier-"]) .pcard-call-btn {
+  background: #cbd5e1;
+  color: #1e293b;
+}
+.pcard:not([class*="tier-"]) .pcard-call-btn:hover {
+  background: #94a3b8;
+  color: #0f172a;
+}
+
+/* Secondary actions */
+.pcard-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.paction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.paction-wa {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+.paction-wa:hover {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+  box-shadow: 0 3px 10px rgba(22, 163, 74, 0.2);
+}
+
+.paction-maps {
+  background: #fff7ed;
+  color: #c2410c;
+  border-color: #fed7aa;
+}
+.paction-maps:hover {
+  background: #ea580c;
+  color: #ffffff;
+  border-color: #ea580c;
+  box-shadow: 0 3px 10px rgba(234, 88, 12, 0.2);
+}
+
+.paction-web {
+  background: #f0f9ff;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+.paction-web:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.2);
+}
+
+.paction-disabled {
+  background: #f8fafc;
+  color: #cbd5e1;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ── PROMO CARDS ────────────────────────────────── */
+.promo-row {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 6px 0 -14px;
+  grid-column: 1 / -1;
+  align-items: start;
+}
+
+@media (max-width: 580px) {
+  .promo-row { grid-template-columns: 1fr; }
+}
+
+.promo-card {
+  border-radius: 14px;
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Get Verified — dark teal/green */
+.promo-verify {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+  border: 1.5px solid #059669;
+  box-shadow: 0 4px 14px rgba(6,78,59,0.35);
+}
+
+/* Get Webpage — dark amber/gold */
+.promo-toprated {
+  background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+  border: 1.5px solid #d97706;
+  box-shadow: 0 4px 14px rgba(120,53,15,0.35);
+}
+
+.promo-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: fit-content;
+  margin-bottom: 2px;
+  background: rgba(255,255,255,0.12);
+  color: #6ee7b7;
+  border: 1px solid rgba(110,231,183,0.25);
+}
+
+.promo-toprated .promo-tag {
+  background: rgba(255,255,255,0.12);
+  color: #fcd34d;
+  border-color: rgba(252,211,77,0.25);
+}
+
+.promo-h {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.promo-toprated .promo-h { color: #ffffff; }
+
+.promo-h em { font-style: normal; color: #6ee7b7; }
+.promo-toprated .promo-h em { color: #fcd34d; }
+
+.promo-p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  line-height: 1.45;
+}
+.promo-toprated .promo-p { color: rgba(255,255,255,0.7); }
+
+.promo-gu {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.4;
+}
+.promo-toprated .promo-gu { color: rgba(255,255,255,0.5); }
+
+.promo-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.promo-price {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+.promo-price strong { font-size: 1.15rem; font-weight: 900; color: #ffffff; }
+.promo-price span { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+.promo-price-light strong { color: #ffffff; }
+.promo-price-light span { color: rgba(255,255,255,0.55); }
+
+.promo-cta {
+  font-size: 0.73rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.promo-cta-light {
+  background: #059669;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(5,150,105,0.4);
+}
+.promo-cta-light:hover {
+  background: #047857;
+  box-shadow: 0 4px 14px rgba(5,150,105,0.5);
+  transform: translateY(-1px);
+}
+
+.promo-cta-dark {
+  background: #d97706;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(217,119,6,0.4);
+}
+.promo-cta-dark:hover {
+  background: #b45309;
+  box-shadow: 0 4px 14px rgba(217,119,6,0.5);
+  transform: translateY(-1px);
+}
+
+/* ── INFO GRID ──────────────────────────────────── */
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(15,23,42,0.04);
+}
+
+.info-h {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 14px;
+}
+
+.info-p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 10px;
+}
+.info-p:last-child { margin-bottom: 0; }
+
+.info-gu {
+  color: #94a3b8;
+  font-size: 0.83rem;
+}
+
+/* FAQ accordion */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.15s;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after {
+  content: '+';
+  font-size: 1.1rem;
+  color: #94a3b8;
+  font-weight: 400;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+.faq-item[open] .faq-q::after { content: '−'; }
+.faq-item[open] .faq-q { background: #f8fafc; }
+.faq-q:hover { background: #f8fafc; }
+
+.faq-a {
+  padding: 0 14px 12px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 10px;
+}
+
+/* Related chips */
+.related-card { }
+
+.related-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.related-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+.related-chip:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(37,99,235,0.1);
+}
+
+.chip-icon { font-size: 1rem; }
+
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media (min-width: 640px) {
+  .pcard-top { gap: 14px; }
+  .pcard-avatar { width: 48px; height: 48px; font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  .cat-hero { padding: 24px 16px 32px; }
+  .cat-hero-icon { font-size: 2.2rem; }
+  .pcard-phone-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .pcard-call-btn { width: 100%; justify-content: center; }
+  .pcard-actions { gap: 5px; }
+  .paction { flex: 1; justify-content: center; }
+  .info-card { padding: 20px; }
+}
+</style>
+
+<script is:inline>
+(function () {
+  const input = document.getElementById('search-input');
+  const clearBtn = document.getElementById('search-clear');
+  const list = document.getElementById('provider-list');
+  const noResult = document.getElementById('no-result');
+  const countPill = document.getElementById('results-count');
+
+  if (!input || !list) return;
+
+  const cards = Array.from(list.querySelectorAll('li.pcard'));
+  const totalCount = cards.length;
+
+  function filter(q) {
+    const term = q.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const name = (card.dataset.name || '');
+      const area = (card.dataset.area || '');
+      const phone = (card.dataset.phone || '');
+      const match = !term || name.includes(term) || area.includes(term) || phone.includes(term);
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    // hide/show promo row based on any card being visible
+    list.querySelectorAll('li.promo-row').forEach(row => {
+      row.style.display = term ? 'none' : '';
+    });
+
+    if (noResult) noResult.hidden = visible > 0;
+    if (countPill) countPill.textContent = term
+      ? `${visible} of ${totalCount} providers`
+      : `${totalCount} provider${totalCount === 1 ? '' : 's'}`;
+
+    if (clearBtn) clearBtn.hidden = !term;
+  }
+
+  input.addEventListener('input', () => filter(input.value));
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      filter('');
+      input.focus();
+    });
+  }
+})();
+</script>

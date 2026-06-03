@@ -5,8 +5,8 @@
 	"engines": { "node": ">=22" },
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build",
-		"deploy": "astro build && wrangler deploy"
+		"build": "node scripts/generate-sitemaps.js && astro build",
+		"deploy": "node scripts/generate-sitemaps.js && astro build && wrangler deploy"
 	},
 	"dependencies": {
 		"astro": "^6.4.2"

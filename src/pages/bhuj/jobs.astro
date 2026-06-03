@@ -1,0 +1,522 @@
+---
+import BhujLayout from "../../layouts/BhujLayout.astro";
+---
+
+<BhujLayout
+  title="Free Job Postings & Vacancies in Bhuj, Kutch (Active Listings) | bhuj.kutchonline.com"
+  description="Find the latest job vacancies in Bhuj, Kutch. Post and browse active local jobs for free. Every job posting stays live for 5 days with active contact numbers."
+  canonicalPath="jobs"
+>
+  <style is:global>
+      /* Jobs page layout customization */
+      .jb-hero {
+          padding: 60px 0 30px;
+          background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+          border-bottom: 1px solid #e2e8f0;
+      }
+
+      .jb-hero-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 40px;
+          align-items: center;
+          padding: 0 20px;
+      }
+
+      @media (max-width: 900px) {
+          .jb-hero-inner {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      .jb-badge {
+          display: inline-block;
+          background: rgba(37, 99, 235, 0.08);
+          border: 1px solid rgba(37, 99, 235, 0.2);
+          color: #2563eb;
+          padding: 6px 14px;
+          border-radius: 99px;
+          font-weight: 700;
+          font-size: 0.85rem;
+          margin-bottom: 15px;
+      }
+
+      #jobs-title {
+          font-size: clamp(2rem, 4vw, 3rem);
+          line-height: 1.2;
+          color: #0f172a;
+          font-weight: 800;
+          margin-bottom: 15px;
+      }
+
+      .jb-hero-sub {
+          font-size: 1.1rem;
+          color: #475569;
+          margin-bottom: 25px;
+      }
+
+      .jb-hero-sub strong {
+          color: #2563eb;
+      }
+
+      .jb-hero-btns {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          margin-bottom: 25px;
+      }
+
+      .jb-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 12px 24px;
+          border-radius: 99px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          cursor: pointer;
+      }
+
+      .jb-btn-primary {
+          background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+          color: #ffffff;
+          box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+          border: none;
+      }
+
+      .jb-btn-primary:hover {
+          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+      }
+
+      .jb-btn-outline {
+          background: transparent;
+          color: #2563eb;
+          border: 1px solid #2563eb;
+      }
+
+      .jb-btn-outline:hover {
+          background: rgba(37, 99, 235, 0.08);
+          transform: translateY(-2px);
+      }
+
+      .jb-btn-green {
+          background: #22c55e;
+          color: #ffffff;
+          border: none;
+          box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25);
+      }
+
+      .jb-btn-green:hover {
+          background: #16a34a;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+      }
+
+      .jb-pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+
+      .jb-pill {
+          font-size: 0.82rem;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          color: #475569;
+          padding: 6px 14px;
+          border-radius: 99px;
+          font-weight: 600;
+      }
+
+      .jb-hero-img-wrap {
+          text-align: center;
+      }
+
+      .jb-hero-img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 24px;
+          border: 1px solid #e2e8f0;
+          box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      /* Section */
+      .jb-section {
+          padding: 60px 20px;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .jb-section-light {
+          background: #f1f5f9;
+          max-width: 100%;
+          width: 100%;
+      }
+
+      .jb-section-inner {
+          max-width: 900px;
+          margin: 0 auto;
+      }
+
+      .jb-section-title {
+          font-size: 2.1rem;
+          font-weight: 800;
+          color: #0f172a;
+          text-align: center;
+          margin-bottom: 8px;
+      }
+
+      .jb-section-sub {
+          font-size: 1rem;
+          color: #64748b;
+          text-align: center;
+          margin-bottom: 40px;
+      }
+
+      /* Post cards */
+      .jb-cards {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          gap: 30px;
+      }
+
+      @media (max-width: 768px) {
+          .jb-cards {
+              grid-template-columns: 1fr;
+          }
+          .jb-cards-or {
+              text-align: center;
+              margin: 10px 0;
+          }
+      }
+
+      .jb-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 24px;
+          padding: 35px;
+          text-align: center;
+          box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .jb-card:hover:not(.jb-card-disabled) {
+          transform: translateY(-5px);
+          border-color: #2563eb;
+          box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+      }
+
+      .jb-card-icon {
+          font-size: 2.5rem;
+          margin-bottom: 15px;
+      }
+
+      .jb-card h3 {
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 10px;
+      }
+
+      .jb-card p {
+          color: #64748b;
+          margin-bottom: 20px;
+          font-size: 0.95rem;
+      }
+
+      .jb-card-disabled {
+          opacity: 0.7;
+          border-style: dashed;
+      }
+
+      .jb-coming-soon {
+          display: inline-block;
+          font-size: 0.72rem;
+          text-transform: uppercase;
+          background: #f1f5f9;
+          color: #64748b;
+          padding: 2px 8px;
+          border-radius: 4px;
+          vertical-align: middle;
+          margin-left: 5px;
+      }
+
+      .jb-cards-or {
+          font-weight: 800;
+          font-size: 1.1rem;
+          color: #2563eb;
+          text-transform: uppercase;
+      }
+
+      /* Search & Dynamic list style overrides */
+      .jb-search-wrap {
+          display: flex;
+          align-items: center;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 99px;
+          padding: 6px 16px;
+          margin-bottom: 30px;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .jb-search-wrap:focus-within {
+          border-color: #2563eb;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      .jb-search-icon {
+          font-size: 1.1rem;
+          margin-right: 10px;
+          color: #64748b;
+      }
+
+      .jb-search {
+          border: none !important;
+          background: transparent !important;
+          color: #0f172a !important;
+          font-size: 1rem;
+          width: 100%;
+          outline: none;
+          padding: 8px 0;
+      }
+
+      .jobs-count {
+          font-size: 0.85rem;
+          color: #2563eb;
+          font-weight: 700;
+          white-space: nowrap;
+          margin-left: 10px;
+      }
+
+      .jobs-loading,
+      .jobs-empty,
+      .jobs-error {
+          text-align: center;
+          padding: 40px;
+          font-size: 1.1rem;
+          color: #64748b;
+      }
+
+      .jobs-error {
+          color: #ef4444;
+      }
+
+      /* Dynamic job card styling in blue & white */
+      .jobs-list {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+      }
+
+      .job-card {
+          background: #ffffff !important;
+          border: 1px solid #e2e8f0 !important;
+          border-radius: 20px !important;
+          padding: 24px !important;
+          box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04) !important;
+          transition: all 0.3s ease !important;
+      }
+
+      .job-card:hover {
+          transform: translateY(-2px) !important;
+          border-color: #2563eb !important;
+          box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08) !important;
+      }
+
+      .job-head {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-items: flex-start;
+      }
+
+      .job-title {
+          font-size: 1.35rem !important;
+          font-weight: 800 !important;
+          color: #0f172a !important;
+          margin: 0 0 6px 0 !important;
+      }
+
+      .job-company {
+          font-size: 0.95rem !important;
+          color: #2563eb !important;
+          font-weight: 700 !important;
+      }
+
+      .job-expiry {
+          background: #f8fafc !important;
+          border: 1px solid #e2e8f0 !important;
+          border-radius: 12px !important;
+          padding: 10px 14px !important;
+          text-align: right;
+      }
+
+      .job-expiry-label {
+          color: #64748b !important;
+          font-size: 0.75rem !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.05em !important;
+          font-weight: 700 !important;
+      }
+
+      .job-expiry-date {
+          color: #0f172a !important;
+          font-weight: 800 !important;
+          font-size: 0.9rem !important;
+          margin-top: 2px !important;
+      }
+
+      .job-expiry-left {
+          color: #d97706 !important;
+          font-weight: 700 !important;
+          font-size: 0.85rem !important;
+          margin-top: 2px !important;
+      }
+
+      .job-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          align-items: center;
+          margin-top: 15px;
+          padding-top: 15px;
+          border-top: 1px solid #e2e8f0;
+      }
+
+      .job-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 12px;
+          border-radius: 99px;
+          background: #f1f5f9 !important;
+          border: 1px solid #e2e8f0;
+          color: #475569 !important;
+          font-weight: 600 !important;
+          font-size: 0.85rem !important;
+      }
+
+      .job-contact {
+          display: inline-flex;
+          gap: 15px;
+          margin-left: auto;
+      }
+
+      @media (max-width: 600px) {
+          .job-head {
+              flex-direction: column;
+              gap: 15px;
+          }
+          .job-expiry {
+              text-align: left;
+              width: 100%;
+          }
+          .job-meta {
+              flex-direction: column;
+              align-items: flex-start;
+          }
+          .job-contact {
+              margin-left: 0;
+              margin-top: 10px;
+              width: 100%;
+              justify-content: flex-start;
+          }
+      }
+
+      .job-link {
+          color: #2563eb !important;
+          text-decoration: none !important;
+          font-weight: 700 !important;
+          font-size: 0.9rem !important;
+          transition: color 0.2s ease !important;
+      }
+
+      .job-link:hover {
+          color: #1d4ed8 !important;
+      }
+
+      .job-desc {
+          margin-top: 15px;
+          color: #334155 !important;
+          font-size: 0.95rem !important;
+          line-height: 1.6 !important;
+          white-space: pre-line;
+      }
+  </style>
+
+  <main id="main">
+      <!-- Hero -->
+      <section class="jb-hero" aria-labelledby="jobs-title">
+          <div class="jb-hero-inner">
+              <div class="jb-hero-text">
+                  <span class="jb-badge">💼 Free Job Board · Bhuj</span>
+                  <h1 id="jobs-title">Find &amp; Post Jobs<br>in Bhuj — Free</h1>
+                  <p class="jb-hero-sub">Every listing stays live for <strong>5 days</strong>. Post in minutes via WhatsApp or a simple form.</p>
+                  <div class="jb-hero-btns">
+                      <a class="jb-btn jb-btn-primary" href="#post">Post a Job — Free</a>
+                      <a class="jb-btn jb-btn-outline" href="#jobs">Browse Jobs</a>
+                  </div>
+                  <div class="jb-pills">
+                      <span class="jb-pill">⏱ Auto-expires in 5 days</span>
+                      <span class="jb-pill">📋 First posted, first shown</span>
+                      <span class="jb-pill">✅ 100% Free</span>
+                  </div>
+              </div>
+              <div class="jb-hero-img-wrap">
+                  <img src="/assets/public/images/jobpost.jpg" alt="People working in a modern Bhuj office" class="jb-hero-img" loading="eager">
+              </div>
+          </div>
+      </section>
+
+      <!-- Post a Job -->
+      <section id="post" class="jb-section" aria-labelledby="post-title">
+          <div class="jb-section-inner">
+              <h2 id="post-title" class="jb-section-title">Post a Job — Free</h2>
+              <p class="jb-section-sub">Choose how you'd like to submit</p>
+              <div class="jb-cards">
+                  <article class="jb-card jb-card-disabled">
+                      <div class="jb-card-icon">📝</div>
+                      <h3>Use a Form <span class="jb-coming-soon">Coming Soon</span></h3>
+                      <p>Online form will be available shortly. Use WhatsApp for now.</p>
+                      <span class="jb-btn jb-btn-primary" id="job-form-link" aria-disabled="true">Open Form</span>
+                      <span class="jb-card-hint" id="job-form-hint" style="display:none"></span>
+                  </article>
+                  <div class="jb-cards-or">or</div>
+                  <article class="jb-card">
+                      <div class="jb-card-icon">💬</div>
+                      <h3>WhatsApp Us</h3>
+                      <p>Send job details on WhatsApp and we'll post it for you.</p>
+                      <a class="jb-btn jb-btn-green" href="https://wa.me/919825034580?text=Job%20Post%20Request%3A%0A%0ATitle%3A%20%0ACompany%3A%20%0ALocation%3A%20Bhuj%0AContact%3A%20%0ADescription%3A%20" target="_blank" rel="noopener noreferrer">WhatsApp Now</a>
+                  </article>
+              </div>
+          </div>
+      </section>
+
+      <!-- Active Jobs -->
+      <section id="jobs" class="jb-section jb-section-light" aria-labelledby="jobs-list-title">
+          <div class="jb-section-inner">
+              <h2 id="jobs-list-title" class="jb-section-title">Active Jobs in Bhuj</h2>
+              <div class="jb-search-wrap">
+                  <span class="jb-search-icon">🔍</span>
+                  <input id="jobs-search" class="jb-search" type="text" placeholder="Search by title, company, location…" autocomplete="off" />
+                  <span class="jobs-count" id="jobs-count" aria-live="polite"></span>
+              </div>
+              <div id="jobs-loading" class="jobs-loading">Loading jobs…</div>
+              <div id="jobs-empty" class="jobs-empty" hidden>No active jobs right now. Be the first to post!</div>
+              <div id="jobs-error" class="jobs-error" hidden>Could not load jobs.</div>
+              <div id="jobs-list" class="jobs-list" aria-label="Job postings"></div>
+          </div>
+      </section>
+  </main>
+
+  <script is:inline src="/assets/js/jobs.js"></script>
+</BhujLayout>

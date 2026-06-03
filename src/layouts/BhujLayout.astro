@@ -1,0 +1,420 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  canonicalPath?: string;
+  structuredData?: string;
+  bodyClass?: string;
+}
+
+const {
+  title = "bhuj.kutchonline.com – Bhuj Local Business Directory | Kutch",
+  description = "Find 650+ verified local service providers in Bhuj. Electricians, plumbers, doctors, CA, computer repair & more.",
+  keywords = "Bhuj services, local services Bhuj, electrician Bhuj, plumber Bhuj, verified providers Bhuj",
+  canonicalPath = "",
+  structuredData,
+  bodyClass = ""
+} = Astro.props;
+
+const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+    <meta name="author" content="Hari Tech Solutions">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl}>
+
+    <!-- Geo-Targeting Meta Tags -->
+    <meta name="geo.region" content="IN-GJ">
+    <meta name="geo.placename" content="Bhuj">
+    <meta name="geo.position" content="23.2420;69.6669">
+    <meta name="ICBM" content="23.2420, 69.6669">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content="https://bhuj.kutchonline.com/assets/public/images/bhujonline-logo.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Bhuj Online">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalUrl}>
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content="https://bhuj.kutchonline.com/assets/public/images/bhujonline-logo.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    {structuredData && (
+      <script type="application/ld+json" set:html={structuredData} />
+    )}
+</head>
+<body class={`has-topbar ${bodyClass}`}>
+    <div class="container">
+        <!-- Header / Navigation -->
+        <header class="topbar" aria-label="Top navigation">
+            <div class="topbar-inner">
+                <a class="topbar-brand" href="/bhuj/" aria-label="bhuj.kutchonline.com home">
+                    <span class="topbar-brand-accent">bhuj.</span><span class="topbar-brand-rest">kutchonline</span><span class="topbar-brand-tld">.com</span>
+                </a>
+
+                <nav class="main-nav" aria-label="Primary">
+                    <div class="nav-links">
+                        <a href="/bhuj/" class="nav-link"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+                        <a href="/bhuj/offers" class="nav-link"><i class="fa-solid fa-tag" aria-hidden="true"></i><span>Offers</span></a>
+                        <a href="/bhuj/jobs" class="nav-link"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Jobs</span></a>
+                        <a href="/bhuj/about" class="nav-link"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>About</span></a>
+                        <a href="/bhuj/about-bhuj" class="nav-link"><i class="fa-solid fa-landmark" aria-hidden="true"></i><span>About Bhuj</span></a>
+                        <a href="/bhuj/create-webpage" class="nav-link"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>Webpage</span></a>
+                        <a href="/bhuj/create-digital-card" class="nav-link"><i class="fa-solid fa-id-card" aria-hidden="true"></i><span>Digital Card</span></a>
+                    </div>
+                </nav>
+
+                <a href="https://forms.fillout.com/t/7mRL9KysBPus" target="_blank" rel="noopener" class="topbar-cta" aria-label="List your business">
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i><span>List Business</span>
+                </a>
+            </div>
+        </header>
+
+        <slot />
+
+        <!-- Footer -->
+        <footer class="bof-footer" aria-label="Site footer">
+            <div class="bof-footer-inner">
+                <!-- Brand column -->
+                <div class="bof-col bof-col-brand">
+                    <a class="bof-brand-link" href="/bhuj/" aria-label="bhuj.kutchonline.com home">
+                        <span class="bof-brand-accent">bhuj.</span><span class="bof-brand-rest">kutchonline.com</span>
+                    </a>
+                    <p class="bof-tagline">Local services directory for Bhuj</p>
+                    <div class="bof-contact-list">
+                        <a class="bof-contact-item" href="tel:+919825034580">
+                            <span class="bof-contact-icon">📞</span>
+                            <span>+91 98250 34580</span>
+                        </a>
+                        <a class="bof-contact-item" href="mailto:info@kutchonline.com">
+                            <span class="bof-contact-icon">✉️</span>
+                            <span>info@kutchonline.com</span>
+                        </a>
+                        <a class="bof-contact-item" href="https://wa.me/919825034580" target="_blank" rel="noopener noreferrer">
+                            <span class="bof-contact-icon">💬</span>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                    <p class="bof-hours">Mon – Sat &nbsp;•&nbsp; 9:00 AM – 8:00 PM</p>
+                </div>
+
+                <!-- Divider -->
+                <div class="bof-divider" aria-hidden="true"></div>
+
+                <!-- Nav column -->
+                <div class="bof-col bof-col-nav">
+                    <h3 class="bof-col-title">Pages</h3>
+                    <nav class="bof-nav" aria-label="Footer navigation">
+                        <a class="bof-nav-link" href="/bhuj/">🏠 Home</a>
+                        <a class="bof-nav-link" href="/bhuj/offers">💎 Offers</a>
+                        <a class="bof-nav-link" href="/bhuj/jobs">💼 Jobs</a>
+                        <a class="bof-nav-link" href="/bhuj/about">ℹ️ About Us</a>
+                        <a class="bof-nav-link" href="/bhuj/about-bhuj">🏛️ About Bhuj</a>
+                        <a class="bof-nav-link" href="/bhuj/create-webpage">🌐 Create Webpage</a>
+                        <a class="bof-nav-link" href="/bhuj/create-digital-card">🪪 Digital Card</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bof-bar">
+                <span>© {new Date().getFullYear()} bhuj.kutchonline.com. All rights reserved.</span>
+                <span>Made with ❤️ for Bhuj</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script is:inline src="/assets/js/data.js"></script>
+    <script is:inline src="/assets/js/iconMap.js"></script>
+    <script is:inline src="/assets/js/script.js"></script>
+</body>
+</html>
+
+<style is:global>
+    /* ── TOPBAR — Dark Glassy Design ───────────────── */
+    .topbar {
+        background: rgba(6,11,24,0.88) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 4px 24px rgba(0,0,0,0.3) !important;
+    }
+
+    .topbar-inner {
+        padding: 0 24px !important;
+        height: 58px !important;
+        max-width: 1440px !important;
+        display: grid !important;
+        grid-template-columns: auto 1fr auto !important;
+        align-items: center !important;
+        gap: 16px !important;
+    }
+
+    /* Brand */
+    .topbar-brand {
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-weight: 800 !important;
+        font-size: 1.25rem !important;
+        letter-spacing: -0.04em !important;
+        text-decoration: none !important;
+        display: inline-flex !important;
+        align-items: baseline !important;
+        gap: 0 !important;
+        white-space: nowrap !important;
+    }
+    .topbar-brand-accent  { color: #3b82f6 !important; }
+    .topbar-brand-rest    { color: #f1f5f9 !important; }
+    .topbar-brand-tld     { color: rgba(255,255,255,0.35) !important; font-weight: 700 !important; }
+
+    /* Nav links */
+    .topbar .main-nav {
+        justify-self: center !important;
+    }
+    .topbar .nav-links {
+        display: flex !important;
+        align-items: center !important;
+        gap: 2px !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+    }
+    .topbar .nav-links::-webkit-scrollbar { display: none !important; }
+
+    .topbar .nav-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        padding: 7px 13px !important;
+        border-radius: 10px !important;
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        color: rgba(255,255,255,0.6) !important;
+        text-decoration: none !important;
+        transition: background 0.2s ease, color 0.2s ease !important;
+        white-space: nowrap !important;
+    }
+    .topbar .nav-link i { font-size: 0.78rem !important; }
+    .topbar .nav-link:hover {
+        background: rgba(255,255,255,0.08) !important;
+        color: #ffffff !important;
+    }
+    .topbar .nav-link.active,
+    .topbar .nav-link.is-active {
+        background: rgba(59,130,246,0.18) !important;
+        color: #60a5fa !important;
+    }
+
+    /* CTA button */
+    .topbar-cta {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 7px !important;
+        padding: 8px 16px !important;
+        background: #2563eb !important;
+        color: #ffffff !important;
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 800 !important;
+        border-radius: 10px !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        box-shadow: 0 4px 14px rgba(37,99,235,0.35) !important;
+        transition: all 0.2s ease !important;
+        flex-shrink: 0 !important;
+    }
+    .topbar-cta:hover {
+        background: #1d4ed8 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 20px rgba(37,99,235,0.45) !important;
+    }
+    .topbar-cta i { font-size: 0.78rem !important; }
+
+    /* Mobile toggle */
+    .nav-toggle {
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.12) !important;
+        color: #ffffff !important;
+        border-radius: 10px !important;
+    }
+    .nav-toggle-lines span {
+        background: #ffffff !important;
+    }
+
+    /* Body */
+    body {
+        background-color: #f0f9ff !important;
+        color: #0f172a !important;
+    }
+
+    /* Container padding — slim to match 58px navbar */
+    body.has-topbar .container,
+    .page-home .container,
+    .page-category .container {
+        padding-top: 58px !important;
+    }
+
+    /* Premium Styled Footer (bof-footer) */
+    .bof-footer {
+        margin-top: 40px !important;
+        background: #0f172a !important; /* Deep Navy background for contrast */
+        border-top: 1px solid rgba(37, 99, 235, 0.15) !important;
+        padding: 48px 20px 28px !important;
+        color: #ffffff !important;
+    }
+
+    .bof-footer-inner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+
+    @media (min-width: 768px) {
+        .bof-footer-inner {
+            grid-template-columns: 2fr 1fr !important;
+            gap: 60px !important;
+        }
+    }
+
+    .bof-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .bof-brand-link {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 800;
+        text-transform: lowercase;
+        letter-spacing: -0.03em;
+        font-size: 1.6rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .bof-brand-accent {
+        color: #3b82f6 !important; /* Bright Blue brand */
+    }
+
+    .bof-brand-rest {
+        color: #ffffff !important;
+    }
+
+    .bof-brand-dot {
+        color: #3b82f6 !important;
+    }
+
+    .bof-tagline {
+        margin: 0;
+        color: #94a3b8 !important;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .bof-contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bof-contact-item {
+        color: #f1f5f9 !important;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s ease;
+    }
+
+    .bof-contact-item:hover {
+        color: #3b82f6 !important;
+    }
+
+    .bof-contact-icon {
+        font-size: 1rem;
+        color: #3b82f6;
+    }
+
+    .bof-hours {
+        margin: 0;
+        color: #94a3b8 !important;
+        font-size: 0.85rem;
+    }
+
+    .bof-col-title {
+        font-size: 0.95rem !important;
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #3b82f6 !important;
+        margin-bottom: 8px !important;
+        margin-top: 0 !important;
+    }
+
+    .bof-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bof-nav-link {
+        color: #e2e8f0 !important;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: color 0.2s ease;
+        width: fit-content;
+    }
+
+    .bof-nav-link:hover {
+        color: #3b82f6 !important;
+    }
+
+    .bof-bar {
+        max-width: 1200px;
+        margin: 30px auto 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        color: #94a3b8 !important;
+        font-size: 0.82rem;
+    }
+</style>

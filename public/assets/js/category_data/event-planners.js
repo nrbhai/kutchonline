@@ -1,0 +1,95 @@
+// Data for category: Event Planners
+window.categoryData = {
+  "id": "event-planners",
+  "name": "Event Planners",
+  "icon": "🎉",
+  "gu_name": "ઇવેન્ટ પ્લાનર",
+  "providers": [
+    {
+      "name": "HARDIK GOSWAMI",
+      "phone": "8141446762",
+      "area": "Bhuj",
+      "tags": [
+        "Infinity Events is a dynamic event management company specializing in corporate events",
+        "government projects",
+        "and wedding planning. Established with a vision to deliver memorable and impactful experiences",
+        "we handle everything from concept creation to flawless execution. Our team focuses on creativity",
+        "professionalism",
+        "and attention to detail",
+        "ensuring every event is unique and perfectly managed. Whether it’s a large-scale government function",
+        "a corporate gathering",
+        "or a dream wedding",
+        "Infinity Events turns ideas into unforgettable experiences."
+      ],
+      "webpage": "",
+      "badge": "",
+      "verified": "",
+      "top_rated": "",
+      "address": "126,1st floor, mid town mall,nr-us pizza,opp.commerce college,college road",
+      "place_id": ""
+    },
+    {
+      "name": "Pearl Events",
+      "phone": "099798 85297",
+      "area": "Bhuj",
+      "tags": [],
+      "webpage": "",
+      "badge": "",
+      "verified": "",
+      "top_rated": "",
+      "address": "Shop No. 117, Time Square Complex, Mirzapar Road, near Prince Lawns, Uma Nagar, Bhuj, Mirjapar Part, Gujarat 370040, India",
+      "place_id": "ChIJwWLvHv_hUDkRjNO07qi7j3U"
+    },
+    {
+      "name": "Shubham light & Mandap Decoretion",
+      "phone": "098250 99622",
+      "area": "Bhuj",
+      "tags": [],
+      "webpage": "",
+      "badge": "",
+      "verified": "",
+      "top_rated": "",
+      "address": "Kotak Nager Road, Navavas, Madhapar, Bhuj, Gujarat 370020, India",
+      "place_id": "ChIJa9oTmWfhUDkRBt26qdjVwM0"
+    },
+    {
+      "name": "INFINITY EVENTS",
+      "phone": "8141446762",
+      "area": "Bhuj",
+      "tags": [
+        "Infinity Events is a premier event management company specializing in creating exceptional and memorable experiences for corporate",
+        "government",
+        "and social events across Gujarat and India. We offer end-to-end event planning and execution services",
+        "ensuring every detail is managed with creativity",
+        "professionalism",
+        "and precision. Our expertise includes corporate conferences",
+        "product launches",
+        "exhibitions",
+        "government functions",
+        "award ceremonies",
+        "weddings",
+        "destination weddings",
+        "birthday celebrations",
+        "and customized theme events. From concept development and venue selection to décor",
+        "entertainment",
+        "hospitality",
+        "logistics",
+        "and on-site coordination",
+        "our team delivers seamless event experiences tailored to each client’s vision. At Infinity Events",
+        "we believe every event is unique and deserves personalized attention. Our commitment to quality",
+        "innovation",
+        "and flawless execution has made us a trusted partner for businesses",
+        "government organizations",
+        "and families looking to celebrate life’s most important moments. Why Choose Infinity Events? Creative and customized event solutions Professional and experienced team Strong vendor and venue network Transparent pricing and reliable service End-to-end event management Focus on quality",
+        "timelines",
+        "and client satisfaction Infinity Events – Turning Ideas into Unforgettable Experiences."
+      ],
+      "webpage": "",
+      "badge": "",
+      "verified": "",
+      "top_rated": "",
+      "address": "126,1st Floor, Midtown Mall, Opp.Commerce College, College Road - BHUJ 370001",
+      "place_id": ""
+    }
+  ]
+};

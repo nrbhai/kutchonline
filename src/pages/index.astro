@@ -1,14 +1,756 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="KutchOnline">
-  <main style="text-align:center; padding:2rem;">
-    <p style="letter-spacing:0.3em; font-size:0.75rem; color:#888; text-transform:uppercase;">kutchonline.com</p>
-    <h1 style="font-size:clamp(2.5rem,8vw,5rem); font-weight:900; margin:1rem 0; letter-spacing:-0.02em;">
-      KUTCHONLINE.COM
-    </h1>
-    <p style="font-size:1.2rem; color:#aaa; max-width:480px; margin:0 auto;">
-      Something is coming up.
-    </p>
-  </main>
+
+<Layout title="KutchOnline — Hi Kutchis, wait.." theme="kutch" description="A digital sanctuary for the global Kutchi community is under construction. We are building a space to connect, celebrate, and preserve our heritage.">
+  <div class="landing-container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo-container">
+        <span class="logo-text">KUTCH<span class="logo-accent">ONLINE</span></span>
+        <div class="logo-line"></div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="hero-section">
+      <div class="hero-content">
+        <div class="status-badge animate-fade-in">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Crafting a Digital Sanctuary</span>
+        </div>
+        
+        <h1 class="hero-title animate-slide-up">
+          Hi Kutchis, <br />
+          <span class="theme-text-gradient font-accent">wait..</span>
+        </h1>
+        
+        <p class="hero-description animate-slide-up-delayed">
+          From the endless white salt deserts of the Rann to the global corners of the world, we are weaving a digital home. A space to connect, celebrate, and preserve our unique heritage.
+        </p>
+
+        <!-- Waitlist Form -->
+        <div class="waitlist-card animate-slide-up-more">
+          <form id="waitlist-form" class="waitlist-form">
+            <div class="input-group">
+              <input 
+                type="email" 
+                id="email-input" 
+                placeholder="Enter your email address" 
+                required 
+                aria-label="Email Address"
+              />
+              <button type="submit" class="submit-btn" id="submit-btn">
+                <span>Join Waitlist</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+            <p class="form-helper">Be the first to step inside when the doors open.</p>
+          </form>
+          
+          <!-- Success Message (hidden initially) -->
+          <div id="success-message" class="success-message hidden">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <div class="success-text">
+              <h3>Khem Khem! (Welcome)</h3>
+              <p>You've been added. We'll invite you as soon as we're ready.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visuals (Lippan Art Mandala) -->
+      <div class="hero-visual">
+        <div class="mandala-wrapper">
+          <!-- Lippan Glow Backing -->
+          <div class="mandala-glow"></div>
+          
+          <!-- Lippan Art SVG Mandala -->
+          <svg class="lippan-mandala" viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="mirrorGrad" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="20%" stop-color="#e4e4e7" />
+                <stop offset="80%" stop-color="#71717a" />
+                <stop offset="100%" stop-color="#27272a" />
+              </radialGradient>
+              <radialGradient id="goldGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fbbf24" />
+                <stop offset="100%" stop-color="#b45309" />
+              </radialGradient>
+            </defs>
+            
+            <!-- Background base circle (Clay Plate) -->
+            <circle cx="200" cy="200" r="185" fill="#121214" stroke="#d97706" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="200" cy="200" r="180" fill="none" stroke="#27272a" stroke-width="3"/>
+            
+            <!-- Outer dotted ring -->
+            <circle cx="200" cy="200" r="172" fill="none" stroke="#fef3c7" stroke-width="2" stroke-dasharray="1 8" stroke-linecap="round"/>
+            
+            <!-- Ring 1: Triangle clay details -->
+            <g class="triangle-ring">
+              <!-- Dynamically designed repeated path groups using simple geometric rotation -->
+              <!-- Concentric lines of traditional Lippan art -->
+              <circle cx="200" cy="200" r="156" fill="none" stroke="#d97706" stroke-width="1" opacity="0.5"/>
+              <path d="M 200 44 L 204 54 L 196 54 Z" fill="#d97706" opacity="0.8"/>
+              <!-- We can build beautiful symmetry via CSS and overlapping shapes -->
+              <!-- Concentric guide circles -->
+              <circle cx="200" cy="200" r="148" fill="none" stroke="#fef3c7" stroke-width="1.5"/>
+            </g>
+            
+            <!-- Ring 2: Diamond mirror placements -->
+            <g class="mirror-diamonds">
+              <!-- We place mirrors around the ring -->
+              <g class="mirror-group">
+                <!-- Circular/Diamond shaped mirrors with reflective gradients -->
+                <!-- Set up 12 mirrors around the circle -->
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(0, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(30, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(60, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(90, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(120, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(150, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(180, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(210, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(240, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(270, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(300, 200, 200)" fill="url(#mirrorGrad)"/>
+                <rect class="lippan-mirror" x="195" y="65" width="10" height="10" transform="rotate(330, 200, 200)" fill="url(#mirrorGrad)"/>
+              </g>
+            </g>
+            
+            <!-- Ring 3: Clay waves and radial lines -->
+            <circle cx="200" cy="200" r="115" fill="none" stroke="#27272a" stroke-width="4"/>
+            <circle cx="200" cy="200" r="115" fill="none" stroke="#d97706" stroke-width="1.5"/>
+            <path d="M 200 85 A 115 115 0 0 1 200 315 A 115 115 0 0 1 200 85 Z" fill="none" stroke="#d97706" stroke-width="1" stroke-dasharray="4 6"/>
+            
+            <!-- Intermediate tiny circular mirrors -->
+            <g class="mirror-circles">
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(15, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(45, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(75, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(105, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(135, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(165, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(195, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(225, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(255, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(285, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(315, 200, 200)" fill="url(#mirrorGrad)"/>
+              <circle class="lippan-mirror" cx="200" cy="100" r="5" transform="rotate(345, 200, 200)" fill="url(#mirrorGrad)"/>
+            </g>
+            
+            <!-- Ring 4: Inner clay pattern (flourish) -->
+            <circle cx="200" cy="200" r="75" fill="none" stroke="#fef3c7" stroke-width="2"/>
+            <path d="M 200 125 A 75 75 0 0 1 200 275 A 75 75 0 0 1 200 125" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="1 5" stroke-linecap="round"/>
+            
+            <!-- Center large mirror representing the Sun/Spiritual focus -->
+            <circle cx="200" cy="200" r="45" fill="#18181b" stroke="#fef3c7" stroke-width="3"/>
+            <circle cx="200" cy="200" r="45" fill="none" stroke="#d97706" stroke-width="1.5"/>
+            <!-- Actual mirror -->
+            <circle class="lippan-mirror central-mirror" cx="200" cy="200" r="32" fill="url(#mirrorGrad)"/>
+            
+            <!-- Little border accents on central mirror -->
+            <circle cx="200" cy="200" r="36" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.7"/>
+          </svg>
+        </div>
+      </div>
+    </main>
+
+    <!-- Cultural Highlights / Info Grid -->
+    <section class="info-section">
+      <h2 class="section-title animate-slide-up">Our Digital Tapestry</h2>
+      <div class="features-grid">
+        <div class="feature-card glass-panel animate-slide-up-delayed">
+          <div class="card-glow"></div>
+          <div class="icon-container">
+            <!-- Clay / Art Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Heritage & Art</h3>
+          <p>Preserving the unique stories, Kutchi language dialects, and world-renowned crafts from mirror-work to Rogan art.</p>
+        </div>
+
+        <div class="feature-card glass-panel animate-slide-up-delayed">
+          <div class="card-glow"></div>
+          <div class="icon-container">
+            <!-- Globe Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/>
+            </svg>
+          </div>
+          <h3>Global Kutchi Hub</h3>
+          <p>Connecting Kutchis across continents—uniting the diaspora from Gujarat, London, Nairobi, and beyond under one sky.</p>
+        </div>
+
+        <div class="feature-card glass-panel animate-slide-up-delayed">
+          <div class="card-glow"></div>
+          <div class="icon-container">
+            <!-- Pulse Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>Modern Connection</h3>
+          <p>Providing custom utilities, modern business directories, and cultural event logs for our evolving global community.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>&copy; {new Date().getFullYear()} KUTCHONLINE.COM. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/bhuj/" class="footer-subdomain-link">
+          <span>Go to bhuj.kutchonline.com</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
+  </div>
 </Layout>
+
+<style>
+  .landing-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+  }
+
+  .logo-accent {
+    color: var(--theme-accent);
+  }
+
+  .logo-line {
+    height: 2px;
+    width: 40px;
+    background-color: var(--theme-primary);
+    border-radius: 2px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 5rem 0;
+    flex: 1;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--theme-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--theme-accent);
+    animation: pulse 2s infinite;
+  }
+
+  .badge-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #e4e4e7;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .font-accent {
+    font-family: var(--font-display);
+    font-weight: 900;
+  }
+
+  .hero-description {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: #a1a1aa;
+    max-width: 580px;
+    margin-bottom: 3rem;
+  }
+
+  /* Waitlist Form Card */
+  .waitlist-card {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .input-group {
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.35rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  .input-group:focus-within {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 15px var(--theme-glow), 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .input-group input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    min-width: 0;
+  }
+
+  .input-group input::placeholder {
+    color: #71717a;
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--theme-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .submit-btn:hover {
+    background-color: var(--theme-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .submit-btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .form-helper {
+    font-size: 0.8rem;
+    color: #52525b;
+    padding-left: 0.5rem;
+  }
+
+  /* Success Message */
+  .success-message {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+    backdrop-filter: blur(10px);
+    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .success-icon {
+    width: 42px;
+    height: 42px;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .success-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .success-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #10b981;
+    margin-bottom: 0.2rem;
+  }
+
+  .success-text p {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* Hero Visuals (Lippan Art Mandala) */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .mandala-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mandala-glow {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    background: radial-gradient(circle, var(--theme-primary) 0%, transparent 60%);
+    opacity: 0.2;
+    filter: blur(30px);
+    z-index: 1;
+    pointer-events: none;
+    animation: glowPulse 8s ease-in-out infinite alternate;
+  }
+
+  .lippan-mandala {
+    position: relative;
+    z-index: 2;
+    animation: slowRotation 80s linear infinite;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+  }
+
+  /* Lippan mirror shimmer / hover effect */
+  .lippan-mirror {
+    transform-origin: 200px 200px;
+    transition: filter 0.3s ease, fill 0.3s ease;
+    cursor: pointer;
+  }
+
+  .lippan-mirror:hover {
+    filter: drop-shadow(0 0 6px #ffffff) brightness(1.5);
+  }
+
+  .central-mirror {
+    transform-origin: 200px 200px;
+    animation: mirrorPulsate 6s ease-in-out infinite;
+  }
+
+  /* Info Section */
+  .info-section {
+    padding: 6rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #ffffff;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .feature-card {
+    position: relative;
+    padding: 2.5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, var(--theme-glow), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .feature-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--theme-accent);
+  }
+
+  .icon-container svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .feature-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+    color: #8e8e93;
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+    color: #52525b;
+  }
+
+  .footer-subdomain-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--theme-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-subdomain-link:hover {
+    color: #ffffff;
+  }
+
+  .footer-subdomain-link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .footer-subdomain-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Animations */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.15); }
+  }
+
+  @keyframes glowPulse {
+    0% { opacity: 0.15; transform: scale(0.95); }
+    100% { opacity: 0.25; transform: scale(1.05); }
+  }
+
+  @keyframes slowRotation {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes mirrorPulsate {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.1)); }
+    50% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.7)) brightness(1.2); }
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-up-delayed {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  }
+
+  .animate-slide-up-more {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .hero-content {
+      align-items: center;
+    }
+
+    .hero-description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .waitlist-card {
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .site-footer {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Simple Waitlist Submission Handler
+  const waitlistForm = document.getElementById('waitlist-form');
+  const successMessage = document.getElementById('success-message');
+
+  if (waitlistForm && successMessage) {
+    waitlistForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const emailInput = document.getElementById('email-input') as HTMLInputElement | null;
+      if (emailInput && emailInput.value) {
+        // Save to local storage for demo/persistence on user side
+        const waitlist = JSON.parse(localStorage.getItem('kutchonline_waitlist') || '[]');
+        waitlist.push({
+          email: emailInput.value,
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem('kutchonline_waitlist', JSON.stringify(waitlist));
+
+        // Hide form and show success message
+        waitlistForm.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+      }
+    });
+  }
+</script>

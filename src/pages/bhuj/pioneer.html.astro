@@ -1,0 +1,559 @@
+---
+// Standalone page for Pioneer Computer Services sample page
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pioneer Computer Services | Expert Data Recovery & IT Solutions</title>
+    <meta name="description" content="Pioneer Computer Services in Bhuj provides professional data recovery, laptop repairs, and enterprise IT infrastructure solutions since 1993.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <style is:inline>
+        :root {
+            --primary: #10b981; /* Emerald */
+            --primary-dark: #065f46;
+            --accent: #34d399;
+            --bg-dark: #06100d; /* Very deep green/black */
+            --text-light: #f0fdf4;
+            --text-dim: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(16, 185, 129, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Navbar Override ── */
+        .topbar {
+            background: rgba(6, 16, 13, 0.8) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .topbar-brand { 
+            font-family: 'Shrikhand', cursive !important; 
+            font-size: 1.6rem !important;
+            letter-spacing: 0.02em !important;
+        }
+        .topbar-brand-accent { color: #fff !important; }
+        .topbar-brand-rest { color: var(--primary) !important; }
+        .nav-link { color: var(--text-dim) !important; }
+        .nav-link:hover { color: var(--accent) !important; }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+            background-image: linear-gradient(rgba(6, 16, 13, 0.6), rgba(6, 16, 13, 0.9)), url('/assets/public/images/pioneer-hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+        }
+
+        .hero-kicker {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #d1fae5 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-dim);
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        .hero-link-wrap {
+            margin-top: 15px;
+        }
+        .hero-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+        .hero-link:hover {
+            color: white;
+            border-bottom-color: var(--accent);
+            padding-left: 5px;
+        }
+
+        /* ── Stats ── */
+        .stats {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 80px 20px;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .stats-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        /* ── Services ── */
+        .services {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-head h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-head p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .service-img-wrap {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 24px 24px 0 0;
+        }
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover .service-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px 30px 35px;
+        }
+
+        .service-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .service-content p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+        }
+
+        /* ── Location ── */
+        .location-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .map-container {
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 120px 20px;
+        }
+
+        .cta-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #06100d 100%);
+            border-radius: 40px;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+        }
+
+        .cta-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-card p {
+            color: #d1fae5;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+
+        .cta-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cta-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-item:hover {
+            background: white;
+            color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            background: #040d0a;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copy {
+            color: #475569;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .cta-card { padding: 50px 20px; }
+            .cta-card h2 { font-size: 2rem; }
+            .stats-inner { gap: 20px; }
+            .stat-item h4 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body class="has-topbar">
+
+    <header class="topbar" aria-label="Top navigation">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="/bhuj/" aria-label="Bhuj Online home">
+                <span class="topbar-brand-accent">Bhuj</span><span class="topbar-brand-rest">Online</span>
+            </a>
+            <nav class="main-nav" aria-label="Primary">
+                <div class="nav-links">
+                    <a href="/bhuj/" class="nav-link">🏠 Home</a>
+                    <a href="/bhuj/offers" class="nav-link">💎 Offers</a>
+                    <a href="/bhuj/jobs" class="nav-link">💼 Jobs</a>
+                    <a href="/bhuj/about" class="nav-link">ℹ️ About Us</a>
+                    <a href="/bhuj/about-bhuj" class="nav-link">🏛️ About Bhuj</a>
+                    <a href="/bhuj/create-webpage" class="nav-link">🌐 Create Webpage</a>
+                    <a href="/bhuj/create-digital-card" class="nav-link">🪪 Digital Card</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-kicker">Pioneer Excellence Since 1993</span>
+            <h1>Pioneer Computer <br> Services</h1>
+            <p>Advanced data recovery, precision laptop repairs, and state-of-the-art surveillance solutions for the modern world.</p>
+            <div class="hero-link-wrap">
+                <a href="https://www.haritech.org" target="_blank" class="hero-link">Explore more details on our website →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <h4>5000+</h4>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-item">
+                <h4>50+</h4>
+                <p>Servers Deployed</p>
+            </div>
+            <div class="stat-item">
+                <h4>30+</h4>
+                <p>Years Expertise</p>
+            </div>
+            <div class="stat-item">
+                <h4>100%</h4>
+                <p>Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-head">
+            <h2>Our Core Expertise</h2>
+            <p>High-end technical solutions for your most critical needs.</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Data Recovery -->
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="/assets/public/images/pioneer-service-recovery.png" alt="Data Recovery Services" loading="lazy">
+                </div>
+                <div class="service-content">
+                    <h3>1. Data Recovery Services</h3>
+                    <p>Professional recovery of critical data from failed hard drives, SSDs, and external storage.</p>
+                </div>
+            </div>
+
+            <!-- Laptop Repairs -->
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="/assets/public/images/pioneer-service-laptop.png" alt="Laptop Repairs" loading="lazy">
+                </div>
+                <div class="service-content">
+                    <h3>2. Laptop Repairs</h3>
+                    <p>Expert chip-level repairs and hardware upgrades for all major laptop brands.</p>
+                </div>
+            </div>
+
+            <!-- Desktop PC Solutions -->
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="/assets/public/images/pioneer-service-pc.png" alt="Desktop PC Solutions" loading="lazy">
+                </div>
+                <div class="service-content">
+                    <h3>3. Desktop PC Solutions</h3>
+                    <p>Custom-built workstations and high-performance gaming PCs for home and office.</p>
+                </div>
+            </div>
+
+            <!-- CCTV Security Systems -->
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="/assets/public/images/pioneer-service-cctv.png" alt="CCTV Security Systems" loading="lazy">
+                </div>
+                <div class="service-content">
+                    <h3>4. CCTV Security Systems</h3>
+                    <p>Comprehensive surveillance setups with remote monitoring and high-definition clarity.</p>
+                </div>
+            </div>
+
+            <!-- Server Management -->
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="/assets/public/images/pioneer-service-server.png" alt="Server Management" loading="lazy">
+                </div>
+                <div class="service-content">
+                    <h3>5. Server Management</h3>
+                    <p>Enterprise-grade server installation and maintenance for reliable business operations.</p>
+                </div>
+            </div>
+
+            <!-- IT Consulting -->
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="/assets/public/images/pioneer-service-consulting.png" alt="IT Consulting" loading="lazy">
+                </div>
+                <div class="service-content">
+                    <h3>6. IT Consulting</h3>
+                    <p>Expert technology strategy to help your business stay ahead in the digital landscape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="section-head">
+            <h2>Find Us</h2>
+            <p>Visit Pioneer Computer Services at Dhatia Falia 3 Ways, Bhuj.</p>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Pioneer%20Computer%20Services%20Bhuj&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2>Secure Your Technology</h2>
+            <p>Trust Pioneer Computer Services for reliable repairs and top-tier security systems.</p>
+            <div class="cta-grid">
+                <a href="tel:9825034580" class="cta-item">
+                    <span>📞</span> Call 9825034580
+                </a>
+                <a href="https://wa.me/919825034580" target="_blank" class="cta-item">
+                    <span>💬</span> WhatsApp Us
+                </a>
+                <a href="mailto:info@haritech.org" class="cta-item">
+                    <span>✉️</span> Email Us
+                </a>
+                <a href="https://www.haritech.org" target="_blank" class="cta-item">
+                    <span>🌐</span> More Details
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-info-section" style="padding: 80px 20px; background: rgba(16, 185, 129, 0.02); border-top: 1px solid var(--glass-border);">
+        <div class="wrap-wide" style="display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="seo-block">
+                <h2 style="font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--accent); margin-bottom: 20px;">bhuj.kutchonline.com પરથી ભુજમાં શ્રેષ્ઠ Verified Computer Services કેમ પસંદ કરવી?</h2>
+                <p style="color: var(--text-dim); line-height: 1.8; font-size: 1rem;">bhuj.kutchonline.com એ ભુજમાં <strong>Verified Computer Services</strong> શોધવા માટેની તમારી <strong>Trusted Local Directory</strong> છે. અહીં લિસ્ટ થયેલા તમામ <strong>Service Providers</strong> ભુજ, કચ્છના છે. અમે <strong>Contact Details Verify</strong> કરીએ છીએ જેથી તમે સાચો નિર્ણય લઈ શકો.</p>
+            </div>
+            <div class="seo-block">
+                <h2 style="font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--accent); margin-bottom: 20px;">ભુજ શહેરમાં Computer Services Near Me શોધી રહ્યાં છો?</h2>
+                <p style="color: var(--text-dim); line-height: 1.8; font-size: 1rem;">જો તમે ભુજમાં <strong>Best Computer Services Near Me</strong> શોધી રહ્યાં હોવ, તો તમે <strong>Right Place</strong> પર છો. bhuj.kutchonline.com તમને તમારા <strong>Location</strong> ની નજીકના <strong>Top-rated Experts</strong> સાથે કનેક્ટ કરવામાં મદદ કરે છે.</p>
+            </div>
+            <div class="seo-block">
+                <h2 style="font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--accent); margin-bottom: 20px;">ભુજ કચ્છમાં Service Areas</h2>
+                <p style="color: var(--text-dim); line-height: 1.8; font-size: 1rem;">અમારા લિસ્ટમાં રહેલા <strong>Computer Experts</strong> ભુજમાં માધાપર, ભુજોડી, વિજય નગર, ઓલ્ડ ધાટિયા ફાલિયા, સંસ્કાર નગર, મિર્ઝાપર અને કચ્છના આસપાસના તમામ <strong>Localities</strong> માં સેવા આપે છે.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="/bhuj/" class="footer-logo">PIONEER COMPUTER SERVICES</a>
+        <div class="footer-links">
+            <a href="/bhuj/">Home</a>
+            <a href="/bhuj/offers">Offers</a>
+            <a href="/bhuj/jobs">Jobs</a>
+            <a href="/bhuj/about">About</a>
+            <a href="/bhuj/about-bhuj">About Bhuj</a>
+        </div>
+        <p class="copy">© 2026 Pioneer Computer Services. All rights reserved. <br> Made with ❤️ for Bhuj</p>
+    </footer>
+
+</body>
+</html>

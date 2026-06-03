@@ -1,0 +1,15 @@
+name = "kutchonline"
+compatibility_date = "2025-10-08"
+main = "./worker.js"
+routes = [
+  "kutchonline.com/*",
+  "bhuj.kutchonline.com/*"
+]
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+run_worker_first = true
+
+[observability]
+enabled = true

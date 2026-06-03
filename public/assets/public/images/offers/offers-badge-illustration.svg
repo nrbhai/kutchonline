@@ -1,0 +1,43 @@
+<svg width="860" height="560" viewBox="0 0 860 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="860" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6A3D"/>
+      <stop offset="0.52" stop-color="#FF2F7C"/>
+      <stop offset="1" stop-color="#FFBA49"/>
+    </linearGradient>
+    <linearGradient id="card" x1="220" y1="120" x2="640" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.98"/>
+      <stop offset="1" stop-color="#FFF4FA" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="pillA" x1="290" y1="220" x2="520" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#31B9FF"/>
+      <stop offset="1" stop-color="#2A63FF"/>
+    </linearGradient>
+    <linearGradient id="pillB" x1="290" y1="315" x2="580" y2="315" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2FD37A"/>
+      <stop offset="1" stop-color="#00A470"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="860" height="560" rx="44" fill="url(#bg)"/>
+  <circle cx="129" cy="112" r="74" fill="#FFFFFF" fill-opacity="0.2"/>
+  <circle cx="754" cy="462" r="94" fill="#FFFFFF" fill-opacity="0.18"/>
+  <circle cx="742" cy="98" r="38" fill="#FFFFFF" fill-opacity="0.25"/>
+
+  <rect x="220" y="120" width="420" height="310" rx="28" fill="url(#card)"/>
+  <rect x="220" y="120" width="420" height="310" rx="28" stroke="#FFFFFF" stroke-opacity="0.46" stroke-width="3"/>
+
+  <text x="430" y="174" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="32" font-weight="700" fill="#1C2A45">Trust Badges</text>
+
+  <rect x="290" y="195" width="230" height="52" rx="26" fill="url(#pillA)"/>
+  <circle cx="320" cy="221" r="15" fill="#FFFFFF"/>
+  <path d="M313 221L319 227L329 215" stroke="#2379FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="355" y="228" font-family="Outfit, Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Verified</text>
+
+  <rect x="290" y="288" width="290" height="54" rx="27" fill="url(#pillB)"/>
+  <circle cx="320" cy="315" r="15" fill="#FFFFFF"/>
+  <path d="M320 305L323 312L331 312L325 317L327 325L320 320L313 325L315 317L309 312L317 312Z" fill="#1AA874"/>
+  <text x="355" y="323" font-family="Outfit, Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Top Rated</text>
+
+  <text x="430" y="384" text-anchor="middle" font-family="Mukta, Arial, sans-serif" font-size="22" font-weight="600" fill="#576483">Build trust. Get more calls.</text>
+</svg>

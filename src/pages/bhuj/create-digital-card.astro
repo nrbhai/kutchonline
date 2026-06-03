@@ -1,0 +1,571 @@
+---
+import BhujLayout from "../../layouts/BhujLayout.astro";
+---
+
+<BhujLayout
+  title="Free Digital Visiting Card Maker Online | bhuj.kutchonline.com"
+  description="Design and download your professional digital business card instantly. Choose layouts, bilingual support (English/Gujarati), and printable PNG/JPG formats. 100% Free."
+  canonicalPath="create-digital-card"
+>
+  <style is:inline>
+    .vcg-main {
+        padding: 20px;
+        background: #f8fafc;
+    }
+
+    .vcg-builder {
+        display: flex;
+        background: #ffffff;
+        overflow-x: hidden;
+        border-radius: 14px;
+        border: 1px solid #e2e8f0;
+        max-width: 1180px;
+        margin: 0 auto;
+        min-height: 76vh;
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+    }
+
+    .vcg-panel {
+        width: 320px;
+        padding: 15px;
+        background: #ffffff;
+        overflow: auto;
+        border-right: 1px solid #e2e8f0;
+        color: #475569;
+    }
+
+    .vcg-panel h3 {
+        color: #0f172a;
+        font-weight: 800;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
+
+    .vcg-panel label {
+        color: #0f172a;
+        font-weight: 700;
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+    }
+
+    .vcg-input,
+    .vcg-panel textarea,
+    .vcg-panel select {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
+        color: #0f172a;
+        box-sizing: border-box;
+        font-family: Inter, sans-serif;
+    }
+
+    .vcg-input:focus,
+    .vcg-panel textarea:focus,
+    .vcg-panel select:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .vcg-panel button {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: 700;
+        border: none;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        transition: all 0.2s ease;
+    }
+
+    .vcg-panel button:hover {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        transform: translateY(-1px);
+    }
+
+    .vcg-counter {
+        margin: 0 0 15px;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        color: #2563eb;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+
+    .vcg-counter strong {
+        color: #0f172a;
+    }
+
+    .vcg-bg-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .vcg-bg-item {
+        height: 50px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .vcg-bg-item.active {
+        border: 2px solid #2563eb;
+    }
+
+    .vcg-canvas {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        gap: 16px;
+        background: #f1f5f9;
+    }
+
+    .vcg-card {
+        width: 3.5in;
+        height: 2in;
+        max-width: 100%;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .vcg-top-bar {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        gap: 10px;
+    }
+
+    .vcg-name {
+        text-align: right;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+    }
+
+    .vcg-phone {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .vcg-center {
+        text-align: center;
+    }
+
+    .vcg-biz {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .vcg-details {
+        font-size: 11px;
+    }
+
+    .vcg-bottom-bar {
+        font-size: 10px;
+        text-align: center;
+        line-height: 1.5;
+        font-weight: 500;
+        text-shadow: none;
+    }
+
+    .vcg-bottom-bar * {
+        text-shadow: none !important;
+    }
+
+    .vcg-bottom-bar::before {
+        content: "";
+        display: block;
+        height: 1px;
+        background: currentColor;
+        opacity: .4;
+        margin-bottom: 6px;
+    }
+
+    .vcg-download-jpg {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #ffffff;
+        cursor: pointer;
+        border: none;
+        font-family: Inter, sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+        transition: all 0.2s ease;
+    }
+
+    .vcg-download-jpg:hover {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        transform: translateY(-1px);
+    }
+
+    .layout2 .vcg-center,
+    .layout2 .vcg-bottom-bar {
+        text-align: left;
+    }
+
+    .layout3 .vcg-biz {
+        font-size: 24px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+    }
+
+    .layout3 .vcg-details {
+        font-weight: 600;
+    }
+
+    .bg1 { background: #fff; color: #111; }
+    .bg2 { background: #111; color: #fff; }
+    .bg3 { background: linear-gradient(135deg, #0f172a, #2563eb); color: #eff6ff; }
+    .bg4 { background: linear-gradient(135deg, #4b0082, #ff6a88); color: #fff; }
+    .bg5 { background: linear-gradient(135deg, #11998e, #fceabb); color: #000; }
+    .bg6 { background: linear-gradient(135deg, #ff7e00, #ff0000, #8e2de2); color: #fff; }
+    .bg7 { background: linear-gradient(120deg, #ff0000, #ff9900, #00ccff, #6600ff); color: #fff; }
+    .bg8 { background: linear-gradient(135deg, #ff416c, #ff4b2b, #8e2de2); color: #fff; }
+    .bg9 { background: linear-gradient(135deg, #00c6ff, #0072ff, #00ffcc); color: #003; }
+    .bg10 { background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffff); color: #fff; }
+    .bg11 { background: linear-gradient(135deg, #ff9a00, #ff0000, #ff00cc); color: #fff; }
+    .bg12 { background: linear-gradient(135deg, #1e3c72, #ff00cc, #00ffff); color: #fff; }
+    .bg13 { background: linear-gradient(135deg, #ff0000, #ff7300, #ffff00); color: #222; }
+    .bg14 { background: linear-gradient(135deg, #000428, #004e92, #8e2de2); color: #fff; }
+    .bg15 {
+        background:
+            radial-gradient(circle at 20% 30%, #ff0000, transparent 40%),
+            radial-gradient(circle at 80% 70%, #ff00cc, transparent 40%),
+            radial-gradient(circle at 50% 50%, #ffcc00, #6600ff);
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .vcg-main {
+            padding: 12px;
+        }
+
+        .vcg-builder {
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .vcg-panel {
+            width: 100%;
+            border-right: 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .vcg-card {
+            width: 100%;
+            aspect-ratio: 3.5/2;
+            height: auto;
+        }
+    }
+  </style>
+
+  <main class="vcg-main">
+    <h1 class="vcg-title" style="text-align: center; font-family: var(--font-main); font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 20px; margin-bottom: 25px;">Free Digital Visiting Card Maker</h1>
+    <section class="vcg-builder" aria-label="Card builder">
+        <div class="vcg-panel">
+            <h2 style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 10px;">Card Customization Panel</h2>
+            <p class="vcg-counter" aria-live="polite">Cards created: <strong id="digitalCardCount">--</strong></p>
+
+            <label for="lang">Language</label>
+            <select id="lang">
+                <option value="en">English</option>
+                <option value="gu">Gujarati</option>
+            </select>
+
+            <label for="name">Name</label>
+            <input id="name" class="vcg-input" placeholder="Niraj Rachh" />
+            
+            <label for="biz">Business Name</label>
+            <input id="biz" class="vcg-input" placeholder="Hari Tech Solutions" />
+            
+            <label for="details">Business Details</label>
+            <textarea id="details" placeholder="Computer | Laptops | CCTV | Printers | Websites"></textarea>
+
+            <label for="phone">Phone Numbers</label>
+            <input id="phone" class="vcg-input" placeholder="+91 9825034580, 9512234395" />
+            
+            <label for="email">Email</label>
+            <input id="email" class="vcg-input" placeholder="info@haritech.org" />
+            
+            <label for="website">Website</label>
+            <input id="website" class="vcg-input" placeholder="www.haritech.org" />
+
+            <label for="addr">Address</label>
+            <textarea id="addr" placeholder="Dhatia Falia 3 Ways, Anam Ring Road"></textarea>
+            
+            <label for="city">City & Pincode</label>
+            <input id="city" class="vcg-input" placeholder="Bhuj - Gujarat 370001" />
+
+            <label for="layout">Card Layout</label>
+            <select id="layout">
+                <option value="layout1">Center</option>
+                <option value="layout2">Left</option>
+                <option value="layout3">Bold</option>
+            </select>
+
+            <label>Background Theme</label>
+            <div class="vcg-bg-grid" id="bgGrid"></div>
+
+            <button id="downloadCardBtn" type="button">Download PNG</button>
+        </div>
+
+        <div class="vcg-canvas">
+            <div id="card" class="vcg-card bg6 layout1">
+                <div class="vcg-top-bar">
+                    <div id="cphone" class="vcg-phone"></div>
+                    <div id="cname" class="vcg-name"></div>
+                </div>
+
+                <div class="vcg-center">
+                    <div id="cbiz" class="vcg-biz"></div>
+                    <div id="cdetails" class="vcg-details"></div>
+                </div>
+
+                <div class="vcg-bottom-bar" id="cbottom"></div>
+            </div>
+            <button id="downloadJpgBtn" class="vcg-download-jpg" type="button">Download JPG to your phone/pc</button>
+        </div>
+    </section>
+  </main>
+
+  <script is:inline src="/assets/js/vendor/html2canvas.min.js"></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+        const el = {
+            name: document.getElementById('name'),
+            biz: document.getElementById('biz'),
+            details: document.getElementById('details'),
+            phone: document.getElementById('phone'),
+            email: document.getElementById('email'),
+            website: document.getElementById('website'),
+            addr: document.getElementById('addr'),
+            city: document.getElementById('city'),
+            layout: document.getElementById('layout'),
+            lang: document.getElementById('lang'),
+            card: document.getElementById('card'),
+            bgGrid: document.getElementById('bgGrid'),
+            downloadCardBtn: document.getElementById('downloadCardBtn'),
+            downloadJpgBtn: document.getElementById('downloadJpgBtn'),
+            cname: document.getElementById('cname'),
+            cbiz: document.getElementById('cbiz'),
+            cdetails: document.getElementById('cdetails'),
+            cphone: document.getElementById('cphone'),
+            cbottom: document.getElementById('cbottom'),
+            digitalCardCount: document.getElementById('digitalCardCount')
+        };
+
+        const getVal = (e) => (e && typeof e.value === 'string' ? e.value.trim() : '');
+        const cleanWebsite = (w) => w.replace(/https?:\/\/|www\./g, '');
+        const COUNTER_GET_URL = 'https://api.countapi.xyz/get/bhuj_kutchonline/digital-card-created';
+        const COUNTER_HIT_URL = 'https://api.countapi.xyz/hit/bhuj_kutchonline/digital-card-created';
+        const LOCAL_COUNTER_KEY = 'bhuj_kutchonline_digital_card_count_local';
+        const COUNTER_BASE_VALUE = 100;
+
+        function normalizeCounterValue(value) {
+            const numeric = Number(value);
+            if (!Number.isFinite(numeric)) return COUNTER_BASE_VALUE;
+            return Math.max(COUNTER_BASE_VALUE, Math.floor(numeric));
+        }
+
+        function getLocalCounterValue() {
+            try {
+                const raw = localStorage.getItem(LOCAL_COUNTER_KEY);
+                return normalizeCounterValue(raw);
+            } catch (_) {
+                return COUNTER_BASE_VALUE;
+            }
+        }
+
+        function setLocalCounterValue(value) {
+            const safeValue = normalizeCounterValue(value);
+            try {
+                localStorage.setItem(LOCAL_COUNTER_KEY, String(safeValue));
+            } catch (_) {
+                /* Ignore storage failures */
+            }
+            return safeValue;
+        }
+
+        function setCounterValue(value) {
+            if (!el.digitalCardCount) return;
+            const safeValue = normalizeCounterValue(value);
+            el.digitalCardCount.textContent = safeValue.toLocaleString('en-IN');
+        }
+
+        function fetchCounter() {
+            fetch(COUNTER_GET_URL)
+                .then((resp) => resp.json())
+                .then((data) => {
+                    const value = Number(data && data.value);
+                    if (Number.isFinite(value) && value >= 0) {
+                        setLocalCounterValue(value);
+                        setCounterValue(value);
+                        return;
+                    }
+                    const fallback = getLocalCounterValue();
+                    setCounterValue(fallback);
+                })
+                .catch(() => {
+                    const fallback = getLocalCounterValue();
+                    setCounterValue(fallback);
+                });
+        }
+
+        function incrementCounter() {
+            fetch(COUNTER_HIT_URL)
+                .then((resp) => resp.json())
+                .then((data) => {
+                    const value = Number(data && data.value);
+                    if (Number.isFinite(value) && value >= 0) {
+                        setLocalCounterValue(value);
+                        setCounterValue(value);
+                        return;
+                    }
+                    const fallback = setLocalCounterValue(getLocalCounterValue() + 1);
+                    setCounterValue(fallback);
+                })
+                .catch(() => {
+                    const fallback = setLocalCounterValue(getLocalCounterValue() + 1);
+                    setCounterValue(fallback);
+                });
+        }
+
+        function trackCardCreation(format) {
+            try {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'digital_card_download', {
+                        file_format: format,
+                        event_category: 'digital_card',
+                        event_label: 'card_created'
+                    });
+                }
+            } catch (_) {
+                /* Ignore analytics errors */
+            }
+            incrementCounter();
+        }
+
+        function applyGujarati() {
+            el.name.placeholder = 'નિરજ રાછ';
+            el.biz.placeholder = 'હરી ટેક સોલ્યુશન્સ';
+            el.details.placeholder = 'કમ્પ્યુટર | લેપટોપ | CCTV | પ્રિન્ટર | વેબસાઈટ';
+            el.addr.placeholder = 'ધાતિયા ફળીયા 3 રસ્તા, અનામ રિંગ રોડ';
+            el.city.placeholder = 'ભુજ - ગુજરાત 370001';
+        }
+
+        const bgs = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7', 'bg8', 'bg9', 'bg10', 'bg11', 'bg12', 'bg13', 'bg14', 'bg15'];
+        const defaultBg = 'bg6';
+
+        bgs.forEach((bg, i) => {
+            const d = document.createElement('div');
+            d.className = `vcg-bg-item ${bg}`;
+            if (bg === defaultBg) d.classList.add('active');
+
+            d.addEventListener('click', () => {
+                document.querySelectorAll('.vcg-bg-item').forEach((x) => x.classList.remove('active'));
+                d.classList.add('active');
+                update();
+            });
+
+            el.bgGrid.appendChild(d);
+        });
+
+        function update() {
+            el.cname.innerText = getVal(el.name);
+            el.cbiz.innerText = getVal(el.biz);
+            el.cphone.innerText = getVal(el.phone);
+            el.cdetails.innerText = getVal(el.details);
+
+            const addressLine = [getVal(el.addr), getVal(el.city)].filter(Boolean).join(', ');
+            const contactLine = [getVal(el.email), cleanWebsite(getVal(el.website))].filter(Boolean).join(' | ');
+            const separator = (addressLine && contactLine) ? "<div style='margin-top:6px'></div>" : '';
+            el.cbottom.innerHTML = `${addressLine}${separator}${contactLine}`;
+
+            const activeBg = document.querySelector('.vcg-bg-item.active');
+            const bg = activeBg ? activeBg.classList[1] : defaultBg;
+            el.card.className = `vcg-card ${bg} ${el.layout.value}`;
+        }
+
+        document.querySelectorAll('.vcg-panel input, .vcg-panel textarea, .vcg-panel select').forEach((node) => {
+            node.addEventListener('input', update);
+        });
+
+        el.lang.addEventListener('change', () => {
+            if (el.lang.value === 'gu') {
+                applyGujarati();
+            }
+            update();
+        });
+
+        function download() {
+            if (!window.html2canvas) {
+                alert('Download library failed to load.');
+                return;
+            }
+
+            window.html2canvas(el.card, { scale: 3, backgroundColor: null }).then((canvas) => {
+                const a = document.createElement('a');
+                a.href = canvas.toDataURL();
+                a.download = 'card.png';
+                a.click();
+                trackCardCreation('png');
+            });
+        }
+
+        function downloadJpg() {
+            if (!window.html2canvas) {
+                alert('Download library failed to load.');
+                return;
+            }
+
+            window.html2canvas(el.card, { scale: 3, backgroundColor: null }).then((canvas) => {
+                const a = document.createElement('a');
+                a.href = canvas.toDataURL('image/jpeg', 0.92);
+                a.download = 'card.jpg';
+                a.click();
+                trackCardCreation('jpg');
+            });
+        }
+
+        if (el.downloadCardBtn) {
+            el.downloadCardBtn.addEventListener('click', download);
+        }
+
+        if (el.downloadJpgBtn) {
+            el.downloadJpgBtn.addEventListener('click', downloadJpg);
+        }
+
+        fetchCounter();
+        update();
+    });
+  </script>
+</BhujLayout>

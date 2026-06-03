@@ -200,3 +200,8 @@ dist
 
 ### Astro ###
 .astro/
+
+# Backups
+*.bak
+*.backup.*
+*backup_original*

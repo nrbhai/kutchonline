@@ -1,26 +1,214 @@
 ---
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  description?: string;
+  theme?: 'kutch' | 'bhuj';
+}
+
+const { 
+  title, 
+  description = "A digital home under construction. Connecting the global Kutchi community.", 
+  theme = 'kutch' 
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Google Fonts: Outfit and Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
     <title>{title}</title>
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    <style is:global>
+      :root {
+        --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        --font-display: 'Outfit', var(--font-sans);
+        --font-serif: 'Cinzel', serif;
+
+        /* Kutch Theme Colors */
+        --kutch-primary: #d97706;      /* Amber 600 */
+        --kutch-primary-hover: #b45309;/* Amber 700 */
+        --kutch-accent: #f59e0b;       /* Amber 500 */
+        --kutch-glow: rgba(217, 119, 6, 0.15);
+        --kutch-bg: #09090b;
+
+        /* Bhuj Theme Colors */
+        --bhuj-primary: #eab308;       /* Yellow 500 */
+        --bhuj-primary-hover: #ca8a04; /* Yellow 600 */
+        --bhuj-accent: #facc15;        /* Yellow 400 */
+        --bhuj-glow: rgba(234, 179, 8, 0.12);
+        --bhuj-bg: #080705;
+      }
+
+      *, *::before, *::after { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+      }
+
+      html, body {
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: var(--font-sans);
+        background-color: var(--theme-bg, var(--kutch-bg));
+        color: #f4f4f5;
         min-height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #0a0a0a;
-        color: #f0f0f0;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Custom Selection */
+      ::selection {
+        background-color: var(--theme-primary, var(--kutch-primary));
+        color: #ffffff;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #09090b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #27272a;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3f3f46;
+      }
+
+      /* Base Transitions & Interactions */
+      a, button {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Custom background glow effects */
+      .bg-glow-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .radial-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.5;
+        transition: all 0.8s ease;
+      }
+
+      .glow-top-right {
+        top: -10%;
+        right: -10%;
+        width: clamp(300px, 50vw, 800px);
+        height: clamp(300px, 50vw, 800px);
+        background: radial-gradient(circle, var(--theme-glow, var(--kutch-glow)) 0%, transparent 70%);
+      }
+
+      .glow-bottom-left {
+        bottom: -20%;
+        left: -10%;
+        width: clamp(300px, 60vw, 1000px);
+        height: clamp(300px, 60vw, 1000px);
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.04) 0%, transparent 75%);
+      }
+
+      .glow-center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(250px, 40vw, 600px);
+        height: clamp(250px, 40vw, 600px);
+        background: radial-gradient(circle, rgba(251, 191, 36, 0.03) 0%, transparent 60%);
+      }
+
+      /* Subtle grid overlay for texture */
+      .grid-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.7;
+      }
+
+      /* Content wrapper to be on top of background */
+      .content-wrapper {
+        position: relative;
+        z-index: 10;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Text Gradients */
+      .text-gradient {
+        background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .theme-text-gradient {
+        background: linear-gradient(135deg, #ffffff 0%, var(--theme-accent, var(--kutch-accent)) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     </style>
   </head>
-  <body>
-    <slot />
+  <body style={`
+    --theme-primary: var(--${theme}-primary);
+    --theme-primary-hover: var(--${theme}-primary-hover);
+    --theme-accent: var(--${theme}-accent);
+    --theme-glow: var(--${theme}-glow);
+    --theme-bg: var(--${theme}-bg);
+  `}>
+    <!-- Background Elements -->
+    <div class="bg-glow-container" id="glow-container">
+      <div class="radial-glow glow-top-right"></div>
+      <div class="radial-glow glow-bottom-left"></div>
+      <div class="radial-glow glow-center"></div>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+      <slot />
+    </div>
   </body>
 </html>

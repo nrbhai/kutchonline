@@ -1,0 +1,234 @@
+---
+import BhujLayout from "../../layouts/BhujLayout.astro";
+import data from "../../data/data.json";
+
+// Sort and extract unique category names
+const categoriesList = [...new Set(data.map((cat) => cat.name))].sort();
+
+// Submits to Google Apps Script Web App (can be configured via ENV or edited directly)
+const actionUrl = import.meta.env.PUBLIC_APPS_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbz_YOUR_SCRIPT_ID/exec";
+---
+
+<BhujLayout
+  title="List Your Business & Services Free | bhuj.kutchonline.com"
+  description="Advertise your services locally in Bhuj for free. Submit your business name, phone number, and address to get listed on bhuj.kutchonline.com."
+  canonicalPath="form"
+>
+  <style is:inline>
+    .form-page-wrap {
+      padding: 40px 16px;
+      background: #f8fafc;
+      min-height: calc(100vh - 200px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 560px;
+      background: #ffffff;
+      padding: 35px 30px;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font-weight: 700;
+      display: block;
+      color: #0f172a;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      background: #ffffff;
+    }
+
+    textarea.form-control {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .form-helper {
+      margin: 6px 0 0;
+      color: #64748b;
+      font-size: 0.82rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+  </style>
+
+  <div class="form-page-wrap">
+    <div class="form-container">
+      <div class="form-header">
+        <h1 class="form-title">Submit Your Service</h1>
+        <p class="form-subtitle">Add your business to the bhuj.kutchonline.com directory</p>
+      </div>
+
+      <form method="post" action={actionUrl}>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" class="form-control" required>
+            <option value="" disabled selected>Select a category</option>
+            {categoriesList.map((cat) => (
+              <option value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="business">Business Name</label>
+          <input
+            type="text"
+            id="business"
+            name="business"
+            class="form-control"
+            placeholder="e.g. Hari Tech Solutions"
+            required
+            oninput="toProperCase(this)"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="form-control"
+            placeholder="10-digit mobile number"
+            required
+            inputmode="numeric"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+          />
+          <p class="form-helper">Enter a 10-digit mobile number only.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            id="address"
+            name="address"
+            class="form-control"
+            placeholder="e.g. Dhatia Falia 3 Ways, Anam Ring Road"
+            required
+            oninput="toProperCase(this)"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            class="form-control"
+            placeholder="e.g. Bhuj"
+            required
+            oninput="toProperCase(this)"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description of Business</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            placeholder="Describe what services you provide..."
+            required
+            oninput="toProperCase(this)"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="mapid">Google Maps Location ID (Optional)</label>
+          <input
+            type="text"
+            id="mapid"
+            name="mapid"
+            class="form-control"
+            placeholder="e.g. ChIJ..."
+          />
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <script is:inline>
+    function toProperCase(input) {
+      input.value = input.value
+        .toLowerCase()
+        .replace(/\b\w/g, function(letter) {
+          return letter.toUpperCase();
+        });
+    }
+  </script>
+</BhujLayout>

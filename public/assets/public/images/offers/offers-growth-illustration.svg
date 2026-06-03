@@ -1,0 +1,36 @@
+<svg width="860" height="560" viewBox="0 0 860 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="860" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#19D7B7"/>
+      <stop offset="0.5" stop-color="#31C6F4"/>
+      <stop offset="1" stop-color="#5A8DFF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="170" y1="100" x2="690" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.97"/>
+      <stop offset="1" stop-color="#F3FBFF" stop-opacity="0.97"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2CD18B"/>
+      <stop offset="1" stop-color="#1DAE75"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="860" height="560" rx="44" fill="url(#bg2)"/>
+  <circle cx="118" cy="474" r="66" fill="#FFFFFF" fill-opacity="0.22"/>
+  <circle cx="744" cy="96" r="54" fill="#FFFFFF" fill-opacity="0.2"/>
+
+  <rect x="170" y="100" width="520" height="350" rx="32" fill="url(#panel)"/>
+  <rect x="170" y="100" width="520" height="350" rx="32" stroke="#FFFFFF" stroke-opacity="0.54" stroke-width="3"/>
+
+  <text x="430" y="158" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="33" font-weight="700" fill="#17395B">Business Growth</text>
+
+  <rect x="250" y="325" width="64" height="70" rx="10" fill="url(#bar)"/>
+  <rect x="344" y="285" width="64" height="110" rx="10" fill="url(#bar)"/>
+  <rect x="438" y="238" width="64" height="157" rx="10" fill="url(#bar)"/>
+  <rect x="532" y="188" width="64" height="207" rx="10" fill="url(#bar)"/>
+
+  <path d="M250 225C285 225 326 210 358 184C390 158 418 136 458 128C501 119 539 132 588 165" stroke="#FF7F32" stroke-width="12" stroke-linecap="round"/>
+  <path d="M568 165L603 168L591 136" stroke="#FF7F32" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="430" y="428" text-anchor="middle" font-family="Mukta, Arial, sans-serif" font-size="22" font-weight="600" fill="#426686">Verified listings improve visibility</text>
+</svg>
