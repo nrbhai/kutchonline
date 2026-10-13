@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HotelCard from '../../components/HotelCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { HOTELS } from '../../data/hotels';
+
+const travelFaqs = [
+  {
+    question: "How do you choose local experiences and tours?",
+    answer: "We partner with Viator (a Tripadvisor company) and GetYourGuide, filtering for experiences with a minimum 4.7-star rating, verified English-speaking licensed guides, and free 24-hour cancellation."
+  },
+  {
+    question: "Are tickets refundable if plans change?",
+    answer: "Most tours and museum passes booked through our Viator and GetYourGuide partner links include a 100% full refund policy when cancelled at least 24 hours prior to activity start."
+  }
+];
+
+const curatedExperiences = [
+  {
+    title: "Luxury Sunset Boat Cruise on Lake Pichola, Udaipur",
+    location: "Udaipur, India",
+    rating: 4.9,
+    reviews: 1240,
+    price: "₹1,850",
+    provider: "Viator",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+    url: "/go/viator?tour=udaipur-lake-cruise"
+  },
+  {
+    title: "Grand Desert Safari with Dune Bashing & BBQ Dinner",
+    location: "Dubai, UAE",
+    rating: 4.8,
+    reviews: 5800,
+    price: "₹3,400",
+    provider: "GetYourGuide",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
+    url: "/go/getyourguide?tour=dubai-desert-safari"
+  },
+  {
+    title: "Kutch White Rann Sunset & Cultural Folk Pavilion Tour",
+    location: "Dhordo, Kutch, Gujarat",
+    rating: 4.9,
+    reviews: 890,
+    price: "₹2,200",
+    provider: "Viator",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    url: "/go/viator?tour=kutch-white-rann"
+  }
+];
+---
+
+<BaseLayout
+  title="Best Travel Experiences & Tour Deals 2026 | Viator & GetYourGuide"
+  description="Book unforgettable local experiences, guided desert safaris, city attraction passes, and boutique hotel escapes with verified lowest price guarantees."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Travel & Experiences" }]} />
+
+    <div class="category-header-wrap">
+      <span class="badge badge-deal">✈️ TOUR & ADVENTURE ENGINE</span>
+      <h1 class="cat-title">Curated Local Experiences, Safaris & Stays</h1>
+      <p class="cat-subtitle">
+        Discover verified guided adventures, museum skip-the-line tickets, and royal heritage escapes with free cancellation and multi-platform price guarantees.
+      </p>
+    </div>
+
+    <!-- Flight Booking Callout Banner -->
+    <div class="flight-banner card" style="margin: 28px 0 16px; padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; border-radius: 14px;">
+      <div>
+        <span class="badge" style="background: rgba(255,255,255,0.2); color: #ffffff; margin-bottom: 6px;">✈️ CHEAP FLIGHTS RADAR</span>
+        <h3 style="margin: 4px 0 6px; font-size: 1.25rem; font-weight: 800; color: #ffffff;">Compare Domestic & International Airfare</h3>
+        <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 0.9rem;">Book direct flights to Udaipur, Goa, Dubai, Bangkok & Europe. Save up to ₹2,500 with zero convenience fee promo codes.</p>
+      </div>
+      <a href="/go/flights" target="_blank" rel="sponsored nofollow noopener" class="btn btn-sm" style="background: #ffffff; color: #0284c7; font-weight: 700; white-space: nowrap; padding: 10px 22px;">
+        Search Airfare &rarr;
+      </a>
+    </div>
+
+    <!-- Experiences Cards Grid -->
+    <div class="section-header" style="margin-top: 32px;">
+      <div>
+        <h2 class="section-title">Top Rated Day Tours & Experiences</h2>
+        <p class="section-subtitle">Reserve ahead with flexible 24-hour free cancellation.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      {curatedExperiences.map((exp) => (
+        <div class="experience-card card">
+          <div class="exp-img-wrap">
+            <span class="provider-badge">{exp.provider}</span>
+            <img src={exp.image} alt={exp.title} loading="lazy" class="exp-img" />
+          </div>
+          <div class="exp-body">
+            <span class="exp-location">📍 {exp.location}</span>
+            <h3 class="exp-title">{exp.title}</h3>
+            <div class="exp-rating">
+              <span class="star-gold">★</span> <strong>{exp.rating}</strong>
+              <span class="review-muted">({exp.reviews} reviews)</span>
+            </div>
+            <div class="exp-footer">
+              <div class="exp-price-box">
+                <span class="from-lbl">From</span>
+                <span class="price-val">{exp.price}</span>
+                <span class="per-person">/person</span>
+              </div>
+              <a 
+                href={exp.url} 
+                target="_blank" 
+                rel="sponsored nofollow noopener"
+                class="btn btn-affiliate btn-sm"
+                data-track-click="outbound"
+                data-store={exp.provider}
+              >
+                Book on {exp.provider} &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Featured Stays Cross-link -->
+    <div class="section-header" style="margin-top: 48px;">
+      <div>
+        <h2 class="section-title">Iconic Stays for These Destinations</h2>
+        <p class="section-subtitle">Pair your experiences with our top-rated hotels.</p>
+      </div>
+      <a href="/hotels" class="section-link">View All Hotels &rarr;</a>
+    </div>
+
+    <div class="hotels-list-wrap">
+      {HOTELS.slice(0, 2).map((hotel) => (
+        <HotelCard hotel={hotel} />
+      ))}
+    </div>
+
+    <FAQAccordion faqs={travelFaqs} title="Travel Bookings & Cancellation FAQs" />
+  </div>
+</BaseLayout>
+
+<style>
+  .category-header-wrap {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .cat-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    margin: 12px 0 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .cat-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 780px;
+  }
+
+  .experience-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .exp-img-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .exp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .experience-card:hover .exp-img {
+    transform: scale(1.05);
+  }
+
+  .provider-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .exp-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .exp-location {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .exp-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .exp-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.825rem;
+    margin-bottom: 16px;
+  }
+
+  .star-gold {
+    color: var(--color-star);
+  }
+
+  .review-muted {
+    color: var(--text-muted);
+  }
+
+  .exp-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .exp-price-box {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .from-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .price-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-deal);
+    font-family: var(--font-display);
+  }
+
+  .per-person {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+</style>

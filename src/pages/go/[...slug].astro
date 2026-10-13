@@ -1,0 +1,252 @@
+---
+// Outbound Affiliate Gateway & Telemetry Forwarder - BhujDeals
+import { AFFILIATE_CONFIG } from '../../config/affiliates';
+
+export async function getStaticPaths() {
+  const routes = [
+    // Direct Stores
+    { slug: "amazon", storeName: "Amazon India", destinationUrl: AFFILIATE_CONFIG.amazon.storeUrl },
+    { slug: "flipkart", storeName: "Flipkart", destinationUrl: AFFILIATE_CONFIG.stores.flipkart },
+    { slug: "myntra", storeName: "Myntra", destinationUrl: AFFILIATE_CONFIG.stores.myntra },
+    { slug: "nykaa", storeName: "Nykaa", destinationUrl: AFFILIATE_CONFIG.stores.nykaa },
+    { slug: "croma", storeName: "Croma", destinationUrl: AFFILIATE_CONFIG.stores.croma },
+    { slug: "tatacliq", storeName: "Tata CLiQ Luxury", destinationUrl: AFFILIATE_CONFIG.stores.tatacliq },
+    { slug: "ajio", storeName: "AJIO", destinationUrl: AFFILIATE_CONFIG.stores.ajio },
+    
+    // Travel & Bookings
+    { slug: "booking", storeName: "Booking.com", destinationUrl: AFFILIATE_CONFIG.booking.destinationUrl },
+    { slug: "agoda", storeName: "Agoda", destinationUrl: AFFILIATE_CONFIG.agoda.destinationUrl },
+    { slug: "mmt", storeName: "MakeMyTrip Holidays", destinationUrl: AFFILIATE_CONFIG.travelHolidays.destinationUrl },
+    { slug: "viator", storeName: "Viator Experiences", destinationUrl: AFFILIATE_CONFIG.travelHolidays.destinationUrl },
+    { slug: "getyourguide", storeName: "GetYourGuide Tours", destinationUrl: AFFILIATE_CONFIG.travelHolidays.destinationUrl },
+    { slug: "expedia", storeName: "Expedia Hotels", destinationUrl: AFFILIATE_CONFIG.agoda.destinationUrl },
+    
+    // Hosting & SaaS
+    { slug: "hostinger", storeName: "Hostinger Cloud", destinationUrl: AFFILIATE_CONFIG.hostinger.destinationUrl },
+    { slug: "siteground", storeName: "SiteGround Hosting", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.saasSoftware },
+    { slug: "cloudways", storeName: "Cloudways Managed Cloud", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.cloudSoftware },
+    { slug: "cursor", storeName: "Cursor AI", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.aiTools },
+    { slug: "jasper", storeName: "Jasper AI", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.genAI },
+    { slug: "earnkaro", storeName: "EarnKaro Stores", destinationUrl: AFFILIATE_CONFIG.earnkaro.storesHubUrl },
+
+    // Cuelinks Category Campaigns
+    { slug: "beauty", storeName: "Health & Beauty", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.primary },
+    { slug: "skincare", storeName: "Skincare Serums", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.skincare },
+    { slug: "senior-health", storeName: "Senior Citizen Wellness & Care", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.seniorCare },
+    { slug: "wellness", storeName: "Health & Nutrition", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.wellness },
+    { slug: "cosmetics", storeName: "Makeup & Cosmetics", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.cosmetics },
+    { slug: "personal-care", storeName: "Personal Care & Bath", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.personalCare },
+    { slug: "haircare", storeName: "Hair Care & Repair", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.haircare },
+    { slug: "dermatology", storeName: "Dermatology & Sun Care", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.dermatology },
+    { slug: "k-beauty", storeName: "Korean Skincare (K-Beauty)", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.kBeauty },
+    { slug: "beauty-combos", storeName: "Beauty Kits & Combos", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.beautyCombos },
+    { slug: "luxury-beauty", storeName: "Luxury Fragrance & Beauty", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.luxuryBeauty },
+    { slug: "ayurveda", storeName: "Ayurvedic & Herbal Health", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.herbalAyurveda },
+    { slug: "salon", storeName: "Salon Grade Styling Tools", destinationUrl: AFFILIATE_CONFIG.cuelinks.beauty.salonGrade },
+
+    { slug: "electronics", storeName: "Electronics & Tech", destinationUrl: AFFILIATE_CONFIG.cuelinks.electronics.primary },
+    { slug: "gadgets", storeName: "Smart Gadgets", destinationUrl: AFFILIATE_CONFIG.cuelinks.electronics.gadgets },
+    { slug: "audio", storeName: "Smartphones & Audio", destinationUrl: AFFILIATE_CONFIG.cuelinks.electronics.audioSmartphones },
+    { slug: "appliances", storeName: "Smart Home & Appliances", destinationUrl: AFFILIATE_CONFIG.cuelinks.electronics.appliances },
+
+    { slug: "fashion", storeName: "Fashion & Trends", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.ajio },
+    { slug: "perfumes", storeName: "Perfumes & Fragrances", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.perfumeFragrance },
+    { slug: "footwear", storeName: "Shoes & Footwear", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.footwear },
+    { slug: "mens-fashion", storeName: "Men's Fashion", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.mensWear },
+    { slug: "womens-fashion", storeName: "Women's Fashion & Beauty", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.womensWear },
+    { slug: "streetwear", storeName: "Streetwear & Sneakers", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.streetwear },
+    { slug: "ethnic-wear", storeName: "Ethnic Wear & Kurtas", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.ethnicWear },
+    { slug: "watches", storeName: "Designer Watches", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.designerWatches },
+    { slug: "activewear", storeName: "Activewear & Sportswear", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.activewear },
+    { slug: "accessories", storeName: "Fashion Accessories", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.accessories },
+    { slug: "winterwear", storeName: "Winterwear & Jackets", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.winterwear },
+    { slug: "premium-fashion", storeName: "Premium Fashion", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.premiumStyle },
+    { slug: "trendy-fashion", storeName: "Gen-Z Trends", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.lifestyleTrends },
+    { slug: "gifting", storeName: "Flowers & Gift Hampers", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.giftingFlowers },
+    { slug: "basics", storeName: "Everyday Basics", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.everydayBasics },
+    { slug: "wedding-fashion", storeName: "Wedding & Festive Sarees", destinationUrl: AFFILIATE_CONFIG.cuelinks.fashion.festiveWedding },
+
+    { slug: "flights", storeName: "Flight Bookings", destinationUrl: AFFILIATE_CONFIG.cuelinks.travel.flights },
+    { slug: "hotels", storeName: "Hotel Deals", destinationUrl: AFFILIATE_CONFIG.cuelinks.travel.hotels },
+    { slug: "holidays", storeName: "Holiday Packages", destinationUrl: AFFILIATE_CONFIG.cuelinks.travel.holidays },
+
+    { slug: "software", storeName: "SaaS Software", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.saasSoftware },
+    { slug: "marketing", storeName: "Marketing & Growth Tools", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.marketingTools },
+    { slug: "ai", storeName: "AI Tools & Assistants", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.aiTools },
+    { slug: "genai", storeName: "Generative AI Tools", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.genAI },
+    { slug: "productivity", storeName: "Productivity Apps", destinationUrl: AFFILIATE_CONFIG.cuelinks.softwareAI.productivityApps },
+
+    { slug: "kitchen", storeName: "Kitchen Electronics", destinationUrl: AFFILIATE_CONFIG.cuelinks.homeKitchen.kitchenElectronics },
+    { slug: "grocery", storeName: "Gourmet & Organic Grocery", destinationUrl: AFFILIATE_CONFIG.cuelinks.homeKitchen.foodGrocery },
+
+    { slug: "finance", storeName: "Financial Services", destinationUrl: AFFILIATE_CONFIG.cuelinks.finance.primary },
+    { slug: "banking", storeName: "Credit Cards & Banking", destinationUrl: AFFILIATE_CONFIG.cuelinks.finance.cardsBanking },
+
+    { slug: "gaming", storeName: "Gaming Consoles & Gear", destinationUrl: AFFILIATE_CONFIG.cuelinks.gaming.gamingGear },
+    { slug: "esports", storeName: "Esports Accessories", destinationUrl: AFFILIATE_CONFIG.cuelinks.gaming.esports },
+    { slug: "entertainment", storeName: "Entertainment & OTT", destinationUrl: AFFILIATE_CONFIG.cuelinks.gaming.entertainment },
+
+    { slug: "services", storeName: "Online Services", destinationUrl: AFFILIATE_CONFIG.cuelinks.services.services1 },
+    { slug: "business-services", storeName: "Business & Digital Services", destinationUrl: AFFILIATE_CONFIG.cuelinks.services.services2 },
+    { slug: "home-services", storeName: "Home Services", destinationUrl: AFFILIATE_CONFIG.cuelinks.services.services3 },
+    { slug: "lifestyle", storeName: "Lifestyle & Utilities", destinationUrl: AFFILIATE_CONFIG.cuelinks.services.others2 }
+  ];
+
+  return routes.map((r) => ({
+    params: { slug: r.slug },
+    props: { route: r }
+  }));
+}
+
+interface Props {
+  route: {
+    slug: string;
+    storeName: string;
+    destinationUrl: string;
+  };
+}
+
+const { route } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting to {route.storeName} - BhujDeals Verified Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f8fafc;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #0f172a;
+      padding: 20px;
+      text-align: center;
+    }
+    .redirect-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    }
+    .spinner-ring {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #e2e8f0;
+      border-top-color: #0284c7;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #dcfce7;
+      color: #166534;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+    .direct-link {
+      color: #0284c7;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="redirect-card">
+    <div class="spinner-ring"></div>
+    <span class="badge">🔒 Verified Official Partner Store</span>
+    <h1>Taking You Directly to {route.storeName}...</h1>
+    <p>Activating lowest price guarantee and verified promotional discounts. You will be redirected automatically to {route.storeName} in a moment.</p>
+    <a href={route.destinationUrl} id="manual-link" class="direct-link">Click here if not redirected in 3 seconds &rarr;</a>
+  </div>
+
+  <script define:vars={{ 
+    baseDest: route.destinationUrl, 
+    storeSlug: route.slug, 
+    amazonTag: AFFILIATE_CONFIG.amazon.tag,
+    agodaCityUrls: AFFILIATE_CONFIG.agoda.cityUrls
+  }}>
+    // Dynamic deep linking resolver
+    const params = new URLSearchParams(window.location.search);
+    const prodId = params.get('id') || '';
+    const cleanQuery = prodId.replace(/-/g, ' ');
+    const cityParam = (params.get('city') || '').toLowerCase();
+    const hotelParam = (params.get('hotel') || '').toLowerCase();
+
+    let target = baseDest;
+
+    // 1. Direct Amazon routing with real Associate Tag bhujonline-21
+    if (storeSlug === 'amazon') {
+      if (prodId) {
+        target = `https://www.amazon.in/s?k=${encodeURIComponent(cleanQuery)}&tag=${amazonTag}`;
+      } else {
+        target = `https://www.amazon.in/?tag=${amazonTag}`;
+      }
+    }
+    // 2. Agoda & Hotels Routing (User Agoda Partner CID 1970139)
+    else if (storeSlug === 'agoda' || storeSlug === 'hotels' || storeSlug === 'booking') {
+      if (cityParam && agodaCityUrls && agodaCityUrls[cityParam]) {
+        target = agodaCityUrls[cityParam];
+      } else if (hotelParam.includes('bhuj') && agodaCityUrls) {
+        target = agodaCityUrls.bhuj;
+      } else if (hotelParam.includes('dholavira') && agodaCityUrls) {
+        target = agodaCityUrls.dholavira;
+      } else if ((hotelParam.includes('udaipur') || hotelParam.includes('oberoi')) && agodaCityUrls) {
+        target = agodaCityUrls.udaipur;
+      } else if ((hotelParam.includes('jaipur') || hotelParam.includes('rambagh')) && agodaCityUrls) {
+        target = agodaCityUrls.jaipur;
+      } else if ((hotelParam.includes('jaisalmer') || hotelParam.includes('suryagarh')) && agodaCityUrls) {
+        target = agodaCityUrls.jaisalmer;
+      } else if ((hotelParam.includes('srinagar') || hotelParam.includes('lalit')) && agodaCityUrls) {
+        target = agodaCityUrls.srinagar;
+      } else {
+        target = "https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1970139&hl=en-us";
+      }
+    }
+    // 3. All other merchant & Cuelinks campaign links route directly to baseDest
+
+    // Update manual link href
+    const linkEl = document.getElementById('manual-link');
+    if (linkEl) linkEl.href = target;
+
+    // Telemetry log
+    console.log(`[BHUJDEALS GATEWAY] Routing to ${storeSlug}: ${target}`);
+
+    // Fast redirect
+    setTimeout(() => {
+      window.location.replace(target);
+    }, 350);
+  </script>
+</body>
+</html>

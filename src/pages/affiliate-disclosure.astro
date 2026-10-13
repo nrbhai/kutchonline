@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="Affiliate Disclosure & Monetization Transparency | BhujDeals"
+  description="Full transparent breakdown of our affiliate relationships, tracking tokens, and how BhujDeals earns commissions while maintaining editorial objectivity."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Affiliate Disclosure" }]} />
+
+    <div class="legal-doc-header">
+      <span class="badge badge-brand">COMPLIANCE TRANSPARENCY</span>
+      <h1 class="page-title">Affiliate & Monetization Disclosure</h1>
+      <p class="last-updated">Last Updated: October 12, 2026 • In accordance with FTC 16 CFR § 255 & ASCI Guidelines</p>
+    </div>
+
+    <div class="legal-article-body card">
+      <h2>1. Our Reader-Supported Revenue Model</h2>
+      <p>
+        BhujDeals believes that transparency is the bedrock of consumer trust. To keep our laboratory testing, automated pricing engines, and editorial reviews completely free for all readers without placing articles behind paywalls, we participate in affiliate marketing programs.
+      </p>
+      <p>
+        When you click on links pointing to merchants on BhujDeals and make a purchase or book a hotel stay, we may receive a referral commission from the seller. <strong>This does not increase the price you pay by a single cent.</strong> In many instances, our exclusive partnerships allow us to negotiate lower rates, extended software trials, and verified discount coupons that you cannot find through a regular Google search.
+      </p>
+
+      <h2>2. Affiliate Networks & Partner Programs</h2>
+      <p>BhujDeals actively partners with the following recognized affiliate networks and direct merchant programs:</p>
+      <ul class="networks-list">
+        <li><strong>Amazon Associates Program:</strong> BhujDeals is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.in, Amazon.com, and affiliated regional domains.</li>
+        <li><strong>Flipkart Affiliate Program:</strong> We participate in the official Flipkart Affiliate marketing ecosystem, generating commissions on verified purchases across electronics, home appliances, and fashion.</li>
+        <li><strong>Booking Holdings & Agoda Partner Network:</strong> We track room inventories and generate affiliate referral commissions for completed reservations on Booking.com and Agoda.</li>
+        <li><strong>SaaS & Software Networks:</strong> We monetize via Impact.com, PartnerStack, CJ Affiliate (Commission Junction), ShareASale, and direct software partner agreements for AI tools and web hosting services.</li>
+      </ul>
+
+      <h2>3. Editorial Independence Pledge</h2>
+      <p>
+        Our editorial opinions are strictly our own and cannot be purchased. Our writers and laboratory testing team operate independently from our commercial and advertising operations. Specifically:
+      </p>
+      <ul>
+        <li>A higher affiliate commission rate never dictates whether a product receives an 'Editor's Choice' or 'Best Value' award.</li>
+        <li>If a product is flawed, overheating, or offers poor value, our reviewers explicitly highlight those drawbacks regardless of our commercial ties to the manufacturer.</li>
+        <li>We frequently review and recommend products where no affiliate program exists if it is genuinely the best option on the market.</li>
+      </ul>
+
+      <h2>4. Deep Linking & Tracking Parameters</h2>
+      <p>
+        When you click outbound merchant links on BhujDeals (such as buttons labeled 'Check Deal', 'View on Amazon', or 'Book via Booking.com'), your browser may be routed through our secure redirect gateway (<code>/go/[partner]</code>) or include cryptographic referral tokens (subIDs, UTM tracking tags, or click IDs). These parameters inform the merchant that the referral originated from BhujDeals so that credit can be attributed. None of your personally identifiable financial or payment data is ever shared with or held by BhujDeals.
+      </p>
+
+      <h2>5. Questions and Grievances</h2>
+      <p>
+        If you have any questions regarding our commercial affiliations or suspect a pricing discrepancy, please contact our compliance desk directly at <strong>affiliates@bhujdeals.com</strong>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-doc-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin: 12px 0 8px;
+  }
+
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .legal-article-body {
+    padding: clamp(24px, 5vw, 48px);
+    background: #ffffff;
+    margin-bottom: 56px;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: var(--text-body);
+  }
+
+  .legal-article-body h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 32px 0 14px;
+    color: var(--text-main);
+  }
+
+  .legal-article-body h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-article-body p {
+    margin-bottom: 16px;
+  }
+
+  .legal-article-body ul {
+    margin-bottom: 24px;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .networks-list li {
+    font-size: 0.95rem;
+  }
+</style>

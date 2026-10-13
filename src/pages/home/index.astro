@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { PRODUCTS } from '../../data/products';
+
+const homeProducts = PRODUCTS.filter(p => p.category === 'home');
+
+const homeFaqs = [
+  {
+    question: "Are cordless vacuum batteries replaceable?",
+    answer: "Yes, flagship models like the Dyson V12 use click-in swappable battery units that can be replaced or doubled for extended runtime."
+  },
+  {
+    question: "Do Amazon and Flipkart provide installation for major appliances?",
+    answer: "Yes, verified listings from both platforms typically include free brand-authorized technician installation within 48 hours of product delivery."
+  }
+];
+---
+
+<BaseLayout
+  title="Best Home & Kitchen Appliances 2026 | Wirecutter-style Reviews"
+  description="Tested cordless vacuums, espresso machines, air fryers and ergonomic home essentials. Real-world durability ratings and Amazon vs Flipkart comparisons."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Home & Kitchen" }]} />
+
+    <div class="category-header-wrap">
+      <span class="badge badge-deal">☕ HOME LAB REVIEWS</span>
+      <h1 class="cat-title">Appliances & Kitchen Gear Tested for Daily Life</h1>
+      <p class="cat-subtitle">
+        We test kitchenware, cordless vacuums, and air purifiers over months of real family use to see which models hold up to hard water, pet fur, and intensive cooking.
+      </p>
+    </div>
+
+    <div class="section-header" style="margin-top: 32px;">
+      <div>
+        <h2 class="section-title">Top Rated Home & Cleaning Machines</h2>
+        <p class="section-subtitle">Real performance benchmarks with lowest verified prices.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      {homeProducts.map((prod) => (
+        <ProductCard product={prod} />
+      ))}
+    </div>
+
+    <FAQAccordion faqs={homeFaqs} title="Home Appliances & Installation FAQs" />
+  </div>
+</BaseLayout>
+
+<style>
+  .category-header-wrap {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .cat-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    margin: 12px 0 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .cat-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 780px;
+  }
+</style>

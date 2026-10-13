@@ -1,0 +1,222 @@
+---
+import type { DealItem } from '../data/deals';
+
+interface Props {
+  deal: DealItem;
+}
+
+const { deal } = Astro.props;
+---
+
+<div class="coupon-card card" data-deal-id={deal.id}>
+  <div class="coupon-top">
+    <div class="store-badge-row">
+      <span class="store-name">{deal.store}</span>
+      <span class="badge badge-fire">{deal.badge}</span>
+    </div>
+    <span class="discount-pill">-{deal.discountPercent}%</span>
+  </div>
+
+  <div class="coupon-body">
+    <h3 class="deal-title">{deal.title}</h3>
+    <p class="deal-desc">{deal.description}</p>
+
+    <div class="deal-timer-row">
+      <span class="timer-icon">⏱</span>
+      <span class="timer-text">Expires in <strong>{deal.expiresInHours} hours</strong></span>
+      <span class="verified-text">✓ {deal.verifiedCount} verified</span>
+    </div>
+
+    {deal.couponCode ? (
+      <div class="coupon-box">
+        <button 
+          class="btn-copy-code"
+          data-coupon-code={deal.couponCode}
+          data-affiliate-url={deal.affiliateUrl}
+          data-store={deal.store}
+          aria-label={`Copy coupon code ${deal.couponCode}`}
+        >
+          <span class="code-display">{deal.couponCode}</span>
+          <span class="copy-action-text">Copy & Visit Store &rarr;</span>
+        </button>
+      </div>
+    ) : (
+      <a 
+        href={deal.affiliateUrl} 
+        target="_blank" 
+        rel="sponsored nofollow noopener"
+        class="btn btn-affiliate btn-deal-direct"
+        data-track-click="outbound"
+        data-store={deal.store}
+      >
+        Claim Flash Deal &rarr;
+      </a>
+    )}
+  </div>
+</div>
+
+<script>
+  // Coupon Copy + Outbound Telemetry Trigger
+  document.querySelectorAll('.btn-copy-code').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const code = target.getAttribute('data-coupon-code');
+      const url = target.getAttribute('data-affiliate-url');
+      const store = target.getAttribute('data-store');
+
+      if (code) {
+        navigator.clipboard.writeText(code).then(() => {
+          const actionText = target.querySelector('.copy-action-text');
+          if (actionText) {
+            actionText.textContent = "COPIED! Opening store...";
+            target.classList.add('copied');
+          }
+
+          // Open affiliate link in new tab after 400ms
+          setTimeout(() => {
+            if (url) {
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }
+          }, 400);
+
+          setTimeout(() => {
+            if (actionText) {
+              actionText.textContent = "Copy & Visit Store →";
+              target.classList.remove('copied');
+            }
+          }, 3500);
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .coupon-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px dashed var(--border-strong);
+    background: #ffffff;
+    position: relative;
+  }
+
+  .coupon-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .store-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .store-name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--text-main);
+  }
+
+  .discount-pill {
+    background: #fef2f2;
+    color: #dc2626;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    border: 1px solid #fecaca;
+  }
+
+  .deal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .deal-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .deal-timer-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    background: var(--bg-subtle);
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+
+  .timer-icon {
+    font-size: 0.9rem;
+  }
+
+  .verified-text {
+    margin-left: auto;
+    color: var(--color-deal);
+    font-weight: 600;
+  }
+
+  .coupon-box {
+    width: 100%;
+  }
+
+  .btn-copy-code {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .btn-copy-code:hover {
+    background: #dcfce7;
+    transform: translateY(-1px);
+  }
+
+  .btn-copy-code.copied {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #ffffff;
+  }
+
+  .btn-copy-code.copied .code-display,
+  .btn-copy-code.copied .copy-action-text {
+    color: #ffffff;
+  }
+
+  .code-display {
+    font-family: monospace;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: #15803d;
+  }
+
+  .copy-action-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #16a34a;
+  }
+
+  .btn-deal-direct {
+    width: 100%;
+    padding: 12px;
+  }
+</style>

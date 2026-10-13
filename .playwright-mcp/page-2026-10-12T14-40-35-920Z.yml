@@ -1,0 +1,721 @@
+- generic [active] [ref=f15e1]:
+  - region "Affiliate Disclosure" [ref=f15e2]:
+    - generic [ref=f15e3]:
+      - generic [ref=f15e4]:
+        - generic [ref=f15e5]: INDEPENDENT ADVICE
+        - paragraph [ref=f15e6]: BhujDeals is reader-supported. When you buy or book through links on our platform, we may earn an affiliate commission at no extra cost to you.
+      - link "How we test & monetize →" [ref=f15e7] [cursor=pointer]:
+        - /url: /affiliate-disclosure
+  - banner [ref=f15e8]:
+    - generic [ref=f15e10]:
+      - link "BhujDeals Home" [ref=f15e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f15e12]: B
+        - generic [ref=f15e13]:
+          - generic [ref=f15e14]: BhujDeals
+          - generic [ref=f15e15]: Compare & Discover
+      - generic [ref=f15e17]:
+        - textbox "Search 10,000+ products, hotels, coupons or stores..." [ref=f15e20]
+        - generic [ref=f15e21]: ⌘K
+      - generic [ref=f15e22]:
+        - link "🔥 Today's Deals" [ref=f15e23] [cursor=pointer]:
+          - /url: /deals
+          - generic [ref=f15e24]: 🔥
+          - generic [ref=f15e25]: Today's Deals
+        - link "Guides" [ref=f15e26] [cursor=pointer]:
+          - /url: /blog
+    - navigation "Product and Services Categories" [ref=f15e27]:
+      - list [ref=f15e29]:
+        - listitem [ref=f15e30]:
+          - link "🏨 Hotels" [ref=f15e31] [cursor=pointer]:
+            - /url: /hotels
+            - generic [ref=f15e32]: 🏨
+            - text: Hotels
+        - listitem [ref=f15e33]:
+          - link "💻 Electronics" [ref=f15e34] [cursor=pointer]:
+            - /url: /electronics
+            - generic [ref=f15e35]: 💻
+            - text: Electronics
+        - listitem [ref=f15e36]:
+          - link "✨ Beauty" [ref=f15e37] [cursor=pointer]:
+            - /url: /beauty
+            - generic [ref=f15e38]: ✨
+            - text: Beauty
+        - listitem [ref=f15e39]:
+          - link "👔 Fashion" [ref=f15e40] [cursor=pointer]:
+            - /url: /fashion
+            - generic [ref=f15e41]: 👔
+            - text: Fashion
+        - listitem [ref=f15e42]:
+          - link "☕ Home & Kitchen" [ref=f15e43] [cursor=pointer]:
+            - /url: /home
+            - generic [ref=f15e44]: ☕
+            - text: Home & Kitchen
+        - listitem [ref=f15e45]:
+          - link "🤖 AI Tools" [ref=f15e46] [cursor=pointer]:
+            - /url: /ai-tools
+            - generic [ref=f15e47]: 🤖
+            - text: AI Tools
+        - listitem [ref=f15e48]:
+          - link "✈️ Travel" [ref=f15e49] [cursor=pointer]:
+            - /url: /travel
+            - generic [ref=f15e50]: ✈️
+            - text: Travel
+        - listitem [ref=f15e51]:
+          - link "🌐 Hosting" [ref=f15e52] [cursor=pointer]:
+            - /url: /hosting
+            - generic [ref=f15e53]: 🌐
+            - text: Hosting
+        - listitem [ref=f15e54]:
+          - link "🏷️ Coupons" [ref=f15e55] [cursor=pointer]:
+            - /url: /deals
+            - generic [ref=f15e56]: 🏷️
+            - text: Coupons
+  - main [ref=f15e57]:
+    - generic [ref=f15e58]:
+      - img "Aesthetic Korean Skincare Serums and Clean Makeup" [ref=f15e60]
+      - generic [ref=f15e62]:
+        - navigation "Breadcrumb" [ref=f15e64]:
+          - list [ref=f15e65]:
+            - listitem [ref=f15e66]:
+              - link "Home" [ref=f15e67] [cursor=pointer]:
+                - /url: /
+              - generic [aria-hidden] [ref=f15e68]: /
+            - listitem [ref=f15e69]:
+              - generic [ref=f15e70]: Beauty & Wellness
+        - generic [ref=f15e71]:
+          - generic [ref=f15e72]: DERMATOLOGY & CLEAN INGREDIENT BENCHMARKS
+          - generic [ref=f15e75]: ✨ 100% Authentic Batch Sourced
+        - heading "Science-Backed Radiance. Viral K-Beauty, Hair Tech & Senior Care" [level=1] [ref=f15e76]
+        - paragraph [ref=f15e77]: We analyze active percentages, clinical trial evidence, and skin barrier tolerance. Shop authenticated batches with verified discounts across Nykaa, Sephora, and Amazon.
+        - generic [ref=f15e78]:
+          - generic [ref=f15e79]:
+            - generic [ref=f15e80]:
+              - img "Nykaa Beauty & Cosmetics" [ref=f15e81]
+              - generic [ref=f15e82]: ✨ Verified Nykaa Partner
+            - generic [ref=f15e83]:
+              - heading "Nykaa Beauty & Cosmetics" [level=3] [ref=f15e84]
+              - paragraph [ref=f15e85]: Korea Glass Skin, COSRX & Dermatologist Serums
+              - link "Shop Nykaa Pink Deals &rarr;" [ref=f15e86] [cursor=pointer]:
+                - /url: /go/nykaa
+          - generic [ref=f15e87]:
+            - generic [ref=f15e88]:
+              - img "Senior Care & Mobility (45+)" [ref=f15e89]
+              - generic [ref=f15e90]: 🌿 Geriatric Health
+            - generic [ref=f15e91]:
+              - heading "Senior Care & Mobility (45+)" [level=3] [ref=f15e92]
+              - paragraph [ref=f15e93]: Ensure Adult Nutrition & Geriatric Care Shakes
+              - link "Explore Senior Health &rarr;" [ref=f15e94] [cursor=pointer]:
+                - /url: /go/senior-health
+          - generic [ref=f15e95]:
+            - generic [ref=f15e96]:
+              - img "Luxury Hair Styling Systems" [ref=f15e97]
+              - generic [ref=f15e98]: 💇 Salon Grade
+            - generic [ref=f15e99]:
+              - heading "Luxury Hair Styling Systems" [level=3] [ref=f15e100]
+              - paragraph [ref=f15e101]: Dyson Airwrap Multi-Styler & Keratin Therapy
+              - link "Shop Dyson & Hair Tech &rarr;" [ref=f15e102] [cursor=pointer]:
+                - /url: /go/haircare
+    - generic [ref=f15e103]:
+      - generic [ref=f15e104]:
+        - generic [ref=f15e105]: "Browse Category:"
+        - generic [ref=f15e106]:
+          - button "All Beauty Picks" [ref=f15e107] [cursor=pointer]
+          - button "🧴 Skincare Serums" [ref=f15e108] [cursor=pointer]
+          - button "💇 Hair Tech & Repair" [ref=f15e109] [cursor=pointer]
+          - button "👵 Senior Wellness (45+)" [ref=f15e110] [cursor=pointer]
+          - button "🌸 Luxury Fragrance" [ref=f15e111] [cursor=pointer]
+      - generic [ref=f15e112]:
+        - generic [ref=f15e114]:
+          - generic [ref=f15e115]:
+            - generic [ref=f15e116]: Best Value
+            - generic [ref=f15e117]: 14% OFF
+            - link "View LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f15e118] [cursor=pointer]:
+              - /url: /product/laneige-water-sleeping-mask-ex
+              - img "LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f15e119]
+          - generic [ref=f15e120]:
+            - generic [ref=f15e121]:
+              - generic [ref=f15e122]: LANEIGE
+              - generic [ref=f15e123]: Skincare Serums
+            - heading [level=3] [ref=f15e124]:
+              - link "LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f15e125] [cursor=pointer]:
+                - /url: /product/laneige-water-sleeping-mask-ex
+            - generic [ref=f15e127]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f15e128]':
+                - generic [aria-hidden] [ref=f15e129]: ★
+                - generic [aria-hidden] [ref=f15e130]: ★
+                - generic [aria-hidden] [ref=f15e131]: ★
+                - generic [aria-hidden] [ref=f15e132]: ★
+                - generic [aria-hidden] [ref=f15e133]: ★
+              - generic [ref=f15e134]: "4.8"
+              - generic [ref=f15e135]: (4,620)
+            - paragraph [ref=f15e136]: Overnight hydration treatment that restores radiant, glass-skin clarity by dawn.
+            - generic [ref=f15e137]:
+              - generic [ref=f15e138]:
+                - generic [ref=f15e139]: ₹1,850
+                - generic [ref=f15e140]: ₹2,150
+              - generic [ref=f15e141]: on Nykaa
+            - generic [ref=f15e142]:
+              - generic [ref=f15e143]: "Compare Stores:"
+              - generic [ref=f15e144]:
+                - link "Nykaa ₹1,850" [ref=f15e145] [cursor=pointer]:
+                  - /url: /go/nykaa?id=laneige-water-mask
+                  - generic [ref=f15e146]: Nykaa
+                  - generic [ref=f15e147]: ₹1,850
+                - link "Amazon ₹1,930" [ref=f15e148] [cursor=pointer]:
+                  - /url: /go/amazon?id=laneige-water-mask
+                  - generic [ref=f15e149]: Amazon
+                  - generic [ref=f15e150]: ₹1,930
+            - generic [ref=f15e151]:
+              - link "Full Review & Specs" [ref=f15e152] [cursor=pointer]:
+                - /url: /product/laneige-water-sleeping-mask-ex
+              - link "Check Deal →" [ref=f15e153] [cursor=pointer]:
+                - /url: /go/nykaa?id=laneige-water-mask
+        - generic [ref=f15e155]:
+          - generic [ref=f15e156]:
+            - generic [ref=f15e157]: Editor's Choice
+            - generic [ref=f15e158]: 5% OFF
+            - link "View Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f15e159] [cursor=pointer]:
+              - /url: /product/minimalist-10-niacinamide-face-serum
+              - img "Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f15e160]
+          - generic [ref=f15e161]:
+            - generic [ref=f15e162]:
+              - generic [ref=f15e163]: Minimalist
+              - generic [ref=f15e164]: Skincare Serums
+            - heading [level=3] [ref=f15e165]:
+              - link "Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f15e166] [cursor=pointer]:
+                - /url: /product/minimalist-10-niacinamide-face-serum
+            - generic [ref=f15e168]:
+              - 'generic "Rating: 4.85 out of 5 stars" [ref=f15e169]':
+                - generic [aria-hidden] [ref=f15e170]: ★
+                - generic [aria-hidden] [ref=f15e171]: ★
+                - generic [aria-hidden] [ref=f15e172]: ★
+                - generic [aria-hidden] [ref=f15e173]: ★
+                - generic [aria-hidden] [ref=f15e174]: ★
+              - generic [ref=f15e175]: "4.8"
+              - generic [ref=f15e176]: (8,900)
+            - paragraph [ref=f15e177]: Clinical-grade treatment to reduce acne marks, blemishes, and oil secretion.
+            - generic [ref=f15e178]:
+              - generic [ref=f15e179]:
+                - generic [ref=f15e180]: ₹569
+                - generic [ref=f15e181]: ₹599
+              - generic [ref=f15e182]: on Nykaa
+            - generic [ref=f15e183]:
+              - generic [ref=f15e184]: "Compare Stores:"
+              - generic [ref=f15e185]:
+                - link "Nykaa ₹569" [ref=f15e186] [cursor=pointer]:
+                  - /url: /go/skincare?id=minimalist-niacinamide
+                  - generic [ref=f15e187]: Nykaa
+                  - generic [ref=f15e188]: ₹569
+                - link "Amazon ₹599" [ref=f15e189] [cursor=pointer]:
+                  - /url: /go/amazon?id=minimalist-niacinamide
+                  - generic [ref=f15e190]: Amazon
+                  - generic [ref=f15e191]: ₹599
+            - generic [ref=f15e192]:
+              - link "Full Review & Specs" [ref=f15e193] [cursor=pointer]:
+                - /url: /product/minimalist-10-niacinamide-face-serum
+              - link "Check Deal →" [ref=f15e194] [cursor=pointer]:
+                - /url: /go/skincare?id=minimalist-niacinamide
+        - generic [ref=f15e196]:
+          - generic [ref=f15e197]:
+            - generic [ref=f15e198]: Top Seller
+            - generic [ref=f15e199]: 10% OFF
+            - link "View Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla)" [ref=f15e200] [cursor=pointer]:
+              - /url: /product/ensure-diabetes-care-adult-nutrition-powder
+              - img "Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla)" [ref=f15e201]
+          - generic [ref=f15e202]:
+            - generic [ref=f15e203]:
+              - generic [ref=f15e204]: Abbott Ensure
+              - generic [ref=f15e205]: Senior Wellness & Care
+            - heading [level=3] [ref=f15e206]:
+              - link "Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla)" [ref=f15e207] [cursor=pointer]:
+                - /url: /product/ensure-diabetes-care-adult-nutrition-powder
+            - generic [ref=f15e209]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f15e210]':
+                - generic [aria-hidden] [ref=f15e211]: ★
+                - generic [aria-hidden] [ref=f15e212]: ★
+                - generic [aria-hidden] [ref=f15e213]: ★
+                - generic [aria-hidden] [ref=f15e214]: ★
+                - generic [aria-hidden] [ref=f15e215]: ★
+              - generic [ref=f15e216]: "4.8"
+              - generic [ref=f15e217]: (3,100)
+            - paragraph [ref=f15e218]: Scientifically formulated nutrition with 32 vital nutrients for strength, immunity & joint mobility.
+            - generic [ref=f15e219]:
+              - generic [ref=f15e220]:
+                - generic [ref=f15e221]: ₹745
+                - generic [ref=f15e222]: ₹825
+              - generic [ref=f15e223]: on Brand Flagship
+            - generic [ref=f15e224]:
+              - generic [ref=f15e225]: "Compare Stores:"
+              - generic [ref=f15e226]:
+                - link "Brand Flagship ₹745" [ref=f15e227] [cursor=pointer]:
+                  - /url: /go/senior-health?id=ensure-nutrition
+                  - generic [ref=f15e228]: Brand Flagship
+                  - generic [ref=f15e229]: ₹745
+                - link "Amazon ₹775" [ref=f15e230] [cursor=pointer]:
+                  - /url: /go/amazon?id=ensure-adult-nutrition
+                  - generic [ref=f15e231]: Amazon
+                  - generic [ref=f15e232]: ₹775
+            - generic [ref=f15e233]:
+              - link "Full Review & Specs" [ref=f15e234] [cursor=pointer]:
+                - /url: /product/ensure-diabetes-care-adult-nutrition-powder
+              - link "Check Deal →" [ref=f15e235] [cursor=pointer]:
+                - /url: /go/senior-health?id=ensure-nutrition
+        - generic [ref=f15e237]:
+          - generic [ref=f15e238]:
+            - generic [ref=f15e239]: Editor's Choice
+            - generic [ref=f15e240]: 8% OFF
+            - link "View Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper)" [ref=f15e241] [cursor=pointer]:
+              - /url: /product/dyson-airwrap-multi-styler-complete-long
+              - img "Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper)" [ref=f15e242]
+          - generic [ref=f15e243]:
+            - generic [ref=f15e244]:
+              - generic [ref=f15e245]: Dyson
+              - generic [ref=f15e246]: Hair Styling
+            - heading [level=3] [ref=f15e247]:
+              - link "Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper)" [ref=f15e248] [cursor=pointer]:
+                - /url: /product/dyson-airwrap-multi-styler-complete-long
+            - generic [ref=f15e250]:
+              - 'generic "Rating: 4.9 out of 5 stars" [ref=f15e251]':
+                - generic [aria-hidden] [ref=f15e252]: ★
+                - generic [aria-hidden] [ref=f15e253]: ★
+                - generic [aria-hidden] [ref=f15e254]: ★
+                - generic [aria-hidden] [ref=f15e255]: ★
+                - generic [aria-hidden] [ref=f15e256]: ★
+              - generic [ref=f15e257]: "4.9"
+              - generic [ref=f15e258]: (1,890)
+            - paragraph [ref=f15e259]: Style with air, not extreme heat. Curls, shapes, smoothes and hides flyaways.
+            - generic [ref=f15e260]:
+              - generic [ref=f15e261]:
+                - generic [ref=f15e262]: ₹45,900
+                - generic [ref=f15e263]: ₹49,900
+              - generic [ref=f15e264]: on Amazon
+            - generic [ref=f15e265]:
+              - generic [ref=f15e266]: "Compare Stores:"
+              - generic [ref=f15e267]:
+                - link "Amazon ₹45,900" [ref=f15e268] [cursor=pointer]:
+                  - /url: /go/amazon?id=dyson-airwrap
+                  - generic [ref=f15e269]: Amazon
+                  - generic [ref=f15e270]: ₹45,900
+                - link "Nykaa ₹47,900" [ref=f15e271] [cursor=pointer]:
+                  - /url: /go/salon?id=dyson-airwrap
+                  - generic [ref=f15e272]: Nykaa
+                  - generic [ref=f15e273]: ₹47,900
+            - generic [ref=f15e274]:
+              - link "Full Review & Specs" [ref=f15e275] [cursor=pointer]:
+                - /url: /product/dyson-airwrap-multi-styler-complete-long
+              - link "Check Deal →" [ref=f15e276] [cursor=pointer]:
+                - /url: /go/amazon?id=dyson-airwrap
+        - generic [ref=f15e278]:
+          - generic [ref=f15e279]:
+            - generic [ref=f15e280]: Trending
+            - generic [ref=f15e281]: 18% OFF
+            - link "View COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare)" [ref=f15e282] [cursor=pointer]:
+              - /url: /product/cosrx-advanced-snail-96-mucin-essence
+              - img "COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare)" [ref=f15e283]
+          - generic [ref=f15e284]:
+            - generic [ref=f15e285]:
+              - generic [ref=f15e286]: COSRX
+              - generic [ref=f15e287]: K-Beauty Skincare
+            - heading [level=3] [ref=f15e288]:
+              - link "COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare)" [ref=f15e289] [cursor=pointer]:
+                - /url: /product/cosrx-advanced-snail-96-mucin-essence
+            - generic [ref=f15e291]:
+              - 'generic "Rating: 4.88 out of 5 stars" [ref=f15e292]':
+                - generic [aria-hidden] [ref=f15e293]: ★
+                - generic [aria-hidden] [ref=f15e294]: ★
+                - generic [aria-hidden] [ref=f15e295]: ★
+                - generic [aria-hidden] [ref=f15e296]: ★
+                - generic [aria-hidden] [ref=f15e297]: ★
+              - generic [ref=f15e298]: "4.9"
+              - generic [ref=f15e299]: (11,200)
+            - paragraph [ref=f15e300]: The viral Korean glass-skin Holy Grail for plumper, radiant, soothed skin.
+            - generic [ref=f15e301]:
+              - generic [ref=f15e302]:
+                - generic [ref=f15e303]: ₹1,190
+                - generic [ref=f15e304]: ₹1,450
+              - generic [ref=f15e305]: on Nykaa
+            - generic [ref=f15e306]:
+              - generic [ref=f15e307]: "Compare Stores:"
+              - generic [ref=f15e308]:
+                - link "Nykaa ₹1,190" [ref=f15e309] [cursor=pointer]:
+                  - /url: /go/k-beauty?id=cosrx-snail-essence
+                  - generic [ref=f15e310]: Nykaa
+                  - generic [ref=f15e311]: ₹1,190
+                - link "Amazon ₹1,220" [ref=f15e312] [cursor=pointer]:
+                  - /url: /go/amazon?id=cosrx-snail-mucin
+                  - generic [ref=f15e313]: Amazon
+                  - generic [ref=f15e314]: ₹1,220
+            - generic [ref=f15e315]:
+              - link "Full Review & Specs" [ref=f15e316] [cursor=pointer]:
+                - /url: /product/cosrx-advanced-snail-96-mucin-essence
+              - link "Check Deal →" [ref=f15e317] [cursor=pointer]:
+                - /url: /go/k-beauty?id=cosrx-snail-essence
+        - generic [ref=f15e319]:
+          - generic [ref=f15e320]:
+            - generic [ref=f15e321]: Best Value
+            - generic [ref=f15e322]: 35% OFF
+            - link "View Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles)" [ref=f15e323] [cursor=pointer]:
+              - /url: /product/bella-vita-luxury-unisex-perfume-gift-set
+              - img "Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles)" [ref=f15e324]
+          - generic [ref=f15e325]:
+            - generic [ref=f15e326]:
+              - generic [ref=f15e327]: Bella Vita
+              - generic [ref=f15e328]: Luxury Fragrance
+            - heading [level=3] [ref=f15e329]:
+              - link "Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles)" [ref=f15e330] [cursor=pointer]:
+                - /url: /product/bella-vita-luxury-unisex-perfume-gift-set
+            - generic [ref=f15e332]:
+              - 'generic "Rating: 4.7 out of 5 stars" [ref=f15e333]':
+                - generic [aria-hidden] [ref=f15e334]: ★
+                - generic [aria-hidden] [ref=f15e335]: ★
+                - generic [aria-hidden] [ref=f15e336]: ★
+                - generic [aria-hidden] [ref=f15e337]: ★
+                - generic [aria-hidden] [ref=f15e338]: ★
+              - generic [ref=f15e339]: "4.7"
+              - generic [ref=f15e340]: (6,540)
+            - paragraph [ref=f15e341]: "India's bestselling luxury artisanal scents: CEO Man, White Oud, Skai Aquatic & Honey Oud."
+            - generic [ref=f15e342]:
+              - generic [ref=f15e343]:
+                - generic [ref=f15e344]: ₹549
+                - generic [ref=f15e345]: ₹849
+              - generic [ref=f15e346]: on Nykaa
+            - generic [ref=f15e347]:
+              - generic [ref=f15e348]: "Compare Stores:"
+              - generic [ref=f15e349]:
+                - link "Nykaa ₹549" [ref=f15e350] [cursor=pointer]:
+                  - /url: /go/perfumes?id=bella-vita-perfume-set
+                  - generic [ref=f15e351]: Nykaa
+                  - generic [ref=f15e352]: ₹549
+                - link "Amazon ₹575" [ref=f15e353] [cursor=pointer]:
+                  - /url: /go/amazon?id=bella-vita-perfume-set
+                  - generic [ref=f15e354]: Amazon
+                  - generic [ref=f15e355]: ₹575
+            - generic [ref=f15e356]:
+              - link "Full Review & Specs" [ref=f15e357] [cursor=pointer]:
+                - /url: /product/bella-vita-luxury-unisex-perfume-gift-set
+              - link "Check Deal →" [ref=f15e358] [cursor=pointer]:
+                - /url: /go/perfumes?id=bella-vita-perfume-set
+      - generic [ref=f15e360]:
+        - heading "Skincare & Hair Styling Investment Matrix" [level=3] [ref=f15e361]
+        - table [ref=f15e363]:
+          - rowgroup [ref=f15e364]:
+            - row [ref=f15e365]:
+              - columnheader "Feature / Product" [ref=f15e366]
+              - 'columnheader "Best Value LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml) LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml) Rating: 4.8 out of 5 stars 4.8 (4,620) ₹1,850 View on Nykaa" [ref=f15e367]':
+                - generic [ref=f15e368]:
+                  - generic [ref=f15e369]: Best Value
+                  - img "LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f15e370]
+                  - link "LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f15e371] [cursor=pointer]:
+                    - /url: /product/laneige-water-sleeping-mask-ex
+                  - generic [ref=f15e373]:
+                    - 'generic "Rating: 4.8 out of 5 stars" [ref=f15e374]':
+                      - generic [aria-hidden] [ref=f15e375]: ★
+                      - generic [aria-hidden] [ref=f15e376]: ★
+                      - generic [aria-hidden] [ref=f15e377]: ★
+                      - generic [aria-hidden] [ref=f15e378]: ★
+                      - generic [aria-hidden] [ref=f15e379]: ★
+                    - generic [ref=f15e380]: "4.8"
+                    - generic [ref=f15e381]: (4,620)
+                  - generic [ref=f15e382]: ₹1,850
+                  - link "View on Nykaa" [ref=f15e383] [cursor=pointer]:
+                    - /url: /go/nykaa?id=laneige-water-mask
+              - 'columnheader "Editor''s Choice Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml) Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml) Rating: 4.85 out of 5 stars 4.8 (8,900) ₹569 View on Nykaa" [ref=f15e384]':
+                - generic [ref=f15e385]:
+                  - generic [ref=f15e386]: Editor's Choice
+                  - img "Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f15e387]
+                  - link "Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f15e388] [cursor=pointer]:
+                    - /url: /product/minimalist-10-niacinamide-face-serum
+                  - generic [ref=f15e390]:
+                    - 'generic "Rating: 4.85 out of 5 stars" [ref=f15e391]':
+                      - generic [aria-hidden] [ref=f15e392]: ★
+                      - generic [aria-hidden] [ref=f15e393]: ★
+                      - generic [aria-hidden] [ref=f15e394]: ★
+                      - generic [aria-hidden] [ref=f15e395]: ★
+                      - generic [aria-hidden] [ref=f15e396]: ★
+                    - generic [ref=f15e397]: "4.8"
+                    - generic [ref=f15e398]: (8,900)
+                  - generic [ref=f15e399]: ₹569
+                  - link "View on Nykaa" [ref=f15e400] [cursor=pointer]:
+                    - /url: /go/skincare?id=minimalist-niacinamide
+              - 'columnheader "Top Seller Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla) Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla) Rating: 4.8 out of 5 stars 4.8 (3,100) ₹745 View on Brand Flagship" [ref=f15e401]':
+                - generic [ref=f15e402]:
+                  - generic [ref=f15e403]: Top Seller
+                  - img "Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla)" [ref=f15e404]
+                  - link "Ensure Complete Adult & Senior Care Nutritional Powder (400g Vanilla)" [ref=f15e405] [cursor=pointer]:
+                    - /url: /product/ensure-diabetes-care-adult-nutrition-powder
+                  - generic [ref=f15e407]:
+                    - 'generic "Rating: 4.8 out of 5 stars" [ref=f15e408]':
+                      - generic [aria-hidden] [ref=f15e409]: ★
+                      - generic [aria-hidden] [ref=f15e410]: ★
+                      - generic [aria-hidden] [ref=f15e411]: ★
+                      - generic [aria-hidden] [ref=f15e412]: ★
+                      - generic [aria-hidden] [ref=f15e413]: ★
+                    - generic [ref=f15e414]: "4.8"
+                    - generic [ref=f15e415]: (3,100)
+                  - generic [ref=f15e416]: ₹745
+                  - link "View on Brand Flagship" [ref=f15e417] [cursor=pointer]:
+                    - /url: /go/senior-health?id=ensure-nutrition
+              - 'columnheader "Editor''s Choice Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper) Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper) Rating: 4.9 out of 5 stars 4.9 (1,890) ₹45,900 View on Amazon" [ref=f15e418]':
+                - generic [ref=f15e419]:
+                  - generic [ref=f15e420]: Editor's Choice
+                  - img "Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper)" [ref=f15e421]
+                  - link "Dyson Airwrap Multi-Styler Complete Long (Nickel/Copper)" [ref=f15e422] [cursor=pointer]:
+                    - /url: /product/dyson-airwrap-multi-styler-complete-long
+                  - generic [ref=f15e424]:
+                    - 'generic "Rating: 4.9 out of 5 stars" [ref=f15e425]':
+                      - generic [aria-hidden] [ref=f15e426]: ★
+                      - generic [aria-hidden] [ref=f15e427]: ★
+                      - generic [aria-hidden] [ref=f15e428]: ★
+                      - generic [aria-hidden] [ref=f15e429]: ★
+                      - generic [aria-hidden] [ref=f15e430]: ★
+                    - generic [ref=f15e431]: "4.9"
+                    - generic [ref=f15e432]: (1,890)
+                  - generic [ref=f15e433]: ₹45,900
+                  - link "View on Amazon" [ref=f15e434] [cursor=pointer]:
+                    - /url: /go/amazon?id=dyson-airwrap
+              - 'columnheader "Trending COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare) COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare) Rating: 4.88 out of 5 stars 4.9 (11,200) ₹1,190 View on Nykaa" [ref=f15e435]':
+                - generic [ref=f15e436]:
+                  - generic [ref=f15e437]: Trending
+                  - img "COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare)" [ref=f15e438]
+                  - link "COSRX Advanced Snail 96 Mucin Power Essence (100ml Korean Skincare)" [ref=f15e439] [cursor=pointer]:
+                    - /url: /product/cosrx-advanced-snail-96-mucin-essence
+                  - generic [ref=f15e441]:
+                    - 'generic "Rating: 4.88 out of 5 stars" [ref=f15e442]':
+                      - generic [aria-hidden] [ref=f15e443]: ★
+                      - generic [aria-hidden] [ref=f15e444]: ★
+                      - generic [aria-hidden] [ref=f15e445]: ★
+                      - generic [aria-hidden] [ref=f15e446]: ★
+                      - generic [aria-hidden] [ref=f15e447]: ★
+                    - generic [ref=f15e448]: "4.9"
+                    - generic [ref=f15e449]: (11,200)
+                  - generic [ref=f15e450]: ₹1,190
+                  - link "View on Nykaa" [ref=f15e451] [cursor=pointer]:
+                    - /url: /go/k-beauty?id=cosrx-snail-essence
+              - 'columnheader "Best Value Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles) Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles) Rating: 4.7 out of 5 stars 4.7 (6,540) ₹549 View on Nykaa" [ref=f15e452]':
+                - generic [ref=f15e453]:
+                  - generic [ref=f15e454]: Best Value
+                  - img "Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles)" [ref=f15e455]
+                  - link "Bella Vita Luxury Unisex Eau De Parfum Discovery Set (4 x 20ml Bottles)" [ref=f15e456] [cursor=pointer]:
+                    - /url: /product/bella-vita-luxury-unisex-perfume-gift-set
+                  - generic [ref=f15e458]:
+                    - 'generic "Rating: 4.7 out of 5 stars" [ref=f15e459]':
+                      - generic [aria-hidden] [ref=f15e460]: ★
+                      - generic [aria-hidden] [ref=f15e461]: ★
+                      - generic [aria-hidden] [ref=f15e462]: ★
+                      - generic [aria-hidden] [ref=f15e463]: ★
+                      - generic [aria-hidden] [ref=f15e464]: ★
+                    - generic [ref=f15e465]: "4.7"
+                    - generic [ref=f15e466]: (6,540)
+                  - generic [ref=f15e467]: ₹549
+                  - link "View on Nykaa" [ref=f15e468] [cursor=pointer]:
+                    - /url: /go/perfumes?id=bella-vita-perfume-set
+          - rowgroup [ref=f15e469]:
+            - row [ref=f15e470]:
+              - cell "Brand" [ref=f15e471]
+              - cell [ref=f15e472]:
+                - strong [ref=f15e473]: LANEIGE
+              - cell [ref=f15e474]:
+                - strong [ref=f15e475]: Minimalist
+              - cell [ref=f15e476]:
+                - strong [ref=f15e477]: Abbott Ensure
+              - cell [ref=f15e478]:
+                - strong [ref=f15e479]: Dyson
+              - cell [ref=f15e480]:
+                - strong [ref=f15e481]: COSRX
+              - cell [ref=f15e482]:
+                - strong [ref=f15e483]: Bella Vita
+            - row [ref=f15e484]:
+              - cell "Category" [ref=f15e485]
+              - cell "Skincare Serums" [ref=f15e486]
+              - cell "Skincare Serums" [ref=f15e487]
+              - cell "Senior Wellness & Care" [ref=f15e488]
+              - cell "Hair Styling" [ref=f15e489]
+              - cell "K-Beauty Skincare" [ref=f15e490]
+              - cell "Luxury Fragrance" [ref=f15e491]
+            - row [ref=f15e492]:
+              - cell "Top Advantage" [ref=f15e493]
+              - cell "✓ Locks in deep hydration for 48 hours without oiliness" [ref=f15e494]
+              - cell "✓ Fades stubborn post-acne blemishes and pigmentation in 4-6 weeks" [ref=f15e495]
+              - cell "✓ Contains 32 vital nutrients including Vitamins A, C, E, Zinc, and Selenium" [ref=f15e496]
+              - cell "✓ Zero heat damage preserves natural shine and hair cuticle strength" [ref=f15e497]
+              - cell "✓ 96.3% snail mucin provides intense hydration and skin plumping" [ref=f15e498]
+              - cell "✓ 4 distinct versatile scents covering office, date night, and festive occasions" [ref=f15e499]
+            - row [ref=f15e500]:
+              - cell "Drawback to Consider" [ref=f15e501]
+              - cell "✕ Jar packaging requires using the included spatula for hygiene" [ref=f15e502]
+              - cell "✕ Beginners with extremely sensitive skin should patch test first" [ref=f15e503]
+              - cell "✕ Store in a cool dry airtight container once opened" [ref=f15e504]
+              - cell "✕ Premium investment price point" [ref=f15e505]
+              - cell "✕ Slimey stringy texture takes a minute to get used to" [ref=f15e506]
+              - cell "✕ White Oud has strong projection which may feel bold to subtle floral lovers" [ref=f15e507]
+            - row [ref=f15e508]:
+              - cell "Verified Stores" [ref=f15e509]
+              - 'cell "Nykaa: ₹1,850 Amazon: ₹1,930" [ref=f15e510]':
+                - generic [ref=f15e511]:
+                  - generic [ref=f15e512]: "Nykaa: ₹1,850"
+                  - generic [ref=f15e513]: "Amazon: ₹1,930"
+              - 'cell "Nykaa: ₹569 Amazon: ₹599" [ref=f15e514]':
+                - generic [ref=f15e515]:
+                  - generic [ref=f15e516]: "Nykaa: ₹569"
+                  - generic [ref=f15e517]: "Amazon: ₹599"
+              - 'cell "Brand Flagship: ₹745 Amazon: ₹775" [ref=f15e518]':
+                - generic [ref=f15e519]:
+                  - generic [ref=f15e520]: "Brand Flagship: ₹745"
+                  - generic [ref=f15e521]: "Amazon: ₹775"
+              - 'cell "Amazon: ₹45,900 Nykaa: ₹47,900" [ref=f15e522]':
+                - generic [ref=f15e523]:
+                  - generic [ref=f15e524]: "Amazon: ₹45,900"
+                  - generic [ref=f15e525]: "Nykaa: ₹47,900"
+              - 'cell "Nykaa: ₹1,190 Amazon: ₹1,220" [ref=f15e526]':
+                - generic [ref=f15e527]:
+                  - generic [ref=f15e528]: "Nykaa: ₹1,190"
+                  - generic [ref=f15e529]: "Amazon: ₹1,220"
+              - 'cell "Nykaa: ₹549 Amazon: ₹575" [ref=f15e530]':
+                - generic [ref=f15e531]:
+                  - generic [ref=f15e532]: "Nykaa: ₹549"
+                  - generic [ref=f15e533]: "Amazon: ₹575"
+      - generic [ref=f15e534]:
+        - generic [ref=f15e535]:
+          - generic [ref=f15e536]: SKIN LAB PROTOCOLS
+          - heading "The 3 Non-Negotiables of Clean Skincare in 2026" [level=2] [ref=f15e537]
+        - generic [ref=f15e538]:
+          - generic [ref=f15e539]:
+            - generic [ref=f15e540]: "01"
+            - heading "Active Concentration Over Hype" [level=4] [ref=f15e541]
+            - paragraph [ref=f15e542]: Higher percentages often cause dermatitis. 2% to 5% Niacinamide achieves peak barrier restoration without flaking or redness.
+          - generic [ref=f15e543]:
+            - generic [ref=f15e544]: "02"
+            - heading "Batch Barcode Verification" [level=4] [ref=f15e545]
+            - paragraph [ref=f15e546]: Always inspect the expiration code on imported K-Beauty products. Authorized vendors guarantee at least 18+ months shelf life.
+          - generic [ref=f15e547]:
+            - generic [ref=f15e548]: "03"
+            - heading "Geriatric & Adult Nutrition Safety" [level=4] [ref=f15e549]
+            - paragraph [ref=f15e550]: Senior wellness formulas must adhere to verified diabetic-safe glycemic index levels and clinically formulated maltodextrin limits.
+      - generic [ref=f15e551]:
+        - heading "Beauty, Ingredients & Batch Authenticity FAQs" [level=2] [ref=f15e552]
+        - generic [ref=f15e553]:
+          - group [ref=f15e554]:
+            - generic "How do you verify authentic beauty products from Nykaa and Amazon Beauty?" [ref=f15e555] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f15e557]: +
+            - paragraph [ref=f15e559]: We strictly route to authorized brand flagships on Nykaa, Sephora India, and official Amazon Brand Stores that supply direct manufacturer batch barcodes. We never feature unauthorized third-party marketplace resellers.
+          - group [ref=f15e560]:
+            - generic "Do you test beauty products on sensitive skin?" [ref=f15e561] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f15e563]: +
+          - group [ref=f15e564]:
+            - generic "How can I get the best discount on viral Korean skincare?" [ref=f15e565] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f15e567]: +
+  - contentinfo [ref=f15e568]:
+    - generic [ref=f15e570]:
+      - generic [ref=f15e571]:
+        - generic [ref=f15e572]: 🔍
+        - generic [ref=f15e573]:
+          - generic [ref=f15e574]: 100% Unbiased Editorial
+          - generic [ref=f15e575]: Lab-tested and rigorously benchmarked picks.
+      - generic [ref=f15e576]:
+        - generic [ref=f15e577]: 🏷️
+        - generic [ref=f15e578]:
+          - generic [ref=f15e579]: Verified Daily Discounts
+          - generic [ref=f15e580]: Automated price scrapers audit deals 24/7.
+      - generic [ref=f15e581]:
+        - generic [ref=f15e582]: 🛡️
+        - generic [ref=f15e583]:
+          - generic [ref=f15e584]: Direct Store Guarantee
+          - generic [ref=f15e585]: Checkout directly on authorized seller stores.
+      - generic [ref=f15e586]:
+        - generic [ref=f15e587]: ⚡
+        - generic [ref=f15e588]:
+          - generic [ref=f15e589]: Instant Coupon Validation
+          - generic [ref=f15e590]: No dead codes or expired vouchers.
+    - generic [ref=f15e592]:
+      - generic [ref=f15e593]:
+        - link "B BhujDeals Compare & Discover" [ref=f15e594] [cursor=pointer]:
+          - /url: /
+          - text: B
+          - generic [ref=f15e595]:
+            - generic [ref=f15e596]: BhujDeals
+            - text: Compare & Discover
+        - paragraph [ref=f15e597]: BhujDeals is an independent consumer discovery engine. We help smart shoppers cut through e-commerce noise by comparing prices, lab performance, and verified discount coupons across Amazon, Flipkart, Booking.com, Agoda, and top DTC brands.
+        - generic [ref=f15e598]:
+          - generic [ref=f15e599]: Amazon Associates
+          - generic [ref=f15e600]: Flipkart Affiliate
+          - generic [ref=f15e601]: Booking Holdings
+          - generic [ref=f15e602]: Impact Radius
+          - generic [ref=f15e603]: CJ Affiliate
+      - generic [ref=f15e604]:
+        - heading "Categories" [level=4] [ref=f15e605]
+        - list [ref=f15e606]:
+          - listitem [ref=f15e607]:
+            - link "Hotels & Stays" [ref=f15e608] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f15e609]:
+            - link "Electronics & Tech" [ref=f15e610] [cursor=pointer]:
+              - /url: /electronics
+          - listitem [ref=f15e611]:
+            - link "Beauty & Skincare" [ref=f15e612] [cursor=pointer]:
+              - /url: /beauty
+          - listitem [ref=f15e613]:
+            - link "Fashion & Apparel" [ref=f15e614] [cursor=pointer]:
+              - /url: /fashion
+          - listitem [ref=f15e615]:
+            - link "Home & Kitchen" [ref=f15e616] [cursor=pointer]:
+              - /url: /home
+          - listitem [ref=f15e617]:
+            - link "AI Tools & SaaS" [ref=f15e618] [cursor=pointer]:
+              - /url: /ai-tools
+      - generic [ref=f15e619]:
+        - heading "Travel & Deals" [level=4] [ref=f15e620]
+        - list [ref=f15e621]:
+          - listitem [ref=f15e622]:
+            - link "Hotels & Stays" [ref=f15e623] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f15e624]:
+            - link "Experiences & Tours" [ref=f15e625] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=f15e626]:
+            - link "Today's Deals" [ref=f15e627] [cursor=pointer]:
+              - /url: /deals
+          - listitem [ref=f15e628]:
+            - link "Web Hosting Deals" [ref=f15e629] [cursor=pointer]:
+              - /url: /hosting
+          - listitem [ref=f15e630]:
+            - link "AI Tools & SaaS" [ref=f15e631] [cursor=pointer]:
+              - /url: /ai-tools
+          - listitem [ref=f15e632]:
+            - link "Buying Guides & Reviews" [ref=f15e633] [cursor=pointer]:
+              - /url: /blog
+      - generic [ref=f15e634]:
+        - heading "Trust & Legal" [level=4] [ref=f15e635]
+        - list [ref=f15e636]:
+          - listitem [ref=f15e637]:
+            - link "About BhujDeals" [ref=f15e638] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f15e639]:
+            - link "Affiliate Disclosure" [ref=f15e640] [cursor=pointer]:
+              - /url: /affiliate-disclosure
+          - listitem [ref=f15e641]:
+            - link "Price & Warranty Disclaimer" [ref=f15e642] [cursor=pointer]:
+              - /url: /disclaimer
+          - listitem [ref=f15e643]:
+            - link "Privacy Policy" [ref=f15e644] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=f15e645]:
+            - link "Terms of Service" [ref=f15e646] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=f15e647]:
+            - link "Contact & Partnerships" [ref=f15e648] [cursor=pointer]:
+              - /url: /contact
+    - paragraph [ref=f15e651]:
+      - strong [ref=f15e652]: "FTC & ASCI Affiliate Disclosure:"
+      - text: BhujDeals is an independent participant in various affiliate marketing programs, including the Amazon Services LLC Associates Program, the Flipkart Affiliate Program, Booking.com Affiliate Partner Network, Impact.com, and Commission Junction. When you click on links to various merchants on this site and make a purchase or booking, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network, Booking Holdings, and PartnerStack. Prices and availability are subject to change without notice. All product names, logos, and brands are property of their respective owners.
+    - generic [ref=f15e654]:
+      - paragraph [ref=f15e655]: © 2026 BhujDeals Media Ltd. Built with high performance Astro & Cloudflare Edge.
+      - generic [ref=f15e656]:
+        - link "Sitemap" [ref=f15e657] [cursor=pointer]:
+          - /url: /sitemap-index.xml
+        - link "Privacy" [ref=f15e658] [cursor=pointer]:
+          - /url: /privacy
+        - link "Disclosure" [ref=f15e659] [cursor=pointer]:
+          - /url: /affiliate-disclosure
+        - link "Support" [ref=f15e660] [cursor=pointer]:
+          - /url: /contact

@@ -1,0 +1,219 @@
+---
+import RatingStars from './RatingStars.astro';
+import type { Product } from '../data/products';
+
+interface Props {
+  products: Product[];
+  title?: string;
+}
+
+const { products, title = "Side-by-Side Comparison" } = Astro.props;
+---
+
+<div class="comparison-section">
+  {title && <h3 class="comparison-title">{title}</h3>}
+  
+  <div class="table-responsive">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="spec-col">Feature / Product</th>
+          {products.map((p) => (
+            <th class="product-col">
+              <div class="header-product-wrap">
+                {p.dealTag && <span class="badge badge-deal">{p.dealTag}</span>}
+                <img src={p.image} alt={p.name} class="table-prod-img" />
+                <a href={`/product/${p.slug}`} class="table-prod-name">{p.name}</a>
+                <div class="table-rating">
+                  <RatingStars rating={p.rating} reviewsCount={p.reviewsCount} size="sm" />
+                </div>
+                <div class="table-price">
+                  ₹{p.primaryStore.price.toLocaleString()}
+                </div>
+                <a 
+                  href={p.primaryStore.affiliateUrl} 
+                  target="_blank" 
+                  rel="sponsored nofollow noopener"
+                  class="btn btn-affiliate btn-sm full-width"
+                  data-track-click="outbound"
+                  data-store={p.primaryStore.storeName}
+                >
+                  View on {p.primaryStore.storeName}
+                </a>
+              </div>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="spec-label">Brand</td>
+          {products.map((p) => <td><strong>{p.brand}</strong></td>)}
+        </tr>
+        <tr>
+          <td class="spec-label">Category</td>
+          {products.map((p) => <td>{p.subcategory}</td>)}
+        </tr>
+        <tr>
+          <td class="spec-label">Top Advantage</td>
+          {products.map((p) => (
+            <td class="pro-cell">
+              <span class="check-icon">✓</span> {p.pros[0]}
+            </td>
+          ))}
+        </tr>
+        <tr>
+          <td class="spec-label">Drawback to Consider</td>
+          {products.map((p) => (
+            <td class="con-cell">
+              <span class="cross-icon">✕</span> {p.cons[0]}
+            </td>
+          ))}
+        </tr>
+        <tr>
+          <td class="spec-label">Verified Stores</td>
+          {products.map((p) => (
+            <td>
+              <div class="store-tags-stack">
+                {p.storeOffers.map((offer) => (
+                  <span class="store-tag">{offer.storeName}: ₹{offer.price.toLocaleString()}</span>
+                ))}
+              </div>
+            </td>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .comparison-section {
+    margin: 40px 0;
+  }
+
+  .comparison-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 650px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-default);
+    vertical-align: top;
+  }
+
+  .spec-col {
+    width: 22%;
+    background: #f8fafc;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-main);
+  }
+
+  .product-col {
+    background: #ffffff;
+    vertical-align: top;
+    width: 26%;
+  }
+
+  .header-product-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .table-prod-img {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .table-prod-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .table-prod-name:hover {
+    color: var(--color-primary);
+  }
+
+  .table-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-deal);
+    font-family: var(--font-display);
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .spec-label {
+    background: #f8fafc;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .pro-cell {
+    font-size: 0.85rem;
+    color: #166534;
+  }
+
+  .check-icon {
+    font-weight: 900;
+    color: #16a34a;
+    margin-right: 4px;
+  }
+
+  .con-cell {
+    font-size: 0.85rem;
+    color: #991b1b;
+  }
+
+  .cross-icon {
+    font-weight: 900;
+    color: #dc2626;
+    margin-right: 4px;
+  }
+
+  .store-tags-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .store-tag {
+    font-size: 0.775rem;
+    background: var(--bg-subtle);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-body);
+  }
+</style>

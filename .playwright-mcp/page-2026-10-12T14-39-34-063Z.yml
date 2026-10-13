@@ -1,0 +1,455 @@
+- generic [active] [ref=f12e1]:
+  - region "Affiliate Disclosure" [ref=f12e2]:
+    - generic [ref=f12e3]:
+      - generic [ref=f12e4]:
+        - generic [ref=f12e5]: INDEPENDENT ADVICE
+        - paragraph [ref=f12e6]: BhujDeals is reader-supported. When you buy or book through links on our platform, we may earn an affiliate commission at no extra cost to you.
+      - link "How we test & monetize →" [ref=f12e7] [cursor=pointer]:
+        - /url: /affiliate-disclosure
+  - banner [ref=f12e8]:
+    - generic [ref=f12e10]:
+      - link "BhujDeals Home" [ref=f12e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f12e12]: B
+        - generic [ref=f12e13]:
+          - generic [ref=f12e14]: BhujDeals
+          - generic [ref=f12e15]: Compare & Discover
+      - generic [ref=f12e17]:
+        - textbox "Search 10,000+ products, hotels, coupons or stores..." [ref=f12e20]
+        - generic [ref=f12e21]: ⌘K
+      - generic [ref=f12e22]:
+        - link "🔥 Today's Deals" [ref=f12e23] [cursor=pointer]:
+          - /url: /deals
+          - generic [ref=f12e24]: 🔥
+          - generic [ref=f12e25]: Today's Deals
+        - link "Guides" [ref=f12e26] [cursor=pointer]:
+          - /url: /blog
+    - navigation "Product and Services Categories" [ref=f12e27]:
+      - list [ref=f12e29]:
+        - listitem [ref=f12e30]:
+          - link "🏨 Hotels" [ref=f12e31] [cursor=pointer]:
+            - /url: /hotels
+            - generic [ref=f12e32]: 🏨
+            - text: Hotels
+        - listitem [ref=f12e33]:
+          - link "💻 Electronics" [ref=f12e34] [cursor=pointer]:
+            - /url: /electronics
+            - generic [ref=f12e35]: 💻
+            - text: Electronics
+        - listitem [ref=f12e36]:
+          - link "✨ Beauty" [ref=f12e37] [cursor=pointer]:
+            - /url: /beauty
+            - generic [ref=f12e38]: ✨
+            - text: Beauty
+        - listitem [ref=f12e39]:
+          - link "👔 Fashion" [ref=f12e40] [cursor=pointer]:
+            - /url: /fashion
+            - generic [ref=f12e41]: 👔
+            - text: Fashion
+        - listitem [ref=f12e42]:
+          - link "☕ Home & Kitchen" [ref=f12e43] [cursor=pointer]:
+            - /url: /home
+            - generic [ref=f12e44]: ☕
+            - text: Home & Kitchen
+        - listitem [ref=f12e45]:
+          - link "🤖 AI Tools" [ref=f12e46] [cursor=pointer]:
+            - /url: /ai-tools
+            - generic [ref=f12e47]: 🤖
+            - text: AI Tools
+        - listitem [ref=f12e48]:
+          - link "✈️ Travel" [ref=f12e49] [cursor=pointer]:
+            - /url: /travel
+            - generic [ref=f12e50]: ✈️
+            - text: Travel
+        - listitem [ref=f12e51]:
+          - link "🌐 Hosting" [ref=f12e52] [cursor=pointer]:
+            - /url: /hosting
+            - generic [ref=f12e53]: 🌐
+            - text: Hosting
+        - listitem [ref=f12e54]:
+          - link "🏷️ Coupons" [ref=f12e55] [cursor=pointer]:
+            - /url: /deals
+            - generic [ref=f12e56]: 🏷️
+            - text: Coupons
+  - main [ref=f12e57]:
+    - generic [ref=f12e58]:
+      - img "High Fashion Editorial Runway and Streetwear" [ref=f12e60]
+      - generic [ref=f12e62]:
+        - navigation "Breadcrumb" [ref=f12e64]:
+          - list [ref=f12e65]:
+            - listitem [ref=f12e66]:
+              - link "Home" [ref=f12e67] [cursor=pointer]:
+                - /url: /
+              - generic [aria-hidden] [ref=f12e68]: /
+            - listitem [ref=f12e69]:
+              - generic [ref=f12e70]: Fashion & Lifestyle
+        - generic [ref=f12e71]:
+          - generic [ref=f12e72]: CURATED EDITORIAL RUNWAY
+          - generic [ref=f12e75]: ✓ AJIO & Myntra Direct Partner Verified
+        - heading "High Fashion Without the Markup. Streetwear, Kurtas & Luxury Timepieces" [level=1] [ref=f12e76]
+        - paragraph [ref=f12e77]: We bypass generic fast fashion to spotlight heavyweight combed cotton hoodies, royal wedding silk-blend kurtas, Swiss automatic watches, and ergonomic memory-foam footwear.
+        - generic [ref=f12e78]:
+          - generic [ref=f12e79]:
+            - generic [ref=f12e80]:
+              - img "AJIO Big Bold Sale" [ref=f12e81]
+              - generic [ref=f12e82]: 🔥 90% Max Drop
+            - generic [ref=f12e83]:
+              - heading "AJIO Big Bold Sale" [level=3] [ref=f12e84]
+              - paragraph [ref=f12e85]: Flat 50% - 90% Off on 2,500+ Top Streetwear Brands
+              - generic [ref=f12e86]:
+                - generic [ref=f12e87]:
+                  - text: "Coupon:"
+                  - strong [ref=f12e88]: AJIOMAX
+                - generic [ref=f12e89]: Extra ₹500 off on ₹2,490+ orders
+              - link "Shop AJIO Big Bold Sale →" [ref=f12e90] [cursor=pointer]:
+                - /url: /go/ajio
+          - generic [ref=f12e91]:
+            - generic [ref=f12e92]:
+              - img "Myntra Lifestyle & Luxe" [ref=f12e93]
+              - generic [ref=f12e94]: ✨ Verified Luxe
+            - generic [ref=f12e95]:
+              - heading "Myntra Lifestyle & Luxe" [level=3] [ref=f12e96]
+              - paragraph [ref=f12e97]: Curated Designer Trends, Luxury Watches & Formal Footwear
+              - generic [ref=f12e98]:
+                - generic [ref=f12e99]:
+                  - text: "Coupon:"
+                  - strong [ref=f12e100]: MYNTRA15
+                - generic [ref=f12e101]: Free express delivery & 14-day hassle-free returns
+              - link "Shop Myntra Lifestyle & Luxe →" [ref=f12e102] [cursor=pointer]:
+                - /url: /go/myntra
+    - generic [ref=f12e103]:
+      - generic [ref=f12e104]:
+        - generic [ref=f12e105]: "Browse Wardrobe:"
+        - generic [ref=f12e106]:
+          - button "All Drops" [ref=f12e107] [cursor=pointer]
+          - button "⌚ Luxury Watches" [ref=f12e108] [cursor=pointer]
+          - button "👑 Ethnic & Festive Kurtas" [ref=f12e109] [cursor=pointer]
+          - button "🧥 Streetwear & Hoodies" [ref=f12e110] [cursor=pointer]
+          - button "👟 Athleisure Sneakers" [ref=f12e111] [cursor=pointer]
+          - button "🌸 Luxury Perfumes" [ref=f12e112] [cursor=pointer]
+      - generic [ref=f12e113]:
+        - generic [ref=f12e115]:
+          - generic [ref=f12e116]:
+            - generic [ref=f12e117]: Trending
+            - generic [ref=f12e118]: 52% OFF
+            - link "View AJIO Trendsetter 450 GSM Heavyweight Fleece Oversized Hoodie" [ref=f12e119] [cursor=pointer]:
+              - /url: /product/ajio-trendsetter-heavyweight-cotton-hoodie
+              - img "AJIO Trendsetter 450 GSM Heavyweight Fleece Oversized Hoodie" [ref=f12e120]
+          - generic [ref=f12e121]:
+            - generic [ref=f12e122]:
+              - generic [ref=f12e123]: AJIO Trends
+              - generic [ref=f12e124]: Streetwear & Hoodies
+            - heading [level=3] [ref=f12e125]:
+              - link "AJIO Trendsetter 450 GSM Heavyweight Fleece Oversized Hoodie" [ref=f12e126] [cursor=pointer]:
+                - /url: /product/ajio-trendsetter-heavyweight-cotton-hoodie
+            - generic [ref=f12e128]:
+              - 'generic "Rating: 4.82 out of 5 stars" [ref=f12e129]':
+                - generic [aria-hidden] [ref=f12e130]: ★
+                - generic [aria-hidden] [ref=f12e131]: ★
+                - generic [aria-hidden] [ref=f12e132]: ★
+                - generic [aria-hidden] [ref=f12e133]: ★
+                - generic [aria-hidden] [ref=f12e134]: ★
+              - generic [ref=f12e135]: "4.8"
+              - generic [ref=f12e136]: (3,120)
+            - paragraph [ref=f12e137]: Premium streetwear boxy-fit hoodie in 100% combed cotton French Terry.
+            - generic [ref=f12e138]:
+              - generic [ref=f12e139]:
+                - generic [ref=f12e140]: ₹1,199
+                - generic [ref=f12e141]: ₹2,499
+              - generic [ref=f12e142]: on AJIO
+            - generic [ref=f12e143]:
+              - generic [ref=f12e144]: "Compare Stores:"
+              - generic [ref=f12e145]:
+                - link "AJIO ₹1,199" [ref=f12e146] [cursor=pointer]:
+                  - /url: /go/ajio?id=ajio-oversized-hoodie
+                  - generic [ref=f12e147]: AJIO
+                  - generic [ref=f12e148]: ₹1,199
+                - link "Amazon ₹1,399" [ref=f12e149] [cursor=pointer]:
+                  - /url: /go/amazon?id=ajio-hoodie
+                  - generic [ref=f12e150]: Amazon
+                  - generic [ref=f12e151]: ₹1,399
+            - generic [ref=f12e152]:
+              - link "Full Review & Specs" [ref=f12e153] [cursor=pointer]:
+                - /url: /product/ajio-trendsetter-heavyweight-cotton-hoodie
+              - link "Check Deal →" [ref=f12e154] [cursor=pointer]:
+                - /url: /go/ajio?id=ajio-oversized-hoodie
+        - generic [ref=f12e156]:
+          - generic [ref=f12e157]:
+            - generic [ref=f12e158]: Editor's Choice
+            - generic [ref=f12e159]: 10% OFF
+            - link "View Tissot PRX Powermatic 80 Automatic (40mm Blue Waffle Dial)" [ref=f12e160] [cursor=pointer]:
+              - /url: /product/tissot-prx-powermatic-80-automatic
+              - img "Tissot PRX Powermatic 80 Automatic (40mm Blue Waffle Dial)" [ref=f12e161]
+          - generic [ref=f12e162]:
+            - generic [ref=f12e163]:
+              - generic [ref=f12e164]: Tissot
+              - generic [ref=f12e165]: Luxury Watches
+            - heading [level=3] [ref=f12e166]:
+              - link "Tissot PRX Powermatic 80 Automatic (40mm Blue Waffle Dial)" [ref=f12e167] [cursor=pointer]:
+                - /url: /product/tissot-prx-powermatic-80-automatic
+            - generic [ref=f12e169]:
+              - 'generic "Rating: 4.9 out of 5 stars" [ref=f12e170]':
+                - generic [aria-hidden] [ref=f12e171]: ★
+                - generic [aria-hidden] [ref=f12e172]: ★
+                - generic [aria-hidden] [ref=f12e173]: ★
+                - generic [aria-hidden] [ref=f12e174]: ★
+                - generic [aria-hidden] [ref=f12e175]: ★
+              - generic [ref=f12e176]: "4.9"
+              - generic [ref=f12e177]: (840)
+            - paragraph [ref=f12e178]: Swiss craftsmanship, 80 hours power reserve & iconic 1970s integrated bracelet.
+            - generic [ref=f12e179]:
+              - generic [ref=f12e180]:
+                - generic [ref=f12e181]: ₹64,500
+                - generic [ref=f12e182]: ₹72,000
+              - generic [ref=f12e183]: on Tata CLiQ Luxury
+            - generic [ref=f12e184]:
+              - generic [ref=f12e185]: "Compare Stores:"
+              - generic [ref=f12e186]:
+                - link "Tata CLiQ Luxury ₹64,500" [ref=f12e187] [cursor=pointer]:
+                  - /url: /go/tatacliq?id=tissot-prx
+                  - generic [ref=f12e188]: Tata CLiQ Luxury
+                  - generic [ref=f12e189]: ₹64,500
+                - link "Myntra ₹66,000" [ref=f12e190] [cursor=pointer]:
+                  - /url: /go/myntra?id=tissot-prx
+                  - generic [ref=f12e191]: Myntra
+                  - generic [ref=f12e192]: ₹66,000
+            - generic [ref=f12e193]:
+              - link "Full Review & Specs" [ref=f12e194] [cursor=pointer]:
+                - /url: /product/tissot-prx-powermatic-80-automatic
+              - link "Check Deal →" [ref=f12e195] [cursor=pointer]:
+                - /url: /go/tatacliq?id=tissot-prx
+        - generic [ref=f12e197]:
+          - generic [ref=f12e198]:
+            - generic [ref=f12e199]: Top Seller
+            - generic [ref=f12e200]: 30% OFF
+            - link "View Manyavar Royal Silk Blend Festive Kurta & Churidar Set" [ref=f12e201] [cursor=pointer]:
+              - /url: /product/manyavar-royal-silk-blend-festive-kurta-set
+              - img "Manyavar Royal Silk Blend Festive Kurta & Churidar Set" [ref=f12e202]
+          - generic [ref=f12e203]:
+            - generic [ref=f12e204]:
+              - generic [ref=f12e205]: Manyavar
+              - generic [ref=f12e206]: Ethnic Wear
+            - heading [level=3] [ref=f12e207]:
+              - link "Manyavar Royal Silk Blend Festive Kurta & Churidar Set" [ref=f12e208] [cursor=pointer]:
+                - /url: /product/manyavar-royal-silk-blend-festive-kurta-set
+            - generic [ref=f12e210]:
+              - 'generic "Rating: 4.78 out of 5 stars" [ref=f12e211]':
+                - generic [aria-hidden] [ref=f12e212]: ★
+                - generic [aria-hidden] [ref=f12e213]: ★
+                - generic [aria-hidden] [ref=f12e214]: ★
+                - generic [aria-hidden] [ref=f12e215]: ★
+                - generic [aria-hidden] [ref=f12e216]: ★
+              - generic [ref=f12e217]: "4.8"
+              - generic [ref=f12e218]: (1,980)
+            - paragraph [ref=f12e219]: Hand-embellished mandarin collar festive ethnic wear for weddings & Diwali.
+            - generic [ref=f12e220]:
+              - generic [ref=f12e221]:
+                - generic [ref=f12e222]: ₹3,499
+                - generic [ref=f12e223]: ₹4,999
+              - generic [ref=f12e224]: on Myntra
+            - generic [ref=f12e225]:
+              - generic [ref=f12e226]: "Compare Stores:"
+              - generic [ref=f12e227]:
+                - link "Myntra ₹3,499" [ref=f12e228] [cursor=pointer]:
+                  - /url: /go/ethnic-wear?id=manyavar-kurta-set
+                  - generic [ref=f12e229]: Myntra
+                  - generic [ref=f12e230]: ₹3,499
+                - link "AJIO ₹3,699" [ref=f12e231] [cursor=pointer]:
+                  - /url: /go/ajio?id=manyavar-kurta-set
+                  - generic [ref=f12e232]: AJIO
+                  - generic [ref=f12e233]: ₹3,699
+            - generic [ref=f12e234]:
+              - link "Full Review & Specs" [ref=f12e235] [cursor=pointer]:
+                - /url: /product/manyavar-royal-silk-blend-festive-kurta-set
+              - link "Check Deal →" [ref=f12e236] [cursor=pointer]:
+                - /url: /go/ethnic-wear?id=manyavar-kurta-set
+        - generic [ref=f12e238]:
+          - generic [ref=f12e239]:
+            - generic [ref=f12e240]: Best Value
+            - generic [ref=f12e241]: 76% OFF
+            - link "View Red Tape Athleisure Memory Foam Running & Lifestyle Sneakers" [ref=f12e242] [cursor=pointer]:
+              - /url: /product/red-tape-athleisure-memory-foam-running-sneakers
+              - img "Red Tape Athleisure Memory Foam Running & Lifestyle Sneakers" [ref=f12e243]
+          - generic [ref=f12e244]:
+            - generic [ref=f12e245]:
+              - generic [ref=f12e246]: Red Tape
+              - generic [ref=f12e247]: Shoes & Footwear
+            - heading [level=3] [ref=f12e248]:
+              - link "Red Tape Athleisure Memory Foam Running & Lifestyle Sneakers" [ref=f12e249] [cursor=pointer]:
+                - /url: /product/red-tape-athleisure-memory-foam-running-sneakers
+            - generic [ref=f12e251]:
+              - 'generic "Rating: 4.7 out of 5 stars" [ref=f12e252]':
+                - generic [aria-hidden] [ref=f12e253]: ★
+                - generic [aria-hidden] [ref=f12e254]: ★
+                - generic [aria-hidden] [ref=f12e255]: ★
+                - generic [aria-hidden] [ref=f12e256]: ★
+                - generic [aria-hidden] [ref=f12e257]: ★
+              - generic [ref=f12e258]: "4.7"
+              - generic [ref=f12e259]: (8,200)
+            - paragraph [ref=f12e260]: Featherweight EVA sole and memory foam insole for all-day walking comfort.
+            - generic [ref=f12e261]:
+              - generic [ref=f12e262]:
+                - generic [ref=f12e263]: ₹1,399
+                - generic [ref=f12e264]: ₹5,899
+              - generic [ref=f12e265]: on Myntra
+            - generic [ref=f12e266]:
+              - generic [ref=f12e267]: "Compare Stores:"
+              - generic [ref=f12e268]:
+                - link "Myntra ₹1,399" [ref=f12e269] [cursor=pointer]:
+                  - /url: /go/footwear?id=red-tape-sneakers
+                  - generic [ref=f12e270]: Myntra
+                  - generic [ref=f12e271]: ₹1,399
+                - link "Amazon ₹1,499" [ref=f12e272] [cursor=pointer]:
+                  - /url: /go/amazon?id=red-tape-sneakers
+                  - generic [ref=f12e273]: Amazon
+                  - generic [ref=f12e274]: ₹1,499
+            - generic [ref=f12e275]:
+              - link "Full Review & Specs" [ref=f12e276] [cursor=pointer]:
+                - /url: /product/red-tape-athleisure-memory-foam-running-sneakers
+              - link "Check Deal →" [ref=f12e277] [cursor=pointer]:
+                - /url: /go/footwear?id=red-tape-sneakers
+      - generic [ref=f12e278]:
+        - generic [ref=f12e279]:
+          - generic [ref=f12e280]: FIT & MATERIAL BENCHMARKS
+          - heading "How We Evaluate Premium Apparel Quality" [level=2] [ref=f12e281]
+          - paragraph [ref=f12e282]: Before featuring clothing on BhujDeals, our editors inspect three durability pillars.
+        - generic [ref=f12e283]:
+          - generic [ref=f12e284]:
+            - generic [ref=f12e285]: "01"
+            - heading "Fabric Weight & GSM" [level=4] [ref=f12e286]
+            - paragraph [ref=f12e287]: We favor 380–450 GSM combed cotton for winter fleece hoodies that hold their structured silhouette wash after wash.
+          - generic [ref=f12e288]:
+            - generic [ref=f12e289]: "02"
+            - heading "Stitching & Reinforcement" [level=4] [ref=f12e290]
+            - paragraph [ref=f12e291]: Double-needle hem stitching and bar-tack stress points prevent premature fraying across pockets and collars.
+          - generic [ref=f12e292]:
+            - generic [ref=f12e293]: "03"
+            - heading "Authentic Multi-Store Sourcing" [level=4] [ref=f12e294]
+            - paragraph [ref=f12e295]: We cross-check serial codes on luxury timepieces (Tissot, Seiko) directly with authorized Indian brand service registries.
+      - generic [ref=f12e296]:
+        - heading "Fashion, Sizing & Return Policy FAQs" [level=2] [ref=f12e297]
+        - generic [ref=f12e298]:
+          - group [ref=f12e299]:
+            - generic "How do you ensure luxury watches and apparel are authentic?" [ref=f12e300] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f12e302]: +
+            - paragraph [ref=f12e304]: We exclusively route to verified authorized platform programs (such as AJIO Exclusive, Tata CLiQ Luxury, and Myntra Luxe) which include genuine brand warranties and manufacturer certificates of origin.
+          - group [ref=f12e305]:
+            - generic "What is the typical return and exchange window on clothing and sneakers?" [ref=f12e306] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f12e308]: +
+          - group [ref=f12e309]:
+            - generic "Can I combine promo codes with bank card discounts?" [ref=f12e310] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f12e312]: +
+  - contentinfo [ref=f12e313]:
+    - generic [ref=f12e315]:
+      - generic [ref=f12e316]:
+        - generic [ref=f12e317]: 🔍
+        - generic [ref=f12e318]:
+          - generic [ref=f12e319]: 100% Unbiased Editorial
+          - generic [ref=f12e320]: Lab-tested and rigorously benchmarked picks.
+      - generic [ref=f12e321]:
+        - generic [ref=f12e322]: 🏷️
+        - generic [ref=f12e323]:
+          - generic [ref=f12e324]: Verified Daily Discounts
+          - generic [ref=f12e325]: Automated price scrapers audit deals 24/7.
+      - generic [ref=f12e326]:
+        - generic [ref=f12e327]: 🛡️
+        - generic [ref=f12e328]:
+          - generic [ref=f12e329]: Direct Store Guarantee
+          - generic [ref=f12e330]: Checkout directly on authorized seller stores.
+      - generic [ref=f12e331]:
+        - generic [ref=f12e332]: ⚡
+        - generic [ref=f12e333]:
+          - generic [ref=f12e334]: Instant Coupon Validation
+          - generic [ref=f12e335]: No dead codes or expired vouchers.
+    - generic [ref=f12e337]:
+      - generic [ref=f12e338]:
+        - link "B BhujDeals Compare & Discover" [ref=f12e339] [cursor=pointer]:
+          - /url: /
+          - text: B
+          - generic [ref=f12e340]:
+            - generic [ref=f12e341]: BhujDeals
+            - text: Compare & Discover
+        - paragraph [ref=f12e342]: BhujDeals is an independent consumer discovery engine. We help smart shoppers cut through e-commerce noise by comparing prices, lab performance, and verified discount coupons across Amazon, Flipkart, Booking.com, Agoda, and top DTC brands.
+        - generic [ref=f12e343]:
+          - generic [ref=f12e344]: Amazon Associates
+          - generic [ref=f12e345]: Flipkart Affiliate
+          - generic [ref=f12e346]: Booking Holdings
+          - generic [ref=f12e347]: Impact Radius
+          - generic [ref=f12e348]: CJ Affiliate
+      - generic [ref=f12e349]:
+        - heading "Categories" [level=4] [ref=f12e350]
+        - list [ref=f12e351]:
+          - listitem [ref=f12e352]:
+            - link "Hotels & Stays" [ref=f12e353] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f12e354]:
+            - link "Electronics & Tech" [ref=f12e355] [cursor=pointer]:
+              - /url: /electronics
+          - listitem [ref=f12e356]:
+            - link "Beauty & Skincare" [ref=f12e357] [cursor=pointer]:
+              - /url: /beauty
+          - listitem [ref=f12e358]:
+            - link "Fashion & Apparel" [ref=f12e359] [cursor=pointer]:
+              - /url: /fashion
+          - listitem [ref=f12e360]:
+            - link "Home & Kitchen" [ref=f12e361] [cursor=pointer]:
+              - /url: /home
+          - listitem [ref=f12e362]:
+            - link "AI Tools & SaaS" [ref=f12e363] [cursor=pointer]:
+              - /url: /ai-tools
+      - generic [ref=f12e364]:
+        - heading "Travel & Deals" [level=4] [ref=f12e365]
+        - list [ref=f12e366]:
+          - listitem [ref=f12e367]:
+            - link "Hotels & Stays" [ref=f12e368] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f12e369]:
+            - link "Experiences & Tours" [ref=f12e370] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=f12e371]:
+            - link "Today's Deals" [ref=f12e372] [cursor=pointer]:
+              - /url: /deals
+          - listitem [ref=f12e373]:
+            - link "Web Hosting Deals" [ref=f12e374] [cursor=pointer]:
+              - /url: /hosting
+          - listitem [ref=f12e375]:
+            - link "AI Tools & SaaS" [ref=f12e376] [cursor=pointer]:
+              - /url: /ai-tools
+          - listitem [ref=f12e377]:
+            - link "Buying Guides & Reviews" [ref=f12e378] [cursor=pointer]:
+              - /url: /blog
+      - generic [ref=f12e379]:
+        - heading "Trust & Legal" [level=4] [ref=f12e380]
+        - list [ref=f12e381]:
+          - listitem [ref=f12e382]:
+            - link "About BhujDeals" [ref=f12e383] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f12e384]:
+            - link "Affiliate Disclosure" [ref=f12e385] [cursor=pointer]:
+              - /url: /affiliate-disclosure
+          - listitem [ref=f12e386]:
+            - link "Price & Warranty Disclaimer" [ref=f12e387] [cursor=pointer]:
+              - /url: /disclaimer
+          - listitem [ref=f12e388]:
+            - link "Privacy Policy" [ref=f12e389] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=f12e390]:
+            - link "Terms of Service" [ref=f12e391] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=f12e392]:
+            - link "Contact & Partnerships" [ref=f12e393] [cursor=pointer]:
+              - /url: /contact
+    - paragraph [ref=f12e396]:
+      - strong [ref=f12e397]: "FTC & ASCI Affiliate Disclosure:"
+      - text: BhujDeals is an independent participant in various affiliate marketing programs, including the Amazon Services LLC Associates Program, the Flipkart Affiliate Program, Booking.com Affiliate Partner Network, Impact.com, and Commission Junction. When you click on links to various merchants on this site and make a purchase or booking, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network, Booking Holdings, and PartnerStack. Prices and availability are subject to change without notice. All product names, logos, and brands are property of their respective owners.
+    - generic [ref=f12e399]:
+      - paragraph [ref=f12e400]: © 2026 BhujDeals Media Ltd. Built with high performance Astro & Cloudflare Edge.
+      - generic [ref=f12e401]:
+        - link "Sitemap" [ref=f12e402] [cursor=pointer]:
+          - /url: /sitemap-index.xml
+        - link "Privacy" [ref=f12e403] [cursor=pointer]:
+          - /url: /privacy
+        - link "Disclosure" [ref=f12e404] [cursor=pointer]:
+          - /url: /affiliate-disclosure
+        - link "Support" [ref=f12e405] [cursor=pointer]:
+          - /url: /contact

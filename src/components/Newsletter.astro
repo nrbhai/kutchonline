@@ -1,0 +1,132 @@
+---
+// Newsletter Component - Trust building and audience monetization
+---
+
+<div class="newsletter-card">
+  <div class="newsletter-content">
+    <span class="badge badge-deal">SMART SHOPPERS CLUB</span>
+    <h3 class="newsletter-heading">Never Miss an Error Fare or 70% Price Drop</h3>
+    <p class="newsletter-sub">
+      Join 120,000+ members getting our weekly curated breakdown of verified coupons, lowest hotel deals, and tech price glitch alerts. Zero spam, unsubscribe with one click.
+    </p>
+
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Check your inbox for the welcome voucher.');">
+      <div class="input-group">
+        <input 
+          type="email" 
+          placeholder="Enter your email address..." 
+          required 
+          class="newsletter-input" 
+          aria-label="Email address for newsletter"
+        />
+        <button type="submit" class="btn btn-affiliate btn-subscribe">
+          Get VIP Deals &rarr;
+        </button>
+      </div>
+      <div class="trust-micro-copy">
+        <span class="trust-check">🔒 100% Privacy Protected</span>
+        <span class="trust-check">⚡ Instant Welcome Promo Codes</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .newsletter-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: clamp(32px, 5vw, 48px);
+    margin: 48px 0;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .newsletter-content {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .newsletter-heading {
+    color: #ffffff;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    margin: 12px 0 10px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .newsletter-sub {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .newsletter-form {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .input-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all var(--transition-fast);
+  }
+
+  .newsletter-input::placeholder {
+    color: #94a3b8;
+  }
+
+  .newsletter-input:focus {
+    border-color: #38bdf8;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+  }
+
+  .btn-subscribe {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+
+  .trust-micro-copy {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 12px;
+    font-size: 0.775rem;
+    color: #94a3b8;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 560px) {
+    .input-group {
+      flex-direction: column;
+    }
+  }
+</style>

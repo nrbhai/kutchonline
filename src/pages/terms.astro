@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="Terms of Service | BhujDeals"
+  description="Terms and conditions governing the use of the BhujDeals affiliate discovery platform, price comparison charts, and editorial content."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Terms of Service" }]} />
+
+    <div class="legal-doc-header">
+      <span class="badge badge-brand">TERMS & CONDITIONS</span>
+      <h1 class="page-title">Terms of Service</h1>
+      <p class="last-updated">Last Updated: October 12, 2026</p>
+    </div>
+
+    <div class="legal-article-body card">
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By accessing or browsing BhujDeals, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you disagree with any portion of these terms, you are prohibited from using or accessing this site.
+      </p>
+
+      <h2>2. Intellectual Property Rights</h2>
+      <p>
+        All original editorial guides, benchmarks, lab photography, comparison graphics, and software code on BhujDeals are the proprietary intellectual property of BhujDeals Media Ltd. You may not republish, scrape, or distribute our written reviews for commercial purposes without explicit prior written authorization.
+      </p>
+
+      <h2>3. Trademarks & Brand Ownership</h2>
+      <p>
+        All third-party trademarks, product names, logos, and corporate brands (including Apple, Samsung, Sony, Dyson, Hostinger, Booking.com, Amazon, and Flipkart) belong solely to their respective trademark owners. Mention of these trademarks on BhujDeals is strictly for nominative comparative purposes under fair use doctrine.
+      </p>
+
+      <h2>4. User Conduct & Prohibited Activities</h2>
+      <p>
+        You agree not to deploy automated scrapers that degrade server availability, bypass programmatic rate-limiting, or attempt to manipulate outbound referral click metrics.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-doc-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin: 12px 0 8px;
+  }
+
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .legal-article-body {
+    padding: clamp(24px, 5vw, 48px);
+    background: #ffffff;
+    margin-bottom: 56px;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: var(--text-body);
+  }
+
+  .legal-article-body h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 32px 0 14px;
+    color: var(--text-main);
+  }
+
+  .legal-article-body h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-article-body p {
+    margin-bottom: 16px;
+  }
+</style>

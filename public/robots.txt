@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /go/
+Disallow: /api/
 
-Sitemap: https://kutchonline.com/sitemap.xml
-Sitemap: https://bhuj.kutchonline.com/sitemap.xml
+Sitemap: https://bhujdeals.com/sitemap-index.xml

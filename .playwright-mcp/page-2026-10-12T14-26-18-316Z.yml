@@ -1,0 +1,1164 @@
+- generic [active] [ref=f7e1]:
+  - region "Affiliate Disclosure" [ref=f7e2]:
+    - generic [ref=f7e3]:
+      - generic [ref=f7e4]:
+        - generic [ref=f7e5]: INDEPENDENT ADVICE
+        - paragraph [ref=f7e6]: BhujDeals is reader-supported. When you buy or book through links on our platform, we may earn an affiliate commission at no extra cost to you.
+      - link "How we test & monetize →" [ref=f7e7] [cursor=pointer]:
+        - /url: /affiliate-disclosure
+  - banner [ref=f7e8]:
+    - generic [ref=f7e10]:
+      - link "BhujDeals Home" [ref=f7e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f7e12]: B
+        - generic [ref=f7e13]:
+          - generic [ref=f7e14]: BhujDeals
+          - generic [ref=f7e15]: Compare & Discover
+      - generic [ref=f7e17]:
+        - textbox "Search 10,000+ products, hotels, coupons or stores..." [ref=f7e20]
+        - generic [ref=f7e21]: ⌘K
+      - generic [ref=f7e22]:
+        - link "🔥 Today's Deals" [ref=f7e23] [cursor=pointer]:
+          - /url: /deals
+          - generic [ref=f7e24]: 🔥
+          - generic [ref=f7e25]: Today's Deals
+        - link "Guides" [ref=f7e26] [cursor=pointer]:
+          - /url: /blog
+    - navigation "Product and Services Categories" [ref=f7e27]:
+      - list [ref=f7e29]:
+        - listitem [ref=f7e30]:
+          - link "🏨 Hotels" [ref=f7e31] [cursor=pointer]:
+            - /url: /hotels
+            - generic [ref=f7e32]: 🏨
+            - text: Hotels
+        - listitem [ref=f7e33]:
+          - link "💻 Electronics" [ref=f7e34] [cursor=pointer]:
+            - /url: /electronics
+            - generic [ref=f7e35]: 💻
+            - text: Electronics
+        - listitem [ref=f7e36]:
+          - link "✨ Beauty" [ref=f7e37] [cursor=pointer]:
+            - /url: /beauty
+            - generic [ref=f7e38]: ✨
+            - text: Beauty
+        - listitem [ref=f7e39]:
+          - link "👔 Fashion" [ref=f7e40] [cursor=pointer]:
+            - /url: /fashion
+            - generic [ref=f7e41]: 👔
+            - text: Fashion
+        - listitem [ref=f7e42]:
+          - link "☕ Home & Kitchen" [ref=f7e43] [cursor=pointer]:
+            - /url: /home
+            - generic [ref=f7e44]: ☕
+            - text: Home & Kitchen
+        - listitem [ref=f7e45]:
+          - link "🤖 AI Tools" [ref=f7e46] [cursor=pointer]:
+            - /url: /ai-tools
+            - generic [ref=f7e47]: 🤖
+            - text: AI Tools
+        - listitem [ref=f7e48]:
+          - link "✈️ Travel" [ref=f7e49] [cursor=pointer]:
+            - /url: /travel
+            - generic [ref=f7e50]: ✈️
+            - text: Travel
+        - listitem [ref=f7e51]:
+          - link "🌐 Hosting" [ref=f7e52] [cursor=pointer]:
+            - /url: /hosting
+            - generic [ref=f7e53]: 🌐
+            - text: Hosting
+        - listitem [ref=f7e54]:
+          - link "🏷️ Coupons" [ref=f7e55] [cursor=pointer]:
+            - /url: /deals
+            - generic [ref=f7e56]: 🏷️
+            - text: Coupons
+  - main [ref=f7e57]:
+    - generic [ref=f7e60]:
+      - generic [ref=f7e61]:
+        - generic [ref=f7e62]:
+          - generic [ref=f7e63]: "LIVE DEALS RADAR: 2,840+ ACTIVE PRICE DROPS"
+          - generic [ref=f7e66]: ⚡ Over ₹2.8 Cr Saved
+        - heading "Stop Overpaying. Compare Live Prices Across Amazon, Agoda, AJIO & Flipkart" [level=1] [ref=f7e67]
+        - paragraph [ref=f7e68]: Independent lab benchmarks, instant coupon audits, and verified Agoda hotel room tariffs. Find the guaranteed lowest price in seconds.
+        - generic [ref=f7e69]:
+          - generic [ref=f7e70]:
+            - generic [ref=f7e71]: 🔍
+            - textbox "Search MacBook, Agoda Bhuj Hotels, AJIO Hoodies, Nykaa Serums..." [ref=f7e72]
+          - link "Explore Deals →" [ref=f7e73] [cursor=pointer]:
+            - /url: /deals
+        - generic [ref=f7e74]:
+          - generic [ref=f7e75]: "POPULAR:"
+          - link "🏨 Agoda Stays" [ref=f7e76] [cursor=pointer]:
+            - /url: /hotels
+          - link "👗 AJIO 70% Off" [ref=f7e77] [cursor=pointer]:
+            - /url: /fashion
+          - link "💻 MacBook M3" [ref=f7e78] [cursor=pointer]:
+            - /url: /electronics
+          - link "✨ K-Beauty Nykaa" [ref=f7e79] [cursor=pointer]:
+            - /url: /beauty
+          - link "✈️ Cheap Flights" [ref=f7e80] [cursor=pointer]:
+            - /url: /travel
+        - generic [ref=f7e81]:
+          - generic [ref=f7e82]:
+            - generic [ref=f7e83]: 100%
+            - generic [ref=f7e84]: Unbiased Testing
+          - generic [ref=f7e86]:
+            - generic [ref=f7e87]: Agoda & Amazon
+            - generic [ref=f7e88]: Official Partner Tracking
+          - generic [ref=f7e90]:
+            - generic [ref=f7e91]: ₹0 Extra
+            - generic [ref=f7e92]: Always Free to Use
+      - generic [ref=f7e93]:
+        - generic [ref=f7e94]:
+          - generic [ref=f7e95]:
+            - img "Agoda Udaipur Lake Pichola Resort" [ref=f7e96]
+            - generic [ref=f7e97]: 🏨 Agoda Partner (CID 1970139)
+            - generic [ref=f7e98]: ★ 9.8 Superb
+          - generic [ref=f7e99]:
+            - generic [ref=f7e100]: Udaipur & Bhuj Heritage Escapes
+            - heading "The Oberoi Udaivilas, Lake Pichola" [level=4] [ref=f7e101]
+            - generic [ref=f7e102]:
+              - generic [ref=f7e103]: ₹42,500 ₹55,000
+              - link "Book Agoda →" [ref=f7e104] [cursor=pointer]:
+                - /url: /go/agoda?city=udaipur
+        - generic [ref=f7e105]:
+          - generic [ref=f7e106]:
+            - img "AJIO Trendsetter Heavyweight Hoodie" [ref=f7e107]
+            - generic [ref=f7e108]: 🛍️ AJIO Exclusive
+            - generic [ref=f7e109]: 🔥 70% OFF
+          - generic [ref=f7e110]:
+            - generic [ref=f7e111]: Streetwear & Hoodies
+            - heading "AJIO 450 GSM Oversized Fleece Hoodie" [level=4] [ref=f7e112]
+            - generic [ref=f7e113]:
+              - generic [ref=f7e114]: ₹1,199 ₹2,499
+              - link "Shop AJIO →" [ref=f7e115] [cursor=pointer]:
+                - /url: /go/ajio
+        - generic [ref=f7e116]:
+          - generic [ref=f7e117]:
+            - img "Apple MacBook Air M3 on Amazon" [ref=f7e118]
+            - generic [ref=f7e119]: 📦 Amazon Associates
+            - generic [ref=f7e120]: 👥 42 Viewing
+          - generic [ref=f7e121]:
+            - generic [ref=f7e122]: Laptops & Workstations
+            - heading "Apple MacBook Air 15-inch M3" [level=4] [ref=f7e123]
+            - generic [ref=f7e124]:
+              - generic [ref=f7e125]: ₹1,34,900 ₹1,54,900
+              - link "Amazon Prime →" [ref=f7e126] [cursor=pointer]:
+                - /url: /go/amazon?id=apple-macbook-air-m3
+    - generic [ref=f7e128]:
+      - generic [ref=f7e129]:
+        - link "● Agoda Official Partner (CID 1970139)" [ref=f7e130] [cursor=pointer]:
+          - /url: /go/agoda
+          - generic [ref=f7e131]: ●
+          - text: Agoda Official Partner (CID 1970139)
+        - link "● Amazon Associates India (bhujonline-21)" [ref=f7e132] [cursor=pointer]:
+          - /url: /go/amazon
+          - generic [ref=f7e133]: ●
+          - text: Amazon Associates India (bhujonline-21)
+        - link "● AJIO Big Bold Sale Partner" [ref=f7e134] [cursor=pointer]:
+          - /url: /go/ajio
+          - generic [ref=f7e135]: ●
+          - text: AJIO Big Bold Sale Partner
+        - link "● Nykaa Beauty & Cosmetics" [ref=f7e136] [cursor=pointer]:
+          - /url: /go/nykaa
+          - generic [ref=f7e137]: ●
+          - text: Nykaa Beauty & Cosmetics
+        - link "● Flipkart Super Deals" [ref=f7e138] [cursor=pointer]:
+          - /url: /go/flipkart
+          - generic [ref=f7e139]: ●
+          - text: Flipkart Super Deals
+        - link "● Croma Electronics" [ref=f7e140] [cursor=pointer]:
+          - /url: /go/croma
+          - generic [ref=f7e141]: ●
+          - text: Croma Electronics
+        - link "● Myntra Lifestyle & Footwear" [ref=f7e142] [cursor=pointer]:
+          - /url: /go/myntra
+          - generic [ref=f7e143]: ●
+          - text: Myntra Lifestyle & Footwear
+        - link "● Tata CLiQ Luxury" [ref=f7e144] [cursor=pointer]:
+          - /url: /go/tatacliq
+          - generic [ref=f7e145]: ●
+          - text: Tata CLiQ Luxury
+      - generic [aria-hidden] [ref=f7e146]:
+        - link [ref=f7e147] [cursor=pointer]:
+          - /url: /go/agoda
+          - generic [ref=f7e148]: ●
+          - text: Agoda Official Partner (CID 1970139)
+        - link [ref=f7e149] [cursor=pointer]:
+          - /url: /go/amazon
+          - generic [ref=f7e150]: ●
+          - text: Amazon Associates India (bhujonline-21)
+        - link [ref=f7e151] [cursor=pointer]:
+          - /url: /go/ajio
+          - generic [ref=f7e152]: ●
+          - text: AJIO Big Bold Sale Partner
+        - link [ref=f7e153] [cursor=pointer]:
+          - /url: /go/nykaa
+          - generic [ref=f7e154]: ●
+          - text: Nykaa Beauty & Cosmetics
+        - link [ref=f7e155] [cursor=pointer]:
+          - /url: /go/flipkart
+          - generic [ref=f7e156]: ●
+          - text: Flipkart Super Deals
+        - link [ref=f7e157] [cursor=pointer]:
+          - /url: /go/croma
+          - generic [ref=f7e158]: ●
+          - text: Croma Electronics
+        - link [ref=f7e159] [cursor=pointer]:
+          - /url: /go/myntra
+          - generic [ref=f7e160]: ●
+          - text: Myntra Lifestyle & Footwear
+        - link [ref=f7e161] [cursor=pointer]:
+          - /url: /go/tatacliq
+          - generic [ref=f7e162]: ●
+          - text: Tata CLiQ Luxury
+    - generic [ref=f7e164]:
+      - generic [ref=f7e165]:
+        - generic [ref=f7e166]:
+          - generic [ref=f7e167]: EXPLORE HUBS
+          - heading "Browse Handpicked Shopping & Travel Hubs" [level=2] [ref=f7e168]
+          - paragraph [ref=f7e169]: Every category curated with laboratory test data, verified coupons, and store price comparisons.
+        - link "All Categories →" [ref=f7e170] [cursor=pointer]:
+          - /url: /deals
+      - generic [ref=f7e171]:
+        - link "Hotels & Stays 🏨 1,420+ Deals Hotels & Stays Compare luxury resorts, boutique villas & verified budget stays across Booking.com & Agoda. Booking.com Agoda →" [ref=f7e172] [cursor=pointer]:
+          - /url: /hotels
+          - img "Hotels & Stays" [ref=f7e174]
+          - generic [ref=f7e176]:
+            - generic [ref=f7e177]:
+              - generic [ref=f7e178]: 🏨
+              - generic [ref=f7e179]: 1,420+ Deals
+            - heading "Hotels & Stays" [level=3] [ref=f7e180]
+            - paragraph [ref=f7e181]: Compare luxury resorts, boutique villas & verified budget stays across Booking.com & Agoda.
+            - generic [ref=f7e182]:
+              - generic [ref=f7e183]:
+                - generic [ref=f7e184]: Booking.com
+                - generic [ref=f7e185]: Agoda
+              - generic [ref=f7e186]: →
+        - link "Electronics & Tech 💻 2,840+ Deals Electronics & Tech Expert-tested laptops, smartphones, noise-canceling headphones & smart appliances. Amazon Flipkart →" [ref=f7e187] [cursor=pointer]:
+          - /url: /electronics
+          - img "Electronics & Tech" [ref=f7e189]
+          - generic [ref=f7e191]:
+            - generic [ref=f7e192]:
+              - generic [ref=f7e193]: 💻
+              - generic [ref=f7e194]: 2,840+ Deals
+            - heading "Electronics & Tech" [level=3] [ref=f7e195]
+            - paragraph [ref=f7e196]: Expert-tested laptops, smartphones, noise-canceling headphones & smart appliances.
+            - generic [ref=f7e197]:
+              - generic [ref=f7e198]:
+                - generic [ref=f7e199]: Amazon
+                - generic [ref=f7e200]: Flipkart
+              - generic [ref=f7e201]: →
+        - link "Beauty & Skincare ✨ 1,980+ Deals Beauty & Skincare Dermatologist-approved skincare, clean haircare, luxury fragrance & top makeup bestsellers. Nykaa Sephora →" [ref=f7e202] [cursor=pointer]:
+          - /url: /beauty
+          - img "Beauty & Skincare" [ref=f7e204]
+          - generic [ref=f7e206]:
+            - generic [ref=f7e207]:
+              - generic [ref=f7e208]: ✨
+              - generic [ref=f7e209]: 1,980+ Deals
+            - heading "Beauty & Skincare" [level=3] [ref=f7e210]
+            - paragraph [ref=f7e211]: Dermatologist-approved skincare, clean haircare, luxury fragrance & top makeup bestsellers.
+            - generic [ref=f7e212]:
+              - generic [ref=f7e213]:
+                - generic [ref=f7e214]: Nykaa
+                - generic [ref=f7e215]: Sephora
+              - generic [ref=f7e216]: →
+        - link "Fashion & Apparel 👔 3,410+ Deals Fashion & Apparel Curated wardrobe staples, designer footwear, everyday athleisure & timeless accessories. Myntra Ajio →" [ref=f7e217] [cursor=pointer]:
+          - /url: /fashion
+          - img "Fashion & Apparel" [ref=f7e219]
+          - generic [ref=f7e221]:
+            - generic [ref=f7e222]:
+              - generic [ref=f7e223]: 👔
+              - generic [ref=f7e224]: 3,410+ Deals
+            - heading "Fashion & Apparel" [level=3] [ref=f7e225]
+            - paragraph [ref=f7e226]: Curated wardrobe staples, designer footwear, everyday athleisure & timeless accessories.
+            - generic [ref=f7e227]:
+              - generic [ref=f7e228]:
+                - generic [ref=f7e229]: Myntra
+                - generic [ref=f7e230]: Ajio
+              - generic [ref=f7e231]: →
+        - link "Home & Kitchen ☕ 1,670+ Deals Home & Kitchen High-efficiency kitchen tools, espresso machines, smart vacuums & ergonomic furniture. Amazon Home Flipkart →" [ref=f7e232] [cursor=pointer]:
+          - /url: /home
+          - img "Home & Kitchen" [ref=f7e234]
+          - generic [ref=f7e236]:
+            - generic [ref=f7e237]:
+              - generic [ref=f7e238]: ☕
+              - generic [ref=f7e239]: 1,670+ Deals
+            - heading "Home & Kitchen" [level=3] [ref=f7e240]
+            - paragraph [ref=f7e241]: High-efficiency kitchen tools, espresso machines, smart vacuums & ergonomic furniture.
+            - generic [ref=f7e242]:
+              - generic [ref=f7e243]:
+                - generic [ref=f7e244]: Amazon Home
+                - generic [ref=f7e245]: Flipkart
+              - generic [ref=f7e246]: →
+        - link "AI Tools & SaaS 🤖 650+ Deals AI Tools & SaaS Generative AI writing, coding assistants, video generators & workflow automation software. PartnerStack Impact →" [ref=f7e247] [cursor=pointer]:
+          - /url: /ai-tools
+          - img "AI Tools & SaaS" [ref=f7e249]
+          - generic [ref=f7e251]:
+            - generic [ref=f7e252]:
+              - generic [ref=f7e253]: 🤖
+              - generic [ref=f7e254]: 650+ Deals
+            - heading "AI Tools & SaaS" [level=3] [ref=f7e255]
+            - paragraph [ref=f7e256]: Generative AI writing, coding assistants, video generators & workflow automation software.
+            - generic [ref=f7e257]:
+              - generic [ref=f7e258]:
+                - generic [ref=f7e259]: PartnerStack
+                - generic [ref=f7e260]: Impact
+              - generic [ref=f7e261]: →
+        - link "Travel & Tours ✈️ 890+ Deals Travel & Tours Curated local experiences, international flights, adventure passes & desert safaris. Viator GetYourGuide →" [ref=f7e262] [cursor=pointer]:
+          - /url: /travel
+          - img "Travel & Tours" [ref=f7e264]
+          - generic [ref=f7e266]:
+            - generic [ref=f7e267]:
+              - generic [ref=f7e268]: ✈️
+              - generic [ref=f7e269]: 890+ Deals
+            - heading "Travel & Tours" [level=3] [ref=f7e270]
+            - paragraph [ref=f7e271]: Curated local experiences, international flights, adventure passes & desert safaris.
+            - generic [ref=f7e272]:
+              - generic [ref=f7e273]:
+                - generic [ref=f7e274]: Viator
+                - generic [ref=f7e275]: GetYourGuide
+              - generic [ref=f7e276]: →
+        - link "Web Hosting & Domains 🌐 420+ Deals Web Hosting & Domains High-uptime WordPress hosting, cloud VPS, domain registrars & SSL certificates. Hostinger SiteGround →" [ref=f7e277] [cursor=pointer]:
+          - /url: /hosting
+          - img "Web Hosting & Domains" [ref=f7e279]
+          - generic [ref=f7e281]:
+            - generic [ref=f7e282]:
+              - generic [ref=f7e283]: 🌐
+              - generic [ref=f7e284]: 420+ Deals
+            - heading "Web Hosting & Domains" [level=3] [ref=f7e285]
+            - paragraph [ref=f7e286]: High-uptime WordPress hosting, cloud VPS, domain registrars & SSL certificates.
+            - generic [ref=f7e287]:
+              - generic [ref=f7e288]:
+                - generic [ref=f7e289]: Hostinger
+                - generic [ref=f7e290]: SiteGround
+              - generic [ref=f7e291]: →
+        - link "Deals & Coupons 🏷️ 5,200+ Deals Deals & Coupons Real-time flash sales, price drop alerts, verified promo codes & festive mega discounts. Amazon Great Indian Sale Flipkart Big Billion Days →" [ref=f7e292] [cursor=pointer]:
+          - /url: /deals
+          - img "Deals & Coupons" [ref=f7e294]
+          - generic [ref=f7e296]:
+            - generic [ref=f7e297]:
+              - generic [ref=f7e298]: 🏷️
+              - generic [ref=f7e299]: 5,200+ Deals
+            - heading "Deals & Coupons" [level=3] [ref=f7e300]
+            - paragraph [ref=f7e301]: Real-time flash sales, price drop alerts, verified promo codes & festive mega discounts.
+            - generic [ref=f7e302]:
+              - generic [ref=f7e303]:
+                - generic [ref=f7e304]: Amazon Great Indian Sale
+                - generic [ref=f7e305]: Flipkart Big Billion Days
+              - generic [ref=f7e306]: →
+    - generic [ref=f7e308]:
+      - generic [ref=f7e309]:
+        - generic [ref=f7e310]:
+          - generic [ref=f7e311]:
+            - generic [ref=f7e312]: 🔥
+            - generic [ref=f7e313]: TODAY'S HIGHEST VALUE DEALS
+          - heading "Verified Flash Deals & Promo Codes" [level=2] [ref=f7e314]
+          - paragraph [ref=f7e315]: Monitored hourly. Prices and coupon validity double-checked across certified stores.
+        - link "All 10 Active Deals →" [ref=f7e316] [cursor=pointer]:
+          - /url: /deals
+      - generic [ref=f7e317]:
+        - generic [ref=f7e318]:
+          - generic [ref=f7e319]:
+            - generic [ref=f7e320]:
+              - generic [ref=f7e321]: Agoda
+              - generic [ref=f7e322]: EXCLUSIVE
+            - generic [ref=f7e323]: "-35%"
+          - generic [ref=f7e324]:
+            - 'heading "Agoda Partner Special: Up to 35% Off Heritage Palaces & Bhuj Resorts" [level=3] [ref=f7e325]'
+            - paragraph [ref=f7e326]: Exclusive member discount across top-rated heritage hotels in Bhuj, Dholavira, Udaipur and Jaipur with free cancellation.
+            - generic [ref=f7e327]:
+              - generic [ref=f7e328]: ⏱
+              - generic [ref=f7e329]:
+                - text: Expires in
+                - strong [ref=f7e330]: 24 hours
+              - generic [ref=f7e331]: ✓ 1890 verified
+            - button "Copy coupon code AGODABHUJ" [ref=f7e333] [cursor=pointer]:
+              - generic [ref=f7e334]: AGODABHUJ
+              - generic [ref=f7e335]: Copy & Visit Store →
+        - generic [ref=f7e336]:
+          - generic [ref=f7e337]:
+            - generic [ref=f7e338]:
+              - generic [ref=f7e339]: AJIO
+              - generic [ref=f7e340]: FLASH DEAL
+            - generic [ref=f7e341]: "-70%"
+          - generic [ref=f7e342]:
+            - 'heading "AJIO Big Bold Sale: 50% to 90% Off on Top Fashion Brands" [level=3] [ref=f7e343]'
+            - paragraph [ref=f7e344]: Massive price drops across over 2,000 fashion brands including GAP, Superdry, Levi's, and Trends.
+            - generic [ref=f7e345]:
+              - generic [ref=f7e346]: ⏱
+              - generic [ref=f7e347]:
+                - text: Expires in
+                - strong [ref=f7e348]: 8 hours
+              - generic [ref=f7e349]: ✓ 3840 verified
+            - button "Copy coupon code AJIOMAX" [ref=f7e351] [cursor=pointer]:
+              - generic [ref=f7e352]: AJIOMAX
+              - generic [ref=f7e353]: Copy & Visit Store →
+        - generic [ref=f7e354]:
+          - generic [ref=f7e355]:
+            - generic [ref=f7e356]:
+              - generic [ref=f7e357]: Hostinger
+              - generic [ref=f7e358]: EXCLUSIVE
+            - generic [ref=f7e359]: "-75%"
+          - generic [ref=f7e360]:
+            - 'heading "Hostinger Cloud Startup: 75% OFF + Free Domain + 3 Extra Months" [level=3] [ref=f7e361]'
+            - paragraph [ref=f7e362]: Get 200GB NVMe storage, 3GB RAM, free SSL and daily backups with our exclusive coupon code BHUJ75.
+            - generic [ref=f7e363]:
+              - generic [ref=f7e364]: ⏱
+              - generic [ref=f7e365]:
+                - text: Expires in
+                - strong [ref=f7e366]: 9 hours
+              - generic [ref=f7e367]: ✓ 1420 verified
+            - button "Copy coupon code BHUJ75" [ref=f7e369] [cursor=pointer]:
+              - generic [ref=f7e370]: BHUJ75
+              - generic [ref=f7e371]: Copy & Visit Store →
+        - generic [ref=f7e372]:
+          - generic [ref=f7e373]:
+            - generic [ref=f7e374]:
+              - generic [ref=f7e375]: Amazon
+              - generic [ref=f7e376]: PRICE DROP
+            - generic [ref=f7e377]: "-13%"
+          - generic [ref=f7e378]:
+            - 'heading "Apple MacBook Air 15-inch M3: Flat ₹20,000 Off on Amazon Prime" [level=3] [ref=f7e379]'
+            - paragraph [ref=f7e380]: Lowest price tracked in 60 days on the 16GB / 512GB configuration with next-day dispatch.
+            - generic [ref=f7e381]:
+              - generic [ref=f7e382]: ⏱
+              - generic [ref=f7e383]:
+                - text: Expires in
+                - strong [ref=f7e384]: 14 hours
+              - generic [ref=f7e385]: ✓ 890 verified
+            - link "Claim Flash Deal →" [ref=f7e386] [cursor=pointer]:
+              - /url: /go/amazon?id=apple-macbook-air-m3
+    - generic [ref=f7e389]:
+      - generic [ref=f7e390]:
+        - generic [ref=f7e391]:
+          - generic [ref=f7e392]:
+            - generic [ref=f7e393]: 🏨 AGODA OFFICIAL PARTNER (CID 1970139)
+            - generic [ref=f7e394]: ✓ Best Price Guarantee
+          - heading "Featured Royal Palaces & Kutch Escapes on Agoda" [level=2] [ref=f7e395]
+          - paragraph [ref=f7e396]: Instant member tariffs with free cancellation across Bhuj, Dholavira UNESCO Site, Udaipur Lake Pichola, Jaipur, Jaisalmer & Srinagar.
+        - generic [ref=f7e397]:
+          - link "📍 Bhuj" [ref=f7e398] [cursor=pointer]:
+            - /url: /go/agoda?city=bhuj
+          - link "🏛️ Dholavira" [ref=f7e399] [cursor=pointer]:
+            - /url: /go/agoda?city=dholavira
+          - link "🏰 Udaipur" [ref=f7e400] [cursor=pointer]:
+            - /url: /go/agoda?city=udaipur
+          - link "👑 Jaipur" [ref=f7e401] [cursor=pointer]:
+            - /url: /go/agoda?city=jaipur
+          - link "🏜️ Jaisalmer" [ref=f7e402] [cursor=pointer]:
+            - /url: /go/agoda?city=jaisalmer
+          - link "🏔️ Srinagar" [ref=f7e403] [cursor=pointer]:
+            - /url: /go/agoda?city=srinagar
+      - generic [ref=f7e404]:
+        - generic [ref=f7e405]:
+          - generic [ref=f7e406]:
+            - generic [ref=f7e407]: Bhuj Favorite
+            - generic [ref=f7e408]: Resort
+            - img "Regenta Resort Bhuj by Royal Orchid, Kutch" [ref=f7e409]
+          - generic [ref=f7e410]:
+            - generic [ref=f7e411]:
+              - generic [ref=f7e412]:
+                - generic "4 Star Hotel" [ref=f7e413]:
+                  - generic [ref=f7e414]: ★
+                  - generic [ref=f7e415]: ★
+                  - generic [ref=f7e416]: ★
+                  - generic [ref=f7e417]: ★
+                  - generic [ref=f7e418]: 4-Star Hotel
+                - heading [level=3] [ref=f7e419]:
+                  - link "Regenta Resort Bhuj by Royal Orchid, Kutch" [ref=f7e420] [cursor=pointer]:
+                    - /url: /hotel/regenta-resort-bhuj-kutch
+                - paragraph [ref=f7e421]: GMDC Road, Mirzapar Highway, Bhuj, Kutch, Gujarat 370001
+              - generic [ref=f7e424]:
+                - generic [ref=f7e425]:
+                  - generic [ref=f7e426]: Superb
+                  - generic [ref=f7e427]: 1,840 reviews
+                - generic [ref=f7e428]: "9.2"
+            - paragraph [ref=f7e429]: Heritage Kutch architecture with traditional Bhunga villas, pool, and fine Gujarati dining.
+            - generic [ref=f7e430]:
+              - generic [ref=f7e431]: ✓ Swimming Pool
+              - generic [ref=f7e432]: ✓ Heritage Bhunga Villas
+              - generic [ref=f7e433]: ✓ Gazebo Restaurant
+              - generic [ref=f7e434]: ✓ Free WiFi
+              - generic [ref=f7e435]: +2 more
+            - generic [ref=f7e436]:
+              - generic [ref=f7e437]: "Compare Live Booking Rates:"
+              - generic [ref=f7e438]:
+                - link "Agoda Agoda VIP Deal (Lowest Rate) Free Cancel ₹6,800 /night" [ref=f7e439] [cursor=pointer]:
+                  - /url: /go/agoda?city=bhuj
+                  - generic [ref=f7e440]:
+                    - text: Agoda Agoda VIP Deal (Lowest Rate)
+                    - generic [ref=f7e441]: Free Cancel
+                  - generic [ref=f7e442]: ₹6,800 /night
+                - link "MakeMyTrip ₹7,400 /night" [ref=f7e443] [cursor=pointer]:
+                  - /url: /go/agoda?city=bhuj
+                  - generic [ref=f7e444]: MakeMyTrip
+                  - generic [ref=f7e445]: ₹7,400 /night
+            - generic [ref=f7e446]:
+              - generic [ref=f7e447]:
+                - generic [ref=f7e448]: From
+                - generic [ref=f7e449]: ₹6,800
+                - generic [ref=f7e450]: /night on Agoda
+              - generic [ref=f7e451]:
+                - link "Property Details" [ref=f7e452] [cursor=pointer]:
+                  - /url: /hotel/regenta-resort-bhuj-kutch
+                - link "Book via Agoda →" [ref=f7e453] [cursor=pointer]:
+                  - /url: /go/agoda?city=bhuj
+        - generic [ref=f7e454]:
+          - generic [ref=f7e455]:
+            - generic [ref=f7e456]: UNESCO World Heritage
+            - generic [ref=f7e457]: Resort
+            - img "Dholavira Tourism Resort & Harappan Oasis, Kutch" [ref=f7e458]
+          - generic [ref=f7e459]:
+            - generic [ref=f7e460]:
+              - generic [ref=f7e461]:
+                - generic "4 Star Hotel" [ref=f7e462]:
+                  - generic [ref=f7e463]: ★
+                  - generic [ref=f7e464]: ★
+                  - generic [ref=f7e465]: ★
+                  - generic [ref=f7e466]: ★
+                  - generic [ref=f7e467]: 4-Star Hotel
+                - heading [level=3] [ref=f7e468]:
+                  - link "Dholavira Tourism Resort & Harappan Oasis, Kutch" [ref=f7e469] [cursor=pointer]:
+                    - /url: /hotel/dholavira-tourism-resort-harappan-oasis
+                - paragraph [ref=f7e470]: Khadir Bet Island, Near UNESCO Excavation Site, Dholavira, Kutch 370165
+              - generic [ref=f7e473]:
+                - generic [ref=f7e474]:
+                  - generic [ref=f7e475]: Superb
+                  - generic [ref=f7e476]: 920 reviews
+                - generic [ref=f7e477]: "9.1"
+            - paragraph [ref=f7e478]: Eco-luxury gateway to the UNESCO World Heritage Harappan Archaeological Metropolis.
+            - generic [ref=f7e479]:
+              - generic [ref=f7e480]: ✓ UNESCO Site Access
+              - generic [ref=f7e481]: ✓ AC Desert Cottages
+              - generic [ref=f7e482]: ✓ Traditional Kathiyawadi Dining
+              - generic [ref=f7e483]: ✓ Desert Safari Assistance
+              - generic [ref=f7e484]: +2 more
+            - generic [ref=f7e485]:
+              - generic [ref=f7e486]: "Compare Live Booking Rates:"
+              - generic [ref=f7e487]:
+                - link "Agoda Agoda Special Price Free Cancel ₹4,500 /night" [ref=f7e488] [cursor=pointer]:
+                  - /url: /go/agoda?city=dholavira
+                  - generic [ref=f7e489]:
+                    - text: Agoda Agoda Special Price
+                    - generic [ref=f7e490]: Free Cancel
+                  - generic [ref=f7e491]: ₹4,500 /night
+                - link "MakeMyTrip ₹5,100 /night" [ref=f7e492] [cursor=pointer]:
+                  - /url: /go/agoda?city=dholavira
+                  - generic [ref=f7e493]: MakeMyTrip
+                  - generic [ref=f7e494]: ₹5,100 /night
+            - generic [ref=f7e495]:
+              - generic [ref=f7e496]:
+                - generic [ref=f7e497]: From
+                - generic [ref=f7e498]: ₹4,500
+                - generic [ref=f7e499]: /night on Agoda
+              - generic [ref=f7e500]:
+                - link "Property Details" [ref=f7e501] [cursor=pointer]:
+                  - /url: /hotel/dholavira-tourism-resort-harappan-oasis
+                - link "Book via Agoda →" [ref=f7e502] [cursor=pointer]:
+                  - /url: /go/agoda?city=dholavira
+        - generic [ref=f7e503]:
+          - generic [ref=f7e504]:
+            - generic [ref=f7e505]: Top Luxury Pick
+            - generic [ref=f7e506]: Luxury
+            - img "The Oberoi Udaivilas, Udaipur" [ref=f7e507]
+          - generic [ref=f7e508]:
+            - generic [ref=f7e509]:
+              - generic [ref=f7e510]:
+                - generic "5 Star Hotel" [ref=f7e511]:
+                  - generic [ref=f7e512]: ★
+                  - generic [ref=f7e513]: ★
+                  - generic [ref=f7e514]: ★
+                  - generic [ref=f7e515]: ★
+                  - generic [ref=f7e516]: ★
+                  - generic [ref=f7e517]: 5-Star Hotel
+                - heading [level=3] [ref=f7e518]:
+                  - link "The Oberoi Udaivilas, Udaipur" [ref=f7e519] [cursor=pointer]:
+                    - /url: /hotel/the-oberoi-udaivilas-udaipur
+                - paragraph [ref=f7e520]: Haridas Ji Ki Magri, Lake Pichola Waterfront, Udaipur, Rajasthan 313001
+              - generic [ref=f7e523]:
+                - generic [ref=f7e524]:
+                  - generic [ref=f7e525]: Exceptional
+                  - generic [ref=f7e526]: 2,480 reviews
+                - generic [ref=f7e527]: "9.8"
+            - paragraph [ref=f7e528]: Voted India's best heritage luxury palace on the serene banks of Lake Pichola.
+            - generic [ref=f7e529]:
+              - generic [ref=f7e530]: ✓ Lake Pichola View
+              - generic [ref=f7e531]: ✓ Private Semi-Private Pools
+              - generic [ref=f7e532]: ✓ Oberoi Spa
+              - generic [ref=f7e533]: ✓ 24/7 Butler Service
+              - generic [ref=f7e534]: +2 more
+            - generic [ref=f7e535]:
+              - generic [ref=f7e536]: "Compare Live Booking Rates:"
+              - generic [ref=f7e537]:
+                - link "Agoda Agoda Lowest Price Guarantee Free Cancel ₹42,500 /night" [ref=f7e538] [cursor=pointer]:
+                  - /url: /go/agoda?city=udaipur
+                  - generic [ref=f7e539]:
+                    - text: Agoda Agoda Lowest Price Guarantee
+                    - generic [ref=f7e540]: Free Cancel
+                  - generic [ref=f7e541]: ₹42,500 /night
+                - link "Booking.com Free Cancel ₹44,900 /night" [ref=f7e542] [cursor=pointer]:
+                  - /url: /go/agoda?city=udaipur
+                  - generic [ref=f7e543]:
+                    - text: Booking.com
+                    - generic [ref=f7e544]: Free Cancel
+                  - generic [ref=f7e545]: ₹44,900 /night
+            - generic [ref=f7e546]:
+              - generic [ref=f7e547]:
+                - generic [ref=f7e548]: From
+                - generic [ref=f7e549]: ₹42,500
+                - generic [ref=f7e550]: /night on Agoda
+              - generic [ref=f7e551]:
+                - link "Property Details" [ref=f7e552] [cursor=pointer]:
+                  - /url: /hotel/the-oberoi-udaivilas-udaipur
+                - link "Book via Agoda →" [ref=f7e553] [cursor=pointer]:
+                  - /url: /go/agoda?city=udaipur
+      - generic [ref=f7e554]:
+        - generic [ref=f7e555]:
+          - strong [ref=f7e556]: Traveling somewhere else?
+          - text: Search over 2,000,000 properties worldwide with exclusive Agoda VIP discounts.
+        - link "Search All Agoda Hotels →" [ref=f7e557] [cursor=pointer]:
+          - /url: /go/agoda
+    - generic [ref=f7e559]:
+      - generic [ref=f7e560]:
+        - generic [ref=f7e561]:
+          - generic [ref=f7e562]: TESTED & RECOMMENDED
+          - heading "Editor's Top Tested Tech & Beauty Essentials" [level=2] [ref=f7e563]
+          - paragraph [ref=f7e564]: Products that achieved top marks in build quality, performance, and real-world value.
+        - link "More Electronics →" [ref=f7e565] [cursor=pointer]:
+          - /url: /electronics
+      - generic [ref=f7e566]:
+        - generic [ref=f7e567]:
+          - generic [ref=f7e568]:
+            - generic [ref=f7e569]: Editor's Choice
+            - generic [ref=f7e570]: 13% OFF
+            - link "View Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f7e571] [cursor=pointer]:
+              - /url: /product/apple-macbook-air-m3-15-inch
+              - img "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f7e572]
+          - generic [ref=f7e573]:
+            - generic [ref=f7e574]:
+              - generic [ref=f7e575]: Apple
+              - generic [ref=f7e576]: Laptops
+            - heading [level=3] [ref=f7e577]:
+              - link "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f7e578] [cursor=pointer]:
+                - /url: /product/apple-macbook-air-m3-15-inch
+            - generic [ref=f7e580]:
+              - 'generic "Rating: 4.9 out of 5 stars" [ref=f7e581]':
+                - generic [aria-hidden] [ref=f7e582]: ★
+                - generic [aria-hidden] [ref=f7e583]: ★
+                - generic [aria-hidden] [ref=f7e584]: ★
+                - generic [aria-hidden] [ref=f7e585]: ★
+                - generic [aria-hidden] [ref=f7e586]: ★
+              - generic [ref=f7e587]: "4.9"
+              - generic [ref=f7e588]: (1,420)
+            - paragraph [ref=f7e589]: The gold standard for portable power, battery life, and silent fanless performance.
+            - generic [ref=f7e590]:
+              - generic [ref=f7e591]:
+                - generic [ref=f7e592]: ₹1,34,900
+                - generic [ref=f7e593]: ₹1,54,900
+              - generic [ref=f7e594]: on Amazon
+            - generic [ref=f7e595]:
+              - generic [ref=f7e596]: "Compare Stores:"
+              - generic [ref=f7e597]:
+                - link "Amazon ₹1,34,900" [ref=f7e598] [cursor=pointer]:
+                  - /url: /go/amazon?id=apple-macbook-air-m3
+                  - generic [ref=f7e599]: Amazon
+                  - generic [ref=f7e600]: ₹1,34,900
+                - link "Flipkart ₹1,36,990" [ref=f7e601] [cursor=pointer]:
+                  - /url: /go/flipkart?id=apple-macbook-air-m3
+                  - generic [ref=f7e602]: Flipkart
+                  - generic [ref=f7e603]: ₹1,36,990
+                - link "Croma ₹1,39,900" [ref=f7e604] [cursor=pointer]:
+                  - /url: /go/croma?id=apple-macbook-air-m3
+                  - generic [ref=f7e605]: Croma
+                  - generic [ref=f7e606]: ₹1,39,900
+            - generic [ref=f7e607]:
+              - link "Full Review & Specs" [ref=f7e608] [cursor=pointer]:
+                - /url: /product/apple-macbook-air-m3-15-inch
+              - link "Check Deal →" [ref=f7e609] [cursor=pointer]:
+                - /url: /go/amazon?id=apple-macbook-air-m3
+        - generic [ref=f7e610]:
+          - generic [ref=f7e611]:
+            - generic [ref=f7e612]: Top Seller
+            - generic [ref=f7e613]: 23% OFF
+            - link "View Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f7e614] [cursor=pointer]:
+              - /url: /product/sony-wh-1000xm5-wireless-headphones
+              - img "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f7e615]
+          - generic [ref=f7e616]:
+            - generic [ref=f7e617]:
+              - generic [ref=f7e618]: Sony
+              - generic [ref=f7e619]: Headphones & Audio
+            - heading [level=3] [ref=f7e620]:
+              - link "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f7e621] [cursor=pointer]:
+                - /url: /product/sony-wh-1000xm5-wireless-headphones
+            - generic [ref=f7e623]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f7e624]':
+                - generic [aria-hidden] [ref=f7e625]: ★
+                - generic [aria-hidden] [ref=f7e626]: ★
+                - generic [aria-hidden] [ref=f7e627]: ★
+                - generic [aria-hidden] [ref=f7e628]: ★
+                - generic [aria-hidden] [ref=f7e629]: ★
+              - generic [ref=f7e630]: "4.8"
+              - generic [ref=f7e631]: (3,820)
+            - paragraph [ref=f7e632]: Industry-leading active noise cancellation with 30-hour battery and ultra-clear mic.
+            - generic [ref=f7e633]:
+              - generic [ref=f7e634]:
+                - generic [ref=f7e635]: ₹26,990
+                - generic [ref=f7e636]: ₹34,990
+              - generic [ref=f7e637]: on Amazon
+            - generic [ref=f7e638]:
+              - generic [ref=f7e639]: "Compare Stores:"
+              - generic [ref=f7e640]:
+                - link "Amazon ₹26,990" [ref=f7e641] [cursor=pointer]:
+                  - /url: /go/amazon?id=sony-wh1000xm5
+                  - generic [ref=f7e642]: Amazon
+                  - generic [ref=f7e643]: ₹26,990
+                - link "Flipkart ₹27,490" [ref=f7e644] [cursor=pointer]:
+                  - /url: /go/flipkart?id=sony-wh1000xm5
+                  - generic [ref=f7e645]: Flipkart
+                  - generic [ref=f7e646]: ₹27,490
+                - link "Croma ₹28,990" [ref=f7e647] [cursor=pointer]:
+                  - /url: /go/croma?id=sony-wh1000xm5
+                  - generic [ref=f7e648]: Croma
+                  - generic [ref=f7e649]: ₹28,990
+            - generic [ref=f7e650]:
+              - link "Full Review & Specs" [ref=f7e651] [cursor=pointer]:
+                - /url: /product/sony-wh-1000xm5-wireless-headphones
+              - link "Check Deal →" [ref=f7e652] [cursor=pointer]:
+                - /url: /go/amazon?id=sony-wh1000xm5
+        - generic [ref=f7e653]:
+          - generic [ref=f7e654]:
+            - generic [ref=f7e655]: Trending
+            - generic [ref=f7e656]: 11% OFF
+            - link "View Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f7e657] [cursor=pointer]:
+              - /url: /product/samsung-galaxy-s25-ultra
+              - img "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f7e658]
+          - generic [ref=f7e659]:
+            - generic [ref=f7e660]:
+              - generic [ref=f7e661]: Samsung
+              - generic [ref=f7e662]: Smartphones
+            - heading [level=3] [ref=f7e663]:
+              - link "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f7e664] [cursor=pointer]:
+                - /url: /product/samsung-galaxy-s25-ultra
+            - generic [ref=f7e666]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f7e667]':
+                - generic [aria-hidden] [ref=f7e668]: ★
+                - generic [aria-hidden] [ref=f7e669]: ★
+                - generic [aria-hidden] [ref=f7e670]: ★
+                - generic [aria-hidden] [ref=f7e671]: ★
+                - generic [aria-hidden] [ref=f7e672]: ★
+              - generic [ref=f7e673]: "4.8"
+              - generic [ref=f7e674]: (910)
+            - paragraph [ref=f7e675]: The pinnacle Android flagship with Titanium frame, 200MP camera & Galaxy AI.
+            - generic [ref=f7e676]:
+              - generic [ref=f7e677]:
+                - generic [ref=f7e678]: ₹1,24,999
+                - generic [ref=f7e679]: ₹1,39,999
+              - generic [ref=f7e680]: on Flipkart
+            - generic [ref=f7e681]:
+              - generic [ref=f7e682]: "Compare Stores:"
+              - generic [ref=f7e683]:
+                - link "Flipkart ₹1,24,999" [ref=f7e684] [cursor=pointer]:
+                  - /url: /go/flipkart?id=samsung-s25-ultra
+                  - generic [ref=f7e685]: Flipkart
+                  - generic [ref=f7e686]: ₹1,24,999
+                - link "Amazon ₹1,26,999" [ref=f7e687] [cursor=pointer]:
+                  - /url: /go/amazon?id=samsung-s25-ultra
+                  - generic [ref=f7e688]: Amazon
+                  - generic [ref=f7e689]: ₹1,26,999
+            - generic [ref=f7e690]:
+              - link "Full Review & Specs" [ref=f7e691] [cursor=pointer]:
+                - /url: /product/samsung-galaxy-s25-ultra
+              - link "Check Deal →" [ref=f7e692] [cursor=pointer]:
+                - /url: /go/flipkart?id=samsung-s25-ultra
+    - generic [ref=f7e695]:
+      - generic [ref=f7e696]:
+        - generic [ref=f7e697]: 🛍️ AJIO & MYNTRA EXCLUSIVE DROPS
+        - heading "50% to 90% Off on Top Streetwear, Kurtas & Sneakers" [level=2] [ref=f7e698]
+        - paragraph [ref=f7e699]: Direct verified shortlinks for the AJIO Big Bold Sale & Myntra Lifestyle Collections. Premium combed cotton hoodies, royal wedding kurtas, and memory foam sneakers.
+        - generic [ref=f7e700]:
+          - link "Shop AJIO Sale →" [ref=f7e701] [cursor=pointer]:
+            - /url: /go/ajio
+          - link "Shop Myntra Trends →" [ref=f7e702] [cursor=pointer]:
+            - /url: /go/myntra
+      - img "AJIO Streetwear Collection" [ref=f7e704]
+    - generic [ref=f7e706]:
+      - generic [ref=f7e708]:
+        - generic [ref=f7e709]: WIRECUTTER COMPARISON BENCHMARK
+        - heading "Flagship Laptops & Smartphones Compared" [level=2] [ref=f7e710]
+        - paragraph [ref=f7e711]: Side-by-side battery endurance, processor performance, and multi-store pricing.
+      - generic [ref=f7e712]:
+        - heading "Flagship Tech Comparison" [level=3] [ref=f7e713]
+        - table [ref=f7e715]:
+          - rowgroup [ref=f7e716]:
+            - row [ref=f7e717]:
+              - columnheader "Feature / Product" [ref=f7e718]
+              - 'columnheader "Editor''s Choice Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD) Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD) Rating: 4.9 out of 5 stars 4.9 (1,420) ₹1,34,900 View on Amazon" [ref=f7e719]':
+                - generic [ref=f7e720]:
+                  - generic [ref=f7e721]: Editor's Choice
+                  - img "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f7e722]
+                  - link "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f7e723] [cursor=pointer]:
+                    - /url: /product/apple-macbook-air-m3-15-inch
+                  - generic [ref=f7e725]:
+                    - 'generic "Rating: 4.9 out of 5 stars" [ref=f7e726]':
+                      - generic [aria-hidden] [ref=f7e727]: ★
+                      - generic [aria-hidden] [ref=f7e728]: ★
+                      - generic [aria-hidden] [ref=f7e729]: ★
+                      - generic [aria-hidden] [ref=f7e730]: ★
+                      - generic [aria-hidden] [ref=f7e731]: ★
+                    - generic [ref=f7e732]: "4.9"
+                    - generic [ref=f7e733]: (1,420)
+                  - generic [ref=f7e734]: ₹1,34,900
+                  - link "View on Amazon" [ref=f7e735] [cursor=pointer]:
+                    - /url: /go/amazon?id=apple-macbook-air-m3
+              - 'columnheader "Top Seller Sony WH-1000XM5 Noise Canceling Wireless Headphones Sony WH-1000XM5 Noise Canceling Wireless Headphones Rating: 4.8 out of 5 stars 4.8 (3,820) ₹26,990 View on Amazon" [ref=f7e736]':
+                - generic [ref=f7e737]:
+                  - generic [ref=f7e738]: Top Seller
+                  - img "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f7e739]
+                  - link "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f7e740] [cursor=pointer]:
+                    - /url: /product/sony-wh-1000xm5-wireless-headphones
+                  - generic [ref=f7e742]:
+                    - 'generic "Rating: 4.8 out of 5 stars" [ref=f7e743]':
+                      - generic [aria-hidden] [ref=f7e744]: ★
+                      - generic [aria-hidden] [ref=f7e745]: ★
+                      - generic [aria-hidden] [ref=f7e746]: ★
+                      - generic [aria-hidden] [ref=f7e747]: ★
+                      - generic [aria-hidden] [ref=f7e748]: ★
+                    - generic [ref=f7e749]: "4.8"
+                    - generic [ref=f7e750]: (3,820)
+                  - generic [ref=f7e751]: ₹26,990
+                  - link "View on Amazon" [ref=f7e752] [cursor=pointer]:
+                    - /url: /go/amazon?id=sony-wh1000xm5
+              - 'columnheader "Trending Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium) Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium) Rating: 4.8 out of 5 stars 4.8 (910) ₹1,24,999 View on Flipkart" [ref=f7e753]':
+                - generic [ref=f7e754]:
+                  - generic [ref=f7e755]: Trending
+                  - img "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f7e756]
+                  - link "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f7e757] [cursor=pointer]:
+                    - /url: /product/samsung-galaxy-s25-ultra
+                  - generic [ref=f7e759]:
+                    - 'generic "Rating: 4.8 out of 5 stars" [ref=f7e760]':
+                      - generic [aria-hidden] [ref=f7e761]: ★
+                      - generic [aria-hidden] [ref=f7e762]: ★
+                      - generic [aria-hidden] [ref=f7e763]: ★
+                      - generic [aria-hidden] [ref=f7e764]: ★
+                      - generic [aria-hidden] [ref=f7e765]: ★
+                    - generic [ref=f7e766]: "4.8"
+                    - generic [ref=f7e767]: (910)
+                  - generic [ref=f7e768]: ₹1,24,999
+                  - link "View on Flipkart" [ref=f7e769] [cursor=pointer]:
+                    - /url: /go/flipkart?id=samsung-s25-ultra
+          - rowgroup [ref=f7e770]:
+            - row [ref=f7e771]:
+              - cell "Brand" [ref=f7e772]
+              - cell [ref=f7e773]:
+                - strong [ref=f7e774]: Apple
+              - cell [ref=f7e775]:
+                - strong [ref=f7e776]: Sony
+              - cell [ref=f7e777]:
+                - strong [ref=f7e778]: Samsung
+            - row [ref=f7e779]:
+              - cell "Category" [ref=f7e780]
+              - cell "Laptops" [ref=f7e781]
+              - cell "Headphones & Audio" [ref=f7e782]
+              - cell "Smartphones" [ref=f7e783]
+            - row [ref=f7e784]:
+              - cell "Top Advantage" [ref=f7e785]
+              - cell "✓ Sublime 18-hour real-world battery endurance" [ref=f7e786]
+              - cell "✓ Best-in-class ANC silences airplane roar and office bustle" [ref=f7e787]
+              - cell "✓ Anti-reflective Corning Gorilla Armor 2 display drastically cuts glare" [ref=f7e788]
+            - row [ref=f7e789]:
+              - cell "Drawback to Consider" [ref=f7e790]
+              - cell "✕ Supports only up to two external displays with lid closed" [ref=f7e791]
+              - cell "✕ Ear cups rotate flat but headband does not collapse inward like XM4" [ref=f7e792]
+              - cell "✕ Large 6.8-inch footprint requires two-handed usage" [ref=f7e793]
+            - row [ref=f7e794]:
+              - cell "Verified Stores" [ref=f7e795]
+              - 'cell "Amazon: ₹1,34,900 Flipkart: ₹1,36,990 Croma: ₹1,39,900" [ref=f7e796]':
+                - generic [ref=f7e797]:
+                  - generic [ref=f7e798]: "Amazon: ₹1,34,900"
+                  - generic [ref=f7e799]: "Flipkart: ₹1,36,990"
+                  - generic [ref=f7e800]: "Croma: ₹1,39,900"
+              - 'cell "Amazon: ₹26,990 Flipkart: ₹27,490 Croma: ₹28,990" [ref=f7e801]':
+                - generic [ref=f7e802]:
+                  - generic [ref=f7e803]: "Amazon: ₹26,990"
+                  - generic [ref=f7e804]: "Flipkart: ₹27,490"
+                  - generic [ref=f7e805]: "Croma: ₹28,990"
+              - 'cell "Flipkart: ₹1,24,999 Amazon: ₹1,26,999" [ref=f7e806]':
+                - generic [ref=f7e807]:
+                  - generic [ref=f7e808]: "Flipkart: ₹1,24,999"
+                  - generic [ref=f7e809]: "Amazon: ₹1,26,999"
+    - generic [ref=f7e811]:
+      - generic [ref=f7e812]:
+        - generic [ref=f7e813]:
+          - generic [ref=f7e814]: ✨ DERMATOLOGIST VERIFIED
+          - heading "Clean Skincare, Haircare & Senior Wellness" [level=2] [ref=f7e815]
+          - paragraph [ref=f7e816]: Hypoallergenic formulations, viral Korean essences, and adult geriatric nutrition.
+        - link "Full Beauty Hub →" [ref=f7e817] [cursor=pointer]:
+          - /url: /beauty
+      - generic [ref=f7e818]:
+        - generic [ref=f7e819]:
+          - generic [ref=f7e820]:
+            - generic [ref=f7e821]: Best Value
+            - generic [ref=f7e822]: 14% OFF
+            - link "View LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f7e823] [cursor=pointer]:
+              - /url: /product/laneige-water-sleeping-mask-ex
+              - img "LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f7e824]
+          - generic [ref=f7e825]:
+            - generic [ref=f7e826]:
+              - generic [ref=f7e827]: LANEIGE
+              - generic [ref=f7e828]: Skincare Serums
+            - heading [level=3] [ref=f7e829]:
+              - link "LANEIGE Water Sleeping Mask EX with Probiotics Complex (70ml)" [ref=f7e830] [cursor=pointer]:
+                - /url: /product/laneige-water-sleeping-mask-ex
+            - generic [ref=f7e832]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f7e833]':
+                - generic [aria-hidden] [ref=f7e834]: ★
+                - generic [aria-hidden] [ref=f7e835]: ★
+                - generic [aria-hidden] [ref=f7e836]: ★
+                - generic [aria-hidden] [ref=f7e837]: ★
+                - generic [aria-hidden] [ref=f7e838]: ★
+              - generic [ref=f7e839]: "4.8"
+              - generic [ref=f7e840]: (4,620)
+            - paragraph [ref=f7e841]: Overnight hydration treatment that restores radiant, glass-skin clarity by dawn.
+            - generic [ref=f7e842]:
+              - generic [ref=f7e843]:
+                - generic [ref=f7e844]: ₹1,850
+                - generic [ref=f7e845]: ₹2,150
+              - generic [ref=f7e846]: on Nykaa
+            - generic [ref=f7e847]:
+              - generic [ref=f7e848]: "Compare Stores:"
+              - generic [ref=f7e849]:
+                - link "Nykaa ₹1,850" [ref=f7e850] [cursor=pointer]:
+                  - /url: /go/nykaa?id=laneige-water-mask
+                  - generic [ref=f7e851]: Nykaa
+                  - generic [ref=f7e852]: ₹1,850
+                - link "Amazon ₹1,930" [ref=f7e853] [cursor=pointer]:
+                  - /url: /go/amazon?id=laneige-water-mask
+                  - generic [ref=f7e854]: Amazon
+                  - generic [ref=f7e855]: ₹1,930
+            - generic [ref=f7e856]:
+              - link "Full Review & Specs" [ref=f7e857] [cursor=pointer]:
+                - /url: /product/laneige-water-sleeping-mask-ex
+              - link "Check Deal →" [ref=f7e858] [cursor=pointer]:
+                - /url: /go/nykaa?id=laneige-water-mask
+        - generic [ref=f7e859]:
+          - generic [ref=f7e860]:
+            - generic [ref=f7e861]: Editor's Choice
+            - generic [ref=f7e862]: 5% OFF
+            - link "View Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f7e863] [cursor=pointer]:
+              - /url: /product/minimalist-10-niacinamide-face-serum
+              - img "Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f7e864]
+          - generic [ref=f7e865]:
+            - generic [ref=f7e866]:
+              - generic [ref=f7e867]: Minimalist
+              - generic [ref=f7e868]: Skincare Serums
+            - heading [level=3] [ref=f7e869]:
+              - link "Minimalist 10% Niacinamide Face Serum with Zinc & EUK 134 (30ml)" [ref=f7e870] [cursor=pointer]:
+                - /url: /product/minimalist-10-niacinamide-face-serum
+            - generic [ref=f7e872]:
+              - 'generic "Rating: 4.85 out of 5 stars" [ref=f7e873]':
+                - generic [aria-hidden] [ref=f7e874]: ★
+                - generic [aria-hidden] [ref=f7e875]: ★
+                - generic [aria-hidden] [ref=f7e876]: ★
+                - generic [aria-hidden] [ref=f7e877]: ★
+                - generic [aria-hidden] [ref=f7e878]: ★
+              - generic [ref=f7e879]: "4.8"
+              - generic [ref=f7e880]: (8,900)
+            - paragraph [ref=f7e881]: Clinical-grade treatment to reduce acne marks, blemishes, and oil secretion.
+            - generic [ref=f7e882]:
+              - generic [ref=f7e883]:
+                - generic [ref=f7e884]: ₹569
+                - generic [ref=f7e885]: ₹599
+              - generic [ref=f7e886]: on Nykaa
+            - generic [ref=f7e887]:
+              - generic [ref=f7e888]: "Compare Stores:"
+              - generic [ref=f7e889]:
+                - link "Nykaa ₹569" [ref=f7e890] [cursor=pointer]:
+                  - /url: /go/skincare?id=minimalist-niacinamide
+                  - generic [ref=f7e891]: Nykaa
+                  - generic [ref=f7e892]: ₹569
+                - link "Amazon ₹599" [ref=f7e893] [cursor=pointer]:
+                  - /url: /go/amazon?id=minimalist-niacinamide
+                  - generic [ref=f7e894]: Amazon
+                  - generic [ref=f7e895]: ₹599
+            - generic [ref=f7e896]:
+              - link "Full Review & Specs" [ref=f7e897] [cursor=pointer]:
+                - /url: /product/minimalist-10-niacinamide-face-serum
+              - link "Check Deal →" [ref=f7e898] [cursor=pointer]:
+                - /url: /go/skincare?id=minimalist-niacinamide
+    - generic [ref=f7e900]:
+      - generic [ref=f7e901]:
+        - generic [ref=f7e902]:
+          - generic [ref=f7e903]: EDITORIAL RADAR
+          - heading "Independent Buying Guides & Analysis" [level=2] [ref=f7e904]
+          - paragraph [ref=f7e905]: Data-driven purchasing advice to help you maximize every rupee.
+        - link "Browse All Guides →" [ref=f7e906] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=f7e907]:
+        - article [ref=f7e908]:
+          - link "The 5 Best Laptops for Developers, Designers & Power Users in 2026 Best Picks" [ref=f7e909] [cursor=pointer]:
+            - /url: /blog/best-laptops-for-developers-and-creators-2026
+            - img "The 5 Best Laptops for Developers, Designers & Power Users in 2026"
+            - text: Best Picks
+          - generic [ref=f7e910]:
+            - generic [ref=f7e911]: 8 min read • October 10, 2026
+            - heading [level=3] [ref=f7e912]:
+              - link "The 5 Best Laptops for Developers, Designers & Power Users in 2026" [ref=f7e913] [cursor=pointer]:
+                - /url: /blog/best-laptops-for-developers-and-creators-2026
+            - paragraph [ref=f7e914]: We benchmarked compile times, battery longevity under Docker containers, and display color accuracy across 14 flagship laptops. Here is what we found.
+            - generic [ref=f7e915]:
+              - img "Alex Vance" [ref=f7e916]
+              - generic [ref=f7e917]: Alex Vance Lead Hardware Editor
+        - article [ref=f7e918]:
+          - link [ref=f7e919] [cursor=pointer]:
+            - /url: /blog/booking-vs-agoda-where-to-get-cheapest-hotel-rates
+            - 'img "Booking.com vs Agoda: Where Do You Actually Get the Cheapest Hotel Rates?" [ref=f7e920]'
+            - text: Product Comparison
+          - generic [ref=f7e921]:
+            - generic [ref=f7e922]: 6 min read • October 8, 2026
+            - heading [level=3] [ref=f7e923]:
+              - 'link "Booking.com vs Agoda: Where Do You Actually Get the Cheapest Hotel Rates?" [ref=f7e924] [cursor=pointer]':
+                - /url: /blog/booking-vs-agoda-where-to-get-cheapest-hotel-rates
+            - paragraph [ref=f7e925]: Both belong to Booking Holdings, but their pricing algorithms, regional coupons, and hidden resort fees differ wildly. Here is our secret comparison guide.
+            - generic [ref=f7e926]:
+              - img "Priya Sharma" [ref=f7e927]
+              - generic [ref=f7e928]: Priya Sharma Senior Travel Strategist
+        - article [ref=f7e929]:
+          - 'link "Top AI Coding Tools in 2026: Cursor vs GitHub Copilot vs Claude Code Product Review" [ref=f7e930] [cursor=pointer]':
+            - /url: /blog/top-ai-coding-tools-cursor-vs-copilot
+            - 'img "Top AI Coding Tools in 2026: Cursor vs GitHub Copilot vs Claude Code"'
+            - text: Product Review
+          - generic [ref=f7e931]:
+            - generic [ref=f7e932]: 7 min read • October 6, 2026
+            - heading [level=3] [ref=f7e933]:
+              - 'link "Top AI Coding Tools in 2026: Cursor vs GitHub Copilot vs Claude Code" [ref=f7e934] [cursor=pointer]':
+                - /url: /blog/top-ai-coding-tools-cursor-vs-copilot
+            - paragraph [ref=f7e935]: AI-assisted programming has transitioned from single-line autocomplete to full-repo agentic workflows. We tested all three on a 25,000-line production repo.
+            - generic [ref=f7e936]:
+              - img "David Kim" [ref=f7e937]
+              - generic [ref=f7e938]: David Kim Software Architect & Tech Analyst
+    - generic [ref=f7e941]:
+      - generic [ref=f7e942]: SMART SHOPPERS CLUB
+      - heading "Never Miss an Error Fare or 70% Price Drop" [level=3] [ref=f7e943]
+      - paragraph [ref=f7e944]: Join 120,000+ members getting our weekly curated breakdown of verified coupons, lowest hotel deals, and tech price glitch alerts. Zero spam, unsubscribe with one click.
+      - generic [ref=f7e945]:
+        - generic [ref=f7e946]:
+          - textbox "Email address for newsletter" [ref=f7e947]:
+            - /placeholder: Enter your email address...
+          - button "Get VIP Deals →" [ref=f7e948] [cursor=pointer]
+        - generic [ref=f7e949]:
+          - generic [ref=f7e950]: 🔒 100% Privacy Protected
+          - generic [ref=f7e951]: ⚡ Instant Welcome Promo Codes
+  - contentinfo [ref=f7e952]:
+    - generic [ref=f7e954]:
+      - generic [ref=f7e955]:
+        - generic [ref=f7e956]: 🔍
+        - generic [ref=f7e957]:
+          - generic [ref=f7e958]: 100% Unbiased Editorial
+          - generic [ref=f7e959]: Lab-tested and rigorously benchmarked picks.
+      - generic [ref=f7e960]:
+        - generic [ref=f7e961]: 🏷️
+        - generic [ref=f7e962]:
+          - generic [ref=f7e963]: Verified Daily Discounts
+          - generic [ref=f7e964]: Automated price scrapers audit deals 24/7.
+      - generic [ref=f7e965]:
+        - generic [ref=f7e966]: 🛡️
+        - generic [ref=f7e967]:
+          - generic [ref=f7e968]: Direct Store Guarantee
+          - generic [ref=f7e969]: Checkout directly on authorized seller stores.
+      - generic [ref=f7e970]:
+        - generic [ref=f7e971]: ⚡
+        - generic [ref=f7e972]:
+          - generic [ref=f7e973]: Instant Coupon Validation
+          - generic [ref=f7e974]: No dead codes or expired vouchers.
+    - generic [ref=f7e976]:
+      - generic [ref=f7e977]:
+        - link "B BhujDeals Compare & Discover" [ref=f7e978] [cursor=pointer]:
+          - /url: /
+          - text: B
+          - generic [ref=f7e979]:
+            - generic [ref=f7e980]: BhujDeals
+            - text: Compare & Discover
+        - paragraph [ref=f7e981]: BhujDeals is an independent consumer discovery engine. We help smart shoppers cut through e-commerce noise by comparing prices, lab performance, and verified discount coupons across Amazon, Flipkart, Booking.com, Agoda, and top DTC brands.
+        - generic [ref=f7e982]:
+          - generic [ref=f7e983]: Amazon Associates
+          - generic [ref=f7e984]: Flipkart Affiliate
+          - generic [ref=f7e985]: Booking Holdings
+          - generic [ref=f7e986]: Impact Radius
+          - generic [ref=f7e987]: CJ Affiliate
+      - generic [ref=f7e988]:
+        - heading "Categories" [level=4] [ref=f7e989]
+        - list [ref=f7e990]:
+          - listitem [ref=f7e991]:
+            - link "Hotels & Stays" [ref=f7e992] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f7e993]:
+            - link "Electronics & Tech" [ref=f7e994] [cursor=pointer]:
+              - /url: /electronics
+          - listitem [ref=f7e995]:
+            - link "Beauty & Skincare" [ref=f7e996] [cursor=pointer]:
+              - /url: /beauty
+          - listitem [ref=f7e997]:
+            - link "Fashion & Apparel" [ref=f7e998] [cursor=pointer]:
+              - /url: /fashion
+          - listitem [ref=f7e999]:
+            - link "Home & Kitchen" [ref=f7e1000] [cursor=pointer]:
+              - /url: /home
+          - listitem [ref=f7e1001]:
+            - link "AI Tools & SaaS" [ref=f7e1002] [cursor=pointer]:
+              - /url: /ai-tools
+      - generic [ref=f7e1003]:
+        - heading "Travel & Deals" [level=4] [ref=f7e1004]
+        - list [ref=f7e1005]:
+          - listitem [ref=f7e1006]:
+            - link "Hotels & Stays" [ref=f7e1007] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f7e1008]:
+            - link "Experiences & Tours" [ref=f7e1009] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=f7e1010]:
+            - link "Today's Deals" [ref=f7e1011] [cursor=pointer]:
+              - /url: /deals
+          - listitem [ref=f7e1012]:
+            - link "Web Hosting Deals" [ref=f7e1013] [cursor=pointer]:
+              - /url: /hosting
+          - listitem [ref=f7e1014]:
+            - link "AI Tools & SaaS" [ref=f7e1015] [cursor=pointer]:
+              - /url: /ai-tools
+          - listitem [ref=f7e1016]:
+            - link "Buying Guides & Reviews" [ref=f7e1017] [cursor=pointer]:
+              - /url: /blog
+      - generic [ref=f7e1018]:
+        - heading "Trust & Legal" [level=4] [ref=f7e1019]
+        - list [ref=f7e1020]:
+          - listitem [ref=f7e1021]:
+            - link "About BhujDeals" [ref=f7e1022] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f7e1023]:
+            - link "Affiliate Disclosure" [ref=f7e1024] [cursor=pointer]:
+              - /url: /affiliate-disclosure
+          - listitem [ref=f7e1025]:
+            - link "Price & Warranty Disclaimer" [ref=f7e1026] [cursor=pointer]:
+              - /url: /disclaimer
+          - listitem [ref=f7e1027]:
+            - link "Privacy Policy" [ref=f7e1028] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=f7e1029]:
+            - link "Terms of Service" [ref=f7e1030] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=f7e1031]:
+            - link "Contact & Partnerships" [ref=f7e1032] [cursor=pointer]:
+              - /url: /contact
+    - paragraph [ref=f7e1035]:
+      - strong [ref=f7e1036]: "FTC & ASCI Affiliate Disclosure:"
+      - text: BhujDeals is an independent participant in various affiliate marketing programs, including the Amazon Services LLC Associates Program, the Flipkart Affiliate Program, Booking.com Affiliate Partner Network, Impact.com, and Commission Junction. When you click on links to various merchants on this site and make a purchase or booking, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network, Booking Holdings, and PartnerStack. Prices and availability are subject to change without notice. All product names, logos, and brands are property of their respective owners.
+    - generic [ref=f7e1038]:
+      - paragraph [ref=f7e1039]: © 2026 BhujDeals Media Ltd. Built with high performance Astro & Cloudflare Edge.
+      - generic [ref=f7e1040]:
+        - link "Sitemap" [ref=f7e1041] [cursor=pointer]:
+          - /url: /sitemap-index.xml
+        - link "Privacy" [ref=f7e1042] [cursor=pointer]:
+          - /url: /privacy
+        - link "Disclosure" [ref=f7e1043] [cursor=pointer]:
+          - /url: /affiliate-disclosure
+        - link "Support" [ref=f7e1044] [cursor=pointer]:
+          - /url: /contact

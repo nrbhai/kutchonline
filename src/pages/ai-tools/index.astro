@@ -1,0 +1,421 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { PRODUCTS } from '../../data/products';
+
+const aiProducts = PRODUCTS.filter(p => p.category === 'ai-tools');
+
+const aiHighlights = [
+  {
+    title: "Cursor AI Agentic Code Editor",
+    tagline: "Full-repo indexing, shadow workspace edits & multi-file agents",
+    badge: "⚡ #1 AI Editor",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+    url: "/go/cursor",
+    action: "Try Cursor Pro &rarr;"
+  },
+  {
+    title: "Jasper Enterprise Content Engine",
+    tagline: "Brand voice governance, SEO campaign mode & multi-channel copy",
+    badge: "✍️ Marketing AI",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+    url: "/go/jasper",
+    action: "Get Jasper Free Trial &rarr;"
+  }
+];
+
+const subcatPills = [
+  { label: "All AI Solutions", filter: "all" },
+  { label: "💻 AI Coding Assistants", filter: "AI Code Assistants" },
+  { label: "✍️ Generative Copywriting", filter: "AI Writing" }
+];
+
+const aiFaqs = [
+  {
+    question: "Do these AI software platforms offer free trials?",
+    answer: "Yes, Cursor Pro includes 2,000 fast completions plus a 14-day Pro trial with Claude 3.5 Sonnet access. Jasper offers a 7-day trial on team workspaces."
+  },
+  {
+    question: "Is proprietary enterprise code or client data protected?",
+    answer: "Both Cursor and Jasper feature strict Privacy Modes with SOC 2 Type II certifications ensuring prompt tokens and codebase files are never retained or trained on foundation LLMs."
+  },
+  {
+    question: "How do your software affiliate links work?",
+    answer: "Our direct partner shortlinks route you to official vendor trials where applicable coupons (like annual prepayment discounts) apply automatically with no extra cost to your team."
+  }
+];
+---
+
+<BaseLayout
+  title="Best AI Tools & Software Lifetime Deals 2026 | SaaS Discounts & Benchmarks"
+  description="Discover the highest-performing generative AI tools for coding, copywriting, and automated workflows. Exclusive promo codes and free trial activations."
+>
+  <!-- =========================================================================
+       1. AGENTIC AI HERO BANNER
+       ========================================================================= -->
+  <section class="ai-hero-banner">
+    <div class="ai-bg-media">
+      <img 
+        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=85" 
+        alt="3D Neural Network AI Tools & Software Workspace" 
+        class="ai-bg-img"
+      />
+      <div class="ai-hero-overlay"></div>
+    </div>
+
+    <div class="container ai-hero-content">
+      <div class="breadcrumbs-dark">
+        <Breadcrumbs crumbs={[{ label: "AI Tools & SaaS" }]} />
+      </div>
+
+      <div class="ai-badge-row">
+        <span class="ai-pill">
+          <span class="radar-dot"></span>
+          <span>AGENTIC BENCHMARK RADAR 2026</span>
+        </span>
+        <span class="ai-verified-tag">🤖 Tested on 25k-Line Codebases</span>
+      </div>
+
+      <h1 class="ai-hero-title">
+        Automate the Complex.<br />
+        <span class="ai-text-gradient">Top Generative AI Code & SaaS Tools</span>
+      </h1>
+
+      <p class="ai-hero-desc">
+        We test AI coding assistants, automated marketing generators, and agentic workflows on production data. Unlock official team discounts and extended free trials.
+      </p>
+
+      <!-- Highlights Grid -->
+      <div class="ai-stores-grid">
+        {aiHighlights.map((a) => (
+          <div class="ai-store-card glass-card-dark">
+            <div class="a-store-media">
+              <img src={a.image} alt={a.title} class="a-store-img" />
+              <span class="a-store-badge">{a.badge}</span>
+            </div>
+            <div class="a-store-info">
+              <h3 class="a-store-name">{a.title}</h3>
+              <p class="a-store-tagline">{a.tagline}</p>
+              <a href={a.url} target="_blank" rel="sponsored nofollow noopener" class="btn btn-affiliate a-store-btn">
+                {a.action}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container main-ai-body">
+    <!-- =========================================================================
+         2. INTERACTIVE FILTER PILLS
+         ========================================================================= -->
+    <div class="ai-controls-bar">
+      <span class="controls-label">Select Capability:</span>
+      <div class="subcat-pills-row">
+        {subcatPills.map((p, i) => (
+          <button class={`ai-pill-btn ${i === 0 ? 'active' : ''}`} data-filter={p.filter}>
+            {p.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         3. AI SOFTWARE GRID
+         ========================================================================= -->
+    <div class="ai-grid" id="ai-products-grid">
+      {aiProducts.map((prod) => (
+        <div class="ai-product-item" data-subcat={prod.subcategory}>
+          <ProductCard product={prod} />
+        </div>
+      ))}
+    </div>
+
+    <!-- =========================================================================
+         4. SAAS & CODE COMPARISON MATRIX
+         ========================================================================= -->
+    <div class="matrix-wrapper card">
+      <ComparisonTable products={aiProducts} title="SaaS & Developer AI Feature Comparison" />
+    </div>
+
+    <!-- FAQs -->
+    <FAQAccordion faqs={aiFaqs} title="AI Software, Privacy & Pricing FAQs" />
+  </div>
+</BaseLayout>
+
+<script>
+  const pillBtns = document.querySelectorAll('.ai-pill-btn');
+  const productItems = document.querySelectorAll('.ai-product-item');
+
+  pillBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      pillBtns.forEach(b => b.classList.remove('active'));
+      const target = e.currentTarget as HTMLElement;
+      target.classList.add('active');
+      const filter = target.getAttribute('data-filter') || 'all';
+
+      productItems.forEach((item) => {
+        const itemSubcat = item.getAttribute('data-subcat') || '';
+        if (filter === 'all' || itemSubcat === filter || itemSubcat.includes(filter)) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* =========================================================================
+     1. AI HERO STYLES
+     ========================================================================= */
+  .ai-hero-banner {
+    position: relative;
+    padding: clamp(56px, 8vw, 84px) 0 64px;
+    color: #ffffff;
+    overflow: hidden;
+    background: #09090b;
+  }
+
+  .ai-bg-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .ai-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55) contrast(1.2);
+  }
+
+  .ai-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.7) 0%, rgba(9, 9, 11, 0.92) 80%, #09090b 100%);
+  }
+
+  .ai-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+  }
+
+  .breadcrumbs-dark {
+    margin-bottom: 20px;
+  }
+
+  .breadcrumbs-dark :global(a),
+  .breadcrumbs-dark :global(span) {
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .ai-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .ai-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(147, 51, 234, 0.9);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+  }
+
+  .ai-verified-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .ai-hero-title {
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .ai-text-gradient {
+    background: linear-gradient(135deg, #a855f7 0%, #38bdf8 50%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .ai-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 780px;
+  }
+
+  /* Stores Grid */
+  .ai-stores-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .ai-store-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 14px;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .a-store-media {
+    position: relative;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .a-store-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .a-store-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.675rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+  }
+
+  .a-store-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .a-store-tagline {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .a-store-btn {
+    padding: 8px 16px;
+    font-size: 0.825rem;
+    width: fit-content;
+  }
+
+  /* =========================================================================
+     2. MAIN AI BODY
+     ========================================================================= */
+  .main-ai-body {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .ai-controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .controls-label {
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: var(--text-subtle);
+  }
+
+  .subcat-pills-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ai-pill-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.825rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-body);
+  }
+
+  .ai-pill-btn:hover {
+    border-color: #9333ea;
+    color: #9333ea;
+  }
+
+  .ai-pill-btn.active {
+    background: #9333ea;
+    color: #ffffff;
+    border-color: #9333ea;
+  }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .matrix-wrapper {
+    padding: clamp(24px, 4vw, 36px);
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 1024px) {
+    .ai-stores-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ai-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-store-card {
+      grid-template-columns: 1fr;
+    }
+
+    .a-store-media {
+      height: 160px;
+    }
+  }
+</style>

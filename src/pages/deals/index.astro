@@ -1,0 +1,392 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CouponCard from '../../components/CouponCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { DEALS } from '../../data/deals';
+
+const dealsFaqs = [
+  {
+    question: "How often are coupon codes updated on BhujDeals?",
+    answer: "Our coupon validation engine checks code redemption success rates every 30 minutes. Any expired or non-working voucher is automatically purged."
+  },
+  {
+    question: "Can I combine these promo codes with bank card discounts?",
+    answer: "Yes! You can stack an instant coupon code (e.g. at AJIO, Nykaa or Hostinger) with eligible bank credit card offers (HDFC, ICICI, Axis, SBI) at the payment checkout."
+  },
+  {
+    question: "How do I use these codes to get the maximum discount?",
+    answer: "Click 'Copy & Visit Store' on any deal card. The code is saved to your clipboard and you will be securely redirected to the merchant checkout page where you can paste it into the coupon input field."
+  }
+];
+
+const storesList = ["All Stores", "Agoda", "AJIO", "Amazon", "Flipkart", "Hostinger", "Nykaa"];
+---
+
+<BaseLayout
+  title="Today's Best Online Deals & Coupon Codes 2026 | Agoda, AJIO, Amazon & Flipkart"
+  description="Verified daily flash sales, exclusive discount promo codes, and price drop glitches across Agoda, AJIO, Amazon, Flipkart, and top SaaS tools."
+>
+  <!-- =========================================================================
+       1. LIVE FLASH RADAR HERO BANNER
+       ========================================================================= -->
+  <section class="deals-hero-banner">
+    <div class="deals-bg-media">
+      <img 
+        src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1920&q=85" 
+        alt="Flash Sales and Exclusive Coupon Deals" 
+        class="deals-bg-img"
+      />
+      <div class="deals-hero-overlay"></div>
+    </div>
+
+    <div class="container deals-hero-content">
+      <div class="breadcrumbs-dark">
+        <Breadcrumbs crumbs={[{ label: "Deals & Coupons" }]} />
+      </div>
+
+      <div class="deals-badge-row">
+        <span class="deals-pill">
+          <span class="radar-dot"></span>
+          <span>LIVE PROMO CODE RADAR: {DEALS.length} CERTIFIED ACTIVE</span>
+        </span>
+        <span class="deals-saving-pill">🔥 Up to 90% Off Verified</span>
+      </div>
+
+      <h1 class="deals-hero-title">
+        Never Miss an Error Fare or<br />
+        <span class="deals-text-gradient">Exclusive Store Promo Code</span>
+      </h1>
+
+      <p class="deals-hero-desc">
+        All coupon codes tested and verified hourly across Agoda, AJIO, Amazon Prime, Nykaa, and Hostinger. Click any voucher below to copy code and unlock instant savings.
+      </p>
+
+      <!-- Store Filter Buttons inside Hero -->
+      <div class="store-filter-glass glass-card-dark">
+        <span class="store-filter-label">Filter by Merchant:</span>
+        <div class="store-filter-pills">
+          {storesList.map((st, idx) => (
+            <button class={`store-btn ${idx === 0 ? 'active' : ''}`} data-store={st}>
+              {st}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container main-deals-body">
+    <!-- =========================================================================
+         2. ACTIVE DEALS GRID
+         ========================================================================= -->
+    <div class="deals-grid" id="deals-grid">
+      {DEALS.map((deal) => (
+        <div class="deal-item-wrapper" data-store={deal.store}>
+          <CouponCard deal={deal} />
+        </div>
+      ))}
+    </div>
+
+    <!-- =========================================================================
+         3. 3-STEP COUPON STACKING METHODOLOGY
+         ========================================================================= -->
+    <div class="stacking-guide card">
+      <div class="guide-header">
+        <span class="badge badge-brand">SAVINGS PLAYBOOK</span>
+        <h2>The 3-Step Formula to Triple Stack Discounts</h2>
+        <p>How power shoppers save an extra 15% to 30% over standard sale prices.</p>
+      </div>
+
+      <div class="strategy-cols">
+        <div class="strategy-col">
+          <span class="col-num">01</span>
+          <h4>Apply Verified Promo Code</h4>
+          <p>Copy our exclusive merchant voucher code (e.g. AGODABHUJ, AJIOMAX) to unlock manufacturer or platform discounts before payment.</p>
+        </div>
+        <div class="strategy-col">
+          <span class="col-num">02</span>
+          <h4>Select Co-Branded Card Offers</h4>
+          <p>Select eligible instant bank discounts (typically 10% instant off on HDFC, Axis, ICICI, or SBI credit cards) at the gateway.</p>
+        </div>
+        <div class="strategy-col">
+          <span class="col-num">03</span>
+          <h4>Redeem Brand Coins & Cashback</h4>
+          <p>Complete checkout through our verified partner routing to earn native store loyalty supercoins and manufacturer warranty protection.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <FAQAccordion faqs={dealsFaqs} title="Coupon Codes & Redemption FAQs" />
+  </div>
+</BaseLayout>
+
+<script>
+  // Filter deals by store
+  const storeBtns = document.querySelectorAll('.store-btn');
+  const dealWrappers = document.querySelectorAll('.deal-item-wrapper');
+
+  storeBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      storeBtns.forEach(b => b.classList.remove('active'));
+      const target = e.currentTarget as HTMLElement;
+      target.classList.add('active');
+      const store = target.getAttribute('data-store') || 'All Stores';
+
+      dealWrappers.forEach((wrapper) => {
+        const itemStore = wrapper.getAttribute('data-store') || '';
+        if (store === 'All Stores' || itemStore.toLowerCase().includes(store.toLowerCase())) {
+          (wrapper as HTMLElement).style.display = 'block';
+        } else {
+          (wrapper as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* =========================================================================
+     1. DEALS HERO STYLES
+     ========================================================================= */
+  .deals-hero-banner {
+    position: relative;
+    padding: clamp(56px, 8vw, 84px) 0 64px;
+    color: #ffffff;
+    overflow: hidden;
+    background: #0f172a;
+  }
+
+  .deals-bg-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .deals-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55) contrast(1.2);
+  }
+
+  .deals-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.92) 80%, #0f172a 100%);
+  }
+
+  .deals-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+  }
+
+  .breadcrumbs-dark {
+    margin-bottom: 20px;
+  }
+
+  .breadcrumbs-dark :global(a),
+  .breadcrumbs-dark :global(span) {
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .deals-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .deals-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(234, 88, 12, 0.95);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+  }
+
+  .deals-saving-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .deals-hero-title {
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .deals-text-gradient {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #facc15 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .deals-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 780px;
+  }
+
+  /* Store Filter Inside Hero */
+  .store-filter-glass {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    flex-wrap: wrap;
+  }
+
+  .store-filter-label {
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .store-filter-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .store-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 0.825rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .store-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .store-btn.active {
+    background: #ffffff;
+    color: #0f172a;
+    border-color: #ffffff;
+  }
+
+  /* =========================================================================
+     2. MAIN DEALS BODY
+     ========================================================================= */
+  .main-deals-body {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+
+  /* Stacking Guide */
+  .stacking-guide {
+    padding: clamp(28px, 4vw, 44px);
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--border-default);
+    margin-bottom: 48px;
+  }
+
+  .guide-header {
+    margin-bottom: 28px;
+  }
+
+  .guide-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 8px 0 6px;
+    color: var(--text-main);
+  }
+
+  .guide-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .strategy-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .strategy-col {
+    padding: 20px;
+    background: #fff7ed;
+    border-radius: 14px;
+    border: 1px solid #fed7aa;
+  }
+
+  .col-num {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #ea580c;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .strategy-col h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-main);
+  }
+
+  .strategy-col p {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .deals-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .deals-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .strategy-cols {
+      grid-template-columns: 1fr;
+    }
+
+    .store-filter-glass {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

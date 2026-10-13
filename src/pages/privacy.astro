@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy | BhujDeals"
+  description="Learn how BhujDeals handles personal data, cookies, affiliate referral tracking tokens, and GDPR/CCPA privacy rights."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Privacy Policy" }]} />
+
+    <div class="legal-doc-header">
+      <span class="badge badge-brand">DATA PRIVACY</span>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="last-updated">Last Updated: October 12, 2026</p>
+    </div>
+
+    <div class="legal-article-body card">
+      <h2>1. Information We Collect</h2>
+      <p>
+        BhujDeals collects minimal information to provide our product discovery, coupon notification, and newsletter services:
+      </p>
+      <ul>
+        <li><strong>Voluntary Information:</strong> Email addresses provided when you subscribe to our VIP Deals newsletter or reach out via our contact form.</li>
+        <li><strong>Automated Telemetry:</strong> Anonymized browsing metrics including browser type, operating system, IP address (truncated for geolocation country/city level), referring URLs, and outbound affiliate click interactions.</li>
+      </ul>
+
+      <h2>2. Cookies and Outbound Affiliate Tracking</h2>
+      <p>
+        When you click an outbound link to an affiliate partner (such as Amazon, Flipkart, Booking.com, or Hostinger), the merchant network places a tracking cookie in your browser. This cookie contains a tracking identifier indicating that you were referred by BhujDeals. This enables the merchant to attribute qualifying sales and commissions. These cookies do not store personal financial data and expire according to each network's standard retention window (typically 24 hours to 90 days).
+      </p>
+
+      <h2>3. Third-Party Analytics</h2>
+      <p>
+        We employ privacy-focused analytics tools to understand aggregate search behavior without fingerprinting individual users across multiple sites. We do not sell, rent, or trade your personal email address to any commercial brokers.
+      </p>
+
+      <h2>4. Your GDPR and CCPA Rights</h2>
+      <p>
+        Regardless of your geographic location, you retain the right to request access to any personal data we hold about you, request immediate deletion, or opt out of our email communications at any time with one click. Inquiries can be addressed to <strong>privacy@bhujdeals.com</strong>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-doc-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin: 12px 0 8px;
+  }
+
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .legal-article-body {
+    padding: clamp(24px, 5vw, 48px);
+    background: #ffffff;
+    margin-bottom: 56px;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: var(--text-body);
+  }
+
+  .legal-article-body h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 32px 0 14px;
+    color: var(--text-main);
+  }
+
+  .legal-article-body h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-article-body p {
+    margin-bottom: 16px;
+  }
+
+  .legal-article-body ul {
+    margin-bottom: 24px;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+</style>

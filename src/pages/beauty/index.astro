@@ -1,0 +1,510 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { PRODUCTS } from '../../data/products';
+
+const beautyProducts = PRODUCTS.filter(p => p.category === 'beauty');
+
+const beautyHighlights = [
+  {
+    title: "Nykaa Beauty & Cosmetics",
+    tagline: "Korea Glass Skin, COSRX & Dermatologist Serums",
+    badge: "✨ Verified Nykaa Partner",
+    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
+    url: "/go/nykaa",
+    action: "Shop Nykaa Pink Deals &rarr;"
+  },
+  {
+    title: "Senior Care & Mobility (45+)",
+    tagline: "Ensure Adult Nutrition & Geriatric Care Shakes",
+    badge: "🌿 Geriatric Health",
+    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
+    url: "/go/senior-health",
+    action: "Explore Senior Health &rarr;"
+  },
+  {
+    title: "Luxury Hair Styling Systems",
+    tagline: "Dyson Airwrap Multi-Styler & Keratin Therapy",
+    badge: "💇 Salon Grade",
+    image: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=600&q=80",
+    url: "/go/haircare",
+    action: "Shop Dyson & Hair Tech &rarr;"
+  }
+];
+
+const subcatPills = [
+  { label: "All Beauty Picks", filter: "all" },
+  { label: "🧴 Skincare Serums", filter: "Skincare Serums" },
+  { label: "💇 Hair Tech & Repair", filter: "Hair Care" },
+  { label: "👵 Senior Wellness (45+)", filter: "Health & Nutrition" },
+  { label: "🌸 Luxury Fragrance", filter: "Fragrance" }
+];
+
+const beautyFaqs = [
+  {
+    question: "How do you verify authentic beauty products from Nykaa and Amazon Beauty?",
+    answer: "We strictly route to authorized brand flagships on Nykaa, Sephora India, and official Amazon Brand Stores that supply direct manufacturer batch barcodes. We never feature unauthorized third-party marketplace resellers."
+  },
+  {
+    question: "Do you test beauty products on sensitive skin?",
+    answer: "Our beauty testing panel includes diverse skin types (sensitive, acne-prone, barrier-compromised, and mature). We prioritize fragrance-free, non-comedogenic, clinical formulations."
+  },
+  {
+    question: "How can I get the best discount on viral Korean skincare?",
+    answer: "Bundle during Nykaa Super Pink sales or look for multi-pack promos on Amazon Beauty Prime to save up to 25% on brands like COSRX, Laneige, and Minimalist."
+  }
+];
+---
+
+<BaseLayout
+  title="Best Beauty & Skincare Products 2026 | Nykaa, Sephora & Amazon Reviews"
+  description="Discover dermatologist-approved skincare, clean haircare, luxury fragrance and viral beauty bestsellers. Verified authentic links and store discounts."
+>
+  <!-- =========================================================================
+       1. BEAUTY BOTANICAL HERO BANNER
+       ========================================================================= -->
+  <section class="beauty-hero-banner">
+    <div class="beauty-bg-media">
+      <img 
+        src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1920&q=85" 
+        alt="Aesthetic Korean Skincare Serums and Clean Makeup" 
+        class="beauty-bg-img"
+      />
+      <div class="beauty-hero-overlay"></div>
+    </div>
+
+    <div class="container beauty-hero-content">
+      <div class="breadcrumbs-dark">
+        <Breadcrumbs crumbs={[{ label: "Beauty & Wellness" }]} />
+      </div>
+
+      <div class="beauty-badge-row">
+        <span class="beauty-pill">
+          <span class="radar-dot"></span>
+          <span>DERMATOLOGY & CLEAN INGREDIENT BENCHMARKS</span>
+        </span>
+        <span class="beauty-verified-tag">✨ 100% Authentic Batch Sourced</span>
+      </div>
+
+      <h1 class="beauty-hero-title">
+        Science-Backed Radiance.<br />
+        <span class="beauty-text-gradient">Viral K-Beauty, Hair Tech & Senior Care</span>
+      </h1>
+
+      <p class="beauty-hero-desc">
+        We analyze active percentages, clinical trial evidence, and skin barrier tolerance. Shop authenticated batches with verified discounts across Nykaa, Sephora, and Amazon.
+      </p>
+
+      <!-- Beauty Store Highlights -->
+      <div class="beauty-stores-grid">
+        {beautyHighlights.map((b) => (
+          <div class="beauty-store-card glass-card-dark">
+            <div class="b-store-media">
+              <img src={b.image} alt={b.title} class="b-store-img" />
+              <span class="b-store-badge">{b.badge}</span>
+            </div>
+            <div class="b-store-info">
+              <h3 class="b-store-name">{b.title}</h3>
+              <p class="b-store-tagline">{b.tagline}</p>
+              <a href={b.url} target="_blank" rel="sponsored nofollow noopener" class="btn btn-affiliate b-store-btn">
+                {b.action}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container main-beauty-body">
+    <!-- =========================================================================
+         2. INTERACTIVE FILTER PILLS
+         ========================================================================= -->
+    <div class="beauty-controls-bar">
+      <span class="controls-label">Browse Category:</span>
+      <div class="subcat-pills-row">
+        {subcatPills.map((p, i) => (
+          <button class={`beauty-pill-btn ${i === 0 ? 'active' : ''}`} data-filter={p.filter}>
+            {p.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         3. VERIFIED PRODUCTS GRID
+         ========================================================================= -->
+    <div class="beauty-grid" id="beauty-products-grid">
+      {beautyProducts.map((prod) => (
+        <div class="beauty-product-item" data-subcat={prod.subcategory}>
+          <ProductCard product={prod} />
+        </div>
+      ))}
+    </div>
+
+    <!-- =========================================================================
+         4. BEAUTY & HAIR INVESTMENT COMPARISON MATRIX
+         ========================================================================= -->
+    <div class="matrix-wrapper card">
+      <ComparisonTable products={beautyProducts} title="Skincare & Hair Styling Investment Matrix" />
+    </div>
+
+    <!-- =========================================================================
+         5. DERMATOLOGY BUYING PRINCIPLES
+         ========================================================================= -->
+    <div class="beauty-guide-card card">
+      <div class="guide-header">
+        <span class="badge badge-deal">SKIN LAB PROTOCOLS</span>
+        <h2>The 3 Non-Negotiables of Clean Skincare in 2026</h2>
+      </div>
+      <div class="guide-pillars-grid">
+        <div class="pillar-box">
+          <span class="pillar-num">01</span>
+          <h4>Active Concentration Over Hype</h4>
+          <p>Higher percentages often cause dermatitis. 2% to 5% Niacinamide achieves peak barrier restoration without flaking or redness.</p>
+        </div>
+        <div class="pillar-box">
+          <span class="pillar-num">02</span>
+          <h4>Batch Barcode Verification</h4>
+          <p>Always inspect the expiration code on imported K-Beauty products. Authorized vendors guarantee at least 18+ months shelf life.</p>
+        </div>
+        <div class="pillar-box">
+          <span class="pillar-num">03</span>
+          <h4>Geriatric & Adult Nutrition Safety</h4>
+          <p>Senior wellness formulas must adhere to verified diabetic-safe glycemic index levels and clinically formulated maltodextrin limits.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <FAQAccordion faqs={beautyFaqs} title="Beauty, Ingredients & Batch Authenticity FAQs" />
+  </div>
+</BaseLayout>
+
+<script>
+  const pillBtns = document.querySelectorAll('.beauty-pill-btn');
+  const productItems = document.querySelectorAll('.beauty-product-item');
+
+  pillBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      pillBtns.forEach(b => b.classList.remove('active'));
+      const target = e.currentTarget as HTMLElement;
+      target.classList.add('active');
+      const filter = target.getAttribute('data-filter') || 'all';
+
+      productItems.forEach((item) => {
+        const itemSubcat = item.getAttribute('data-subcat') || '';
+        if (filter === 'all' || itemSubcat === filter || itemSubcat.includes(filter)) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* =========================================================================
+     1. BEAUTY HERO STYLES
+     ========================================================================= */
+  .beauty-hero-banner {
+    position: relative;
+    padding: clamp(56px, 8vw, 84px) 0 64px;
+    color: #ffffff;
+    overflow: hidden;
+    background: #180d1e;
+  }
+
+  .beauty-bg-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .beauty-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.15);
+  }
+
+  .beauty-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(24, 13, 30, 0.7) 0%, rgba(24, 13, 30, 0.92) 80%, #180d1e 100%);
+  }
+
+  .beauty-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+  }
+
+  .breadcrumbs-dark {
+    margin-bottom: 20px;
+  }
+
+  .breadcrumbs-dark :global(a),
+  .breadcrumbs-dark :global(span) {
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .beauty-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .beauty-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(236, 72, 153, 0.9);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+  }
+
+  .beauty-verified-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .beauty-hero-title {
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .beauty-text-gradient {
+    background: linear-gradient(135deg, #f472b6 0%, #fb7185 50%, #fda4af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .beauty-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 780px;
+  }
+
+  /* Stores Grid */
+  .beauty-stores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .beauty-store-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 14px;
+  }
+
+  .b-store-media {
+    position: relative;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .b-store-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .b-store-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.675rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+  }
+
+  .b-store-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .b-store-tagline {
+    font-size: 0.775rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    margin-bottom: 14px;
+    flex: 1;
+  }
+
+  .b-store-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* =========================================================================
+     2. MAIN BEAUTY BODY
+     ========================================================================= */
+  .main-beauty-body {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .beauty-controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .controls-label {
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: var(--text-subtle);
+  }
+
+  .subcat-pills-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .beauty-pill-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.825rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-body);
+  }
+
+  .beauty-pill-btn:hover {
+    border-color: #ec4899;
+    color: #ec4899;
+  }
+
+  .beauty-pill-btn.active {
+    background: #ec4899;
+    color: #ffffff;
+    border-color: #ec4899;
+  }
+
+  .beauty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .matrix-wrapper {
+    padding: clamp(24px, 4vw, 36px);
+    margin-bottom: 48px;
+  }
+
+  /* Guide Box */
+  .beauty-guide-card {
+    padding: clamp(28px, 4vw, 44px);
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--border-default);
+    margin-bottom: 48px;
+  }
+
+  .guide-header {
+    margin-bottom: 28px;
+  }
+
+  .guide-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-top: 8px;
+    color: var(--text-main);
+  }
+
+  .guide-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pillar-box {
+    padding: 20px;
+    background: #fdf2f8;
+    border-radius: 14px;
+    border: 1px solid #fbcfe8;
+  }
+
+  .pillar-num {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #ec4899;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .pillar-box h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-main);
+  }
+
+  .pillar-box p {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .beauty-stores-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .beauty-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

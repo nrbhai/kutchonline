@@ -1,0 +1,642 @@
+- generic [active] [ref=f13e1]:
+  - region "Affiliate Disclosure" [ref=f13e2]:
+    - generic [ref=f13e3]:
+      - generic [ref=f13e4]:
+        - generic [ref=f13e5]: INDEPENDENT ADVICE
+        - paragraph [ref=f13e6]: BhujDeals is reader-supported. When you buy or book through links on our platform, we may earn an affiliate commission at no extra cost to you.
+      - link "How we test & monetize →" [ref=f13e7] [cursor=pointer]:
+        - /url: /affiliate-disclosure
+  - banner [ref=f13e8]:
+    - generic [ref=f13e10]:
+      - link "BhujDeals Home" [ref=f13e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f13e12]: B
+        - generic [ref=f13e13]:
+          - generic [ref=f13e14]: BhujDeals
+          - generic [ref=f13e15]: Compare & Discover
+      - generic [ref=f13e17]:
+        - textbox "Search 10,000+ products, hotels, coupons or stores..." [ref=f13e20]
+        - generic [ref=f13e21]: ⌘K
+      - generic [ref=f13e22]:
+        - link "🔥 Today's Deals" [ref=f13e23] [cursor=pointer]:
+          - /url: /deals
+          - generic [ref=f13e24]: 🔥
+          - generic [ref=f13e25]: Today's Deals
+        - link "Guides" [ref=f13e26] [cursor=pointer]:
+          - /url: /blog
+    - navigation "Product and Services Categories" [ref=f13e27]:
+      - list [ref=f13e29]:
+        - listitem [ref=f13e30]:
+          - link "🏨 Hotels" [ref=f13e31] [cursor=pointer]:
+            - /url: /hotels
+            - generic [ref=f13e32]: 🏨
+            - text: Hotels
+        - listitem [ref=f13e33]:
+          - link "💻 Electronics" [ref=f13e34] [cursor=pointer]:
+            - /url: /electronics
+            - generic [ref=f13e35]: 💻
+            - text: Electronics
+        - listitem [ref=f13e36]:
+          - link "✨ Beauty" [ref=f13e37] [cursor=pointer]:
+            - /url: /beauty
+            - generic [ref=f13e38]: ✨
+            - text: Beauty
+        - listitem [ref=f13e39]:
+          - link "👔 Fashion" [ref=f13e40] [cursor=pointer]:
+            - /url: /fashion
+            - generic [ref=f13e41]: 👔
+            - text: Fashion
+        - listitem [ref=f13e42]:
+          - link "☕ Home & Kitchen" [ref=f13e43] [cursor=pointer]:
+            - /url: /home
+            - generic [ref=f13e44]: ☕
+            - text: Home & Kitchen
+        - listitem [ref=f13e45]:
+          - link "🤖 AI Tools" [ref=f13e46] [cursor=pointer]:
+            - /url: /ai-tools
+            - generic [ref=f13e47]: 🤖
+            - text: AI Tools
+        - listitem [ref=f13e48]:
+          - link "✈️ Travel" [ref=f13e49] [cursor=pointer]:
+            - /url: /travel
+            - generic [ref=f13e50]: ✈️
+            - text: Travel
+        - listitem [ref=f13e51]:
+          - link "🌐 Hosting" [ref=f13e52] [cursor=pointer]:
+            - /url: /hosting
+            - generic [ref=f13e53]: 🌐
+            - text: Hosting
+        - listitem [ref=f13e54]:
+          - link "🏷️ Coupons" [ref=f13e55] [cursor=pointer]:
+            - /url: /deals
+            - generic [ref=f13e56]: 🏷️
+            - text: Coupons
+  - main [ref=f13e57]:
+    - generic [ref=f13e58]:
+      - img "Cyber Tech Testing Lab Hardware Benchmarks" [ref=f13e60]
+      - generic [ref=f13e62]:
+        - navigation "Breadcrumb" [ref=f13e64]:
+          - list [ref=f13e65]:
+            - listitem [ref=f13e66]:
+              - link "Home" [ref=f13e67] [cursor=pointer]:
+                - /url: /
+              - generic [aria-hidden] [ref=f13e68]: /
+            - listitem [ref=f13e69]:
+              - generic [ref=f13e70]: Electronics & Tech
+        - generic [ref=f13e71]:
+          - generic [ref=f13e72]: INDEPENDENT HARDWARE BENCHMARKS
+          - generic [ref=f13e75]: ⚡ Multi-Store Live Price Scrapers
+        - heading "Engineered for Performance. Flagship Laptops, Phones & ANC Audio" [level=1] [ref=f13e76]
+        - paragraph [ref=f13e77]: We test sustained thermal throttling, battery runtimes under Docker workloads, and ANC acoustic attenuation. Find the lowest verified prices across Amazon, Flipkart & Croma.
+        - generic [ref=f13e78]:
+          - generic [ref=f13e79]:
+            - generic [ref=f13e80]:
+              - img "Amazon Prime Savings" [ref=f13e81]
+              - generic [ref=f13e82]: 📦 Amazon Verified
+            - generic [ref=f13e83]:
+              - heading "Amazon Prime Savings" [level=3] [ref=f13e84]
+              - paragraph [ref=f13e85]: Apple M3 & Sony ANC Audio Deals (bhujonline-21)
+              - link "Shop Amazon Tech &rarr;" [ref=f13e86] [cursor=pointer]:
+                - /url: /go/amazon
+          - generic [ref=f13e87]:
+            - generic [ref=f13e88]:
+              - img "Flipkart Big Billion Electronics" [ref=f13e89]
+              - generic [ref=f13e90]: ⚡ Super Deals
+            - generic [ref=f13e91]:
+              - heading "Flipkart Big Billion Electronics" [level=3] [ref=f13e92]
+              - paragraph [ref=f13e93]: Samsung Galaxy Flagships & ASUS ROG Gaming Laptops
+              - link "Shop Flipkart &rarr;" [ref=f13e94] [cursor=pointer]:
+                - /url: /go/flipkart
+          - generic [ref=f13e95]:
+            - generic [ref=f13e96]:
+              - img "Croma Retail Guarantees" [ref=f13e97]
+              - generic [ref=f13e98]: 🛡️ Official Warranty
+            - generic [ref=f13e99]:
+              - heading "Croma Retail Guarantees" [level=3] [ref=f13e100]
+              - paragraph [ref=f13e101]: Zero-Cost EMI & Instant In-Store Pickup Across India
+              - link "Explore Croma &rarr;" [ref=f13e102] [cursor=pointer]:
+                - /url: /go/croma
+    - generic [ref=f13e103]:
+      - generic [ref=f13e104]:
+        - generic [ref=f13e105]: "Filter Devices:"
+        - generic [ref=f13e106]:
+          - button "All Tech" [ref=f13e107] [cursor=pointer]
+          - button "💻 Laptops & Ultrabooks" [ref=f13e108] [cursor=pointer]
+          - button "📱 Flagship Smartphones" [ref=f13e109] [cursor=pointer]
+          - button "🎧 Noise-Canceling Audio" [ref=f13e110] [cursor=pointer]
+          - button "🎮 Gaming Laptops" [ref=f13e111] [cursor=pointer]
+      - generic [ref=f13e112]:
+        - generic [ref=f13e114]:
+          - generic [ref=f13e115]:
+            - generic [ref=f13e116]: Editor's Choice
+            - generic [ref=f13e117]: 13% OFF
+            - link "View Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f13e118] [cursor=pointer]:
+              - /url: /product/apple-macbook-air-m3-15-inch
+              - img "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f13e119]
+          - generic [ref=f13e120]:
+            - generic [ref=f13e121]:
+              - generic [ref=f13e122]: Apple
+              - generic [ref=f13e123]: Laptops
+            - heading [level=3] [ref=f13e124]:
+              - link "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f13e125] [cursor=pointer]:
+                - /url: /product/apple-macbook-air-m3-15-inch
+            - generic [ref=f13e127]:
+              - 'generic "Rating: 4.9 out of 5 stars" [ref=f13e128]':
+                - generic [aria-hidden] [ref=f13e129]: ★
+                - generic [aria-hidden] [ref=f13e130]: ★
+                - generic [aria-hidden] [ref=f13e131]: ★
+                - generic [aria-hidden] [ref=f13e132]: ★
+                - generic [aria-hidden] [ref=f13e133]: ★
+              - generic [ref=f13e134]: "4.9"
+              - generic [ref=f13e135]: (1,420)
+            - paragraph [ref=f13e136]: The gold standard for portable power, battery life, and silent fanless performance.
+            - generic [ref=f13e137]:
+              - generic [ref=f13e138]:
+                - generic [ref=f13e139]: ₹1,34,900
+                - generic [ref=f13e140]: ₹1,54,900
+              - generic [ref=f13e141]: on Amazon
+            - generic [ref=f13e142]:
+              - generic [ref=f13e143]: "Compare Stores:"
+              - generic [ref=f13e144]:
+                - link "Amazon ₹1,34,900" [ref=f13e145] [cursor=pointer]:
+                  - /url: /go/amazon?id=apple-macbook-air-m3
+                  - generic [ref=f13e146]: Amazon
+                  - generic [ref=f13e147]: ₹1,34,900
+                - link "Flipkart ₹1,36,990" [ref=f13e148] [cursor=pointer]:
+                  - /url: /go/flipkart?id=apple-macbook-air-m3
+                  - generic [ref=f13e149]: Flipkart
+                  - generic [ref=f13e150]: ₹1,36,990
+                - link "Croma ₹1,39,900" [ref=f13e151] [cursor=pointer]:
+                  - /url: /go/croma?id=apple-macbook-air-m3
+                  - generic [ref=f13e152]: Croma
+                  - generic [ref=f13e153]: ₹1,39,900
+            - generic [ref=f13e154]:
+              - link "Full Review & Specs" [ref=f13e155] [cursor=pointer]:
+                - /url: /product/apple-macbook-air-m3-15-inch
+              - link "Check Deal →" [ref=f13e156] [cursor=pointer]:
+                - /url: /go/amazon?id=apple-macbook-air-m3
+        - generic [ref=f13e158]:
+          - generic [ref=f13e159]:
+            - generic [ref=f13e160]: Top Seller
+            - generic [ref=f13e161]: 23% OFF
+            - link "View Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f13e162] [cursor=pointer]:
+              - /url: /product/sony-wh-1000xm5-wireless-headphones
+              - img "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f13e163]
+          - generic [ref=f13e164]:
+            - generic [ref=f13e165]:
+              - generic [ref=f13e166]: Sony
+              - generic [ref=f13e167]: Headphones & Audio
+            - heading [level=3] [ref=f13e168]:
+              - link "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f13e169] [cursor=pointer]:
+                - /url: /product/sony-wh-1000xm5-wireless-headphones
+            - generic [ref=f13e171]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f13e172]':
+                - generic [aria-hidden] [ref=f13e173]: ★
+                - generic [aria-hidden] [ref=f13e174]: ★
+                - generic [aria-hidden] [ref=f13e175]: ★
+                - generic [aria-hidden] [ref=f13e176]: ★
+                - generic [aria-hidden] [ref=f13e177]: ★
+              - generic [ref=f13e178]: "4.8"
+              - generic [ref=f13e179]: (3,820)
+            - paragraph [ref=f13e180]: Industry-leading active noise cancellation with 30-hour battery and ultra-clear mic.
+            - generic [ref=f13e181]:
+              - generic [ref=f13e182]:
+                - generic [ref=f13e183]: ₹26,990
+                - generic [ref=f13e184]: ₹34,990
+              - generic [ref=f13e185]: on Amazon
+            - generic [ref=f13e186]:
+              - generic [ref=f13e187]: "Compare Stores:"
+              - generic [ref=f13e188]:
+                - link "Amazon ₹26,990" [ref=f13e189] [cursor=pointer]:
+                  - /url: /go/amazon?id=sony-wh1000xm5
+                  - generic [ref=f13e190]: Amazon
+                  - generic [ref=f13e191]: ₹26,990
+                - link "Flipkart ₹27,490" [ref=f13e192] [cursor=pointer]:
+                  - /url: /go/flipkart?id=sony-wh1000xm5
+                  - generic [ref=f13e193]: Flipkart
+                  - generic [ref=f13e194]: ₹27,490
+                - link "Croma ₹28,990" [ref=f13e195] [cursor=pointer]:
+                  - /url: /go/croma?id=sony-wh1000xm5
+                  - generic [ref=f13e196]: Croma
+                  - generic [ref=f13e197]: ₹28,990
+            - generic [ref=f13e198]:
+              - link "Full Review & Specs" [ref=f13e199] [cursor=pointer]:
+                - /url: /product/sony-wh-1000xm5-wireless-headphones
+              - link "Check Deal →" [ref=f13e200] [cursor=pointer]:
+                - /url: /go/amazon?id=sony-wh1000xm5
+        - generic [ref=f13e202]:
+          - generic [ref=f13e203]:
+            - generic [ref=f13e204]: Trending
+            - generic [ref=f13e205]: 11% OFF
+            - link "View Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f13e206] [cursor=pointer]:
+              - /url: /product/samsung-galaxy-s25-ultra
+              - img "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f13e207]
+          - generic [ref=f13e208]:
+            - generic [ref=f13e209]:
+              - generic [ref=f13e210]: Samsung
+              - generic [ref=f13e211]: Smartphones
+            - heading [level=3] [ref=f13e212]:
+              - link "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f13e213] [cursor=pointer]:
+                - /url: /product/samsung-galaxy-s25-ultra
+            - generic [ref=f13e215]:
+              - 'generic "Rating: 4.8 out of 5 stars" [ref=f13e216]':
+                - generic [aria-hidden] [ref=f13e217]: ★
+                - generic [aria-hidden] [ref=f13e218]: ★
+                - generic [aria-hidden] [ref=f13e219]: ★
+                - generic [aria-hidden] [ref=f13e220]: ★
+                - generic [aria-hidden] [ref=f13e221]: ★
+              - generic [ref=f13e222]: "4.8"
+              - generic [ref=f13e223]: (910)
+            - paragraph [ref=f13e224]: The pinnacle Android flagship with Titanium frame, 200MP camera & Galaxy AI.
+            - generic [ref=f13e225]:
+              - generic [ref=f13e226]:
+                - generic [ref=f13e227]: ₹1,24,999
+                - generic [ref=f13e228]: ₹1,39,999
+              - generic [ref=f13e229]: on Flipkart
+            - generic [ref=f13e230]:
+              - generic [ref=f13e231]: "Compare Stores:"
+              - generic [ref=f13e232]:
+                - link "Flipkart ₹1,24,999" [ref=f13e233] [cursor=pointer]:
+                  - /url: /go/flipkart?id=samsung-s25-ultra
+                  - generic [ref=f13e234]: Flipkart
+                  - generic [ref=f13e235]: ₹1,24,999
+                - link "Amazon ₹1,26,999" [ref=f13e236] [cursor=pointer]:
+                  - /url: /go/amazon?id=samsung-s25-ultra
+                  - generic [ref=f13e237]: Amazon
+                  - generic [ref=f13e238]: ₹1,26,999
+            - generic [ref=f13e239]:
+              - link "Full Review & Specs" [ref=f13e240] [cursor=pointer]:
+                - /url: /product/samsung-galaxy-s25-ultra
+              - link "Check Deal →" [ref=f13e241] [cursor=pointer]:
+                - /url: /go/flipkart?id=samsung-s25-ultra
+        - generic [ref=f13e243]:
+          - generic [ref=f13e244]:
+            - generic [ref=f13e245]: Flash Deal
+            - generic [ref=f13e246]: 13% OFF
+            - link "View ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM)" [ref=f13e247] [cursor=pointer]:
+              - /url: /product/asus-rog-strix-g16-gaming-laptop
+              - img "ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM)" [ref=f13e248]
+          - generic [ref=f13e249]:
+            - generic [ref=f13e250]:
+              - generic [ref=f13e251]: ASUS
+              - generic [ref=f13e252]: Gaming Laptops
+            - heading [level=3] [ref=f13e253]:
+              - link "ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM)" [ref=f13e254] [cursor=pointer]:
+                - /url: /product/asus-rog-strix-g16-gaming-laptop
+            - generic [ref=f13e256]:
+              - 'generic "Rating: 4.9 out of 5 stars" [ref=f13e257]':
+                - generic [aria-hidden] [ref=f13e258]: ★
+                - generic [aria-hidden] [ref=f13e259]: ★
+                - generic [aria-hidden] [ref=f13e260]: ★
+                - generic [aria-hidden] [ref=f13e261]: ★
+                - generic [aria-hidden] [ref=f13e262]: ★
+              - generic [ref=f13e263]: "4.9"
+              - generic [ref=f13e264]: (650)
+            - paragraph [ref=f13e265]: High-FPS competitive esports powerhouse with ROG Nebula 240Hz Display.
+            - generic [ref=f13e266]:
+              - generic [ref=f13e267]:
+                - generic [ref=f13e268]: ₹1,74,990
+                - generic [ref=f13e269]: ₹1,99,990
+              - generic [ref=f13e270]: on Flipkart
+            - generic [ref=f13e271]:
+              - generic [ref=f13e272]: "Compare Stores:"
+              - generic [ref=f13e273]:
+                - link "Flipkart ₹1,74,990" [ref=f13e274] [cursor=pointer]:
+                  - /url: /go/gaming?id=asus-rog-g16
+                  - generic [ref=f13e275]: Flipkart
+                  - generic [ref=f13e276]: ₹1,74,990
+                - link "Amazon ₹1,77,990" [ref=f13e277] [cursor=pointer]:
+                  - /url: /go/amazon?id=asus-rog-strix-g16
+                  - generic [ref=f13e278]: Amazon
+                  - generic [ref=f13e279]: ₹1,77,990
+            - generic [ref=f13e280]:
+              - link "Full Review & Specs" [ref=f13e281] [cursor=pointer]:
+                - /url: /product/asus-rog-strix-g16-gaming-laptop
+              - link "Check Deal →" [ref=f13e282] [cursor=pointer]:
+                - /url: /go/gaming?id=asus-rog-g16
+        - generic [ref=f13e284]:
+          - generic [ref=f13e285]:
+            - generic [ref=f13e286]: Best Value
+            - generic [ref=f13e287]: 75% OFF
+            - link "View boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation)" [ref=f13e288] [cursor=pointer]:
+              - /url: /product/boat-airdopes-141-anc-true-wireless-earbuds
+              - img "boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation)" [ref=f13e289]
+          - generic [ref=f13e290]:
+            - generic [ref=f13e291]:
+              - generic [ref=f13e292]: boAt
+              - generic [ref=f13e293]: Audio & Earbuds
+            - heading [level=3] [ref=f13e294]:
+              - link "boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation)" [ref=f13e295] [cursor=pointer]:
+                - /url: /product/boat-airdopes-141-anc-true-wireless-earbuds
+            - generic [ref=f13e297]:
+              - 'generic "Rating: 4.6 out of 5 stars" [ref=f13e298]':
+                - generic [aria-hidden] [ref=f13e299]: ★
+                - generic [aria-hidden] [ref=f13e300]: ★
+                - generic [aria-hidden] [ref=f13e301]: ★
+                - generic [aria-hidden] [ref=f13e302]: ★
+                - generic [aria-hidden] [ref=f13e303]: ★
+              - generic [ref=f13e304]: "4.6"
+              - generic [ref=f13e305]: (14,200)
+            - paragraph [ref=f13e306]: India's bestselling budget ANC earbuds with 42-hour playtime and beast mode low latency.
+            - generic [ref=f13e307]:
+              - generic [ref=f13e308]:
+                - generic [ref=f13e309]: ₹1,499
+                - generic [ref=f13e310]: ₹5,990
+              - generic [ref=f13e311]: on Amazon
+            - generic [ref=f13e312]:
+              - generic [ref=f13e313]: "Compare Stores:"
+              - generic [ref=f13e314]:
+                - link "Amazon ₹1,499" [ref=f13e315] [cursor=pointer]:
+                  - /url: /go/audio?id=boat-airdopes-141
+                  - generic [ref=f13e316]: Amazon
+                  - generic [ref=f13e317]: ₹1,499
+                - link "Flipkart ₹1,549" [ref=f13e318] [cursor=pointer]:
+                  - /url: /go/flipkart?id=boat-airdopes-141
+                  - generic [ref=f13e319]: Flipkart
+                  - generic [ref=f13e320]: ₹1,549
+            - generic [ref=f13e321]:
+              - link "Full Review & Specs" [ref=f13e322] [cursor=pointer]:
+                - /url: /product/boat-airdopes-141-anc-true-wireless-earbuds
+              - link "Check Deal →" [ref=f13e323] [cursor=pointer]:
+                - /url: /go/audio?id=boat-airdopes-141
+      - generic [ref=f13e325]:
+        - heading "Laboratory Benchmark Comparison Matrix" [level=3] [ref=f13e326]
+        - table [ref=f13e328]:
+          - rowgroup [ref=f13e329]:
+            - row [ref=f13e330]:
+              - columnheader "Feature / Product" [ref=f13e331]
+              - 'columnheader "Editor''s Choice Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD) Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD) Rating: 4.9 out of 5 stars 4.9 (1,420) ₹1,34,900 View on Amazon" [ref=f13e332]':
+                - generic [ref=f13e333]:
+                  - generic [ref=f13e334]: Editor's Choice
+                  - img "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f13e335]
+                  - link "Apple MacBook Air 15-inch (M3 Chip, 16GB RAM, 512GB SSD)" [ref=f13e336] [cursor=pointer]:
+                    - /url: /product/apple-macbook-air-m3-15-inch
+                  - generic [ref=f13e338]:
+                    - 'generic "Rating: 4.9 out of 5 stars" [ref=f13e339]':
+                      - generic [aria-hidden] [ref=f13e340]: ★
+                      - generic [aria-hidden] [ref=f13e341]: ★
+                      - generic [aria-hidden] [ref=f13e342]: ★
+                      - generic [aria-hidden] [ref=f13e343]: ★
+                      - generic [aria-hidden] [ref=f13e344]: ★
+                    - generic [ref=f13e345]: "4.9"
+                    - generic [ref=f13e346]: (1,420)
+                  - generic [ref=f13e347]: ₹1,34,900
+                  - link "View on Amazon" [ref=f13e348] [cursor=pointer]:
+                    - /url: /go/amazon?id=apple-macbook-air-m3
+              - 'columnheader "Top Seller Sony WH-1000XM5 Noise Canceling Wireless Headphones Sony WH-1000XM5 Noise Canceling Wireless Headphones Rating: 4.8 out of 5 stars 4.8 (3,820) ₹26,990 View on Amazon" [ref=f13e349]':
+                - generic [ref=f13e350]:
+                  - generic [ref=f13e351]: Top Seller
+                  - img "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f13e352]
+                  - link "Sony WH-1000XM5 Noise Canceling Wireless Headphones" [ref=f13e353] [cursor=pointer]:
+                    - /url: /product/sony-wh-1000xm5-wireless-headphones
+                  - generic [ref=f13e355]:
+                    - 'generic "Rating: 4.8 out of 5 stars" [ref=f13e356]':
+                      - generic [aria-hidden] [ref=f13e357]: ★
+                      - generic [aria-hidden] [ref=f13e358]: ★
+                      - generic [aria-hidden] [ref=f13e359]: ★
+                      - generic [aria-hidden] [ref=f13e360]: ★
+                      - generic [aria-hidden] [ref=f13e361]: ★
+                    - generic [ref=f13e362]: "4.8"
+                    - generic [ref=f13e363]: (3,820)
+                  - generic [ref=f13e364]: ₹26,990
+                  - link "View on Amazon" [ref=f13e365] [cursor=pointer]:
+                    - /url: /go/amazon?id=sony-wh1000xm5
+              - 'columnheader "Trending Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium) Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium) Rating: 4.8 out of 5 stars 4.8 (910) ₹1,24,999 View on Flipkart" [ref=f13e366]':
+                - generic [ref=f13e367]:
+                  - generic [ref=f13e368]: Trending
+                  - img "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f13e369]
+                  - link "Samsung Galaxy S25 Ultra 5G (12GB RAM, 256GB Titanium)" [ref=f13e370] [cursor=pointer]:
+                    - /url: /product/samsung-galaxy-s25-ultra
+                  - generic [ref=f13e372]:
+                    - 'generic "Rating: 4.8 out of 5 stars" [ref=f13e373]':
+                      - generic [aria-hidden] [ref=f13e374]: ★
+                      - generic [aria-hidden] [ref=f13e375]: ★
+                      - generic [aria-hidden] [ref=f13e376]: ★
+                      - generic [aria-hidden] [ref=f13e377]: ★
+                      - generic [aria-hidden] [ref=f13e378]: ★
+                    - generic [ref=f13e379]: "4.8"
+                    - generic [ref=f13e380]: (910)
+                  - generic [ref=f13e381]: ₹1,24,999
+                  - link "View on Flipkart" [ref=f13e382] [cursor=pointer]:
+                    - /url: /go/flipkart?id=samsung-s25-ultra
+              - 'columnheader "Flash Deal ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM) ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM) Rating: 4.9 out of 5 stars 4.9 (650) ₹1,74,990 View on Flipkart" [ref=f13e383]':
+                - generic [ref=f13e384]:
+                  - generic [ref=f13e385]: Flash Deal
+                  - img "ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM)" [ref=f13e386]
+                  - link "ASUS ROG Strix G16 Gaming Laptop (Intel i9 14th Gen, RTX 4070, 32GB RAM)" [ref=f13e387] [cursor=pointer]:
+                    - /url: /product/asus-rog-strix-g16-gaming-laptop
+                  - generic [ref=f13e389]:
+                    - 'generic "Rating: 4.9 out of 5 stars" [ref=f13e390]':
+                      - generic [aria-hidden] [ref=f13e391]: ★
+                      - generic [aria-hidden] [ref=f13e392]: ★
+                      - generic [aria-hidden] [ref=f13e393]: ★
+                      - generic [aria-hidden] [ref=f13e394]: ★
+                      - generic [aria-hidden] [ref=f13e395]: ★
+                    - generic [ref=f13e396]: "4.9"
+                    - generic [ref=f13e397]: (650)
+                  - generic [ref=f13e398]: ₹1,74,990
+                  - link "View on Flipkart" [ref=f13e399] [cursor=pointer]:
+                    - /url: /go/gaming?id=asus-rog-g16
+              - 'columnheader "Best Value boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation) boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation) Rating: 4.6 out of 5 stars 4.6 (14,200) ₹1,499 View on Amazon" [ref=f13e400]':
+                - generic [ref=f13e401]:
+                  - generic [ref=f13e402]: Best Value
+                  - img "boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation)" [ref=f13e403]
+                  - link "boAt Airdopes 141 ANC TWS Earbuds (32dB Active Noise Cancellation)" [ref=f13e404] [cursor=pointer]:
+                    - /url: /product/boat-airdopes-141-anc-true-wireless-earbuds
+                  - generic [ref=f13e406]:
+                    - 'generic "Rating: 4.6 out of 5 stars" [ref=f13e407]':
+                      - generic [aria-hidden] [ref=f13e408]: ★
+                      - generic [aria-hidden] [ref=f13e409]: ★
+                      - generic [aria-hidden] [ref=f13e410]: ★
+                      - generic [aria-hidden] [ref=f13e411]: ★
+                      - generic [aria-hidden] [ref=f13e412]: ★
+                    - generic [ref=f13e413]: "4.6"
+                    - generic [ref=f13e414]: (14,200)
+                  - generic [ref=f13e415]: ₹1,499
+                  - link "View on Amazon" [ref=f13e416] [cursor=pointer]:
+                    - /url: /go/audio?id=boat-airdopes-141
+          - rowgroup [ref=f13e417]:
+            - row [ref=f13e418]:
+              - cell "Brand" [ref=f13e419]
+              - cell [ref=f13e420]:
+                - strong [ref=f13e421]: Apple
+              - cell [ref=f13e422]:
+                - strong [ref=f13e423]: Sony
+              - cell [ref=f13e424]:
+                - strong [ref=f13e425]: Samsung
+              - cell [ref=f13e426]:
+                - strong [ref=f13e427]: ASUS
+              - cell [ref=f13e428]:
+                - strong [ref=f13e429]: boAt
+            - row [ref=f13e430]:
+              - cell "Category" [ref=f13e431]
+              - cell "Laptops" [ref=f13e432]
+              - cell "Headphones & Audio" [ref=f13e433]
+              - cell "Smartphones" [ref=f13e434]
+              - cell "Gaming Laptops" [ref=f13e435]
+              - cell "Audio & Earbuds" [ref=f13e436]
+            - row [ref=f13e437]:
+              - cell "Top Advantage" [ref=f13e438]
+              - cell "✓ Sublime 18-hour real-world battery endurance" [ref=f13e439]
+              - cell "✓ Best-in-class ANC silences airplane roar and office bustle" [ref=f13e440]
+              - cell "✓ Anti-reflective Corning Gorilla Armor 2 display drastically cuts glare" [ref=f13e441]
+              - cell "✓ Ultra-fluid 240Hz 3ms QHD+ ROG Nebula display with 100% DCI-P3" [ref=f13e442]
+              - cell "✓ Impressive 32dB active noise cancellation under ₹1,500" [ref=f13e443]
+            - row [ref=f13e444]:
+              - cell "Drawback to Consider" [ref=f13e445]
+              - cell "✕ Supports only up to two external displays with lid closed" [ref=f13e446]
+              - cell "✕ Ear cups rotate flat but headband does not collapse inward like XM4" [ref=f13e447]
+              - cell "✕ Large 6.8-inch footprint requires two-handed usage" [ref=f13e448]
+              - cell "✕ 2.5 kg chassis is heavy for daily commuting" [ref=f13e449]
+              - cell "✕ Bass-heavy sound profile requires custom EQ if you prefer flat audio" [ref=f13e450]
+            - row [ref=f13e451]:
+              - cell "Verified Stores" [ref=f13e452]
+              - 'cell "Amazon: ₹1,34,900 Flipkart: ₹1,36,990 Croma: ₹1,39,900" [ref=f13e453]':
+                - generic [ref=f13e454]:
+                  - generic [ref=f13e455]: "Amazon: ₹1,34,900"
+                  - generic [ref=f13e456]: "Flipkart: ₹1,36,990"
+                  - generic [ref=f13e457]: "Croma: ₹1,39,900"
+              - 'cell "Amazon: ₹26,990 Flipkart: ₹27,490 Croma: ₹28,990" [ref=f13e458]':
+                - generic [ref=f13e459]:
+                  - generic [ref=f13e460]: "Amazon: ₹26,990"
+                  - generic [ref=f13e461]: "Flipkart: ₹27,490"
+                  - generic [ref=f13e462]: "Croma: ₹28,990"
+              - 'cell "Flipkart: ₹1,24,999 Amazon: ₹1,26,999" [ref=f13e463]':
+                - generic [ref=f13e464]:
+                  - generic [ref=f13e465]: "Flipkart: ₹1,24,999"
+                  - generic [ref=f13e466]: "Amazon: ₹1,26,999"
+              - 'cell "Flipkart: ₹1,74,990 Amazon: ₹1,77,990" [ref=f13e467]':
+                - generic [ref=f13e468]:
+                  - generic [ref=f13e469]: "Flipkart: ₹1,74,990"
+                  - generic [ref=f13e470]: "Amazon: ₹1,77,990"
+              - 'cell "Amazon: ₹1,499 Flipkart: ₹1,549" [ref=f13e471]':
+                - generic [ref=f13e472]:
+                  - generic [ref=f13e473]: "Amazon: ₹1,499"
+                  - generic [ref=f13e474]: "Flipkart: ₹1,549"
+      - generic [ref=f13e475]:
+        - heading "Electronics Testing, Warranty & Pricing FAQs" [level=2] [ref=f13e476]
+        - generic [ref=f13e477]:
+          - group [ref=f13e478]:
+            - generic "How do you track price drops across Amazon, Flipkart, and Croma?" [ref=f13e479] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f13e481]: +
+            - paragraph [ref=f13e483]: Our automated scrapers record price fluctuations every 15 minutes, tracking bank card instant discounts, exchange bonus incentives, and lightning deals across certified Indian electronics retailers.
+          - group [ref=f13e484]:
+            - generic "Do you receive free review units that influence hardware recommendations?" [ref=f13e485] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f13e487]: +
+          - group [ref=f13e488]:
+            - generic "How does the Amazon affiliate link work?" [ref=f13e489] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f13e491]: +
+  - contentinfo [ref=f13e492]:
+    - generic [ref=f13e494]:
+      - generic [ref=f13e495]:
+        - generic [ref=f13e496]: 🔍
+        - generic [ref=f13e497]:
+          - generic [ref=f13e498]: 100% Unbiased Editorial
+          - generic [ref=f13e499]: Lab-tested and rigorously benchmarked picks.
+      - generic [ref=f13e500]:
+        - generic [ref=f13e501]: 🏷️
+        - generic [ref=f13e502]:
+          - generic [ref=f13e503]: Verified Daily Discounts
+          - generic [ref=f13e504]: Automated price scrapers audit deals 24/7.
+      - generic [ref=f13e505]:
+        - generic [ref=f13e506]: 🛡️
+        - generic [ref=f13e507]:
+          - generic [ref=f13e508]: Direct Store Guarantee
+          - generic [ref=f13e509]: Checkout directly on authorized seller stores.
+      - generic [ref=f13e510]:
+        - generic [ref=f13e511]: ⚡
+        - generic [ref=f13e512]:
+          - generic [ref=f13e513]: Instant Coupon Validation
+          - generic [ref=f13e514]: No dead codes or expired vouchers.
+    - generic [ref=f13e516]:
+      - generic [ref=f13e517]:
+        - link "B BhujDeals Compare & Discover" [ref=f13e518] [cursor=pointer]:
+          - /url: /
+          - text: B
+          - generic [ref=f13e519]:
+            - generic [ref=f13e520]: BhujDeals
+            - text: Compare & Discover
+        - paragraph [ref=f13e521]: BhujDeals is an independent consumer discovery engine. We help smart shoppers cut through e-commerce noise by comparing prices, lab performance, and verified discount coupons across Amazon, Flipkart, Booking.com, Agoda, and top DTC brands.
+        - generic [ref=f13e522]:
+          - generic [ref=f13e523]: Amazon Associates
+          - generic [ref=f13e524]: Flipkart Affiliate
+          - generic [ref=f13e525]: Booking Holdings
+          - generic [ref=f13e526]: Impact Radius
+          - generic [ref=f13e527]: CJ Affiliate
+      - generic [ref=f13e528]:
+        - heading "Categories" [level=4] [ref=f13e529]
+        - list [ref=f13e530]:
+          - listitem [ref=f13e531]:
+            - link "Hotels & Stays" [ref=f13e532] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f13e533]:
+            - link "Electronics & Tech" [ref=f13e534] [cursor=pointer]:
+              - /url: /electronics
+          - listitem [ref=f13e535]:
+            - link "Beauty & Skincare" [ref=f13e536] [cursor=pointer]:
+              - /url: /beauty
+          - listitem [ref=f13e537]:
+            - link "Fashion & Apparel" [ref=f13e538] [cursor=pointer]:
+              - /url: /fashion
+          - listitem [ref=f13e539]:
+            - link "Home & Kitchen" [ref=f13e540] [cursor=pointer]:
+              - /url: /home
+          - listitem [ref=f13e541]:
+            - link "AI Tools & SaaS" [ref=f13e542] [cursor=pointer]:
+              - /url: /ai-tools
+      - generic [ref=f13e543]:
+        - heading "Travel & Deals" [level=4] [ref=f13e544]
+        - list [ref=f13e545]:
+          - listitem [ref=f13e546]:
+            - link "Hotels & Stays" [ref=f13e547] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f13e548]:
+            - link "Experiences & Tours" [ref=f13e549] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=f13e550]:
+            - link "Today's Deals" [ref=f13e551] [cursor=pointer]:
+              - /url: /deals
+          - listitem [ref=f13e552]:
+            - link "Web Hosting Deals" [ref=f13e553] [cursor=pointer]:
+              - /url: /hosting
+          - listitem [ref=f13e554]:
+            - link "AI Tools & SaaS" [ref=f13e555] [cursor=pointer]:
+              - /url: /ai-tools
+          - listitem [ref=f13e556]:
+            - link "Buying Guides & Reviews" [ref=f13e557] [cursor=pointer]:
+              - /url: /blog
+      - generic [ref=f13e558]:
+        - heading "Trust & Legal" [level=4] [ref=f13e559]
+        - list [ref=f13e560]:
+          - listitem [ref=f13e561]:
+            - link "About BhujDeals" [ref=f13e562] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f13e563]:
+            - link "Affiliate Disclosure" [ref=f13e564] [cursor=pointer]:
+              - /url: /affiliate-disclosure
+          - listitem [ref=f13e565]:
+            - link "Price & Warranty Disclaimer" [ref=f13e566] [cursor=pointer]:
+              - /url: /disclaimer
+          - listitem [ref=f13e567]:
+            - link "Privacy Policy" [ref=f13e568] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=f13e569]:
+            - link "Terms of Service" [ref=f13e570] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=f13e571]:
+            - link "Contact & Partnerships" [ref=f13e572] [cursor=pointer]:
+              - /url: /contact
+    - paragraph [ref=f13e575]:
+      - strong [ref=f13e576]: "FTC & ASCI Affiliate Disclosure:"
+      - text: BhujDeals is an independent participant in various affiliate marketing programs, including the Amazon Services LLC Associates Program, the Flipkart Affiliate Program, Booking.com Affiliate Partner Network, Impact.com, and Commission Junction. When you click on links to various merchants on this site and make a purchase or booking, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network, Booking Holdings, and PartnerStack. Prices and availability are subject to change without notice. All product names, logos, and brands are property of their respective owners.
+    - generic [ref=f13e578]:
+      - paragraph [ref=f13e579]: © 2026 BhujDeals Media Ltd. Built with high performance Astro & Cloudflare Edge.
+      - generic [ref=f13e580]:
+        - link "Sitemap" [ref=f13e581] [cursor=pointer]:
+          - /url: /sitemap-index.xml
+        - link "Privacy" [ref=f13e582] [cursor=pointer]:
+          - /url: /privacy
+        - link "Disclosure" [ref=f13e583] [cursor=pointer]:
+          - /url: /affiliate-disclosure
+        - link "Support" [ref=f13e584] [cursor=pointer]:
+          - /url: /contact

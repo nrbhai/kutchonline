@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { BLOG_POSTS } from '../../data/blog';
+---
+
+<BaseLayout
+  title="Buying Guides, Tech Benchmarks & Travel Reviews | BhujDeals Editorial"
+  description="In-depth buying guides, head-to-head tech comparisons, and unbiased travel reviews created by independent testing engineers."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Editorial & Buying Guides" }]} />
+
+    <div class="blog-header-wrap">
+      <span class="badge badge-brand">📰 UNBIASED RESEARCH</span>
+      <h1 class="blog-page-title">Buying Guides, Product Reviews & Comparisons</h1>
+      <p class="blog-page-subtitle">
+        Our editorial team spends hundreds of hours benchmarking hardware, inspecting hotel room rates, and analyzing fine print so you can shop with total confidence.
+      </p>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="blog-articles-grid">
+      {BLOG_POSTS.map((post) => (
+        <article class="post-card card">
+          <a href={`/blog/${post.slug}`} class="post-img-link">
+            <img src={post.image} alt={post.title} class="post-img" loading="lazy" />
+            <span class="post-category-tag">{post.category}</span>
+          </a>
+          <div class="post-card-body">
+            <div class="post-meta-row">
+              <span>{post.readTime}</span>
+              <span>•</span>
+              <span>{post.publishedAt}</span>
+            </div>
+            <h2 class="post-card-title">
+              <a href={`/blog/${post.slug}`}>{post.title}</a>
+            </h2>
+            <p class="post-card-excerpt">{post.excerpt}</p>
+            <div class="post-author-footer">
+              <img src={post.author.avatar} alt={post.author.name} class="author-img" />
+              <div>
+                <span class="author-name">{post.author.name}</span>
+                <span class="author-title">{post.author.role}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-header-wrap {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .blog-page-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 12px 0 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 780px;
+  }
+
+  .blog-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .post-img-link {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    display: block;
+  }
+
+  .post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .post-card:hover .post-img {
+    transform: scale(1.05);
+  }
+
+  .post-category-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .post-card-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .post-meta-row {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .post-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+
+  .post-card-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .post-card-excerpt {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-author-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .author-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .author-name {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .author-title {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 960px) {
+    .blog-articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

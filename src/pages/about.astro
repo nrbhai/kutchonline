@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="About BhujDeals | Editorial Integrity & Testing Standards"
+  description="Learn how BhujDeals independently benchmarks consumer electronics, hotel deals, and software to help you discover the lowest verified prices."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "About BhujDeals" }]} />
+
+    <div class="trust-page-header">
+      <span class="badge badge-brand">OUR EDITORIAL CHARTER</span>
+      <h1 class="page-title">We Cut Through the Marketing Noise</h1>
+      <p class="page-subtitle">
+        Founded by veteran hardware engineers and travel strategists, BhujDeals was created to solve a singular problem: online shopping discovery has become overwhelmed by fake reviews, hidden affiliate kickbacks, and price gouging.
+      </p>
+    </div>
+
+    <div class="trust-content-grid">
+      <div class="card pillar-card">
+        <span class="pillar-icon">🔬</span>
+        <h3>Laboratory Benchmarking</h3>
+        <p>We test battery runtimes with photometers, measure CPU compiler heat with infrared thermal cameras, and independently audit hotel room booking checkout feeds.</p>
+      </div>
+
+      <div class="card pillar-card">
+        <span class="pillar-icon">💰</span>
+        <h3>Zero Sponsored Placement Bias</h3>
+        <p>No brand or hotelier can pay to jump to the top of our recommendation lists. If a product fails our stress testing, we state so plainly.</p>
+      </div>
+
+      <div class="card pillar-card">
+        <span class="pillar-icon">⚖️</span>
+        <h3>Transparent Reader-Supported Model</h3>
+        <p>We earn referral commissions when you click out to authorized merchants and make a purchase. This keeps our service free, with no intrusive paywalls.</p>
+      </div>
+    </div>
+
+    <div class="card methodology-box">
+      <h2>How We Test Products & Stays</h2>
+      <div class="methodology-steps">
+        <div class="step-row">
+          <span class="step-num">01</span>
+          <div>
+            <h4>Market Auditing & Selection</h4>
+            <p>We survey consumer forums (Reddit, Twitter, consumer grievance boards) to identify real user pain points before choosing which 10–15 models to test head-to-head.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num">02</span>
+          <div>
+            <h4>Hands-on Testing Under Real Conditions</h4>
+            <p>Laptops are subjected to intense daily coding workflows. Skincare products are evaluated by diverse skin types over 4 weeks. Hotels are mystery-shopped anonymously.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num">03</span>
+          <div>
+            <h4>Continuous 24/7 Price Scraping</h4>
+            <p>Our algorithms track prices across Amazon, Flipkart, Croma, and Booking.com every 15 minutes, ensuring deal tags and coupon codes are active and honest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .trust-page-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin: 12px 0 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+
+  .trust-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .pillar-card {
+    padding: 28px;
+  }
+
+  .pillar-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .pillar-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .pillar-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .methodology-box {
+    padding: 36px;
+    margin-bottom: 48px;
+    background: #f8fafc;
+  }
+
+  .methodology-box h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+  }
+
+  .methodology-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .step-num {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    line-height: 1;
+  }
+
+  .step-row h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .step-row p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 860px) {
+    .trust-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

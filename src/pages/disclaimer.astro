@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="Pricing & Warranty Disclaimer | BhujDeals"
+  description="Important legal disclaimer regarding real-time e-commerce pricing fluctuations, merchant coupon redemptions, and third-party warranties."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Disclaimer" }]} />
+
+    <div class="legal-doc-header">
+      <span class="badge badge-brand">LEGAL NOTICES</span>
+      <h1 class="page-title">Pricing, Coupon & Warranty Disclaimer</h1>
+      <p class="last-updated">Last Updated: October 12, 2026</p>
+    </div>
+
+    <div class="legal-article-body card">
+      <h2>1. Real-Time Pricing and Stock Fluctuations</h2>
+      <p>
+        The prices, stock statuses, discount tags, and coupon promotions presented on BhujDeals are scraped, compiled, and audited from third-party vendor platforms including Amazon, Flipkart, Booking.com, Agoda, and various SaaS stores. While our crawlers update data continuously, prices can fluctuate rapidly based on retailer lightning deals, algorithmic demand surges, or currency variations.
+      </p>
+      <p>
+        <strong>The final and legally binding purchase price is always the price displayed on the retailer's official checkout page at the exact moment of order placement.</strong> BhujDeals assumes no liability for price discrepancies between our discovery platform and the final billing invoice of the merchant.
+      </p>
+
+      <h2>2. Third-Party Transactions & Merchant Fulfillment</h2>
+      <p>
+        BhujDeals is not a merchant, travel agency, or direct retailer. When you click an affiliate link and make a purchase or book a hotel room, your contractual relationship is solely and directly with the respective merchant (e.g. Amazon, Booking Holdings, Dyson, Hostinger). All shipping, order fulfillment, returns, refunds, customer service queries, and statutory warranties are the exclusive responsibility of that merchant.
+      </p>
+
+      <h2>3. Limitation of Liability</h2>
+      <p>
+        Under no circumstances shall BhujDeals, its authors, editors, or parent company be held liable for any direct, indirect, incidental, or consequential damages resulting from the purchase, use, or booking of any product, service, or accommodation reviewed or featured on this website.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-doc-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin: 12px 0 8px;
+  }
+
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .legal-article-body {
+    padding: clamp(24px, 5vw, 48px);
+    background: #ffffff;
+    margin-bottom: 56px;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: var(--text-body);
+  }
+
+  .legal-article-body h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 32px 0 14px;
+    color: var(--text-main);
+  }
+
+  .legal-article-body h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-article-body p {
+    margin-bottom: 16px;
+  }
+</style>

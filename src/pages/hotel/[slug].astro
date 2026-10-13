@@ -1,0 +1,446 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { HOTELS, type Hotel } from '../../data/hotels';
+
+export async function getStaticPaths() {
+  return HOTELS.map((hotel) => ({
+    params: { slug: hotel.slug },
+    props: { hotel }
+  }));
+}
+
+interface Props {
+  hotel: Hotel;
+}
+
+const { hotel } = Astro.props;
+
+const lowestRate = hotel.rates.reduce(
+  (min, cur) => cur.pricePerNight < min.pricePerNight ? cur : min, 
+  hotel.rates[0]
+);
+
+// Schema.org Hotel structured data
+const hotelSchema = {
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": hotel.name,
+  "description": hotel.description,
+  "image": [hotel.image],
+  "starRating": {
+    "@type": "Rating",
+    "ratingValue": hotel.starRating.toString()
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": hotel.guestRating.toString(),
+    "reviewCount": hotel.reviewCount.toString(),
+    "bestRating": "10",
+    "worstRating": "1"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": hotel.locationDetails,
+    "addressCountry": hotel.country
+  },
+  "priceRange": `₹${lowestRate.pricePerNight} - ₹${lowestRate.originalPricePerNight}`
+};
+
+const hotelFaqs = [
+  {
+    question: `What are check-in and check-out times at ${hotel.name}?`,
+    answer: "Standard check-in is typically from 14:00 (2:00 PM), and check-out is until 12:00 (12:00 PM). Early check-in can be requested directly via your booking provider confirmation."
+  },
+  {
+    question: `Does the rate for ${hotel.name} include free breakfast?`,
+    answer: `The lowest verified offer on ${lowestRate.provider} includes ${lowestRate.breakfastIncluded ? 'complimentary daily breakfast buffet' : 'room-only pricing, with breakfast options available at checkout'}.`
+  }
+];
+---
+
+<BaseLayout
+  title={`${hotel.name} - Compare Live Booking Rates & Reviews`}
+  description={hotel.description.slice(0, 160)}
+  image={hotel.image}
+  schemaJson={hotelSchema}
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[
+      { label: "Hotels", href: "/hotels" },
+      { label: hotel.destination },
+      { label: hotel.name }
+    ]} />
+
+    <div class="hotel-pdp-header">
+      <div class="hotel-title-area">
+        <div class="star-rating-row">
+          {Array.from({ length: hotel.starRating }).map(() => (
+            <span class="star-gold">★</span>
+          ))}
+          <span class="star-tag">{hotel.starRating}-Star Luxury Property</span>
+        </div>
+        <h1 class="hotel-main-title">{hotel.name}</h1>
+        <p class="hotel-address">📍 {hotel.locationDetails}</p>
+      </div>
+
+      <div class="hotel-guest-score card">
+        <div class="score-num">{hotel.guestRating}</div>
+        <div class="score-meta">
+          <span class="score-word">{hotel.ratingLabel}</span>
+          <span class="review-total">{hotel.reviewCount.toLocaleString()} verified guest reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery & Rates Comparison Grid -->
+    <div class="hotel-main-grid">
+      <div class="hotel-gallery-col">
+        <div class="hotel-image-showcase card">
+          <img src={hotel.image} alt={hotel.name} class="hotel-hero-img" />
+        </div>
+      </div>
+
+      <div class="hotel-rates-col">
+        <div class="booking-rates-card card">
+          <div class="rates-header">
+            <h3>Live Platform Rates</h3>
+            <span class="room-type-tag">{hotel.roomType}</span>
+          </div>
+
+          <div class="rates-table">
+            {hotel.rates.map((rate, idx) => (
+              <div class={`rate-row ${idx === 0 ? 'best-row' : ''}`}>
+                <div class="rate-left">
+                  <span class="provider-label">{rate.provider}</span>
+                  {rate.freeCancellation && <span class="cancel-tag">✓ Free Cancellation</span>}
+                  {rate.breakfastIncluded && <span class="breakfast-tag">🍳 Breakfast Included</span>}
+                </div>
+                <div class="rate-right">
+                  <div class="price-stack">
+                    <span class="price-lead">₹{rate.pricePerNight.toLocaleString()}</span>
+                    <span class="night-lbl">/night</span>
+                  </div>
+                  <a 
+                    href={rate.affiliateUrl} 
+                    target="_blank" 
+                    rel="sponsored nofollow noopener"
+                    class={`btn btn-sm ${idx === 0 ? 'btn-affiliate' : 'btn-secondary'}`}
+                    data-track-click="outbound"
+                    data-provider={rate.provider}
+                  >
+                    Book on {rate.provider} &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="best-price-promise">
+            🔒 <strong>Lowest Price Guarantee:</strong> Found a lower rate elsewhere within 24 hours? Our booking partners match it.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amenities Grid -->
+    <div class="pdp-section-wrap">
+      <h2 class="section-title">Property Highlights & Amenities</h2>
+      <div class="amenities-grid card">
+        {hotel.amenities.map((item) => (
+          <div class="amenity-cell">
+            <span class="amenity-check">✓</span>
+            <span class="amenity-text">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Description & Pros Cons -->
+    <div class="pdp-section-wrap">
+      <h2 class="section-title">About the Property</h2>
+      <div class="hotel-desc-card card">
+        <p class="hotel-bio">{hotel.description}</p>
+
+        <div class="hotel-pros-cons-grid">
+          <div class="hotel-pros">
+            <h4>✓ What Guests Loved</h4>
+            <ul>
+              {hotel.pros.map(p => <li>{p}</li>)}
+            </ul>
+          </div>
+          <div class="hotel-cons">
+            <h4>✕ Good to Know</h4>
+            <ul>
+              {hotel.cons.map(c => <li>{c}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <FAQAccordion faqs={hotelFaqs} title={`Booking & Stay FAQs for ${hotel.name}`} />
+  </div>
+</BaseLayout>
+
+<style>
+  .hotel-pdp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 24px 0 32px;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-default);
+    padding-bottom: 24px;
+  }
+
+  .star-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 6px;
+  }
+
+  .star-gold {
+    color: var(--color-star);
+    font-size: 1rem;
+  }
+
+  .star-tag {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
+  .hotel-main-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .hotel-address {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .hotel-guest-score {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    background: #ffffff;
+  }
+
+  .score-num {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    background: var(--color-primary);
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+
+  .score-word {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .review-total {
+    display: block;
+    font-size: 0.775rem;
+    color: var(--text-muted);
+  }
+
+  .hotel-main-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .hotel-image-showcase {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .hotel-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .booking-rates-card {
+    padding: 24px;
+    background: #ffffff;
+  }
+
+  .rates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .rates-header h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .room-type-tag {
+    font-size: 0.75rem;
+    background: var(--bg-subtle);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--text-muted);
+  }
+
+  .rates-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rate-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    background: #f8fafc;
+  }
+
+  .rate-row.best-row {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
+
+  .provider-label {
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: block;
+  }
+
+  .cancel-tag {
+    font-size: 0.725rem;
+    color: #16a34a;
+    font-weight: 600;
+    display: block;
+  }
+
+  .breakfast-tag {
+    font-size: 0.725rem;
+    color: #0284c7;
+    font-weight: 600;
+    display: block;
+  }
+
+  .rate-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .price-lead {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    font-family: var(--font-display);
+  }
+
+  .night-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .best-price-promise {
+    margin-top: 18px;
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    background: #f8fafc;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .amenity-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .amenity-check {
+    color: var(--color-primary);
+    font-weight: 900;
+  }
+
+  .hotel-desc-card {
+    padding: 28px;
+  }
+
+  .hotel-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .hotel-pros-cons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .hotel-pros h4 {
+    color: #16a34a;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .hotel-cons h4 {
+    color: #dc2626;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .hotel-pros ul, .hotel-cons ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 860px) {
+    .hotel-main-grid {
+      grid-template-columns: 1fr;
+    }
+    .amenities-grid {
+      grid-template-columns: 1fr;
+    }
+    .hotel-pros-cons-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

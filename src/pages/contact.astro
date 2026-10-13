@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="Contact Us & Editorial Partnerships | BhujDeals"
+  description="Get in touch with the BhujDeals team for product testing inquiries, partnership proposals, press requests, and consumer feedback."
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ label: "Contact & Support" }]} />
+
+    <div class="contact-header">
+      <span class="badge badge-brand">DIRECT REACH</span>
+      <h1 class="page-title">We'd Love to Hear From You</h1>
+      <p class="page-subtitle">
+        Have a question about a product review, want to report a dead coupon link, or submit your software for benchmark testing? Send us a note below.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <div class="card contact-form-card">
+        <form onsubmit="event.preventDefault(); alert('Message dispatched! An editor will respond within 24 hours.');">
+          <div class="form-group">
+            <label for="name">Your Full Name</label>
+            <input type="text" id="name" required placeholder="Alex Vance" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work or Personal Email</label>
+            <input type="email" id="email" required placeholder="alex@domain.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="inquiry">Nature of Inquiry</label>
+            <select id="inquiry">
+              <option value="review">Product Review or Question</option>
+              <option value="coupon">Report Broken Coupon or Price</option>
+              <option value="partnership">Affiliate Network / Merchant Partnership</option>
+              <option value="press">Press & Media Inquiries</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required placeholder="Share product details, URLs, or feedback..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-affiliate btn-lg" style="width: 100%;">
+            Send Message &rarr;
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info Cards -->
+      <div class="contact-side-info">
+        <div class="card info-card">
+          <span class="info-icon">📍</span>
+          <h4>Testing Laboratory & Headquarters</h4>
+          <p>BhujDeals Media<br />Station Road, Jubilee Ground Commercial Zone<br />Bhuj, Kutch, Gujarat 370001</p>
+        </div>
+
+        <div class="card info-card">
+          <span class="info-icon">✉️</span>
+          <h4>Direct Inboxes</h4>
+          <p>Editorial Team: <strong>editorial@bhujdeals.com</strong><br />Partnerships: <strong>affiliates@bhujdeals.com</strong><br />Privacy: <strong>legal@bhujdeals.com</strong></p>
+        </div>
+
+        <div class="card info-card">
+          <span class="info-icon">⚡</span>
+          <h4>Service Level Commitment</h4>
+          <p>We review every verified coupon glitch report within 2 business hours to ensure user trust remains 100% intact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border-default);
+    margin-bottom: 32px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin: 12px 0 10px;
+  }
+
+  .page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 36px;
+    margin-bottom: 56px;
+  }
+
+  .contact-form-card {
+    padding: 32px;
+    background: #ffffff;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    font-size: 0.925rem;
+    outline: none;
+    background: var(--bg-surface);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  }
+
+  .contact-side-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info-card {
+    padding: 24px;
+  }
+
+  .info-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .info-card h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .info-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

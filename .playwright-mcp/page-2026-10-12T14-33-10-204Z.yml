@@ -1,0 +1,587 @@
+- generic [active] [ref=f9e1]:
+  - region "Affiliate Disclosure" [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - generic [ref=f9e4]:
+        - generic [ref=f9e5]: INDEPENDENT ADVICE
+        - paragraph [ref=f9e6]: BhujDeals is reader-supported. When you buy or book through links on our platform, we may earn an affiliate commission at no extra cost to you.
+      - link "How we test & monetize →" [ref=f9e7] [cursor=pointer]:
+        - /url: /affiliate-disclosure
+  - banner [ref=f9e8]:
+    - generic [ref=f9e10]:
+      - link "BhujDeals Home" [ref=f9e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f9e12]: B
+        - generic [ref=f9e13]:
+          - generic [ref=f9e14]: BhujDeals
+          - generic [ref=f9e15]: Compare & Discover
+      - generic [ref=f9e17]:
+        - textbox "Search 10,000+ products, hotels, coupons or stores..." [ref=f9e20]
+        - generic [ref=f9e21]: ⌘K
+      - generic [ref=f9e22]:
+        - link "🔥 Today's Deals" [ref=f9e23] [cursor=pointer]:
+          - /url: /deals
+          - generic [ref=f9e24]: 🔥
+          - generic [ref=f9e25]: Today's Deals
+        - link "Guides" [ref=f9e26] [cursor=pointer]:
+          - /url: /blog
+    - navigation "Product and Services Categories" [ref=f9e27]:
+      - list [ref=f9e29]:
+        - listitem [ref=f9e30]:
+          - link "🏨 Hotels" [ref=f9e31] [cursor=pointer]:
+            - /url: /hotels
+            - generic [ref=f9e32]: 🏨
+            - text: Hotels
+        - listitem [ref=f9e33]:
+          - link "💻 Electronics" [ref=f9e34] [cursor=pointer]:
+            - /url: /electronics
+            - generic [ref=f9e35]: 💻
+            - text: Electronics
+        - listitem [ref=f9e36]:
+          - link "✨ Beauty" [ref=f9e37] [cursor=pointer]:
+            - /url: /beauty
+            - generic [ref=f9e38]: ✨
+            - text: Beauty
+        - listitem [ref=f9e39]:
+          - link "👔 Fashion" [ref=f9e40] [cursor=pointer]:
+            - /url: /fashion
+            - generic [ref=f9e41]: 👔
+            - text: Fashion
+        - listitem [ref=f9e42]:
+          - link "☕ Home & Kitchen" [ref=f9e43] [cursor=pointer]:
+            - /url: /home
+            - generic [ref=f9e44]: ☕
+            - text: Home & Kitchen
+        - listitem [ref=f9e45]:
+          - link "🤖 AI Tools" [ref=f9e46] [cursor=pointer]:
+            - /url: /ai-tools
+            - generic [ref=f9e47]: 🤖
+            - text: AI Tools
+        - listitem [ref=f9e48]:
+          - link "✈️ Travel" [ref=f9e49] [cursor=pointer]:
+            - /url: /travel
+            - generic [ref=f9e50]: ✈️
+            - text: Travel
+        - listitem [ref=f9e51]:
+          - link "🌐 Hosting" [ref=f9e52] [cursor=pointer]:
+            - /url: /hosting
+            - generic [ref=f9e53]: 🌐
+            - text: Hosting
+        - listitem [ref=f9e54]:
+          - link "🏷️ Coupons" [ref=f9e55] [cursor=pointer]:
+            - /url: /deals
+            - generic [ref=f9e56]: 🏷️
+            - text: Coupons
+  - main [ref=f9e57]:
+    - generic [ref=f9e58]:
+      - navigation "Breadcrumb" [ref=f9e59]:
+        - list [ref=f9e60]:
+          - listitem [ref=f9e61]:
+            - link "Home" [ref=f9e62] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=f9e63]: /
+          - listitem [ref=f9e64]:
+            - generic [ref=f9e65]: Hotels & Stays
+      - generic [ref=f9e66]:
+        - generic [ref=f9e67]:
+          - generic [ref=f9e68]: 🏨 AGODA OFFICIAL PARTNER ENGINE
+          - heading "Exclusive Hotel Rates with Agoda Best Price Guarantee" [level=1] [ref=f9e69]
+          - paragraph [ref=f9e70]: Lock in verified lowest rates on luxury heritage palaces in Rajasthan, desert resorts in Kutch, and lakeside villas in Kashmir. Direct Agoda member prices with free cancellation.
+        - generic [ref=f9e71]:
+          - heading "Explore Partner Cities on Agoda" [level=3] [ref=f9e72]
+          - paragraph [ref=f9e73]: "Direct live rates with our official Agoda Partner ID (1970139):"
+          - generic [ref=f9e74]:
+            - link "📍 Bhuj (Kutch)" [ref=f9e75] [cursor=pointer]:
+              - /url: /go/agoda?city=bhuj
+            - link "🏛️ Dholavira (Rann)" [ref=f9e76] [cursor=pointer]:
+              - /url: /go/agoda?city=dholavira
+            - link "🏰 Udaipur" [ref=f9e77] [cursor=pointer]:
+              - /url: /go/agoda?city=udaipur
+            - link "👑 Jaipur" [ref=f9e78] [cursor=pointer]:
+              - /url: /go/agoda?city=jaipur
+            - link "🏜️ Jaisalmer" [ref=f9e79] [cursor=pointer]:
+              - /url: /go/agoda?city=jaisalmer
+            - link "🏔️ Srinagar (Dal Lake)" [ref=f9e80] [cursor=pointer]:
+              - /url: /go/agoda?city=srinagar
+      - generic [ref=f9e81]:
+        - generic [ref=f9e82]:
+          - generic [ref=f9e83]: ✈️ AIRFARE SAVINGS RADAR
+          - heading "Need Flights to These Destinations?" [level=3] [ref=f9e84]
+          - paragraph [ref=f9e85]: Compare cheap domestic & international airfares across IndiGo, Air India, Emirates & more. Special zero convenience fee booking links.
+        - link "Search Flights →" [ref=f9e86] [cursor=pointer]:
+          - /url: /go/flights
+      - generic [ref=f9e87]:
+        - generic [ref=f9e88]: "Quick Filter:"
+        - button "All Properties (6)" [ref=f9e89] [cursor=pointer]
+        - button "Luxury Palaces (3)" [ref=f9e90] [cursor=pointer]
+        - button "Resorts & Stays (3)" [ref=f9e91] [cursor=pointer]
+      - generic [ref=f9e92]:
+        - generic [ref=f9e93]:
+          - generic [ref=f9e94]:
+            - generic [ref=f9e95]: Bhuj Favorite
+            - generic [ref=f9e96]: Resort
+            - img "Regenta Resort Bhuj by Royal Orchid, Kutch" [ref=f9e97]
+          - generic [ref=f9e98]:
+            - generic [ref=f9e99]:
+              - generic [ref=f9e100]:
+                - generic "4 Star Hotel" [ref=f9e101]:
+                  - generic [ref=f9e102]: ★
+                  - generic [ref=f9e103]: ★
+                  - generic [ref=f9e104]: ★
+                  - generic [ref=f9e105]: ★
+                  - generic [ref=f9e106]: 4-Star Hotel
+                - heading [level=3] [ref=f9e107]:
+                  - link "Regenta Resort Bhuj by Royal Orchid, Kutch" [ref=f9e108] [cursor=pointer]:
+                    - /url: /hotel/regenta-resort-bhuj-kutch
+                - paragraph [ref=f9e109]: GMDC Road, Mirzapar Highway, Bhuj, Kutch, Gujarat 370001
+              - generic [ref=f9e112]:
+                - generic [ref=f9e113]:
+                  - generic [ref=f9e114]: Superb
+                  - generic [ref=f9e115]: 1,840 reviews
+                - generic [ref=f9e116]: "9.2"
+            - paragraph [ref=f9e117]: Heritage Kutch architecture with traditional Bhunga villas, pool, and fine Gujarati dining.
+            - generic [ref=f9e118]:
+              - generic [ref=f9e119]: ✓ Swimming Pool
+              - generic [ref=f9e120]: ✓ Heritage Bhunga Villas
+              - generic [ref=f9e121]: ✓ Gazebo Restaurant
+              - generic [ref=f9e122]: ✓ Free WiFi
+              - generic [ref=f9e123]: +2 more
+            - generic [ref=f9e124]:
+              - generic [ref=f9e125]: "Compare Live Booking Rates:"
+              - generic [ref=f9e126]:
+                - link "Agoda Agoda VIP Deal (Lowest Rate) Free Cancel ₹6,800 /night" [ref=f9e127] [cursor=pointer]:
+                  - /url: /go/agoda?city=bhuj
+                  - generic [ref=f9e128]:
+                    - text: Agoda Agoda VIP Deal (Lowest Rate)
+                    - generic [ref=f9e129]: Free Cancel
+                  - generic [ref=f9e130]: ₹6,800 /night
+                - link "MakeMyTrip ₹7,400 /night" [ref=f9e131] [cursor=pointer]:
+                  - /url: /go/agoda?city=bhuj
+                  - generic [ref=f9e132]: MakeMyTrip
+                  - generic [ref=f9e133]: ₹7,400 /night
+            - generic [ref=f9e134]:
+              - generic [ref=f9e135]:
+                - generic [ref=f9e136]: From
+                - generic [ref=f9e137]: ₹6,800
+                - generic [ref=f9e138]: /night on Agoda
+              - generic [ref=f9e139]:
+                - link "Property Details" [ref=f9e140] [cursor=pointer]:
+                  - /url: /hotel/regenta-resort-bhuj-kutch
+                - link "Book via Agoda →" [ref=f9e141] [cursor=pointer]:
+                  - /url: /go/agoda?city=bhuj
+        - generic [ref=f9e142]:
+          - generic [ref=f9e143]:
+            - generic [ref=f9e144]: UNESCO World Heritage
+            - generic [ref=f9e145]: Resort
+            - img "Dholavira Tourism Resort & Harappan Oasis, Kutch" [ref=f9e146]
+          - generic [ref=f9e147]:
+            - generic [ref=f9e148]:
+              - generic [ref=f9e149]:
+                - generic "4 Star Hotel" [ref=f9e150]:
+                  - generic [ref=f9e151]: ★
+                  - generic [ref=f9e152]: ★
+                  - generic [ref=f9e153]: ★
+                  - generic [ref=f9e154]: ★
+                  - generic [ref=f9e155]: 4-Star Hotel
+                - heading [level=3] [ref=f9e156]:
+                  - link "Dholavira Tourism Resort & Harappan Oasis, Kutch" [ref=f9e157] [cursor=pointer]:
+                    - /url: /hotel/dholavira-tourism-resort-harappan-oasis
+                - paragraph [ref=f9e158]: Khadir Bet Island, Near UNESCO Excavation Site, Dholavira, Kutch 370165
+              - generic [ref=f9e161]:
+                - generic [ref=f9e162]:
+                  - generic [ref=f9e163]: Superb
+                  - generic [ref=f9e164]: 920 reviews
+                - generic [ref=f9e165]: "9.1"
+            - paragraph [ref=f9e166]: Eco-luxury gateway to the UNESCO World Heritage Harappan Archaeological Metropolis.
+            - generic [ref=f9e167]:
+              - generic [ref=f9e168]: ✓ UNESCO Site Access
+              - generic [ref=f9e169]: ✓ AC Desert Cottages
+              - generic [ref=f9e170]: ✓ Traditional Kathiyawadi Dining
+              - generic [ref=f9e171]: ✓ Desert Safari Assistance
+              - generic [ref=f9e172]: +2 more
+            - generic [ref=f9e173]:
+              - generic [ref=f9e174]: "Compare Live Booking Rates:"
+              - generic [ref=f9e175]:
+                - link "Agoda Agoda Special Price Free Cancel ₹4,500 /night" [ref=f9e176] [cursor=pointer]:
+                  - /url: /go/agoda?city=dholavira
+                  - generic [ref=f9e177]:
+                    - text: Agoda Agoda Special Price
+                    - generic [ref=f9e178]: Free Cancel
+                  - generic [ref=f9e179]: ₹4,500 /night
+                - link "MakeMyTrip ₹5,100 /night" [ref=f9e180] [cursor=pointer]:
+                  - /url: /go/agoda?city=dholavira
+                  - generic [ref=f9e181]: MakeMyTrip
+                  - generic [ref=f9e182]: ₹5,100 /night
+            - generic [ref=f9e183]:
+              - generic [ref=f9e184]:
+                - generic [ref=f9e185]: From
+                - generic [ref=f9e186]: ₹4,500
+                - generic [ref=f9e187]: /night on Agoda
+              - generic [ref=f9e188]:
+                - link "Property Details" [ref=f9e189] [cursor=pointer]:
+                  - /url: /hotel/dholavira-tourism-resort-harappan-oasis
+                - link "Book via Agoda →" [ref=f9e190] [cursor=pointer]:
+                  - /url: /go/agoda?city=dholavira
+        - generic [ref=f9e191]:
+          - generic [ref=f9e192]:
+            - generic [ref=f9e193]: Top Luxury Pick
+            - generic [ref=f9e194]: Luxury
+            - img "The Oberoi Udaivilas, Udaipur" [ref=f9e195]
+          - generic [ref=f9e196]:
+            - generic [ref=f9e197]:
+              - generic [ref=f9e198]:
+                - generic "5 Star Hotel" [ref=f9e199]:
+                  - generic [ref=f9e200]: ★
+                  - generic [ref=f9e201]: ★
+                  - generic [ref=f9e202]: ★
+                  - generic [ref=f9e203]: ★
+                  - generic [ref=f9e204]: ★
+                  - generic [ref=f9e205]: 5-Star Hotel
+                - heading [level=3] [ref=f9e206]:
+                  - link "The Oberoi Udaivilas, Udaipur" [ref=f9e207] [cursor=pointer]:
+                    - /url: /hotel/the-oberoi-udaivilas-udaipur
+                - paragraph [ref=f9e208]: Haridas Ji Ki Magri, Lake Pichola Waterfront, Udaipur, Rajasthan 313001
+              - generic [ref=f9e211]:
+                - generic [ref=f9e212]:
+                  - generic [ref=f9e213]: Exceptional
+                  - generic [ref=f9e214]: 2,480 reviews
+                - generic [ref=f9e215]: "9.8"
+            - paragraph [ref=f9e216]: Voted India's best heritage luxury palace on the serene banks of Lake Pichola.
+            - generic [ref=f9e217]:
+              - generic [ref=f9e218]: ✓ Lake Pichola View
+              - generic [ref=f9e219]: ✓ Private Semi-Private Pools
+              - generic [ref=f9e220]: ✓ Oberoi Spa
+              - generic [ref=f9e221]: ✓ 24/7 Butler Service
+              - generic [ref=f9e222]: +2 more
+            - generic [ref=f9e223]:
+              - generic [ref=f9e224]: "Compare Live Booking Rates:"
+              - generic [ref=f9e225]:
+                - link "Agoda Agoda Lowest Price Guarantee Free Cancel ₹42,500 /night" [ref=f9e226] [cursor=pointer]:
+                  - /url: /go/agoda?city=udaipur
+                  - generic [ref=f9e227]:
+                    - text: Agoda Agoda Lowest Price Guarantee
+                    - generic [ref=f9e228]: Free Cancel
+                  - generic [ref=f9e229]: ₹42,500 /night
+                - link "Booking.com Free Cancel ₹44,900 /night" [ref=f9e230] [cursor=pointer]:
+                  - /url: /go/agoda?city=udaipur
+                  - generic [ref=f9e231]:
+                    - text: Booking.com
+                    - generic [ref=f9e232]: Free Cancel
+                  - generic [ref=f9e233]: ₹44,900 /night
+            - generic [ref=f9e234]:
+              - generic [ref=f9e235]:
+                - generic [ref=f9e236]: From
+                - generic [ref=f9e237]: ₹42,500
+                - generic [ref=f9e238]: /night on Agoda
+              - generic [ref=f9e239]:
+                - link "Property Details" [ref=f9e240] [cursor=pointer]:
+                  - /url: /hotel/the-oberoi-udaivilas-udaipur
+                - link "Book via Agoda →" [ref=f9e241] [cursor=pointer]:
+                  - /url: /go/agoda?city=udaipur
+        - generic [ref=f9e242]:
+          - generic [ref=f9e243]:
+            - generic [ref=f9e244]: "World's #1 Hotel"
+            - generic [ref=f9e245]: Luxury
+            - img "Rambagh Palace, Jaipur - Taj Luxury Heritage" [ref=f9e246]
+          - generic [ref=f9e247]:
+            - generic [ref=f9e248]:
+              - generic [ref=f9e249]:
+                - generic "5 Star Hotel" [ref=f9e250]:
+                  - generic [ref=f9e251]: ★
+                  - generic [ref=f9e252]: ★
+                  - generic [ref=f9e253]: ★
+                  - generic [ref=f9e254]: ★
+                  - generic [ref=f9e255]: ★
+                  - generic [ref=f9e256]: 5-Star Hotel
+                - heading [level=3] [ref=f9e257]:
+                  - link "Rambagh Palace, Jaipur - Taj Luxury Heritage" [ref=f9e258] [cursor=pointer]:
+                    - /url: /hotel/rambagh-palace-jaipur-taj
+                - paragraph [ref=f9e259]: Bhawani Singh Road, Near Rambagh Circle, Jaipur, Rajasthan 302005
+              - generic [ref=f9e262]:
+                - generic [ref=f9e263]:
+                  - generic [ref=f9e264]: Exceptional
+                  - generic [ref=f9e265]: 3,410 reviews
+                - generic [ref=f9e266]: "9.7"
+            - paragraph [ref=f9e267]: "The Jewel of Jaipur: Former royal residence of the Maharaja of Jaipur."
+            - generic [ref=f9e268]:
+              - generic [ref=f9e269]: ✓ Palace Architecture
+              - generic [ref=f9e270]: ✓ Jiva Grande Spa
+              - generic [ref=f9e271]: ✓ Indoor & Outdoor Pools
+              - generic [ref=f9e272]: ✓ Vintage Car Airport Transfers
+              - generic [ref=f9e273]: +2 more
+            - generic [ref=f9e274]:
+              - generic [ref=f9e275]: "Compare Live Booking Rates:"
+              - generic [ref=f9e276]:
+                - link "Agoda Agoda Heritage Deal Free Cancel ₹38,000 /night" [ref=f9e277] [cursor=pointer]:
+                  - /url: /go/agoda?city=jaipur
+                  - generic [ref=f9e278]:
+                    - text: Agoda Agoda Heritage Deal
+                    - generic [ref=f9e279]: Free Cancel
+                  - generic [ref=f9e280]: ₹38,000 /night
+                - link "Booking.com Free Cancel ₹41,200 /night" [ref=f9e281] [cursor=pointer]:
+                  - /url: /go/agoda?city=jaipur
+                  - generic [ref=f9e282]:
+                    - text: Booking.com
+                    - generic [ref=f9e283]: Free Cancel
+                  - generic [ref=f9e284]: ₹41,200 /night
+            - generic [ref=f9e285]:
+              - generic [ref=f9e286]:
+                - generic [ref=f9e287]: From
+                - generic [ref=f9e288]: ₹38,000
+                - generic [ref=f9e289]: /night on Agoda
+              - generic [ref=f9e290]:
+                - link "Property Details" [ref=f9e291] [cursor=pointer]:
+                  - /url: /hotel/rambagh-palace-jaipur-taj
+                - link "Book via Agoda →" [ref=f9e292] [cursor=pointer]:
+                  - /url: /go/agoda?city=jaipur
+        - generic [ref=f9e293]:
+          - generic [ref=f9e294]:
+            - generic [ref=f9e295]: Desert Luxury
+            - generic [ref=f9e296]: Resort
+            - img "Suryagarh Jaisalmer - The Great Thar Desert Fortress" [ref=f9e297]
+          - generic [ref=f9e298]:
+            - generic [ref=f9e299]:
+              - generic [ref=f9e300]:
+                - generic "5 Star Hotel" [ref=f9e301]:
+                  - generic [ref=f9e302]: ★
+                  - generic [ref=f9e303]: ★
+                  - generic [ref=f9e304]: ★
+                  - generic [ref=f9e305]: ★
+                  - generic [ref=f9e306]: ★
+                  - generic [ref=f9e307]: 5-Star Hotel
+                - heading [level=3] [ref=f9e308]:
+                  - link "Suryagarh Jaisalmer - The Great Thar Desert Fortress" [ref=f9e309] [cursor=pointer]:
+                    - /url: /hotel/suryagarh-jaisalmer-thar-fortress
+                - paragraph [ref=f9e310]: Kahala Phata, Sam Road, Jaisalmer, Rajasthan 345001
+              - generic [ref=f9e313]:
+                - generic [ref=f9e314]:
+                  - generic [ref=f9e315]: Exceptional
+                  - generic [ref=f9e316]: 2,150 reviews
+                - generic [ref=f9e317]: "9.6"
+            - paragraph [ref=f9e318]: Golden sandstone fortress rising majestically from the Thar Desert with royal banquets and safaris.
+            - generic [ref=f9e319]:
+              - generic [ref=f9e320]: ✓ Thar Desert Views
+              - generic [ref=f9e321]: ✓ Indoor Heated Pool (Neel)
+              - generic [ref=f9e322]: ✓ Rait Desert Spa
+              - generic [ref=f9e323]: ✓ Camel & Jeep Safaris
+              - generic [ref=f9e324]: +2 more
+            - generic [ref=f9e325]:
+              - generic [ref=f9e326]: "Compare Live Booking Rates:"
+              - generic [ref=f9e327]:
+                - link "Agoda Agoda Thar Desert Deal Free Cancel ₹21,000 /night" [ref=f9e328] [cursor=pointer]:
+                  - /url: /go/agoda?city=jaisalmer
+                  - generic [ref=f9e329]:
+                    - text: Agoda Agoda Thar Desert Deal
+                    - generic [ref=f9e330]: Free Cancel
+                  - generic [ref=f9e331]: ₹21,000 /night
+                - link "MakeMyTrip ₹23,500 /night" [ref=f9e332] [cursor=pointer]:
+                  - /url: /go/agoda?city=jaisalmer
+                  - generic [ref=f9e333]: MakeMyTrip
+                  - generic [ref=f9e334]: ₹23,500 /night
+            - generic [ref=f9e335]:
+              - generic [ref=f9e336]:
+                - generic [ref=f9e337]: From
+                - generic [ref=f9e338]: ₹21,000
+                - generic [ref=f9e339]: /night on Agoda
+              - generic [ref=f9e340]:
+                - link "Property Details" [ref=f9e341] [cursor=pointer]:
+                  - /url: /hotel/suryagarh-jaisalmer-thar-fortress
+                - link "Book via Agoda →" [ref=f9e342] [cursor=pointer]:
+                  - /url: /go/agoda?city=jaisalmer
+        - generic [ref=f9e343]:
+          - generic [ref=f9e344]:
+            - generic [ref=f9e345]: Kashmir Paradise
+            - generic [ref=f9e346]: Luxury
+            - img "The Lalit Grand Palace Srinagar, Kashmir" [ref=f9e347]
+          - generic [ref=f9e348]:
+            - generic [ref=f9e349]:
+              - generic [ref=f9e350]:
+                - generic "5 Star Hotel" [ref=f9e351]:
+                  - generic [ref=f9e352]: ★
+                  - generic [ref=f9e353]: ★
+                  - generic [ref=f9e354]: ★
+                  - generic [ref=f9e355]: ★
+                  - generic [ref=f9e356]: ★
+                  - generic [ref=f9e357]: 5-Star Hotel
+                - heading [level=3] [ref=f9e358]:
+                  - link "The Lalit Grand Palace Srinagar, Kashmir" [ref=f9e359] [cursor=pointer]:
+                    - /url: /hotel/the-lalit-grand-palace-srinagar-kashmir
+                - paragraph [ref=f9e360]: Gupkar Road, Near Dal Lake, Srinagar, Jammu & Kashmir 190001
+              - generic [ref=f9e363]:
+                - generic [ref=f9e364]:
+                  - generic [ref=f9e365]: Superb
+                  - generic [ref=f9e366]: 1,980 reviews
+                - generic [ref=f9e367]: "9.5"
+            - paragraph [ref=f9e368]: Victorian royal palace overlooking Dal Lake and the snow-capped Zabarwan mountain ranges.
+            - generic [ref=f9e369]:
+              - generic [ref=f9e370]: ✓ Dal Lake Views
+              - generic [ref=f9e371]: ✓ Historic Chinar Lawns
+              - generic [ref=f9e372]: ✓ Indoor Heated Pool
+              - generic [ref=f9e373]: ✓ Rejuve The Spa
+              - generic [ref=f9e374]: +2 more
+            - generic [ref=f9e375]:
+              - generic [ref=f9e376]: "Compare Live Booking Rates:"
+              - generic [ref=f9e377]:
+                - link "Agoda Agoda Kashmir Valley Deal Free Cancel ₹24,500 /night" [ref=f9e378] [cursor=pointer]:
+                  - /url: /go/agoda?city=srinagar
+                  - generic [ref=f9e379]:
+                    - text: Agoda Agoda Kashmir Valley Deal
+                    - generic [ref=f9e380]: Free Cancel
+                  - generic [ref=f9e381]: ₹24,500 /night
+                - link "Booking.com Free Cancel ₹27,000 /night" [ref=f9e382] [cursor=pointer]:
+                  - /url: /go/agoda?city=srinagar
+                  - generic [ref=f9e383]:
+                    - text: Booking.com
+                    - generic [ref=f9e384]: Free Cancel
+                  - generic [ref=f9e385]: ₹27,000 /night
+            - generic [ref=f9e386]:
+              - generic [ref=f9e387]:
+                - generic [ref=f9e388]: From
+                - generic [ref=f9e389]: ₹24,500
+                - generic [ref=f9e390]: /night on Agoda
+              - generic [ref=f9e391]:
+                - link "Property Details" [ref=f9e392] [cursor=pointer]:
+                  - /url: /hotel/the-lalit-grand-palace-srinagar-kashmir
+                - link "Book via Agoda →" [ref=f9e393] [cursor=pointer]:
+                  - /url: /go/agoda?city=srinagar
+      - generic [ref=f9e394]:
+        - heading "How to Maximize Hotel Booking Savings" [level=2] [ref=f9e395]
+        - generic [ref=f9e396]:
+          - generic [ref=f9e397]:
+            - generic [ref=f9e398]: "01"
+            - heading "Cross-Check Agoda for Asian Properties" [level=4] [ref=f9e399]
+            - paragraph [ref=f9e400]: Agoda frequently carries localized wholesale agreements in Southeast Asia and India that slash 10–15% off standard rack rates.
+          - generic [ref=f9e401]:
+            - generic [ref=f9e402]: "02"
+            - heading "Book 'Pay at Property' Rate Tiers" [level=4] [ref=f9e403]
+            - paragraph [ref=f9e404]: If travel dates are tentative, choose pay-at-hotel options with free cancellation to lock in early bird discounts risk-free.
+          - generic [ref=f9e405]:
+            - generic [ref=f9e406]: "03"
+            - heading "Leverage Co-Branded Travel Cards" [level=4] [ref=f9e407]
+            - paragraph [ref=f9e408]: Pair our affiliate discounts with HDFC Regalia or Axis Atlas cards for extra reward miles and complimentary lounge passes.
+      - generic [ref=f9e409]:
+        - heading "Hotel Booking & Price Comparison FAQs" [level=2] [ref=f9e410]
+        - generic [ref=f9e411]:
+          - group [ref=f9e412]:
+            - generic "How do you find the lowest rates across Booking.com and Agoda?" [ref=f9e413] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f9e415]: +
+            - paragraph [ref=f9e417]: Our automated price engine queries the merchant API feeds of Booking.com, Agoda, and MakeMyTrip concurrently, accounting for localized taxes, app-only promo codes, and loyalty tier discounts.
+          - group [ref=f9e418]:
+            - generic "Is free cancellation guaranteed on all listed hotels?" [ref=f9e419] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f9e421]: +
+          - group [ref=f9e422]:
+            - generic "Do you charge extra booking fees?" [ref=f9e423] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f9e425]: +
+  - contentinfo [ref=f9e426]:
+    - generic [ref=f9e428]:
+      - generic [ref=f9e429]:
+        - generic [ref=f9e430]: 🔍
+        - generic [ref=f9e431]:
+          - generic [ref=f9e432]: 100% Unbiased Editorial
+          - generic [ref=f9e433]: Lab-tested and rigorously benchmarked picks.
+      - generic [ref=f9e434]:
+        - generic [ref=f9e435]: 🏷️
+        - generic [ref=f9e436]:
+          - generic [ref=f9e437]: Verified Daily Discounts
+          - generic [ref=f9e438]: Automated price scrapers audit deals 24/7.
+      - generic [ref=f9e439]:
+        - generic [ref=f9e440]: 🛡️
+        - generic [ref=f9e441]:
+          - generic [ref=f9e442]: Direct Store Guarantee
+          - generic [ref=f9e443]: Checkout directly on authorized seller stores.
+      - generic [ref=f9e444]:
+        - generic [ref=f9e445]: ⚡
+        - generic [ref=f9e446]:
+          - generic [ref=f9e447]: Instant Coupon Validation
+          - generic [ref=f9e448]: No dead codes or expired vouchers.
+    - generic [ref=f9e450]:
+      - generic [ref=f9e451]:
+        - link "B BhujDeals Compare & Discover" [ref=f9e452] [cursor=pointer]:
+          - /url: /
+          - text: B
+          - generic [ref=f9e453]:
+            - generic [ref=f9e454]: BhujDeals
+            - text: Compare & Discover
+        - paragraph [ref=f9e455]: BhujDeals is an independent consumer discovery engine. We help smart shoppers cut through e-commerce noise by comparing prices, lab performance, and verified discount coupons across Amazon, Flipkart, Booking.com, Agoda, and top DTC brands.
+        - generic [ref=f9e456]:
+          - generic [ref=f9e457]: Amazon Associates
+          - generic [ref=f9e458]: Flipkart Affiliate
+          - generic [ref=f9e459]: Booking Holdings
+          - generic [ref=f9e460]: Impact Radius
+          - generic [ref=f9e461]: CJ Affiliate
+      - generic [ref=f9e462]:
+        - heading "Categories" [level=4] [ref=f9e463]
+        - list [ref=f9e464]:
+          - listitem [ref=f9e465]:
+            - link "Hotels & Stays" [ref=f9e466] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f9e467]:
+            - link "Electronics & Tech" [ref=f9e468] [cursor=pointer]:
+              - /url: /electronics
+          - listitem [ref=f9e469]:
+            - link "Beauty & Skincare" [ref=f9e470] [cursor=pointer]:
+              - /url: /beauty
+          - listitem [ref=f9e471]:
+            - link "Fashion & Apparel" [ref=f9e472] [cursor=pointer]:
+              - /url: /fashion
+          - listitem [ref=f9e473]:
+            - link "Home & Kitchen" [ref=f9e474] [cursor=pointer]:
+              - /url: /home
+          - listitem [ref=f9e475]:
+            - link "AI Tools & SaaS" [ref=f9e476] [cursor=pointer]:
+              - /url: /ai-tools
+      - generic [ref=f9e477]:
+        - heading "Travel & Deals" [level=4] [ref=f9e478]
+        - list [ref=f9e479]:
+          - listitem [ref=f9e480]:
+            - link "Hotels & Stays" [ref=f9e481] [cursor=pointer]:
+              - /url: /hotels
+          - listitem [ref=f9e482]:
+            - link "Experiences & Tours" [ref=f9e483] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=f9e484]:
+            - link "Today's Deals" [ref=f9e485] [cursor=pointer]:
+              - /url: /deals
+          - listitem [ref=f9e486]:
+            - link "Web Hosting Deals" [ref=f9e487] [cursor=pointer]:
+              - /url: /hosting
+          - listitem [ref=f9e488]:
+            - link "AI Tools & SaaS" [ref=f9e489] [cursor=pointer]:
+              - /url: /ai-tools
+          - listitem [ref=f9e490]:
+            - link "Buying Guides & Reviews" [ref=f9e491] [cursor=pointer]:
+              - /url: /blog
+      - generic [ref=f9e492]:
+        - heading "Trust & Legal" [level=4] [ref=f9e493]
+        - list [ref=f9e494]:
+          - listitem [ref=f9e495]:
+            - link "About BhujDeals" [ref=f9e496] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f9e497]:
+            - link "Affiliate Disclosure" [ref=f9e498] [cursor=pointer]:
+              - /url: /affiliate-disclosure
+          - listitem [ref=f9e499]:
+            - link "Price & Warranty Disclaimer" [ref=f9e500] [cursor=pointer]:
+              - /url: /disclaimer
+          - listitem [ref=f9e501]:
+            - link "Privacy Policy" [ref=f9e502] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=f9e503]:
+            - link "Terms of Service" [ref=f9e504] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=f9e505]:
+            - link "Contact & Partnerships" [ref=f9e506] [cursor=pointer]:
+              - /url: /contact
+    - paragraph [ref=f9e509]:
+      - strong [ref=f9e510]: "FTC & ASCI Affiliate Disclosure:"
+      - text: BhujDeals is an independent participant in various affiliate marketing programs, including the Amazon Services LLC Associates Program, the Flipkart Affiliate Program, Booking.com Affiliate Partner Network, Impact.com, and Commission Junction. When you click on links to various merchants on this site and make a purchase or booking, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network, Booking Holdings, and PartnerStack. Prices and availability are subject to change without notice. All product names, logos, and brands are property of their respective owners.
+    - generic [ref=f9e512]:
+      - paragraph [ref=f9e513]: © 2026 BhujDeals Media Ltd. Built with high performance Astro & Cloudflare Edge.
+      - generic [ref=f9e514]:
+        - link "Sitemap" [ref=f9e515] [cursor=pointer]:
+          - /url: /sitemap-index.xml
+        - link "Privacy" [ref=f9e516] [cursor=pointer]:
+          - /url: /privacy
+        - link "Disclosure" [ref=f9e517] [cursor=pointer]:
+          - /url: /affiliate-disclosure
+        - link "Support" [ref=f9e518] [cursor=pointer]:
+          - /url: /contact

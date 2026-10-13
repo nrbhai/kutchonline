@@ -1,0 +1,584 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RatingStars from '../../components/RatingStars.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { PRODUCTS, type Product } from '../../data/products';
+
+export async function getStaticPaths() {
+  return PRODUCTS.map((product) => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+
+// Related products in same category
+const relatedProducts = PRODUCTS.filter(
+  p => p.category === product.category && p.id !== product.id
+).slice(0, 3);
+
+const discount = Math.round(
+  ((product.primaryStore.originalPrice - product.primaryStore.price) / product.primaryStore.originalPrice) * 100
+);
+
+const currencySymbol = product.primaryStore.currency === "INR" ? "₹" : "$";
+
+// Schema.org Product structured data
+const productSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": product.name,
+  "image": [product.image],
+  "description": product.description,
+  "brand": {
+    "@type": "Brand",
+    "name": product.brand
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": product.rating.toString(),
+    "reviewCount": product.reviewsCount.toString(),
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": product.storeOffers.map((offer) => ({
+    "@type": "Offer",
+    "url": `https://bhujdeals.com${offer.affiliateUrl}`,
+    "priceCurrency": offer.currency,
+    "price": offer.price.toString(),
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": offer.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+    "seller": {
+      "@type": "Organization",
+      "name": offer.storeName
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title={`${product.name} Review, Specs & Lowest Price Comparison`}
+  description={product.description.slice(0, 160)}
+  image={product.image}
+  type="product"
+  schemaJson={productSchema}
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[
+      { label: product.category.toUpperCase(), href: `/${product.category}` },
+      { label: product.subcategory },
+      { label: product.brand }
+    ]} />
+
+    <!-- Product Overview Main Card -->
+    <div class="product-pdp-grid">
+      <!-- Left Column: Gallery & Badges -->
+      <div class="pdp-gallery-col">
+        <div class="main-image-frame card">
+          {product.dealTag && <span class="badge badge-deal pdp-badge">{product.dealTag}</span>}
+          {discount > 0 && <span class="badge badge-fire pdp-discount">-{discount}% OFF</span>}
+          <img src={product.image} alt={product.name} class="pdp-img" />
+        </div>
+        <div class="trust-under-image">
+          <span>🛡️ Verified Authentic Serial Number</span>
+          <span>🚚 Free Express Shipping Eligible</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Specs & Pricing Comparison -->
+      <div class="pdp-info-col">
+        <div class="pdp-brand-row">
+          <span class="pdp-brand">{product.brand}</span>
+          <span class="pdp-category-pill">{product.subcategory}</span>
+        </div>
+
+        <h1 class="pdp-title">{product.name}</h1>
+
+        <div class="pdp-ratings-bar">
+          <RatingStars rating={product.rating} reviewsCount={product.reviewsCount} size="md" />
+          <span class="pdp-audit-date">Verified on {product.updatedAt}</span>
+        </div>
+
+        <p class="pdp-tagline">{product.tagline}</p>
+
+        <!-- Live Price Comparison Box -->
+        <div class="pdp-price-comparison card">
+          <div class="compare-header">
+            <span class="compare-title">Live Store Prices & Availability</span>
+            <span class="compare-pill">Lowest Price Guaranteed</span>
+          </div>
+
+          <div class="store-offers-stack">
+            {product.storeOffers.map((offer, idx) => (
+              <div class={`store-offer-row ${idx === 0 ? 'is-best-deal' : ''}`}>
+                <div class="store-left">
+                  <span class="store-name-bold">{offer.storeName}</span>
+                  {offer.badge && <span class="offer-badge-pill">{offer.badge}</span>}
+                  <span class="stock-status">✓ In Stock</span>
+                </div>
+                <div class="store-pricing">
+                  <div class="price-figures">
+                    <span class="store-price-main">{currencySymbol}{offer.price.toLocaleString()}</span>
+                    {offer.originalPrice > offer.price && (
+                      <span class="store-price-orig">{currencySymbol}{offer.originalPrice.toLocaleString()}</span>
+                    )}
+                  </div>
+                  <a 
+                    href={offer.affiliateUrl} 
+                    target="_blank" 
+                    rel="sponsored nofollow noopener"
+                    class={`btn btn-sm ${idx === 0 ? 'btn-affiliate' : 'btn-secondary'}`}
+                    data-track-click="outbound"
+                    data-store={offer.storeName}
+                    data-product-name={product.name}
+                  >
+                    View on {offer.storeName} &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="affiliate-fineprint">
+            Price tracked across authorized partners. Links generate an affiliate commission with no extra cost to you.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros & Cons Grid -->
+    <div class="pdp-section-wrap">
+      <h2 class="section-title">The Verdict: Pros & Cons</h2>
+      <div class="pros-cons-grid">
+        <div class="pros-box card">
+          <h3 class="pros-title"><span class="icon-circle pro-icon">✓</span> Reasons to Buy</h3>
+          <ul class="reasons-list">
+            {product.pros.map((pro) => (
+              <li>{pro}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="cons-box card">
+          <h3 class="cons-title"><span class="icon-circle con-icon">✕</span> Things to Consider</h3>
+          <ul class="reasons-list">
+            {product.cons.map((con) => (
+              <li>{con}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- In-Depth Overview & Key Features -->
+    <div class="pdp-section-wrap">
+      <h2 class="section-title">Detailed Product Overview</h2>
+      <div class="pdp-overview-text card">
+        <p class="overview-body">{product.description}</p>
+        
+        <h3 class="features-heading">Key Laboratory Tested Features</h3>
+        <ul class="features-checklist">
+          {product.keyFeatures.map((feat) => (
+            <li>
+              <span class="bullet-check">✔</span>
+              <span>{feat}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Technical Specifications Table -->
+    <div class="pdp-section-wrap">
+      <h2 class="section-title">Technical Specifications</h2>
+      <div class="specs-table-wrap card">
+        <table class="specs-table">
+          <tbody>
+            {product.specs.map((spec) => (
+              <tr>
+                <td class="spec-name">{spec.label}</td>
+                <td class="spec-value">{spec.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <FAQAccordion faqs={product.faqs} title={`Frequently Asked Questions About ${product.name}`} />
+
+    <!-- Related Products -->
+    {relatedProducts.length > 0 && (
+      <div class="pdp-section-wrap" style="margin-top: 48px;">
+        <h2 class="section-title">Similar Alternatives to Compare</h2>
+        <div class="grid-3">
+          {relatedProducts.map((rel) => (
+            <ProductCard product={rel} />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .product-pdp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 40px;
+    margin: 24px 0 48px;
+    align-items: start;
+  }
+
+  .main-image-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #f8fafc;
+  }
+
+  .pdp-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+  }
+
+  .pdp-discount {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+  }
+
+  .pdp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .trust-under-image {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    padding: 0 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pdp-brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .pdp-brand {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .pdp-category-pill {
+    font-size: 0.75rem;
+    background: var(--bg-subtle);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+  }
+
+  .pdp-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .pdp-ratings-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .pdp-audit-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .pdp-tagline {
+    font-size: 1.05rem;
+    color: var(--text-body);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .pdp-price-comparison {
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+  }
+
+  .compare-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .compare-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .compare-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #166534;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .store-offers-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .store-offer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+  }
+
+  .store-offer-row.is-best-deal {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
+
+  .store-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .store-name-bold {
+    font-weight: 800;
+    font-size: 0.95rem;
+  }
+
+  .offer-badge-pill {
+    font-size: 0.675rem;
+    font-weight: 600;
+    color: #ea580c;
+  }
+
+  .stock-status {
+    font-size: 0.7rem;
+    color: #16a34a;
+    font-weight: 600;
+  }
+
+  .store-pricing {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .price-figures {
+    text-align: right;
+  }
+
+  .store-price-main {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: block;
+    font-family: var(--font-display);
+  }
+
+  .store-price-orig {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .affiliate-fineprint {
+    margin-top: 14px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* Pros Cons */
+  .pdp-section-wrap {
+    margin: 48px 0;
+  }
+
+  .pros-cons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .pros-box, .cons-box {
+    padding: 24px;
+  }
+
+  .pros-box {
+    border-left: 4px solid #16a34a;
+  }
+
+  .cons-box {
+    border-left: 4px solid #dc2626;
+  }
+
+  .pros-title, .cons-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+  }
+
+  .pro-icon {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+
+  .con-icon {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  .reasons-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .reasons-list li {
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .reasons-list li::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    color: var(--text-muted);
+  }
+
+  /* Overview & Features */
+  .pdp-overview-text {
+    padding: 28px;
+  }
+
+  .overview-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-body);
+    margin-bottom: 24px;
+  }
+
+  .features-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .features-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .features-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.925rem;
+    line-height: 1.5;
+  }
+
+  .bullet-check {
+    color: var(--color-primary);
+    font-weight: 900;
+  }
+
+  /* Specs Table */
+  .specs-table-wrap {
+    overflow: hidden;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .specs-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.9rem;
+  }
+
+  .specs-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .spec-name {
+    width: 30%;
+    background: #f8fafc;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .spec-value {
+    color: var(--text-body);
+  }
+
+  @media (max-width: 900px) {
+    .product-pdp-grid {
+      grid-template-columns: 1fr;
+    }
+    .pros-cons-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

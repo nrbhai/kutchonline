@@ -1,0 +1,430 @@
+---
+import { CATEGORIES } from "../data/categories";
+---
+
+<footer class="site-footer">
+  <!-- Top Trust Bar -->
+  <div class="footer-trust-bar">
+    <div class="container trust-container">
+      <div class="trust-item">
+        <span class="trust-icon" style="background: rgba(2,132,199,0.15);">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0284c7"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8"></circle><line
+              x1="21"
+              y1="21"
+              x2="16.65"
+              y2="16.65"></line>
+          </svg>
+        </span>
+        <div>
+          <span class="trust-title">100% Unbiased Editorial</span>
+          <span class="trust-desc"
+            >Lab-tested and rigorously benchmarked picks.</span
+          >
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" style="background: rgba(249,115,22,0.15);">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#f97316"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"
+            ></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+        </span>
+        <div>
+          <span class="trust-title">Verified Daily Discounts</span>
+          <span class="trust-desc"
+            >Automated price scrapers audit deals 24/7.</span
+          >
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" style="background: rgba(22,163,74,0.15);">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#16a34a"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </span>
+        <div>
+          <span class="trust-title">Direct Store Guarantee</span>
+          <span class="trust-desc"
+            >Checkout directly on authorized seller stores.</span
+          >
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" style="background: rgba(234,179,8,0.15);">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#eab308"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </span>
+        <div>
+          <span class="trust-title">Instant Coupon Validation</span>
+          <span class="trust-desc">No dead codes or expired vouchers.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Content -->
+  <div class="footer-main">
+    <div class="container footer-grid">
+      <!-- Col 1: Brand & Mission -->
+      <div class="footer-brand-col">
+        <a href="/" class="brand-logo footer-logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="#ffffff"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="#ffffff"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
+                ></polygon>
+              </svg>
+            </svg>
+          </span>
+          <div class="logo-text-wrap">
+            <span class="logo-name"
+              >Bhuj<span class="logo-highlight">Deals</span></span
+            >
+            <span class="logo-tagline">Compare & Discover</span>
+          </div>
+        </a>
+        <p class="brand-mission">
+          BhujDeals is an independent consumer discovery engine. We help smart
+          shoppers cut through e-commerce noise by comparing prices, lab
+          performance, and verified discount coupons across Amazon, Flipkart,
+          Booking.com, Agoda, and top DTC brands.
+        </p>
+        <div class="network-badges">
+          <span class="net-tag">Amazon Associates</span>
+          <span class="net-tag">Flipkart Affiliate</span>
+          <span class="net-tag">Booking Holdings</span>
+          <span class="net-tag">Impact Radius</span>
+          <span class="net-tag">CJ Affiliate</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Categories -->
+      <div class="footer-links-col">
+        <h4 class="col-heading">Categories</h4>
+        <ul class="footer-links">
+          {
+            CATEGORIES.slice(0, 6).map((c) => (
+              <li>
+                <a href={`/${c.slug}`}>{c.name}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Col 3: More Categories & Tools -->
+      <div class="footer-links-col">
+        <h4 class="col-heading">Travel & Deals</h4>
+        <ul class="footer-links">
+          <li><a href="/hotels">Hotels & Stays</a></li>
+          <li><a href="/travel">Experiences & Tours</a></li>
+          <li><a href="/deals">Today's Deals</a></li>
+          <li><a href="/hosting">Web Hosting Deals</a></li>
+          <li><a href="/ai-tools">AI Tools & SaaS</a></li>
+          <li><a href="/blog">Buying Guides & Reviews</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Trust & Legal -->
+      <div class="footer-links-col">
+        <h4 class="col-heading">Trust & Legal</h4>
+        <ul class="footer-links">
+          <li><a href="/about">About BhujDeals</a></li>
+          <li><a href="/affiliate-disclosure">Affiliate Disclosure</a></li>
+          <li><a href="/disclaimer">Price & Warranty Disclaimer</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/contact">Contact & Partnerships</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mandatory FTC / ASCI Compliance Notice -->
+  <div class="footer-disclaimer-band">
+    <div class="container">
+      <p class="compliance-text">
+        <strong>FTC & ASCI Affiliate Disclosure:</strong> BhujDeals is an independent
+        participant in various affiliate marketing programs, including the Amazon
+        Services LLC Associates Program, the Flipkart Affiliate Program, Booking.com
+        Affiliate Partner Network, Impact.com, and Commission Junction. When you click
+        on links to various merchants on this site and make a purchase or booking,
+        this can result in this site earning a commission. Affiliate programs and
+        affiliations include, but are not limited to, the eBay Partner Network, Booking
+        Holdings, and PartnerStack. Prices and availability are subject to change
+        without notice. All product names, logos, and brands are property of their
+        respective owners.
+      </p>
+    </div>
+  </div>
+
+  <!-- Copyright & Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container bottom-container">
+      <p class="copy-text">
+        &copy; {new Date().getFullYear()} BhujDeals Media Ltd. Built with high performance
+        Astro & Cloudflare Edge.
+      </p>
+      <div class="bottom-links">
+        <a href="/sitemap-index.xml">Sitemap</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/affiliate-disclosure">Disclosure</a>
+        <a href="/contact">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    margin-top: auto;
+  }
+
+  /* Trust Bar */
+  .footer-trust-bar {
+    background: #1e293b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 0;
+  }
+
+  .trust-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .trust-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .trust-title {
+    display: block;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #f1f5f9;
+  }
+
+  .trust-desc {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  /* Main Footer */
+  .footer-main {
+    padding: 56px 0 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-logo {
+    margin-bottom: 16px;
+  }
+
+  .footer-logo .logo-name {
+    color: #ffffff;
+  }
+
+  .footer-logo .logo-tagline {
+    color: #64748b;
+  }
+
+  .brand-mission {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    max-width: 440px;
+  }
+
+  .network-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .net-tag {
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .col-heading {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: #38bdf8;
+    padding-left: 2px;
+  }
+
+  /* Disclaimer Band */
+  .footer-disclaimer-band {
+    background: #090e17;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .compliance-text {
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .compliance-text strong {
+    color: #94a3b8;
+  }
+
+  /* Bottom Bar */
+  .footer-bottom {
+    padding: 20px 0;
+    background: #06090f;
+    font-size: 0.8125rem;
+  }
+
+  .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .bottom-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .bottom-links a {
+    color: #64748b;
+  }
+
+  .bottom-links a:hover {
+    color: #cbd5e1;
+  }
+
+  @media (max-width: 1024px) {
+    .trust-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .trust-container {
+      grid-template-columns: 1fr;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .bottom-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+{
+  "verdict": "CHANGES_REQUESTED",
+  "findings": [
+    {
+      "id": 1,
+      "label": "Malformed SVG star path",
+      "severity": "blocking",
+      "confidence": "confirmed",
+      "description": "The SVG <path d='M12 2l2.939 6.326 6.961 0.674-5.07 4.657 1.531 6.843L12 17.027l-6.361 3.473 1.531-6.843L2.1 9.0l6.961-0.674z'> in both Header.astro and Footer.astro uses ambiguous coordinate separators (a minus sign mid-sequence without a preceding comma) that some SVG parsers will misinterpret, and the coordinate sequence does not trace a clean 5-point star. The logo mark will likely render as a distorted or invisible shape. Fix: replace with a well-formed 5-point star path using explicit comma separators, or use a <polygon> element."
+    },
+    {
+      "id": 2,
+      "label": "No independent build log",
+      "severity": "informational",
+      "confidence": "confirmed",
+      "description": "The implementation notes assert 'npm run build — 118 pages built, zero errors, exit code 0' but no build artifact or log file is present to independently verify this. The review was instructed not to re-run the build. This is a process gap; a passing Astro build would not catch the SVG rendering issue since it is static markup."
+    }
+  ],
+  "changes_verified": [
+    "Change 1: Hero dark gradient + min-height 85vh + white text colors — confirmed",
+    "Change 2: ring-pulse @keyframes in global.css, applied to .btn-affiliate with hover pause — confirmed",
+    "Change 3: Countdown timer HTML/CSS/JS before flash deals grid, IST midnight logic correct — confirmed",
+    "Change 4: Full-bleed hotel section background image, ::before dark overlay, transparent card, white text overrides — confirmed",
+    "Change 5: Deal heat bar conditional on discount > 0, three tiers (hot/warm/mild), width capped at 100% — confirmed",
+    "Change 6: viewerCount deterministic hash (18-62), isLimited at guestRating >= 9.0, both badges rendered — confirmed",
+    "Change 7: .section-title clamp(1.9rem,3vw,2.4rem) in global.css; .section-title-modern clamp(1.9rem,3vw,2.6rem) in index.astro — confirmed",
+    "Change 8: Header .logo-mark SVG star path present (path is malformed — see finding #1)",
+    "Change 9: Footer .logo-mark SVG star path present (path is malformed — see finding #1); trust bar SVG icons in colored circles — trust bar icons confirmed correct",
+    "Change 10: .photo-cat-card height 320px, hover scale 1.12, ::after shine sweep animation, blue-tinted overlay on hover — confirmed",
+    "Change 11: .deal-alert-strip inserted between hero and marquee, green label, 6+6 duplicate ticker, aria-hidden on duplicates, reuses @keyframes marquee — confirmed"
+  ],
+  "reviewDoc": "d:\\website_project\\bhuj-chamber\\.agents\\tasks\\semantic-review.md"
+}

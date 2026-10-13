@@ -1,0 +1,129 @@
+---
+import AffiliateDisclosureBanner from '../components/AffiliateDisclosureBanner.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: "website" | "article" | "product";
+  schemaJson?: Record<string, any>;
+}
+
+const {
+  title = "BhujDeals - Discover, Compare & Save on Products & Stays",
+  description = "Compare lowest prices across Amazon, Flipkart, Booking.com, and top global brands. Verified coupons, expert reviews, and price drop alerts.",
+  image = "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80",
+  canonical = Astro.url.href,
+  type = "website",
+  schemaJson
+} = Astro.props;
+
+// Global Site Organization Schema
+const siteOrgSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bhujdeals.com/#organization",
+      "name": "BhujDeals",
+      "url": "https://bhujdeals.com",
+      "logo": "https://bhujdeals.com/logo.png",
+      "sameAs": [
+        "https://twitter.com/bhujdeals",
+        "https://facebook.com/bhujdeals"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bhujdeals.com/#website",
+      "url": "https://bhujdeals.com",
+      "name": "BhujDeals",
+      "publisher": {
+        "@id": "https://bhujdeals.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://bhujdeals.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:site_name" content="BhujDeals" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonical} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={image} />
+
+  <!-- Preconnect to external image CDNs & fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <!-- Global Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(siteOrgSchema)} />
+
+  {schemaJson && (
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+  )}
+</head>
+<body>
+  <!-- Compliant Affiliate Transparency Banner -->
+  <AffiliateDisclosureBanner />
+
+  <!-- Global Sticky Navigation -->
+  <Header />
+
+  <!-- Page Content -->
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <!-- Global Footer -->
+  <Footer />
+
+  <!-- Outbound Telemetry & UTM Parameter Script -->
+  <script>
+    // Intercept affiliate outbound clicks to log event and append session subID
+    document.addEventListener('click', (e) => {
+      const link = (e.target as HTMLElement).closest('a[data-track-click="outbound"]') as HTMLAnchorElement;
+      if (link) {
+        const store = link.getAttribute('data-store') || 'Partner';
+        const prod = link.getAttribute('data-product-name') || '';
+        
+        // Log telemetry to console / analytics beacon
+        console.log(`[AFFILIATE TRACKER] Outbound click registered -> Store: ${store}, Target: ${link.href}, Product: ${prod}`);
+        
+        // In production, an navigator.sendBeacon('/api/track-click', payload) sends subIDs & IP geolocation
+      }
+    });
+  </script>
+</body>
+</html>

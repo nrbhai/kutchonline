@@ -1,0 +1,544 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { PRODUCTS } from '../../data/products';
+
+const fashionProducts = PRODUCTS.filter(p => p.category === 'fashion');
+
+const fashionSpotlights = [
+  {
+    store: "AJIO Big Bold Sale",
+    tagline: "Flat 50% - 90% Off on 2,500+ Top Streetwear Brands",
+    code: "AJIOMAX",
+    perks: "Extra ₹500 off on ₹2,490+ orders",
+    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80",
+    url: "/go/ajio",
+    badge: "🔥 90% Max Drop"
+  },
+  {
+    store: "Myntra Lifestyle & Luxe",
+    tagline: "Curated Designer Trends, Luxury Watches & Formal Footwear",
+    code: "MYNTRA15",
+    perks: "Free express delivery & 14-day hassle-free returns",
+    image: "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=600&q=80",
+    url: "/go/myntra",
+    badge: "✨ Verified Luxe"
+  }
+];
+
+const subcatPills = [
+  { label: "All Drops", filter: "all", count: fashionProducts.length },
+  { label: "⌚ Luxury Watches", filter: "Luxury Watches", count: 1 },
+  { label: "👑 Ethnic & Festive Kurtas", filter: "Ethnic Wear", count: 1 },
+  { label: "🧥 Streetwear & Hoodies", filter: "Streetwear", count: 1 },
+  { label: "👟 Athleisure Sneakers", filter: "Footwear", count: 1 },
+  { label: "🌸 Luxury Perfumes", filter: "Fragrance", count: 1 }
+];
+
+const fashionFaqs = [
+  {
+    question: "How do you ensure luxury watches and apparel are authentic?",
+    answer: "We exclusively route to verified authorized platform programs (such as AJIO Exclusive, Tata CLiQ Luxury, and Myntra Luxe) which include genuine brand warranties and manufacturer certificates of origin."
+  },
+  {
+    question: "What is the typical return and exchange window on clothing and sneakers?",
+    answer: "Both AJIO and Myntra offer a standard 10 to 14-day return and exchange policy with complimentary doorstep pickup if the security tags remain attached."
+  },
+  {
+    question: "Can I combine promo codes with bank card discounts?",
+    answer: "Yes. Our verified coupon codes (like AJIOMAX) stack with instant bank discounts from HDFC, ICICI, SBI, and Axis Bank cards during promotional sale events."
+  }
+];
+---
+
+<BaseLayout
+  title="Curated Fashion, Streetwear & Luxury Timepieces 2026 | AJIO, Myntra & Tata CLiQ"
+  description="Discover curated streetwear, festive royal kurtas, Swiss automatic watches & minimalist running sneakers. Verified direct shortlinks for AJIO & Myntra."
+>
+  <!-- =========================================================================
+       1. EDITORIAL RUNWAY HERO
+       ========================================================================= -->
+  <section class="fashion-hero-banner">
+    <div class="fashion-bg-media">
+      <img 
+        src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1920&q=85" 
+        alt="High Fashion Editorial Runway and Streetwear" 
+        class="fashion-bg-img"
+      />
+      <div class="fashion-hero-overlay"></div>
+    </div>
+
+    <div class="container fashion-hero-content">
+      <div class="breadcrumbs-dark">
+        <Breadcrumbs crumbs={[{ label: "Fashion & Lifestyle" }]} />
+      </div>
+
+      <div class="fashion-badge-row">
+        <span class="fashion-pill">
+          <span class="radar-dot"></span>
+          <span>CURATED EDITORIAL RUNWAY</span>
+        </span>
+        <span class="fashion-verified-tag">✓ AJIO & Myntra Direct Partner Verified</span>
+      </div>
+
+      <h1 class="fashion-hero-title">
+        High Fashion Without the Markup.<br />
+        <span class="fashion-text-gradient">Streetwear, Kurtas & Luxury Timepieces</span>
+      </h1>
+
+      <p class="fashion-hero-desc">
+        We bypass generic fast fashion to spotlight heavyweight combed cotton hoodies, royal wedding silk-blend kurtas, Swiss automatic watches, and ergonomic memory-foam footwear.
+      </p>
+
+      <!-- Dual Brand Spotlight Row -->
+      <div class="spotlight-dual-grid">
+        {fashionSpotlights.map((s) => (
+          <div class="spotlight-card glass-card-dark">
+            <div class="spotlight-media">
+              <img src={s.image} alt={s.store} class="spotlight-img" />
+              <span class="spotlight-badge">{s.badge}</span>
+            </div>
+            <div class="spotlight-body">
+              <h3 class="spotlight-title">{s.store}</h3>
+              <p class="spotlight-tagline">{s.tagline}</p>
+              <div class="spotlight-coupon-row">
+                <span class="coupon-code-pill">Coupon: <strong>{s.code}</strong></span>
+                <span class="spotlight-perk">{s.perks}</span>
+              </div>
+              <a href={s.url} target="_blank" rel="sponsored nofollow noopener" class="btn btn-affiliate spotlight-cta">
+                Shop {s.store} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container main-fashion-body">
+    <!-- =========================================================================
+         2. INTERACTIVE SUBCATEGORY PILLS
+         ========================================================================= -->
+    <div class="fashion-controls-bar">
+      <span class="controls-label">Browse Wardrobe:</span>
+      <div class="subcat-pills-row">
+        {subcatPills.map((p, i) => (
+          <button class={`fashion-pill-btn ${i === 0 ? 'active' : ''}`} data-filter={p.filter}>
+            {p.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         3. WARDROBE PICKS PRODUCT GRID
+         ========================================================================= -->
+    <div class="fashion-grid" id="fashion-products-grid">
+      {fashionProducts.map((prod) => (
+        <div class="fashion-product-item" data-subcat={prod.subcategory}>
+          <ProductCard product={prod} />
+        </div>
+      ))}
+    </div>
+
+    <!-- =========================================================================
+         4. WARDROBE FABRIC & FIT BUYING GUIDE
+         ========================================================================= -->
+    <section class="fabric-guide-card card">
+      <div class="guide-header">
+        <span class="badge badge-brand">FIT & MATERIAL BENCHMARKS</span>
+        <h2>How We Evaluate Premium Apparel Quality</h2>
+        <p>Before featuring clothing on BhujDeals, our editors inspect three durability pillars.</p>
+      </div>
+
+      <div class="guide-pillars-grid">
+        <div class="pillar-box">
+          <span class="pillar-num">01</span>
+          <h4>Fabric Weight & GSM</h4>
+          <p>We favor 380–450 GSM combed cotton for winter fleece hoodies that hold their structured silhouette wash after wash.</p>
+        </div>
+        <div class="pillar-box">
+          <span class="pillar-num">02</span>
+          <h4>Stitching & Reinforcement</h4>
+          <p>Double-needle hem stitching and bar-tack stress points prevent premature fraying across pockets and collars.</p>
+        </div>
+        <div class="pillar-box">
+          <span class="pillar-num">03</span>
+          <h4>Authentic Multi-Store Sourcing</h4>
+          <p>We cross-check serial codes on luxury timepieces (Tissot, Seiko) directly with authorized Indian brand service registries.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <FAQAccordion faqs={fashionFaqs} title="Fashion, Sizing & Return Policy FAQs" />
+  </div>
+</BaseLayout>
+
+<script>
+  const pillBtns = document.querySelectorAll('.fashion-pill-btn');
+  const productItems = document.querySelectorAll('.fashion-product-item');
+
+  pillBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      pillBtns.forEach(b => b.classList.remove('active'));
+      const target = e.currentTarget as HTMLElement;
+      target.classList.add('active');
+      const filter = target.getAttribute('data-filter') || 'all';
+
+      productItems.forEach((item) => {
+        const itemSubcat = item.getAttribute('data-subcat') || '';
+        if (filter === 'all' || itemSubcat === filter) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* =========================================================================
+     1. EDITORIAL HERO STYLES
+     ========================================================================= */
+  .fashion-hero-banner {
+    position: relative;
+    padding: clamp(56px, 8vw, 84px) 0 64px;
+    color: #ffffff;
+    overflow: hidden;
+    background: #09090b;
+  }
+
+  .fashion-bg-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .fashion-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.15);
+  }
+
+  .fashion-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.7) 0%, rgba(9, 9, 11, 0.92) 80%, #09090b 100%);
+  }
+
+  .fashion-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+  }
+
+  .breadcrumbs-dark {
+    margin-bottom: 20px;
+  }
+
+  .breadcrumbs-dark :global(a),
+  .breadcrumbs-dark :global(span) {
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .fashion-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .fashion-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 63, 94, 0.9);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+  }
+
+  .fashion-verified-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.775rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .fashion-hero-title {
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .fashion-text-gradient {
+    background: linear-gradient(135deg, #f43f5e 0%, #fb923c 50%, #facc15 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .fashion-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 780px;
+  }
+
+  /* Dual Spotlight Cards */
+  .spotlight-dual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .spotlight-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    overflow: hidden;
+    padding: 16px;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .spotlight-media {
+    position: relative;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .spotlight-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .spotlight-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.675rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    background: #dc2626;
+    color: #ffffff;
+    border-radius: var(--radius-full);
+  }
+
+  .spotlight-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .spotlight-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .spotlight-tagline {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .spotlight-coupon-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .coupon-code-pill {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fef08a;
+  }
+
+  .spotlight-perk {
+    font-size: 0.725rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .spotlight-cta {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    width: fit-content;
+  }
+
+  /* =========================================================================
+     2. MAIN CONTENT STYLES
+     ========================================================================= */
+  .main-fashion-body {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .fashion-controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .controls-label {
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: var(--text-subtle);
+  }
+
+  .subcat-pills-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .fashion-pill-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.825rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-body);
+  }
+
+  .fashion-pill-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .fashion-pill-btn.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+  }
+
+  .fashion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  /* Guide Card */
+  .fabric-guide-card {
+    padding: clamp(28px, 4vw, 44px);
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--border-default);
+    margin-bottom: 48px;
+  }
+
+  .guide-header {
+    margin-bottom: 28px;
+  }
+
+  .guide-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 8px 0 6px;
+    color: var(--text-main);
+  }
+
+  .guide-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .guide-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pillar-box {
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 14px;
+    border: 1px solid var(--border-light);
+  }
+
+  .pillar-num {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #f43f5e;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .pillar-box h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-main);
+  }
+
+  .pillar-box p {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .spotlight-dual-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .fashion-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .spotlight-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .spotlight-media {
+      height: 180px;
+    }
+
+    .spotlight-coupon-row,
+    .spotlight-cta {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>

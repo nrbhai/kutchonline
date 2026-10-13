@@ -1,0 +1,77 @@
+---
+// Affiliate Disclosure Banner - FTC / ASCI / Google Guidelines Compliant
+---
+
+<div class="disclosure-bar" role="region" aria-label="Affiliate Disclosure">
+  <div class="container disclosure-inner">
+    <div class="disclosure-content">
+      <span class="disclosure-badge">INDEPENDENT ADVICE</span>
+      <p class="disclosure-text">
+        BhujDeals is reader-supported. When you buy or book through links on our platform, we may earn an affiliate commission at no extra cost to you.
+      </p>
+    </div>
+    <a href="/affiliate-disclosure" class="disclosure-link">How we test & monetize &rarr;</a>
+  </div>
+</div>
+
+<style>
+  .disclosure-bar {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    font-size: 0.8125rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 0;
+  }
+
+  .disclosure-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .disclosure-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .disclosure-badge {
+    background: rgba(2, 132, 199, 0.25);
+    color: #38bdf8;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .disclosure-text {
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  .disclosure-link {
+    color: #38bdf8;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 0.8125rem;
+  }
+
+  .disclosure-link:hover {
+    color: #7dd3fc;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .disclosure-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  }
+</style>
