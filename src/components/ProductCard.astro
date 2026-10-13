@@ -1,0 +1,393 @@
+---
+import RatingStars from "./RatingStars.astro";
+import type { Product } from "../data/products";
+
+interface Props {
+  product: Product;
+  showComparisonSnippet?: boolean;
+}
+
+const { product, showComparisonSnippet = true } = Astro.props;
+
+const discount = Math.round(
+  ((product.primaryStore.originalPrice - product.primaryStore.price) /
+    product.primaryStore.originalPrice) *
+    100,
+);
+
+const currencySymbol = product.primaryStore.currency === "INR" ? "₹" : "$";
+---
+
+<div class="product-card card" data-product-id={product.id}>
+  <div class="image-container">
+    {
+      product.dealTag && (
+        <span class="deal-badge badge badge-deal">{product.dealTag}</span>
+      )
+    }
+    {
+      discount > 0 && (
+        <span class="discount-badge badge badge-fire">{discount}% OFF</span>
+      )
+    }
+    <a
+      href={`/product/${product.slug}`}
+      class="image-link"
+      aria-label={`View ${product.name}`}
+    >
+      <img
+        src={product.image}
+        alt={product.name}
+        loading="lazy"
+        width="380"
+        height="260"
+        class="product-img"
+      />
+    </a>
+  </div>
+
+  <div class="card-body">
+    <div class="meta-row">
+      <span class="brand-name">{product.brand}</span>
+      <span class="subcategory-pill">{product.subcategory}</span>
+    </div>
+
+    <h3 class="product-title">
+      <a href={`/product/${product.slug}`}>{product.name}</a>
+    </h3>
+
+    <div class="rating-row">
+      <RatingStars
+        rating={product.rating}
+        reviewsCount={product.reviewsCount}
+        size="sm"
+      />
+    </div>
+
+    <p class="product-snippet">{product.tagline}</p>
+
+    <!-- Price Section -->
+    <div class="price-box">
+      <div class="price-main">
+        <span class="current-price"
+          >{currencySymbol}{product.primaryStore.price.toLocaleString()}</span
+        >
+        {
+          product.primaryStore.originalPrice > product.primaryStore.price && (
+            <span class="original-price">
+              {currencySymbol}
+              {product.primaryStore.originalPrice.toLocaleString()}
+            </span>
+          )
+        }
+      </div>
+      <span class="store-badge">on {product.primaryStore.storeName}</span>
+    </div>
+
+    {
+      discount > 0 && (
+        <div
+          class="deal-heat-bar"
+          aria-label={`Deal strength: ${discount}% off`}
+        >
+          <div
+            class={`heat-fill ${discount >= 50 ? "heat-hot" : discount >= 30 ? "heat-warm" : "heat-mild"}`}
+            style={`width: ${Math.min(discount, 100)}%`}
+          />
+          <span class="heat-label">
+            {discount >= 50
+              ? "🔥 Hot Deal"
+              : discount >= 30
+                ? "⚡ Good Deal"
+                : "💰 Savings"}{" "}
+            — {discount}% off
+          </span>
+        </div>
+      )
+    }
+
+    <!-- Multi-Store Comparison Snippet -->
+    {
+      showComparisonSnippet && product.storeOffers.length > 1 && (
+        <div class="store-compare-snippet">
+          <span class="snippet-label">Compare Stores:</span>
+          <div class="store-pills">
+            {product.storeOffers.map((offer) => (
+              <a
+                href={offer.affiliateUrl}
+                target="_blank"
+                rel="sponsored nofollow noopener"
+                class="store-mini-pill"
+                title={`View on ${offer.storeName}`}
+                data-track-click="outbound"
+                data-store={offer.storeName}
+              >
+                <span class="pill-store">{offer.storeName}</span>
+                <span class="pill-price">
+                  {currencySymbol}
+                  {offer.price.toLocaleString()}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Actions -->
+    <div class="card-footer">
+      <a
+        href={`/product/${product.slug}`}
+        class="btn btn-secondary btn-sm full-width-mobile"
+      >
+        Full Review & Specs
+      </a>
+      <a
+        href={product.primaryStore.affiliateUrl}
+        target="_blank"
+        rel="sponsored nofollow noopener"
+        class="btn btn-affiliate btn-sm full-width-mobile"
+        data-track-click="outbound"
+        data-store={product.primaryStore.storeName}
+        data-product-name={product.name}
+      >
+        Check Deal &rarr;
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+  }
+
+  .image-container {
+    position: relative;
+    background: #f8fafc;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .product-card:hover .product-img {
+    transform: scale(1.05);
+  }
+
+  .deal-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  .discount-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+  }
+
+  .card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .brand-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .subcategory-pill {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .product-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .rating-row {
+    margin-bottom: 10px;
+  }
+
+  .product-snippet {
+    font-size: 0.835rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .price-box {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-default);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .current-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    font-family: var(--font-display);
+  }
+
+  .original-price {
+    font-size: 0.875rem;
+    color: var(--text-subtle);
+    text-decoration: line-through;
+  }
+
+  .store-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .store-compare-snippet {
+    margin-bottom: 14px;
+    background: #f8fafc;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+  }
+
+  .deal-heat-bar {
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .heat-fill {
+    height: 4px;
+    border-radius: var(--radius-full);
+    transition: width 0.6s ease;
+    margin-bottom: 4px;
+  }
+
+  .heat-mild {
+    background: linear-gradient(90deg, #84cc16, #a3e635);
+  }
+  .heat-warm {
+    background: linear-gradient(90deg, #f97316, #fb923c);
+  }
+  .heat-hot {
+    background: linear-gradient(90deg, #ef4444, #f97316);
+  }
+
+  .heat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .snippet-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .store-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .store-mini-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.725rem;
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .store-mini-pill:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+  }
+
+  .pill-store {
+    font-weight: 600;
+  }
+
+  .pill-price {
+    color: var(--color-deal);
+    font-weight: 700;
+  }
+
+  .card-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .card-footer {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,675 @@
+---
+import { CATEGORIES } from "../data/categories";
+---
+
+<header class="site-header">
+  <div class="header-main">
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="/" class="brand-logo" aria-label="BhujDeals Home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="#ffffff"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M12 2l2.939 6.326 6.961 0.674-5.07 4.657 1.531 6.843L12 17.027l-6.361 3.473 1.531-6.843L2.1 9.0l6.961-0.674z"
+            ></path>
+          </svg>
+        </span>
+        <div class="logo-text-wrap">
+          <span class="logo-name"
+            >Bhuj<span class="logo-highlight">Deals</span></span
+          >
+          <span class="logo-tagline">Compare & Discover</span>
+        </div>
+      </a>
+
+      <!-- Global Live Search Bar -->
+      <div class="header-search-wrap">
+        <div class="search-input-box">
+          <svg
+            class="search-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input
+            type="text"
+            id="global-search-input"
+            placeholder="Search 10,000+ products, hotels, coupons or stores..."
+            autocomplete="off"
+          />
+          <kbd class="search-shortcut">⌘K</kbd>
+        </div>
+        <!-- Live Instant Search Dropdown Container -->
+        <div
+          id="search-results-dropdown"
+          class="search-results-dropdown hidden"
+        >
+        </div>
+      </div>
+
+      <!-- Action items -->
+      <div class="header-actions">
+        <a href="/deals" class="hot-deals-badge">
+          <span class="fire-emoji">🔥</span>
+          <span class="badge-text">Today's Deals</span>
+        </a>
+        <a href="/blog" class="nav-text-link">Guides</a>
+        <button
+          id="mobile-menu-btn"
+          class="mobile-menu-btn"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Navigation Bar -->
+  <nav class="category-nav" aria-label="Product and Services Categories">
+    <div class="container category-container">
+      <ul class="category-list" id="category-list">
+        <li>
+          <a href="/hotels" class="category-link">
+            <span class="cat-icon">🏨</span> Hotels
+          </a>
+        </li>
+        <li>
+          <a href="/electronics" class="category-link">
+            <span class="cat-icon">💻</span> Electronics
+          </a>
+        </li>
+        <li>
+          <a href="/beauty" class="category-link">
+            <span class="cat-icon">✨</span> Beauty
+          </a>
+        </li>
+        <li>
+          <a href="/fashion" class="category-link">
+            <span class="cat-icon">👔</span> Fashion
+          </a>
+        </li>
+        <li>
+          <a href="/home" class="category-link">
+            <span class="cat-icon">☕</span> Home & Kitchen
+          </a>
+        </li>
+        <li>
+          <a href="/ai-tools" class="category-link">
+            <span class="cat-icon">🤖</span> AI Tools
+          </a>
+        </li>
+        <li>
+          <a href="/travel" class="category-link">
+            <span class="cat-icon">✈️</span> Travel
+          </a>
+        </li>
+        <li>
+          <a href="/hosting" class="category-link">
+            <span class="cat-icon">🌐</span> Hosting
+          </a>
+        </li>
+        <li>
+          <a href="/deals" class="category-link deal-link">
+            <span class="cat-icon">🏷️</span> Coupons
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer hidden">
+    <div class="mobile-drawer-header">
+      <span class="drawer-title">Navigation & Categories</span>
+      <button
+        id="close-drawer-btn"
+        class="close-drawer-btn"
+        aria-label="Close menu">&times;</button
+      >
+    </div>
+    <div class="mobile-drawer-links">
+      <div class="drawer-section-title">Categories</div>
+      {
+        CATEGORIES.map((cat) => (
+          <a href={`/${cat.slug}`} class="mobile-nav-item">
+            <span class="cat-icon">{cat.icon}</span>
+            <span>{cat.name}</span>
+          </a>
+        ))
+      }
+      <div class="drawer-section-title" style="margin-top: 16px;">
+        Editorial & Trust
+      </div>
+      <a href="/blog" class="mobile-nav-item">Buying Guides & Reviews</a>
+      <a href="/about" class="mobile-nav-item">About Us</a>
+      <a href="/affiliate-disclosure" class="mobile-nav-item"
+        >Affiliate Disclosure</a
+      >
+      <a href="/contact" class="mobile-nav-item">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile drawer logic
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const drawer = document.getElementById("mobile-menu-drawer");
+  const closeBtn = document.getElementById("close-drawer-btn");
+
+  if (menuBtn && drawer && closeBtn) {
+    menuBtn.addEventListener("click", () => {
+      drawer.classList.toggle("hidden");
+    });
+    closeBtn.addEventListener("click", () => {
+      drawer.classList.add("hidden");
+    });
+  }
+
+  // Keyboard shortcut Cmd+K or Ctrl+K to focus search
+  window.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      const searchInput = document.getElementById(
+        "global-search-input",
+      ) as HTMLInputElement;
+      if (searchInput) searchInput.focus();
+    }
+  });
+
+  // Client-side quick search simulation
+  const searchInput = document.getElementById(
+    "global-search-input",
+  ) as HTMLInputElement;
+  const searchDropdown = document.getElementById("search-results-dropdown");
+
+  if (searchInput && searchDropdown) {
+    const quickItems = [
+      {
+        name: "Apple MacBook Air 15 M3",
+        cat: "Electronics",
+        url: "/product/apple-macbook-air-m3-15-inch",
+        price: "₹1,34,900",
+      },
+      {
+        name: "Sony WH-1000XM5 ANC",
+        cat: "Electronics",
+        url: "/product/sony-wh-1000xm5-wireless-headphones",
+        price: "₹26,990",
+      },
+      {
+        name: "The Oberoi Udaivilas Udaipur",
+        cat: "Hotels",
+        url: "/hotel/the-oberoi-udaivilas-udaipur",
+        price: "₹42,500/nt",
+      },
+      {
+        name: "LANEIGE Water Sleeping Mask",
+        cat: "Beauty",
+        url: "/product/laneige-water-sleeping-mask-ex",
+        price: "₹1,850",
+      },
+      {
+        name: "Cursor Pro AI Code Editor",
+        cat: "AI Tools",
+        url: "/product/cursor-ai-code-editor",
+        price: "$20/mo",
+      },
+      {
+        name: "Hostinger Cloud Startup",
+        cat: "Hosting",
+        url: "/product/hostinger-cloud-startup-hosting",
+        price: "₹699/mo",
+      },
+      {
+        name: "Samsung Galaxy S25 Ultra",
+        cat: "Electronics",
+        url: "/product/samsung-galaxy-s25-ultra",
+        price: "₹1,24,999",
+      },
+      {
+        name: "Alila Diwa Goa Hyatt Resort",
+        cat: "Hotels",
+        url: "/hotel/alila-diwa-goa-hyatt",
+        price: "₹14,200/nt",
+      },
+      {
+        name: "Dyson Airwrap Multi-Styler",
+        cat: "Beauty",
+        url: "/product/dyson-airwrap-multi-styler-complete-long",
+        price: "₹45,900",
+      },
+    ];
+
+    searchInput.addEventListener("input", (e) => {
+      const q = (e.target as HTMLInputElement).value.trim().toLowerCase();
+      if (q.length < 2) {
+        searchDropdown.classList.add("hidden");
+        searchDropdown.innerHTML = "";
+        return;
+      }
+
+      const matches = quickItems.filter(
+        (item) =>
+          item.name.toLowerCase().includes(q) ||
+          item.cat.toLowerCase().includes(q),
+      );
+
+      if (matches.length > 0) {
+        searchDropdown.innerHTML = `
+          <div class="search-drop-header">Found ${matches.length} matching verified deals:</div>
+          ${matches
+            .map(
+              (m) => `
+            <a href="${m.url}" class="search-result-row">
+              <div class="search-res-info">
+                <span class="search-res-name">${m.name}</span>
+                <span class="search-res-cat">${m.cat}</span>
+              </div>
+              <span class="search-res-price">${m.price}</span>
+            </a>
+          `,
+            )
+            .join("")}
+        `;
+        searchDropdown.classList.remove("hidden");
+      } else {
+        searchDropdown.innerHTML = `
+          <div class="search-no-results">No exact deals found for "${q}". <a href="/deals">Browse all active coupons &rarr;</a></div>
+        `;
+        searchDropdown.classList.remove("hidden");
+      }
+    });
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      if (
+        !searchDropdown.contains(e.target as Node) &&
+        e.target !== searchInput
+      ) {
+        searchDropdown.classList.add("hidden");
+      }
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-default);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .header-main {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  /* Logo */
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0369a1 100%);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.35rem;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .logo-text-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .logo-highlight {
+    color: var(--color-accent);
+  }
+
+  .logo-tagline {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Search Bar */
+  .header-search-wrap {
+    flex: 1;
+    max-width: 580px;
+    position: relative;
+  }
+
+  .search-input-box {
+    display: flex;
+    align-items: center;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    padding: 6px 14px;
+    transition: all var(--transition-fast);
+  }
+
+  .search-input-box:focus-within {
+    background: #ffffff;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  }
+
+  .search-icon {
+    color: var(--text-muted);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .search-input-box input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 0.875rem;
+    color: var(--text-main);
+  }
+
+  .search-input-box input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .search-shortcut {
+    font-size: 0.7rem;
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: monospace;
+    flex-shrink: 0;
+  }
+
+  /* Search Dropdown */
+  .search-results-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    padding: 8px 0;
+    z-index: 150;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .search-results-dropdown.hidden {
+    display: none;
+  }
+
+  .search-drop-header {
+    padding: 6px 16px;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .search-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .search-result-row:last-child {
+    border-bottom: none;
+  }
+
+  .search-result-row:hover {
+    background: var(--bg-subtle);
+  }
+
+  .search-res-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-res-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .search-res-cat {
+    font-size: 0.725rem;
+    color: var(--text-muted);
+  }
+
+  .search-res-price {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-deal);
+  }
+
+  .search-no-results {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hot-deals-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff7ed;
+    color: #ea580c;
+    border: 1px solid #fed7aa;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all var(--transition-fast);
+  }
+
+  .hot-deals-badge:hover {
+    background: #ffedd5;
+    transform: translateY(-1px);
+  }
+
+  .nav-text-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-body);
+  }
+
+  .nav-text-link:hover {
+    color: var(--color-primary);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .menu-bar {
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+  }
+
+  /* Category Nav Bar */
+  .category-nav {
+    background: #ffffff;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-list {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .category-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-body);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .category-link:hover {
+    background: var(--bg-subtle);
+    color: var(--color-primary);
+  }
+
+  .category-link.deal-link {
+    color: #dc2626;
+  }
+
+  /* Mobile Drawer */
+  .mobile-menu-drawer {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    z-index: 200;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .mobile-menu-drawer.hidden {
+    display: none;
+  }
+
+  .mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-default);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .drawer-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .close-drawer-btn {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-main);
+  }
+
+  .drawer-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  @media (max-width: 900px) {
+    .header-search-wrap {
+      max-width: 320px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-search-wrap,
+    .nav-text-link {
+      display: none;
+    }
+    .mobile-menu-btn {
+      display: flex;
+    }
+  }
+</style>

@@ -1,157 +1,1874 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import HotelCard from "../components/HotelCard.astro";
+import CouponCard from "../components/CouponCard.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import Newsletter from "../components/Newsletter.astro";
+import { CATEGORIES } from "../data/categories";
+import { PRODUCTS } from "../data/products";
+import { HOTELS } from "../data/hotels";
+import { DEALS } from "../data/deals";
+import { BLOG_POSTS } from "../data/blog";
+
+// Subsets for homepage
+const electronicsProds = PRODUCTS.filter((p) => p.category === "electronics");
+const beautyProds = PRODUCTS.filter((p) => p.category === "beauty");
+const trendingProds = PRODUCTS.filter((p) => p.featured);
+const topHotels = HOTELS.slice(0, 3);
+const flashDeals = DEALS.slice(0, 4);
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhuj Chamber of Commerce</title>
-  </head>
-  <body>
-    <main>
-      <section class="notice" aria-label="Website status">
-        <div class="mark" aria-hidden="true">
-          <span></span>
+<BaseLayout
+  title="BhujDeals - Discover, Compare & Save on Products & Stays"
+  description="India's trusted shopping discovery radar. Compare live prices across Amazon, Agoda, AJIO, Flipkart, Nykaa & Croma with verified lowest price guarantees."
+>
+  <!-- =========================================================================
+       1. 2026 ULTRA-MODERN GRAPHICAL HERO SECTION
+       ========================================================================= -->
+  <section class="hero-section">
+    <!-- Ambient Glow Orbs -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+    <div class="hero-grid-pattern"></div>
+
+    <div class="container hero-container">
+      <div class="hero-split-grid">
+        <!-- Hero Left: Content & Conversion Controls -->
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <span class="live-radar-badge glass-panel">
+              <span class="radar-dot"></span>
+              <span class="radar-text"
+                >LIVE DEALS RADAR: 2,840+ ACTIVE PRICE DROPS</span
+              >
+            </span>
+            <span class="hero-stat-pill">⚡ Over ₹2.8 Cr Saved</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Stop Overpaying.<br />
+            Compare Live Prices Across <span class="text-gradient-brand"
+              >Amazon, Agoda, AJIO & Flipkart</span
+            >
+          </h1>
+
+          <p class="hero-subtitle">
+            Independent lab benchmarks, instant coupon audits, and verified
+            Agoda hotel room tariffs. Find the guaranteed lowest price in
+            seconds.
+          </p>
+
+          <!-- Interactive Search & Filter Box -->
+          <div class="hero-search-box glass-panel">
+            <div class="search-input-group">
+              <span class="search-icon">🔍</span>
+              <input
+                type="text"
+                id="hero-search-input"
+                placeholder="Search MacBook, Agoda Bhuj Hotels, AJIO Hoodies, Nykaa Serums..."
+                autocomplete="off"
+              />
+            </div>
+            <a href="/deals" class="btn btn-affiliate search-submit-btn">
+              Explore Deals &rarr;
+            </a>
+          </div>
+
+          <!-- Quick Category Tags -->
+          <div class="hero-quick-tags">
+            <span class="quick-label">POPULAR:</span>
+            <a href="/hotels" class="hero-tag">🏨 Agoda Stays</a>
+            <a href="/fashion" class="hero-tag">👗 AJIO 70% Off</a>
+            <a href="/electronics" class="hero-tag">💻 MacBook M3</a>
+            <a href="/beauty" class="hero-tag">✨ K-Beauty Nykaa</a>
+            <a href="/travel" class="hero-tag">✈️ Cheap Flights</a>
+          </div>
+
+          <!-- Trust Proof Metrics -->
+          <div class="hero-proof-row">
+            <div class="proof-item">
+              <span class="proof-num">100%</span>
+              <span class="proof-label">Unbiased Testing</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+              <span class="proof-num">Agoda & Amazon</span>
+              <span class="proof-label">Official Partner Tracking</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+              <span class="proof-num">₹0 Extra</span>
+              <span class="proof-label">Always Free to Use</span>
+            </div>
+          </div>
         </div>
-        <h1 class="organization">Bhuj Chamber of Commerce</h1>
-        <div class="status">Website under Development</div>
-        <div class="divider"></div>
-        <p>We are preparing a better online experience and will be live soon.</p>
-      </section>
-    </main>
-  </body>
-</html>
 
-<style is:global>
-  :root {
-    color-scheme: light;
-    --ink: #17212b;
-    --muted: #51606e;
-    --panel: rgba(255, 255, 255, 0.82);
-    --line: rgba(23, 33, 43, 0.14);
-    --accent: #0f8b8d;
-    --accent-dark: #0a5d61;
-    --gold: #f2b84b;
-  }
+        <!-- Hero Right: 3D Floating Interactive Visual Deal Showcase -->
+        <div class="hero-visual-showcase">
+          <!-- Floating Deal Card 1: Agoda Heritage Stays (Top) -->
+          <div class="floating-card float-card-1 glass-panel animate-float-1">
+            <div class="card-media-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"
+                alt="Agoda Udaipur Lake Pichola Resort"
+                class="card-thumb"
+              />
+              <span class="card-network-chip agoda-chip"
+                >🏨 Agoda Partner (CID 1970139)</span
+              >
+              <span class="card-score-chip">★ 9.8 Superb</span>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">Udaipur & Bhuj Heritage Escapes</div>
+              <h4 class="card-title">The Oberoi Udaivilas, Lake Pichola</h4>
+              <div class="card-price-row">
+                <div class="price-group">
+                  <span class="price-current">₹42,500</span>
+                  <span class="price-old">₹55,000</span>
+                </div>
+                <a
+                  href="/go/agoda?city=udaipur"
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  class="btn btn-affiliate btn-xs"
+                >
+                  Book Agoda &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
 
-  * {
-    box-sizing: border-box;
-  }
+          <!-- Floating Deal Card 2: AJIO Streetwear (Middle Right) -->
+          <div class="floating-card float-card-2 glass-panel animate-float-2">
+            <div class="card-media-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80"
+                alt="AJIO Trendsetter Heavyweight Hoodie"
+                class="card-thumb"
+              />
+              <span class="card-network-chip ajio-chip">🛍️ AJIO Exclusive</span>
+              <span class="card-discount-chip">🔥 70% OFF</span>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">Streetwear & Hoodies</div>
+              <h4 class="card-title">AJIO 450 GSM Oversized Fleece Hoodie</h4>
+              <div class="card-price-row">
+                <div class="price-group">
+                  <span class="price-current">₹1,199</span>
+                  <span class="price-old">₹2,499</span>
+                </div>
+                <a
+                  href="/go/ajio"
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  class="btn btn-affiliate btn-xs"
+                >
+                  Shop AJIO &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
 
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: var(--ink);
-    background:
-      linear-gradient(135deg, rgba(15, 139, 141, 0.9), rgba(10, 93, 97, 0.78)),
-      url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80") center / cover;
-    overflow-x: hidden;
-  }
+          <!-- Floating Deal Card 3: MacBook Air M3 (Bottom Left) -->
+          <div class="floating-card float-card-3 glass-panel animate-float-3">
+            <div class="card-media-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80"
+                alt="Apple MacBook Air M3 on Amazon"
+                class="card-thumb"
+              />
+              <span class="card-network-chip amazon-chip"
+                >📦 Amazon Associates</span
+              >
+              <span class="card-shoppers-chip">👥 42 Viewing</span>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">Laptops & Workstations</div>
+              <h4 class="card-title">Apple MacBook Air 15-inch M3</h4>
+              <div class="card-price-row">
+                <div class="price-group">
+                  <span class="price-current">₹1,34,900</span>
+                  <span class="price-old">₹1,54,900</span>
+                </div>
+                <a
+                  href="/go/amazon?id=apple-macbook-air-m3"
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  class="btn btn-affiliate btn-xs"
+                >
+                  Amazon Prime &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  main {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 32px;
+  <!-- LIVE DEAL ALERT STRIP -->
+  <div
+    class="deal-alert-strip"
+    role="marquee"
+    aria-label="Live price drop alerts"
+  >
+    <div class="alert-strip-inner">
+      <span class="alert-label">📉 PRICE DROPS</span>
+      <div class="alert-ticker-wrap">
+        <div class="alert-ticker">
+          <!-- Set 1 -->
+          <span class="ticker-item"
+            ><span class="ticker-store">Amazon</span> Apple AirPods Pro 2 — <span
+              class="ticker-price">₹19,990</span
+            >
+            <span class="ticker-drop">↓ ₹4,010 off</span></span
+          >
+          <span class="ticker-sep">•</span>
+          <span class="ticker-item"
+            ><span class="ticker-store">Nykaa</span> Minimalist 10% Niacinamide —
+            <span class="ticker-price">₹399</span>
+            <span class="ticker-drop">↓ 30% off</span></span
+          >
+          <span class="ticker-sep">•</span>
+          <span class="ticker-item"
+            ><span class="ticker-store">Agoda</span> Taj Lake Palace Udaipur — <span
+              class="ticker-price">₹28,500/nt</span
+            >
+            <span class="ticker-drop">↓ ₹6,500 off</span></span
+          >
+          <span class="ticker-sep">•</span>
+          <span class="ticker-item"
+            ><span class="ticker-store">Flipkart</span> Samsung Galaxy S25 — <span
+              class="ticker-price">₹74,999</span
+            >
+            <span class="ticker-drop">↓ ₹12,000 off</span></span
+          >
+          <span class="ticker-sep">•</span>
+          <span class="ticker-item"
+            ><span class="ticker-store">AJIO</span> Oversized Hoodie 450GSM — <span
+              class="ticker-price">₹899</span
+            >
+            <span class="ticker-drop">↓ 64% off</span></span
+          >
+          <span class="ticker-sep">•</span>
+          <span class="ticker-item"
+            ><span class="ticker-store">Croma</span> Sony WH-1000XM5 — <span
+              class="ticker-price">₹24,990</span
+            >
+            <span class="ticker-drop">↓ ₹7,000 off</span></span
+          >
+          <span class="ticker-sep">•</span>
+          <!-- Set 2 (duplicate for seamless loop) -->
+          <span class="ticker-item" aria-hidden="true"
+            ><span class="ticker-store">Amazon</span> Apple AirPods Pro 2 — <span
+              class="ticker-price">₹19,990</span
+            >
+            <span class="ticker-drop">↓ ₹4,010 off</span></span
+          >
+          <span class="ticker-sep" aria-hidden="true">•</span>
+          <span class="ticker-item" aria-hidden="true"
+            ><span class="ticker-store">Nykaa</span> Minimalist 10% Niacinamide —
+            <span class="ticker-price">₹399</span>
+            <span class="ticker-drop">↓ 30% off</span></span
+          >
+          <span class="ticker-sep" aria-hidden="true">•</span>
+          <span class="ticker-item" aria-hidden="true"
+            ><span class="ticker-store">Agoda</span> Taj Lake Palace Udaipur — <span
+              class="ticker-price">₹28,500/nt</span
+            >
+            <span class="ticker-drop">↓ ₹6,500 off</span></span
+          >
+          <span class="ticker-sep" aria-hidden="true">•</span>
+          <span class="ticker-item" aria-hidden="true"
+            ><span class="ticker-store">Flipkart</span> Samsung Galaxy S25 — <span
+              class="ticker-price">₹74,999</span
+            >
+            <span class="ticker-drop">↓ ₹12,000 off</span></span
+          >
+          <span class="ticker-sep" aria-hidden="true">•</span>
+          <span class="ticker-item" aria-hidden="true"
+            ><span class="ticker-store">AJIO</span> Oversized Hoodie 450GSM — <span
+              class="ticker-price">₹899</span
+            >
+            <span class="ticker-drop">↓ 64% off</span></span
+          >
+          <span class="ticker-sep" aria-hidden="true">•</span>
+          <span class="ticker-item" aria-hidden="true"
+            ><span class="ticker-store">Croma</span> Sony WH-1000XM5 — <span
+              class="ticker-price">₹24,990</span
+            >
+            <span class="ticker-drop">↓ ₹7,000 off</span></span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. OFFICIAL PARTNER MERCHANT MARQUEE (CONTINUOUS TICKER)
+       ========================================================================= -->
+  <section class="partner-marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <a href="/go/agoda" class="partner-chip">
+          <span class="dot-live">●</span> Agoda Official Partner (CID 1970139)
+        </a>
+        <a href="/go/amazon" class="partner-chip">
+          <span class="dot-live">●</span> Amazon Associates India (bhujonline-21)
+        </a>
+        <a href="/go/ajio" class="partner-chip">
+          <span class="dot-live">●</span> AJIO Big Bold Sale Partner
+        </a>
+        <a href="/go/nykaa" class="partner-chip">
+          <span class="dot-live">●</span> Nykaa Beauty & Cosmetics
+        </a>
+        <a href="/go/flipkart" class="partner-chip">
+          <span class="dot-live">●</span> Flipkart Super Deals
+        </a>
+        <a href="/go/croma" class="partner-chip">
+          <span class="dot-live">●</span> Croma Electronics
+        </a>
+        <a href="/go/myntra" class="partner-chip">
+          <span class="dot-live">●</span> Myntra Lifestyle & Footwear
+        </a>
+        <a href="/go/tatacliq" class="partner-chip">
+          <span class="dot-live">●</span> Tata CLiQ Luxury
+        </a>
+      </div>
+      <!-- Duplicate content for seamless infinite marquee loop -->
+      <div class="marquee-content" aria-hidden="true">
+        <a href="/go/agoda" class="partner-chip">
+          <span class="dot-live">●</span> Agoda Official Partner (CID 1970139)
+        </a>
+        <a href="/go/amazon" class="partner-chip">
+          <span class="dot-live">●</span> Amazon Associates India (bhujonline-21)
+        </a>
+        <a href="/go/ajio" class="partner-chip">
+          <span class="dot-live">●</span> AJIO Big Bold Sale Partner
+        </a>
+        <a href="/go/nykaa" class="partner-chip">
+          <span class="dot-live">●</span> Nykaa Beauty & Cosmetics
+        </a>
+        <a href="/go/flipkart" class="partner-chip">
+          <span class="dot-live">●</span> Flipkart Super Deals
+        </a>
+        <a href="/go/croma" class="partner-chip">
+          <span class="dot-live">●</span> Croma Electronics
+        </a>
+        <a href="/go/myntra" class="partner-chip">
+          <span class="dot-live">●</span> Myntra Lifestyle & Footwear
+        </a>
+        <a href="/go/tatacliq" class="partner-chip">
+          <span class="dot-live">●</span> Tata CLiQ Luxury
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. IMMERSIVE VISUAL CATEGORY SHOWCASE (HIGH-RES PHOTOGRAPHIC CARDS)
+       ========================================================================= -->
+  <section class="section categories-photographic-section">
+    <div class="container">
+      <div class="section-header-modern">
+        <div class="header-left">
+          <span class="badge badge-brand">EXPLORE HUBS</span>
+          <h2 class="section-title-modern">
+            Browse Handpicked Shopping & Travel Hubs
+          </h2>
+          <p class="section-subtitle-modern">
+            Every category curated with laboratory test data, verified coupons,
+            and store price comparisons.
+          </p>
+        </div>
+        <a href="/deals" class="btn btn-secondary btn-sm"
+          >All Categories &rarr;</a
+        >
+      </div>
+
+      <div class="category-photo-grid">
+        {
+          CATEGORIES.map((cat) => (
+            <a href={`/${cat.slug}`} class="photo-cat-card card">
+              <div class="photo-cat-media">
+                <img
+                  src={cat.heroImage}
+                  alt={cat.name}
+                  loading="lazy"
+                  class="photo-cat-img"
+                />
+                <div class="photo-cat-overlay" />
+              </div>
+
+              <div class="photo-cat-content">
+                <div class="photo-cat-top">
+                  <span class="cat-icon-badge">{cat.icon}</span>
+                  <span class="cat-deals-count">
+                    {cat.itemCount.toLocaleString()}+ Deals
+                  </span>
+                </div>
+                <h3 class="photo-cat-title">{cat.name}</h3>
+                <p class="photo-cat-desc">{cat.shortDesc}</p>
+
+                <div class="photo-cat-footer">
+                  <div class="store-pills-row">
+                    {cat.featuredStores.slice(0, 2).map((st) => (
+                      <span class="photo-store-tag">{st}</span>
+                    ))}
+                  </div>
+                  <span class="photo-cat-arrow">&rarr;</span>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. TODAY'S HOTTEST FLASH DEALS & PRICE DROPS (WITH COUNTDOWN)
+       ========================================================================= -->
+  <section class="section flash-deals-modern-section">
+    <div class="container">
+      <div class="section-header-modern">
+        <div class="header-left">
+          <div class="live-flash-badge">
+            <span class="pulse-fire">🔥</span>
+            <span>TODAY'S HIGHEST VALUE DEALS</span>
+          </div>
+          <h2 class="section-title-modern">
+            Verified Flash Deals & Promo Codes
+          </h2>
+          <p class="section-subtitle-modern">
+            Monitored hourly. Prices and coupon validity double-checked across
+            certified stores.
+          </p>
+        </div>
+        <a href="/deals" class="btn btn-secondary btn-sm"
+          >All {DEALS.length} Active Deals &rarr;</a
+        >
+      </div>
+
+      <div
+        class="deal-countdown"
+        id="flash-countdown"
+        aria-label="Deal ends in"
+      >
+        <span class="countdown-unit"
+          ><span id="cd-h">00</span><span class="cd-lbl">H</span></span
+        >
+        <span class="countdown-sep">:</span>
+        <span class="countdown-unit"
+          ><span id="cd-m">00</span><span class="cd-lbl">M</span></span
+        >
+        <span class="countdown-sep">:</span>
+        <span class="countdown-unit"
+          ><span id="cd-s">00</span><span class="cd-lbl">S</span></span
+        >
+        <span class="cd-suffix">until midnight IST reset</span>
+      </div>
+
+      <div class="grid-4">
+        {flashDeals.map((deal) => <CouponCard deal={deal} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. AGODA PARTNER SPOTLIGHT: KUTCH & HERITAGE PALACE GETAWAYS
+       ========================================================================= -->
+  <section class="section agoda-heritage-section">
+    <div class="container">
+      <div class="agoda-spotlight-card glass-panel">
+        <div class="agoda-spotlight-header">
+          <div>
+            <div class="agoda-badge-row">
+              <span class="agoda-official-badge"
+                >🏨 AGODA OFFICIAL PARTNER (CID 1970139)</span
+              >
+              <span class="agoda-guarantee-badge">✓ Best Price Guarantee</span>
+            </div>
+            <h2 class="agoda-spotlight-title">
+              Featured Royal Palaces & Kutch Escapes on Agoda
+            </h2>
+            <p class="agoda-spotlight-subtitle">
+              Instant member tariffs with free cancellation across Bhuj,
+              Dholavira UNESCO Site, Udaipur Lake Pichola, Jaipur, Jaisalmer &
+              Srinagar.
+            </p>
+          </div>
+
+          <div class="agoda-cities-pills">
+            <a
+              href="/go/agoda?city=bhuj"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="agoda-city-pill">📍 Bhuj</a
+            >
+            <a
+              href="/go/agoda?city=dholavira"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="agoda-city-pill">🏛️ Dholavira</a
+            >
+            <a
+              href="/go/agoda?city=udaipur"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="agoda-city-pill">🏰 Udaipur</a
+            >
+            <a
+              href="/go/agoda?city=jaipur"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="agoda-city-pill">👑 Jaipur</a
+            >
+            <a
+              href="/go/agoda?city=jaisalmer"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="agoda-city-pill">🏜️ Jaisalmer</a
+            >
+            <a
+              href="/go/agoda?city=srinagar"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="agoda-city-pill">🏔️ Srinagar</a
+            >
+          </div>
+        </div>
+
+        <!-- Hotel Cards List -->
+        <div class="hotels-modern-list">
+          {topHotels.map((hotel) => <HotelCard hotel={hotel} />)}
+        </div>
+
+        <div class="agoda-footer-cta">
+          <div class="cta-text">
+            <strong>Traveling somewhere else?</strong> Search over 2,000,000 properties
+            worldwide with exclusive Agoda VIP discounts.
+          </div>
+          <a
+            href="/go/agoda"
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            class="btn btn-affiliate"
+          >
+            Search All Agoda Hotels &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. TOP TESTED PRODUCTS SHOWCASE (AMAZON, FLIPKART & CROMA)
+       ========================================================================= -->
+  <section class="section trending-products-section">
+    <div class="container">
+      <div class="section-header-modern">
+        <div class="header-left">
+          <span class="badge badge-brand">TESTED & RECOMMENDED</span>
+          <h2 class="section-title-modern">
+            Editor's Top Tested Tech & Beauty Essentials
+          </h2>
+          <p class="section-subtitle-modern">
+            Products that achieved top marks in build quality, performance, and
+            real-world value.
+          </p>
+        </div>
+        <a href="/electronics" class="btn btn-secondary btn-sm"
+          >More Electronics &rarr;</a
+        >
+      </div>
+
+      <div class="grid-3">
+        {
+          trendingProds
+            .slice(0, 3)
+            .map((prod) => <ProductCard product={prod} />)
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. FASHION RUNWAY & SNEAKER RADAR (AJIO & MYNTRA SPOTLIGHT)
+       ========================================================================= -->
+  <section class="section fashion-spotlight-modern">
+    <div class="container">
+      <div class="fashion-banner-box">
+        <div class="fashion-banner-content">
+          <span class="fashion-tag-badge">🛍️ AJIO & MYNTRA EXCLUSIVE DROPS</span
+          >
+          <h2 class="fashion-banner-title">
+            50% to 90% Off on Top Streetwear, Kurtas & Sneakers
+          </h2>
+          <p class="fashion-banner-desc">
+            Direct verified shortlinks for the AJIO Big Bold Sale & Myntra
+            Lifestyle Collections. Premium combed cotton hoodies, royal wedding
+            kurtas, and memory foam sneakers.
+          </p>
+          <div class="fashion-cta-row">
+            <a
+              href="/go/ajio"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="btn btn-affiliate"
+            >
+              Shop AJIO Sale &rarr;
+            </a>
+            <a
+              href="/go/myntra"
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="btn btn-secondary"
+            >
+              Shop Myntra Trends &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="fashion-banner-media">
+          <img
+            src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=700&q=80"
+            alt="AJIO Streetwear Collection"
+            class="fashion-feature-img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. MULTI-STORE TECH COMPARISON MATRIX
+       ========================================================================= -->
+  <section class="section comparison-highlight-section">
+    <div class="container">
+      <div class="section-header-modern">
+        <div class="header-left">
+          <span class="badge badge-brand">WIRECUTTER COMPARISON BENCHMARK</span>
+          <h2 class="section-title-modern">
+            Flagship Laptops & Smartphones Compared
+          </h2>
+          <p class="section-subtitle-modern">
+            Side-by-side battery endurance, processor performance, and
+            multi-store pricing.
+          </p>
+        </div>
+      </div>
+
+      <ComparisonTable
+        products={electronicsProds.slice(0, 3)}
+        title="Flagship Tech Comparison"
+      />
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. BEAUTY & DERMATOLOGY RADAR (NYKAA & K-BEAUTY)
+       ========================================================================= -->
+  <section class="section beauty-spotlight-modern">
+    <div class="container">
+      <div class="section-header-modern">
+        <div class="header-left">
+          <span class="badge badge-deal">✨ DERMATOLOGIST VERIFIED</span>
+          <h2 class="section-title-modern">
+            Clean Skincare, Haircare & Senior Wellness
+          </h2>
+          <p class="section-subtitle-modern">
+            Hypoallergenic formulations, viral Korean essences, and adult
+            geriatric nutrition.
+          </p>
+        </div>
+        <a href="/beauty" class="btn btn-secondary btn-sm"
+          >Full Beauty Hub &rarr;</a
+        >
+      </div>
+
+      <div class="grid-2">
+        {beautyProds.slice(0, 2).map((prod) => <ProductCard product={prod} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. EDITORIAL GUIDES & BUYING ADVICE
+       ========================================================================= -->
+  <section class="section blog-spotlight-section">
+    <div class="container">
+      <div class="section-header-modern">
+        <div class="header-left">
+          <span class="badge badge-gray">EDITORIAL RADAR</span>
+          <h2 class="section-title-modern">
+            Independent Buying Guides & Analysis
+          </h2>
+          <p class="section-subtitle-modern">
+            Data-driven purchasing advice to help you maximize every rupee.
+          </p>
+        </div>
+        <a href="/blog" class="btn btn-secondary btn-sm"
+          >Browse All Guides &rarr;</a
+        >
+      </div>
+
+      <div class="grid-3">
+        {
+          BLOG_POSTS.map((post) => (
+            <article class="blog-card card">
+              <a href={`/blog/${post.slug}`} class="blog-img-link">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  loading="lazy"
+                  class="blog-img"
+                />
+                <span class="blog-cat-badge">{post.category}</span>
+              </a>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <span>{post.readTime}</span>
+                  <span>•</span>
+                  <span>{post.publishedAt}</span>
+                </div>
+                <h3 class="blog-title">
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                </h3>
+                <p class="blog-excerpt">{post.excerpt}</p>
+                <div class="blog-author-row">
+                  <img
+                    src={post.author.avatar}
+                    alt={post.author.name}
+                    class="author-avatar"
+                  />
+                  <div>
+                    <span class="author-name">{post.author.name}</span>
+                    <span class="author-role">{post.author.role}</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <div class="container" style="margin-bottom: 48px;">
+    <Newsletter />
+  </div>
+</BaseLayout>
+
+<script>
+  (function startCountdown() {
+    function tick() {
+      const nowUTC = Date.now();
+      const IST_OFFSET = 5.5 * 60 * 60 * 1000;
+      const nowIST = new Date(nowUTC + IST_OFFSET);
+      const midnightIST = new Date(nowIST);
+      midnightIST.setUTCHours(18, 30, 0, 0); // 18:30 UTC = 00:00 IST next day
+      if (midnightIST.getTime() <= nowIST.getTime()) {
+        midnightIST.setUTCDate(midnightIST.getUTCDate() + 1);
+      }
+      const diff = midnightIST.getTime() - (nowUTC + IST_OFFSET);
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const ph = document.getElementById("cd-h");
+      const pm = document.getElementById("cd-m");
+      const ps = document.getElementById("cd-s");
+      if (ph) ph.textContent = String(h).padStart(2, "0");
+      if (pm) pm.textContent = String(m).padStart(2, "0");
+      if (ps) ps.textContent = String(s).padStart(2, "0");
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+<style>
+  /* =========================================================================
+     2026 HERO SECTION STYLES
+     ========================================================================= */
+  .hero-section {
     position: relative;
-    isolation: isolate;
+    background: linear-gradient(135deg, #0f172a 0%, #0c2a4a 55%, #1a0533 100%);
+    min-height: 85vh;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: clamp(48px, 6vw, 76px) 0 48px;
+    overflow: hidden;
   }
 
-  main::before {
+  /* Ambient Glow Orbs */
+  .ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-1 {
+    top: -100px;
+    left: 10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(
+      circle,
+      rgba(2, 132, 199, 0.35) 0%,
+      rgba(2, 132, 199, 0) 70%
+    );
+  }
+
+  .glow-2 {
+    bottom: -80px;
+    right: 5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(
+      circle,
+      rgba(236, 72, 153, 0.28) 0%,
+      rgba(236, 72, 153, 0) 70%
+    );
+  }
+
+  .glow-3 {
+    top: 30%;
+    right: 35%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(
+      circle,
+      rgba(249, 115, 22, 0.22) 0%,
+      rgba(249, 115, 22, 0) 70%
+    );
+  }
+
+  .hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-split-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-badge-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .live-radar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.775rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.03em;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-stat-pill {
+    font-size: 0.775rem;
+    font-weight: 700;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.15);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+  }
+
+  .hero-headline {
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 620px;
+  }
+
+  /* Modern Glass Search Box */
+  .hero-search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+    transition: all var(--transition-normal);
+  }
+
+  .hero-search-box:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+  }
+
+  .search-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .search-icon {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  #hero-search-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    outline: none;
+    font-family: inherit;
+  }
+
+  .search-submit-btn {
+    white-space: nowrap;
+    padding: 10px 22px;
+  }
+
+  /* Quick Tags */
+  .hero-quick-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .quick-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.9);
+    transition: all var(--transition-fast);
+  }
+
+  .hero-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* Proof Metrics */
+  .hero-proof-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    flex-wrap: wrap;
+  }
+
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .proof-num {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .proof-label {
+    font-size: 0.775rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .proof-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* =========================================================================
+     3D FLOATING VISUAL DEAL SHOWCASE
+     ========================================================================= */
+  .hero-visual-showcase {
+    position: relative;
+    min-height: 520px;
+  }
+
+  .floating-card {
+    position: absolute;
+    width: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
+    transition: transform var(--transition-normal);
+  }
+
+  .floating-card:hover {
+    z-index: 10 !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 30px 50px -15px rgba(2, 132, 199, 0.2);
+  }
+
+  .float-card-1 {
+    top: 10px;
+    left: 20px;
+    z-index: 2;
+  }
+
+  .float-card-2 {
+    top: 120px;
+    right: 0px;
+    z-index: 3;
+  }
+
+  .float-card-3 {
+    bottom: 10px;
+    left: 60px;
+    z-index: 1;
+  }
+
+  .card-media-wrap {
+    position: relative;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .card-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .floating-card:hover .card-thumb {
+    transform: scale(1.08);
+  }
+
+  .card-network-chip {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+  }
+
+  .agoda-chip {
+    background: rgba(3, 105, 161, 0.9);
+    color: #ffffff;
+  }
+
+  .ajio-chip {
+    background: rgba(79, 70, 229, 0.9);
+    color: #ffffff;
+  }
+
+  .amazon-chip {
+    background: rgba(15, 23, 42, 0.9);
+    color: #ffffff;
+  }
+
+  .card-score-chip {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.725rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.95);
+    color: #0f172a;
+  }
+
+  .card-discount-chip {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.725rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    background: #dc2626;
+    color: #ffffff;
+  }
+
+  .card-shoppers-chip {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.95);
+    color: #0f172a;
+  }
+
+  .card-details {
+    padding: 10px 4px 4px;
+  }
+
+  .card-meta {
+    font-size: 0.725rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .card-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.3;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .price-current {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .price-old {
+    font-size: 0.775rem;
+    color: var(--text-subtle);
+    text-decoration: line-through;
+    margin-left: 4px;
+  }
+
+  .btn-xs {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  /* =========================================================================
+     MARQUEE SECTION (INFINITE LOGO/CHIP TICKER)
+     ========================================================================= */
+  .partner-marquee-section {
+    background: #0f172a;
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 32px;
+    animation: marquee 25s linear infinite;
+  }
+
+  .partner-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    font-size: 0.825rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .partner-chip:hover {
+    color: #ffffff;
+  }
+
+  .dot-live {
+    color: #22c55e;
+    font-size: 0.7rem;
+  }
+
+  /* =========================================================================
+     MODERN SECTION HEADERS
+     ========================================================================= */
+  .section-header-modern {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    gap: 20px;
+  }
+
+  .section-title-modern {
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    margin: 8px 0 6px;
+    color: var(--text-main);
+  }
+
+  .section-subtitle-modern {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 650px;
+  }
+
+  /* =========================================================================
+     IMMERSIVE PHOTOGRAPHIC CATEGORY GRID
+     ========================================================================= */
+  .category-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .photo-cat-card {
+    position: relative;
+    height: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    text-decoration: none;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .photo-cat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(2, 132, 199, 0.25);
+  }
+
+  .photo-cat-card::after {
     content: "";
     position: absolute;
-    inset: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.36);
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0s;
     pointer-events: none;
-    z-index: -1;
   }
 
-  .notice {
-    width: min(760px, 100%);
-    padding: clamp(32px, 7vw, 72px);
-    background: var(--panel);
-    border: 1px solid rgba(255, 255, 255, 0.74);
-    border-radius: 8px;
-    box-shadow: 0 26px 90px rgba(0, 0, 0, 0.22);
-    text-align: center;
-    backdrop-filter: blur(16px);
+  .photo-cat-card:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.55s ease;
   }
 
-  .mark {
-    width: 76px;
-    height: 76px;
-    margin: 0 auto 26px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: linear-gradient(145deg, #ffffff, #eef8f7);
-    box-shadow: inset 0 0 0 8px rgba(15, 139, 141, 0.08);
+  .photo-cat-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
-  .mark span {
-    width: 34px;
-    height: 34px;
-    display: block;
-    border: 5px solid var(--accent);
-    border-top-color: var(--gold);
-    border-radius: 50%;
-    animation: spin 1.3s linear infinite;
+  .photo-cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
   }
 
-  .organization {
-    margin: 0;
-    font-size: clamp(2.7rem, 8.8vw, 6rem);
-    line-height: 0.95;
-    font-weight: 800;
-    letter-spacing: 0;
-    text-wrap: balance;
+  .photo-cat-card:hover .photo-cat-img {
+    transform: scale(1.12);
   }
 
-  .status {
-    margin: 18px 0 0;
-    color: var(--accent-dark);
-    font-size: clamp(1.35rem, 4vw, 2.35rem);
-    line-height: 1.12;
+  .photo-cat-card:hover .photo-cat-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(2, 132, 199, 0.85) 0%,
+      rgba(2, 132, 199, 0.35) 55%,
+      rgba(2, 132, 199, 0.05) 100%
+    );
+  }
+
+  .photo-cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(15, 23, 42, 0.92) 0%,
+      rgba(15, 23, 42, 0.45) 60%,
+      rgba(15, 23, 42, 0.1) 100%
+    );
+  }
+
+  .photo-cat-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+  }
+
+  .photo-cat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .cat-icon-badge {
+    font-size: 1.5rem;
+  }
+
+  .cat-deals-count {
+    font-size: 0.725rem;
     font-weight: 700;
-    letter-spacing: 0;
-    text-wrap: balance;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    color: #ffffff;
   }
 
-  p {
-    max-width: 540px;
-    margin: 22px auto 0;
-    color: var(--muted);
-    font-size: clamp(1rem, 2.2vw, 1.2rem);
-    line-height: 1.65;
+  .photo-cat-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
   }
 
-  .divider {
-    width: 92px;
-    height: 4px;
-    margin: 28px auto 0;
-    background: linear-gradient(90deg, var(--accent), var(--gold));
-    border-radius: 999px;
+  .photo-cat-desc {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
+  .photo-cat-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .store-pills-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  .photo-store-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .photo-cat-arrow {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    transition: transform var(--transition-fast);
+  }
+
+  .photo-cat-card:hover .photo-cat-arrow {
+    transform: translateX(4px);
+  }
+
+  /* =========================================================================
+     AGODA SPOTLIGHT HERITAGE CARD
+     ========================================================================= */
+  .agoda-heritage-section {
+    position: relative;
+    background-image: url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .agoda-heritage-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.88) 0%,
+      rgba(12, 42, 74, 0.82) 55%,
+      rgba(26, 5, 51, 0.88) 100%
+    );
+    z-index: 0;
+  }
+
+  .agoda-heritage-section > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .agoda-spotlight-card {
+    background: transparent;
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 40px);
+    border: none;
+    box-shadow: none;
+  }
+
+  .agoda-heritage-section .agoda-spotlight-title,
+  .agoda-heritage-section .cta-text {
+    color: #ffffff;
+  }
+
+  .agoda-heritage-section .agoda-spotlight-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .agoda-heritage-section .agoda-footer-cta {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .agoda-heritage-section .cta-text strong {
+    color: #ffffff;
+  }
+
+  .agoda-heritage-section .hotel-card {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+  }
+
+  .agoda-heritage-section .hotel-card .hotel-name a,
+  .agoda-heritage-section .hotel-card .hotel-name,
+  .agoda-heritage-section .hotel-card .hotel-tagline,
+  .agoda-heritage-section .hotel-card .hotel-location,
+  .agoda-heritage-section .hotel-card .star-label,
+  .agoda-heritage-section .hotel-card .score-label,
+  .agoda-heritage-section .hotel-card .score-reviews,
+  .agoda-heritage-section .hotel-card .from-text,
+  .agoda-heritage-section .hotel-card .per-night,
+  .agoda-heritage-section .hotel-card .rates-label {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .agoda-heritage-section .hotel-card .lead-num {
+    color: #4ade80;
+  }
+
+  .agoda-heritage-section .hotel-card .amenity-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .agoda-heritage-section .hotel-card .rates-comparison-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .agoda-heritage-section .hotel-card .provider-rate-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .agoda-heritage-section .hotel-card .provider-name,
+  .agoda-heritage-section .hotel-card .price-val {
+    color: #ffffff;
+  }
+
+  .agoda-heritage-section .hotel-card .hotel-action-footer {
+    border-top-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .agoda-spotlight-header {
+    margin-bottom: 28px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .agoda-badge-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .agoda-official-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: #0284c7;
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+  }
+
+  .agoda-guarantee-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+  }
+
+  .agoda-spotlight-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 6px;
+  }
+
+  .agoda-spotlight-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 620px;
+  }
+
+  .agoda-cities-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 380px;
+  }
+
+  .agoda-city-pill {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .agoda-city-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .hotels-modern-list {
+    margin-bottom: 24px;
+  }
+
+  .agoda-footer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px solid var(--border-default);
+    border-radius: 16px;
+    padding: 16px 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cta-text {
+    font-size: 0.925rem;
+    color: var(--text-body);
+  }
+
+  /* =========================================================================
+     FASHION RUNWAY & SNEAKER BANNER (AJIO & MYNTRA)
+     ========================================================================= */
+  .fashion-banner-box {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+    color: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -10px rgba(49, 46, 129, 0.35);
+  }
+
+  .fashion-banner-content {
+    padding: clamp(32px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .fashion-tag-badge {
+    display: inline-block;
+    font-size: 0.775rem;
+    font-weight: 800;
+    color: #f43f5e;
+    background: rgba(244, 63, 94, 0.15);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    width: fit-content;
+    margin-bottom: 16px;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+  }
+
+  .fashion-banner-title {
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #ffffff;
+  }
+
+  .fashion-banner-desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 520px;
+  }
+
+  .fashion-cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .fashion-banner-media {
+    position: relative;
+    min-height: 320px;
+  }
+
+  .fashion-feature-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Flash Deal Badge */
+  .live-flash-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #ea580c;
+    background: #ffedd5;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: 6px;
+  }
+
+  .pulse-fire {
+    font-size: 0.95rem;
+  }
+
+  /* Countdown Timer */
+  .deal-countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    border-radius: var(--radius-full);
+    padding: 8px 18px;
+    margin-bottom: 24px;
+    font-family: var(--font-display);
+  }
+
+  .countdown-unit {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #f97316;
+    min-width: 2ch;
+  }
+
+  .cd-lbl {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(249, 115, 22, 0.7);
+    text-transform: uppercase;
+  }
+
+  .countdown-sep {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f97316;
+    opacity: 0.5;
+  }
+
+  .cd-suffix {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 8px;
+  }
+
+  /* Deal Alert Strip */
+  .deal-alert-strip {
+    background: #0f172a;
+    border-bottom: 1px solid #1e293b;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+
+  .alert-strip-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .alert-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.12);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+
+  .alert-ticker-wrap {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .alert-ticker {
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+
+  .ticker-item {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+  }
+
+  .ticker-store {
+    font-weight: 800;
+    color: #38bdf8;
+  }
+
+  .ticker-price {
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .ticker-drop {
+    font-weight: 700;
+    color: #4ade80;
+  }
+
+  .ticker-sep {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+  }
+
+  /* =========================================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================================= */
+  @media (max-width: 1024px) {
+    .hero-split-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-badge-wrap,
+    .hero-subtitle,
+    .hero-quick-tags,
+    .hero-proof-row {
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-visual-showcase {
+      display: none;
+    }
+
+    .category-photo-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fashion-banner-box {
+      grid-template-columns: 1fr;
+    }
+
+    .fashion-banner-media {
+      display: none;
     }
   }
 
-  @media (max-width: 520px) {
-    main {
-      padding: 18px;
+  @media (max-width: 640px) {
+    .category-photo-grid {
+      grid-template-columns: 1fr;
     }
 
-    main::before {
-      inset: 12px;
-    }
-
-    .notice {
-      padding: 30px 22px;
+    .section-header-modern {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
