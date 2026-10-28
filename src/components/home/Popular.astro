@@ -1,0 +1,79 @@
+---
+// Popular.astro
+
+const popularDestinations = [
+  {
+    emoji: "🌕",
+    title: "Great Rann of Kutch",
+    desc: "The world's largest seasonal salt desert transforms into a shimmering white moonscape from October to March. The Rann Utsav festival brings culture, craft, and cuisine to this territory.",
+    chips: ["Oct–Mar", "Full Moon Essential", "Rann Utsav"],
+    gradient: "linear-gradient(135deg, #172a45, #3b82f6)"
+  },
+  {
+    emoji: "🦓",
+    title: "Wild Ass Sanctuary",
+    desc: "Home to the world's largest population of Indian wild ass (Ghudkhar), the Little Rann is a flat, shimmering wilderness where herds of wild animals gallop through salt flats.",
+    chips: ["Little Rann", "Year-round", "Jeep Safari"],
+    gradient: "linear-gradient(135deg, #1e293b, #b45309)"
+  },
+  {
+    emoji: "🏖️",
+    title: "Mandvi Beach",
+    desc: "Kutch's beloved beach town featuring the historic Vijay Vilas Palace overlooking the Arabian Sea. The old town has a charming port, shipbuilding yards, and premium Kutchi food.",
+    chips: ["Beach Town", "Palace", "Dhow Building"],
+    gradient: "linear-gradient(135deg, #0f172a, #06b6d4)"
+  },
+  {
+    emoji: "🦩",
+    title: "Bhuj — The Heart of Kutch",
+    desc: "The district capital rebuilt after the devastating 2001 earthquake. Bhuj is a resilient city with restored palaces, the Aina Mahal (Palace of Mirrors), and vibrant craft markets.",
+    chips: ["Year-round", "Cultural Hub", "Crafts"],
+    gradient: "linear-gradient(135deg, #090d16, #a855f7)"
+  },
+  {
+    emoji: "🏔️",
+    title: "Kalo Dungar (Black Hill)",
+    desc: "The highest point in Kutch at 462m, offering sweeping views over the Great Rann. The hilltop Dattatreya temple is famous for the jackals that visit daily to be fed.",
+    chips: ["Viewpoint", "Temple", "Sunset Famous"],
+    gradient: "linear-gradient(135deg, #1e1b4b, #db2777)"
+  },
+  {
+    emoji: "🛕",
+    title: "Aina Mahal",
+    desc: "The 18th-century Palace of Mirrors, built for Maharao Lakhpatji by master craftsman Ramsingh Malam. A fusion of Kutchi craftsmanship and European baroque styles.",
+    chips: ["Bhuj", "Architecture", "Museum"],
+    gradient: "linear-gradient(135deg, #0f172a, #f59e0b)"
+  }
+];
+---
+
+<section class="pop-sec" id="popular">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label">Everyone Knows These</span>
+      <h2 class="section-title-text">Popular Destinations</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc-text">The classics that earned Kutch its fame — and deserve every bit of it. Start here before venturing off the beaten path.</p>
+    </div>
+
+    <div class="pop-grid scroll-reveal">
+      {popularDestinations.map(dest => (
+        <div class="pop-card-trendy">
+          <div class="pop-card-img">
+            <div class="pop-card-img-bg" style={`background: ${dest.gradient}`}></div>
+            <div class="pop-card-emoji">{dest.emoji}</div>
+          </div>
+          <div class="pop-card-body">
+            <h3 class="pop-card-title">{dest.title}</h3>
+            <p class="pop-card-desc">{dest.desc}</p>
+            <div class="pop-card-meta">
+              {dest.chips.map(chip => (
+                <span class="pop-card-chip">{chip}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

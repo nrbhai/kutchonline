@@ -1,0 +1,341 @@
+/* =========================================
+   BOOKINGS PAGE SPECIFIC STYLES
+   ========================================= */
+
+.bookings-page .booking-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.bookings-page .booking-hero {
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh; /* Reduced height since content is moved */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Ensure global header consistency overlay if needed, but hero usually has its own */
+/* Removed overlay for clearer/brighter image */
+.bookings-page .booking-hero::before {
+    display: none;
+}
+
+.bookings-page .booking-intro {
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+.bookings-page .hero-title {
+    /* Uses global H1 size now */
+    margin-bottom: 1rem;
+    /* Global Metallic Style applies via class */
+}
+
+.bookings-page .hero-desc {
+    font-size: 1.15rem;
+    color: var(--color-text); /* Dark text on white bg */
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.bookings-page .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Updated Button Styles */
+.bookings-page .booking-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.bookings-page .booking-btn.primary {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(194, 65, 12, 0.3);
+}
+
+.bookings-page .booking-btn.primary:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.bookings-page .booking-btn.secondary {
+    background: transparent;
+    color: var(--color-heading);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.bookings-page .booking-btn.secondary:hover {
+    background: var(--color-heading);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.bookings-page .booking-btn.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.bookings-page .booking-btn.email {
+    background: #ea4335; 
+    color: white;
+}
+
+/* Sections */
+.bookings-page .booking-section {
+    margin-bottom: 4rem;
+}
+
+.bookings-page .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bookings-page .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.bookings-page .section-header p {
+    color: var(--color-text);
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+/* Partner Cards (Booking.com / Trip.com) */
+.bookings-page .partner-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Soft shadow */
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bookings-page .partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* Booking.com Card - Yellow Override */
+.bookings-page .partner-card.booking {
+    background: #FFD700; /* Yellow */
+    border: none;
+    color: #003580;
+}
+
+.bookings-page .partner-card.booking .partner-brand,
+.bookings-page .partner-card.booking h3 {
+    color: #003580 !important;
+}
+
+.bookings-page .partner-card.booking p {
+    color: #003580;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.bookings-page .partner-card.booking .partner-footer {
+    color: rgba(0, 53, 128, 0.7);
+}
+
+.bookings-page .partner-card.booking .partner-tag {
+    background: rgba(255, 255, 255, 0.5);
+    color: #003580;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.bookings-page .partner-card.booking .partner-brand span {
+    color: #fff !important; /* Make the '.com' white or dark blue? Kept original or forced. Let's force Blue for contrast if needed, or white if brand allows. standard logo has blue text. HTML has inline style for .com which might conflict. */
+    /* text-shadow: none; */
+}
+
+/* Button for Yellow Card */
+.bookings-page .partner-card.booking .partner-cta {
+    background: #003580;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 53, 128, 0.2);
+}
+
+.bookings-page .partner-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: #003580; /* Booking.com Blue default */
+}
+
+/* Trip.com Card - Light Red Override */
+.bookings-page .partner-card.trip {
+    background: #FFE4E6; /* Light Red / Rose 100 */
+    border: none;
+    color: #881337; /* Dark Red / Rose 900 */
+}
+
+.bookings-page .partner-card.trip .partner-brand {
+    color: #be123c !important; /* Rose 700 */
+}
+
+.bookings-page .partner-card.trip h3 {
+    color: #881337 !important;
+}
+
+.bookings-page .partner-card.trip p {
+    color: #9f1239; /* Rose 800 */
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.bookings-page .partner-card.trip .partner-footer {
+    color: rgba(136, 19, 55, 0.7);
+}
+
+.bookings-page .partner-card.trip .partner-brand span {
+    color: #881337 !important; /* Keep brand cohesive */
+}
+
+.bookings-page .partner-card.trip .partner-tag {
+    background: rgba(255, 255, 255, 0.6);
+    color: #881337;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+/* Button for Trip.com Card */
+.bookings-page .partner-card.trip .partner-cta {
+    background: #e11d48; /* Rose 600 */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+}
+
+.bookings-page .partner-card.trip .partner-cta:hover {
+    background: #be123c;
+    transform: translateY(-2px);
+}
+
+.bookings-page .partner-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading);
+}
+
+.bookings-page .partner-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.bookings-page .partner-tag {
+    background: #f1f5f9;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.bookings-page .partner-cta {
+    display: inline-block;
+    background: #003580;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.bookings-page .partner-card.trip .partner-cta {
+    background: #2e66d3;
+}
+
+.bookings-page .partner-cta:hover {
+    opacity: 0.9;
+}
+
+.bookings-page .partner-footer {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Grid Layout for Tours / Stays */
+.bookings-page .booking-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.bookings-page .booking-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Lighter shadow */
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bookings-page .booking-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.bookings-page .booking-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-heading);
+}
+
+.bookings-page .booking-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.bookings-page .booking-card a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.bookings-page .booking-card a:hover {
+    text-decoration: underline;
+}

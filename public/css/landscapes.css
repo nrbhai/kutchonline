@@ -1,0 +1,201 @@
+/* =========================================
+   LANDSCAPES PAGE SPECIFIC STYLES
+   ========================================= */
+
+.landscapes-page .hero-title-metallic-gold {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+.landscapes-page .section-header {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.landscapes-page .section-header p {
+    margin-top: 0.5rem;
+    color: #475569;
+}
+
+[data-theme="dark"] .landscapes-page .section-header p {
+    color: #cbd5e1;
+}
+
+.landscapes-page .landscape-hero {
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.landscapes-page .landscape-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.18));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.landscapes-page .landscape-hero .hero-content {
+    position: relative;
+    z-index: 10;
+    color: #f8fafc;
+    max-width: 680px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+    margin: 0;
+    padding: 0 1.5rem;
+}
+
+.landscapes-page .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(248, 250, 252, 0.85);
+    margin-bottom: 0.75rem;
+}
+
+.landscapes-page .landscape-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem) !important;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.landscapes-page .landscape-hero p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(248, 250, 252, 0.9);
+}
+
+.landscapes-page .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.landscapes-page .btn.btn-outline {
+    background: transparent;
+    border: 2px solid rgba(248, 250, 252, 0.8);
+    color: #f8fafc !important;
+}
+
+.landscapes-page .btn.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.landscapes-page .landscape-intro .section-header h2,
+.landscapes-page .landscape-cta .section-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.8rem) !important;
+}
+
+.landscapes-page .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.landscapes-page .photo-card {
+    margin: 0;
+    background: var(--color-white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .landscapes-page .photo-card {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.landscapes-page .photo-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landscapes-page .photo-card:hover img {
+    transform: scale(1.04);
+}
+
+.landscapes-page .photo-card figcaption {
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    background: var(--color-white);
+}
+
+[data-theme="dark"] .landscapes-page .photo-card figcaption {
+    background: rgba(30, 41, 59, 0.6);
+    color: #f1f5f9;
+}
+
+.landscapes-page .photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.landscapes-page .landscape-cta {
+    text-align: left;
+}
+
+.landscapes-page .cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.landscapes-page .landscape-cta .btn {
+    background: var(--color-heading);
+    border-color: var(--color-heading);
+    color: #ffffff !important;
+}
+
+.landscapes-page .landscape-cta .btn.btn-outline {
+    background: transparent;
+    border: 2px solid var(--color-heading);
+    color: var(--color-heading) !important;
+}
+
+[data-theme="dark"] .landscapes-page .landscape-cta .btn.btn-outline {
+    border-color: #93c5fd;
+    color: #93c5fd !important;
+}
+
+@media (max-width: 768px) {
+    .landscapes-page .landscape-hero {
+        min-height: 60vh;
+    }
+    
+    .landscapes-page .landscape-hero .hero-content {
+        padding: 0 1rem;
+    }
+
+    .landscapes-page .photo-card img {
+        height: 200px;
+    }
+}

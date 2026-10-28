@@ -4,9 +4,10 @@ import re
 import os
 import shutil
 
-csv_path = r"c:\website_project\kutchonline\data.csv"
-json_path = r"c:\website_project\kutchonline\src\data\data.json"
-backup_path = r"c:\website_project\kutchonline\src\data\data.json.bak"
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+csv_path = os.path.join(ROOT_DIR, "data.csv")
+json_path = os.path.join(ROOT_DIR, "src", "data", "data.json")
+backup_path = os.path.join(ROOT_DIR, "src", "data", "data.json.bak")
 
 # 1. Back up existing data.json
 print(f"Creating backup of {json_path} to {backup_path}...")
@@ -35,7 +36,17 @@ manual_overrides = {
     "jewellers": "jeweller",
     "laboratory": "laboratories",
     "real estate agents": "estate-agent",
-    "medical store": "medical-store"
+    "medical store": "medical-store",
+    "homeopathy": "homeopathy-doctors",
+    "wireman": "electrician",
+    "sanetary": "sanatary",
+    "dance classes": "choreographers-dance",
+    "bakery & cake shop": "bakery",
+    "home baker": "bakery",
+    "computer laptop sales & repair": "computer-sales-repair",
+    "hair salon ( m/f )": "hair-stylist-m-f",
+    "home furnishing & sofa": "foam-sofa-items",
+    "auto accessories": "car-accessories"
 }
 
 # Helper to format names to Proper Case while preserving acronyms
@@ -106,7 +117,7 @@ def find_target_category(csv_cat_name):
 
 # 3. Read and process CSV
 print(f"Reading listings from {csv_path}...")
-with open(csv_path, 'r', encoding='utf-8') as f:
+with open(csv_path, 'r', encoding='utf-8-sig') as f:
     reader = csv.DictReader(f)
     csv_rows = list(reader)
 
@@ -115,43 +126,43 @@ total_mapped = 0
 unmapped_categories = set()
 
 for idx, row in enumerate(csv_rows):
-    csv_cat = row.get('Business / Service Category Selection', '').strip()
+    csv_cat = row.get('Category', '').strip()
     if not csv_cat:
         continue
-        
+
     target_cat = find_target_category(csv_cat)
     total_processed += 1
-    
+
     if target_cat is None:
         unmapped_categories.add(csv_cat)
         continue
-        
-    # Parse tags from details
-    details = row.get('Business Details', '').strip()
+
+    # Parse tags
+    details = row.get('Tag', '').strip()
     tags = []
     if details:
         tags = [t.strip() for t in details.split(',') if t.strip()]
-        
+
     # Standardize phone verification and ratings
     verified = "Yes" if row.get('Verified', '').strip().lower() == 'yes' else ""
     top_rated = "Yes" if row.get('Ratings', '').strip().lower() == 'yes' else ""
-    
+
     # Format name in proper case
-    raw_name = row.get('Name of Business / User', '').strip()
+    raw_name = row.get('Name', '').strip()
     proper_name = to_proper_case(raw_name)
-    
+
     # Formulate provider dictionary
     provider = {
         "name": proper_name,
         "phone": row.get('Phone', '').strip(),
-        "area": row.get('City / Nearby Village', '').strip(),
+        "area": row.get('Area', '').strip() or row.get('Locality', '').strip(),
         "tags": tags,
-        "webpage": row.get('Webpage', '').strip(),
+        "webpage": row.get('webpage', '').strip(),
         "badge": "",
         "verified": verified,
         "top_rated": top_rated,
         "address": row.get('Address', '').strip(),
-        "place_id": row.get('Place ID', '').strip()
+        "place_id": row.get('PlaceID', '').strip()
     }
     
     # Append to target category
@@ -176,3 +187,19 @@ with open(json_path, 'w', encoding='utf-8') as f:
     json.dump(json_data, f, indent=2, ensure_ascii=False)
 
 print("Database update completed successfully!")
+
+# 5. Refresh the window.categories block in public/assets/js/data.js (drives the /bhuj/ homepage grid)
+data_js_path = os.path.join(ROOT_DIR, "public", "assets", "js", "data.js")
+with open(data_js_path, 'r', encoding='utf-8', newline='') as f:
+    data_js = f.read()
+nl = '\r\n' if '\r\n' in data_js else '\n'
+start = data_js.index('window.categories = [')
+end = data_js.index('];', start) + 2
+categories_js = [
+    {"id": c['id'], "name": c['name'], "icon": c['icon'], "gu_name": c['gu_name'], "count": len(c['providers'])}
+    for c in json_data if c['providers']
+]
+block = 'window.categories = ' + json.dumps(categories_js, indent=2, ensure_ascii=False).replace('\n', nl) + ';'
+with open(data_js_path, 'w', encoding='utf-8', newline='') as f:
+    f.write(data_js[:start] + block + data_js[end:])
+print(f"Refreshed {len(categories_js)} categories in {data_js_path}")

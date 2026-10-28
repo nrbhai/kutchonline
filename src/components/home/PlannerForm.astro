@@ -1,0 +1,78 @@
+---
+// PlannerForm.astro
+---
+
+<section class="planner-sec" id="plan">
+  <div class="home-container">
+    <div class="planner-content-box">
+      <div class="scroll-reveal">
+        <span class="section-label" style="color:rgba(255,255,255,0.7)">Ready to Explore?</span>
+        <h2>Plan Your Kutch<br /><em style="font-family:var(--font-serif);font-style:italic;color:var(--gold-light)">Adventure</em></h2>
+        <p>Tell us what excites you most and how long you are staying. We'll help you craft an unforgettable offbeat Kutch itinerary.</p>
+      </div>
+
+      <!-- Planner Form -->
+      <form class="planner-form-trendy scroll-reveal" id="plannerForm">
+        <div class="form-group-row">
+          <div class="form-field">
+            <label for="plannerEmail">Email Address</label>
+            <input type="email" id="plannerEmail" placeholder="Enter your email" required />
+          </div>
+          <div class="form-field">
+            <label for="plannerRegion">Preferred Region</label>
+            <select id="plannerRegion" required>
+              <option value="All">All Kutch (Complete Tour)</option>
+              <option value="Northern">Northern Kutch (Forts & Border)</option>
+              <option value="Central">Central Kutch (Craft Villages)</option>
+              <option value="Eastern">Eastern Kutch (Archaeology)</option>
+              <option value="Western">Western Kutch (Untouched Coast)</option>
+              <option value="Rann">Great Rann (Salt Flats)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group-row">
+          <div class="form-field">
+            <label for="plannerDuration">Trip Duration</label>
+            <select id="plannerDuration" required>
+              <option value="3 Days">Quick Weekend (3 Days)</option>
+              <option value="5 Days" selected>Standard Tour (5 Days)</option>
+              <option value="7 Days">Deep Exploration (7 Days)</option>
+              <option value="10+ Days">Slow Travel (10+ Days)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="plannerFocus">Primary Focus</label>
+            <select id="plannerFocus" required>
+              <option value="Crafts">Culture & Living Crafts</option>
+              <option value="Nature">Wildlife & Great Rann</option>
+              <option value="History">Forts & Harappan Ruins</option>
+              <option value="Beaches">Hidden Beaches & Offbeat Trails</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="planner-submit-btn">
+          <span>Get Free Custom Itinerary</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Success Panel (hidden by default, revealed via JS) -->
+      <div class="planner-success-panel glass-card" id="plannerSuccess" style="display:none;">
+        <div class="planner-success-icon">✓</div>
+        <h3>Khem Khem! Itinerary Configured!</h3>
+        <p>Thank you! We have compiled your custom itinerary. A detailed day-by-day plan has been sent to your email.</p>
+      </div>
+
+      <div class="planner-checklist-row scroll-reveal">
+        <div class="planner-check-item">Custom day-by-day itinerary</div>
+        <div class="planner-check-item">Local homestay recommendations</div>
+        <div class="planner-check-item">Artisan contacts & village maps</div>
+        <div class="planner-check-item">Permit guidance for border zones</div>
+      </div>
+    </div>
+  </div>
+</section>

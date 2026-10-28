@@ -6,6 +6,7 @@ interface Props {
   canonicalPath?: string;
   structuredData?: string;
   bodyClass?: string;
+  robots?: string;
 }
 
 const {
@@ -14,7 +15,8 @@ const {
   keywords = "Bhuj services, local services Bhuj, electrician Bhuj, plumber Bhuj, verified providers Bhuj",
   canonicalPath = "",
   structuredData,
-  bodyClass = ""
+  bodyClass = "",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 } = Astro.props;
 
 const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
@@ -24,7 +26,9 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#e91e8c">
+    <meta name="robots" content={robots}>
+    <meta name="format-detection" content="telephone=yes">
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -49,6 +53,7 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
     <meta property="og:description" content={description}>
     <meta property="og:image" content="https://bhuj.kutchonline.com/assets/public/images/bhujonline-logo.png">
     <meta property="og:locale" content="en_IN">
+    <meta property="og:image:alt" content="bhuj.kutchonline.com – local business directory for Bhuj, Kutch">
     <meta property="og:site_name" content="Bhuj Online">
 
     <!-- Twitter -->
@@ -60,6 +65,7 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Fonts -->
@@ -87,11 +93,8 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
                     <div class="nav-links">
                         <a href="/bhuj/" class="nav-link"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
                         <a href="/bhuj/offers" class="nav-link"><i class="fa-solid fa-tag" aria-hidden="true"></i><span>Offers</span></a>
-                        <a href="/bhuj/jobs" class="nav-link"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Jobs</span></a>
                         <a href="/bhuj/about" class="nav-link"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>About</span></a>
                         <a href="/bhuj/about-bhuj" class="nav-link"><i class="fa-solid fa-landmark" aria-hidden="true"></i><span>About Bhuj</span></a>
-                        <a href="/bhuj/create-webpage" class="nav-link"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>Webpage</span></a>
-                        <a href="/bhuj/create-digital-card" class="nav-link"><i class="fa-solid fa-id-card" aria-hidden="true"></i><span>Digital Card</span></a>
                     </div>
                 </nav>
 
@@ -104,54 +107,22 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
         <slot />
 
         <!-- Footer -->
-        <footer class="bof-footer" aria-label="Site footer">
-            <div class="bof-footer-inner">
-                <!-- Brand column -->
-                <div class="bof-col bof-col-brand">
-                    <a class="bof-brand-link" href="/bhuj/" aria-label="bhuj.kutchonline.com home">
-                        <span class="bof-brand-accent">bhuj.</span><span class="bof-brand-rest">kutchonline.com</span>
-                    </a>
-                    <p class="bof-tagline">Local services directory for Bhuj</p>
-                    <div class="bof-contact-list">
-                        <a class="bof-contact-item" href="tel:+919825034580">
-                            <span class="bof-contact-icon">📞</span>
-                            <span>+91 98250 34580</span>
-                        </a>
-                        <a class="bof-contact-item" href="mailto:info@kutchonline.com">
-                            <span class="bof-contact-icon">✉️</span>
-                            <span>info@kutchonline.com</span>
-                        </a>
-                        <a class="bof-contact-item" href="https://wa.me/919825034580" target="_blank" rel="noopener noreferrer">
-                            <span class="bof-contact-icon">💬</span>
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
-                    <p class="bof-hours">Mon – Sat &nbsp;•&nbsp; 9:00 AM – 8:00 PM</p>
-                </div>
-
-                <!-- Divider -->
-                <div class="bof-divider" aria-hidden="true"></div>
-
-                <!-- Nav column -->
-                <div class="bof-col bof-col-nav">
-                    <h3 class="bof-col-title">Pages</h3>
-                    <nav class="bof-nav" aria-label="Footer navigation">
-                        <a class="bof-nav-link" href="/bhuj/">🏠 Home</a>
-                        <a class="bof-nav-link" href="/bhuj/offers">💎 Offers</a>
-                        <a class="bof-nav-link" href="/bhuj/jobs">💼 Jobs</a>
-                        <a class="bof-nav-link" href="/bhuj/about">ℹ️ About Us</a>
-                        <a class="bof-nav-link" href="/bhuj/about-bhuj">🏛️ About Bhuj</a>
-                        <a class="bof-nav-link" href="/bhuj/create-webpage">🌐 Create Webpage</a>
-                        <a class="bof-nav-link" href="/bhuj/create-digital-card">🪪 Digital Card</a>
-                    </nav>
+        <footer class="ft" aria-label="Site footer">
+            <div class="ft-inner">
+                <a class="ft-brand" href="/bhuj/" aria-label="bhuj.kutchonline.com home"><span>bhuj.</span>kutchonline.com</a>
+                <nav class="ft-links" aria-label="Footer navigation">
+                    <a href="/bhuj/">Home</a>
+                    <a href="/bhuj/offers">Offers</a>
+                    <a href="/bhuj/about">About</a>
+                    <a href="/bhuj/about-bhuj">About Bhuj</a>
+                </nav>
+                <div class="ft-contact">
+                    <a href="tel:+919825034580">+91 98250 34580</a>
+                    <a href="https://wa.me/919825034580" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a href="mailto:info@kutchonline.com">info@kutchonline.com</a>
                 </div>
             </div>
-
-            <!-- Bottom bar -->
-            <div class="bof-bar">
-                <span>© {new Date().getFullYear()} bhuj.kutchonline.com. All rights reserved.</span>
-                <span>Made with ❤️ for Bhuj</span>
-            </div>
+            <p class="ft-copy">© {new Date().getFullYear()} bhuj.kutchonline.com &nbsp;·&nbsp; Mon – Sat, 9:00 AM – 8:00 PM &nbsp;·&nbsp; Made with ❤️ for Bhuj</p>
         </footer>
     </div>
 
@@ -275,8 +246,13 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
 
     /* Body */
     body {
-        background-color: #f0f9ff !important;
+        background-color: #ffffff !important;
         color: #0f172a !important;
+    }
+    /* Pure white page surfaces (no tinted section backdrops) */
+    .page-offers main, .page-offers .section-pricing, .page-offers .section-testimonials,
+    .jb-section.jb-section-light, .vcg-main {
+        background: #ffffff !important;
     }
 
     /* Container padding — slim to match 58px navbar */
@@ -416,5 +392,123 @@ const canonicalUrl = `https://bhuj.kutchonline.com/${canonicalPath}`;
         justify-content: space-between;
         color: #94a3b8 !important;
         font-size: 0.82rem;
+    }
+</style>
+
+<style is:global>
+    /* ── TOPBAR — Pink glassmorphism ─────────────────── */
+    .topbar {
+        background: linear-gradient(120deg, rgba(255,255,255,0.55) 0%, rgba(255,170,212,0.42) 50%, rgba(255,255,255,0.5) 100%) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.8) !important;
+        backdrop-filter: blur(22px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+        box-shadow: 0 10px 34px -10px rgba(233,30,140,0.35), inset 0 -1px 0 rgba(233,30,140,0.12), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+    }
+    .topbar-brand-accent { color: #e91e8c !important; }
+    .topbar-brand-rest   { color: #6b1646 !important; }
+    .topbar-brand-tld    { color: rgba(107,22,70,0.45) !important; }
+    .topbar .nav-link {
+        color: #8a2d62 !important;
+        border: 1px solid transparent !important;
+        border-radius: 14px !important;
+    }
+    .topbar .nav-link:hover {
+        background: rgba(255,255,255,0.65) !important;
+        border-color: rgba(255,255,255,0.9) !important;
+        color: #e91e8c !important;
+        box-shadow: 0 6px 16px -6px rgba(233,30,140,0.4) !important;
+    }
+    .topbar .nav-link.active, .topbar .nav-link.is-active, .topbar .nav-link[aria-current="page"] {
+        background: rgba(255,255,255,0.75) !important;
+        border-color: rgba(255,255,255,0.95) !important;
+        color: #e91e8c !important;
+        box-shadow: 0 6px 16px -6px rgba(233,30,140,0.45), inset 0 1px 0 #fff !important;
+    }
+    .topbar-cta {
+        background: linear-gradient(135deg, #ff4fa8, #e91e8c 55%, #c4127a) !important;
+        border-radius: 14px !important;
+        box-shadow: 0 10px 22px -8px rgba(233,30,140,0.6), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+    }
+    .topbar-cta:hover {
+        background: linear-gradient(135deg, #ff5fb2, #f0269a 55%, #cc1581) !important;
+        box-shadow: 0 14px 26px -8px rgba(233,30,140,0.7), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+    }
+</style>
+<script is:inline>
+  // mark the current page in the nav
+  (function () {
+    var path = location.pathname.replace(/\/+$/, '') || '/';
+    document.querySelectorAll('.topbar .nav-link').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/\/+$/, '') || '/';
+      if (href === path || (href !== '/bhuj' && path.indexOf(href) === 0)) a.setAttribute('aria-current', 'page');
+    });
+  })();
+</script>
+
+<style is:global>
+    /* ── FOOTER — simple, light, pink accents ───────── */
+    .ft {
+        margin-top: 56px; padding: 30px 24px 22px; background: #ffffff;
+        border-top: 1px solid rgba(233,30,140,0.18);
+        box-shadow: 0 -12px 30px -18px rgba(233,30,140,0.25);
+        font-family: 'Outfit', sans-serif;
+    }
+    .ft-inner {
+        max-width: 1120px; margin: 0 auto; display: flex; align-items: center;
+        justify-content: space-between; gap: 18px 32px; flex-wrap: wrap;
+    }
+    .ft-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; color: #6b1646; text-decoration: none; }
+    .ft-brand span { color: #e91e8c; }
+    .ft-links, .ft-contact { display: flex; gap: 6px 22px; flex-wrap: wrap; align-items: center; }
+    .ft-links a, .ft-contact a { color: #7a3a5e; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: color .2s; }
+    .ft-links a:hover, .ft-contact a:hover { color: #e91e8c; }
+    .ft-copy { max-width: 1120px; margin: 22px auto 0; padding-top: 16px; border-top: 1px solid #f3dce8; text-align: center; font-size: 0.8rem; color: #a07890; }
+    @media (max-width: 720px) {
+        .ft-inner { flex-direction: column; text-align: center; }
+        .ft-links, .ft-contact { justify-content: center; }
+    }
+</style>
+
+<style is:global>
+    /* ── RESPONSIVE — phone & tablet ───────────────── */
+    html, body { overflow-x: clip; max-width: 100%; }
+    img, video, svg { max-width: 100%; height: auto; }
+    .topbar-brand { min-width: 0; }
+
+    /* tablet: keep the glass nav on one line */
+    @media (min-width: 601px) and (max-width: 900px) {
+        .topbar-inner { padding: 0 14px !important; gap: 8px !important; }
+        .topbar-brand { font-size: 1.05rem !important; }
+        .topbar .nav-link { padding: 7px 9px !important; font-size: 0.78rem !important; gap: 5px !important; }
+        .topbar-cta { padding: 8px 12px !important; }
+        .topbar-cta span { display: none !important; }
+        .ft-inner { justify-content: center; text-align: center; }
+    }
+
+    /* phone: pink glass hamburger + dropdown */
+    @media (max-width: 600px) {
+        .topbar-inner { display: flex !important; padding: 0 14px !important; gap: 10px !important; }
+        .topbar-brand { font-size: 1.05rem !important; margin-right: auto; }
+        .topbar-cta { order: 2; }
+        .nav-toggle {
+            order: 3; width: 42px !important; height: 42px !important; border-radius: 14px !important;
+            background: rgba(255,255,255,0.7) !important; border: 1px solid rgba(255,255,255,0.95) !important;
+            box-shadow: 0 8px 18px -8px rgba(233,30,140,0.45), inset 0 1px 0 #fff !important;
+        }
+        .nav-toggle-lines span { background: #e91e8c !important; }
+        .topbar .main-nav {
+            left: 0 !important; right: 0 !important; width: 100% !important; max-width: none !important; justify-self: stretch !important;
+            background: linear-gradient(160deg, rgba(255,255,255,0.96), rgba(255,214,234,0.94)) !important;
+            backdrop-filter: blur(22px) saturate(180%) !important; -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+            border-bottom: 1px solid rgba(233,30,140,0.2) !important;
+            box-shadow: 0 22px 40px -14px rgba(233,30,140,0.4) !important;
+        }
+        .topbar .nav-link { color: #8a2d62 !important; font-size: 1rem !important; padding: 13px 14px !important; }
+        .topbar .nav-link:hover, .topbar .nav-link[aria-current="page"] { background: rgba(255,255,255,0.8) !important; color: #e91e8c !important; }
+        .ft { padding: 26px 18px 20px; }
+        .ft-copy { font-size: 0.74rem; }
+    }
+    @media (max-width: 380px) {
+        .topbar-brand-tld { display: none !important; }
     }
 </style>

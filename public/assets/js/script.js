@@ -195,6 +195,12 @@ function initHomePage() {
         // Cap stagger so 50+ results don't have a ridiculously long delay
         const maxStagger = Math.min(categories.length, 24);
 
+        // 3D emoji icon (Fluent Emoji 3D); filename = unicode codepoints joined by "-"
+        const icon3d = (emoji) => {
+            const file = Array.from(emoji).map(c => c.codePointAt(0).toString(16).padStart(4, '0')).join('-');
+            return `https://cdn.jsdelivr.net/npm/@lobehub/fluent-emoji-3d@1.1.0/assets/${file}.webp`;
+        };
+
         const html = categories.map((cat, i) => {
             if (!cat || !cat.id) return '';
             const nameEn = cat.name || 'Category';
@@ -203,7 +209,9 @@ function initHomePage() {
             const delay = i < maxStagger ? `${i * 28}ms` : '0ms';
 
             return `<li class="hp-cat-item"><a href="/bhuj/${cat.id}-in-bhuj.html" class="hp-cat-card${isSearch ? ' search-result' : ''}" style="animation-delay:${delay}">
-                <span class="hp-cat-icon"><i class="fa-solid ${faIcon}" style="color:${faColor}"></i></span>
+                <span class="hp-cat-icon">${cat.icon
+                    ? `<img src="${icon3d(cat.icon)}" alt="" width="48" height="48" loading="lazy" decoding="async" onerror="this.outerHTML='<i class=\'fa-solid ${faIcon}\' style=\'color:${faColor}\'></i>'">`
+                    : `<i class="fa-solid ${faIcon}" style="color:${faColor}"></i>`}</span>
                 <span class="hp-cat-en">${nameEn}</span>
                 <span class="hp-cat-gu">${nameGu}</span>
             </a></li>`;

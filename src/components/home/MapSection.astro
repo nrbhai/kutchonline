@@ -1,0 +1,165 @@
+---
+// MapSection.astro
+---
+
+<section class="map-sec" id="map">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label">Navigate Kutch</span>
+      <h2 class="section-title-text">Map of Hidden Kutch</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc-text">All 42+ places across five regions, color-coded for easy planning. Click the markers on the map to explore the geography.</p>
+    </div>
+
+    <div class="map-card-wrapper scroll-reveal">
+      <div class="map-interactive-view">
+        <svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" class="map-svg-element">
+          <defs>
+            <linearGradient id="mapSeaGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#070c16"/>
+              <stop offset="100%" stop-color="#0b172a"/>
+            </linearGradient>
+            <linearGradient id="mapLandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#111d30"/>
+              <stop offset="100%" stop-color="#1b2a42"/>
+            </linearGradient>
+            <linearGradient id="mapRannGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#2a394f"/>
+              <stop offset="100%" stop-color="#1e293b"/>
+            </linearGradient>
+          </defs>
+          
+          <!-- Sea background -->
+          <rect width="900" height="440" fill="url(#mapSeaGrad)"/>
+          
+          <!-- Great Rann -->
+          <ellipse cx="500" cy="80" rx="340" ry="60" fill="url(#mapRannGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" opacity="0.6"/>
+          <text x="500" y="76" text-anchor="middle" fill="#C9933A" font-size="11" font-family="Outfit, sans-serif" font-weight="700" letter-spacing="3" opacity="0.75">GREAT RANN OF KUTCH</text>
+          
+          <!-- Little Rann -->
+          <ellipse cx="750" cy="200" rx="90" ry="45" fill="url(#mapRannGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" opacity="0.6"/>
+          <text x="750" y="204" text-anchor="middle" fill="#C9933A" font-size="9" font-family="Outfit, sans-serif" font-weight="700" opacity="0.6">LITTLE RANN</text>
+          
+          <!-- Land mass - Kutch district -->
+          <path d="M 160 130 Q 200 110 280 120 Q 360 115 440 120 Q 520 118 580 125 Q 660 130 700 155 Q 720 170 710 200 Q 700 240 680 260 Q 650 290 620 310 Q 580 330 540 340 Q 500 348 460 345 Q 420 340 380 335 Q 340 328 300 320 Q 260 310 230 295 Q 190 275 170 250 Q 150 220 155 190 Q 158 160 160 130 Z" fill="url(#mapLandGrad)" stroke="rgba(201, 147, 58, 0.2)" stroke-width="1.5"/>
+          
+          <!-- Arabian Sea label -->
+          <text x="100" y="370" fill="#2E4A6E" font-size="12" font-family="Outfit, sans-serif" font-weight="700" opacity="0.8" letter-spacing="2">ARABIAN SEA</text>
+
+          <!-- REGION LABELS -->
+          <text x="250" y="165" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Outfit, sans-serif" font-weight="800" letter-spacing="2">NORTHERN</text>
+          <text x="400" y="215" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Outfit, sans-serif" font-weight="800" letter-spacing="2">CENTRAL</text>
+          <text x="590" y="225" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Outfit, sans-serif" font-weight="800" letter-spacing="2">EASTERN</text>
+          <text x="200" y="280" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Outfit, sans-serif" font-weight="800" letter-spacing="2">WESTERN</text>
+          <text x="450" y="108" fill="rgba(255,255,255,0.2)" font-size="9" font-family="Outfit, sans-serif" font-weight="800" letter-spacing="2">RANN AREA</text>
+
+          <!-- PLACE MARKERS - North -->
+          <g class="map-interactive-pin">
+            <circle cx="175" cy="150" r="6" fill="#C9933A" stroke="#070c16" stroke-width="1.5"/>
+            <text x="175" y="140" text-anchor="middle">Lakhpat</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="210" cy="145" r="5" fill="#C9933A" stroke="#070c16" stroke-width="1"/>
+            <text x="210" y="135" text-anchor="middle">N.Sarovar</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="245" cy="148" r="5" fill="#C9933A" stroke="#070c16" stroke-width="1"/>
+            <text x="245" y="138" text-anchor="middle">Koteshwar</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="280" cy="145" r="5" fill="#C9933A" stroke="#070c16" stroke-width="1"/>
+            <text x="280" y="135" text-anchor="middle">Ch.Dhandh</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="340" cy="146" r="5" fill="#C9933A" stroke="#070c16" stroke-width="1"/>
+            <text x="340" y="136" text-anchor="middle">Naliya</text>
+          </g>
+
+          <!-- Central markers -->
+          <g class="map-interactive-pin">
+            <circle cx="400" cy="205" r="7" fill="#B5533C" stroke="#070c16" stroke-width="1.5"/>
+            <text x="400" y="195" text-anchor="middle">Bhuj ★</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="435" cy="215" r="5" fill="#B5533C" stroke="#070c16" stroke-width="1"/>
+            <text x="435" y="230" text-anchor="middle">Bhujodi</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="460" cy="220" r="5" fill="#B5533C" stroke="#070c16" stroke-width="1"/>
+            <text x="460" y="235" text-anchor="middle">Ajrakhpur</text>
+          </g>
+
+          <!-- Eastern markers -->
+          <g class="map-interactive-pin">
+            <circle cx="610" cy="215" r="5" fill="#E8B95A" stroke="#070c16" stroke-width="1"/>
+            <text x="610" y="205" text-anchor="middle">Rapar</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="640" cy="225" r="5" fill="#E8B95A" stroke="#070c16" stroke-width="1"/>
+            <text x="640" y="240" text-anchor="middle">Kanthkot</text>
+          </g>
+
+          <!-- Western / Coast markers -->
+          <g class="map-interactive-pin">
+            <circle cx="230" cy="285" r="6" fill="#1A6B4A" stroke="#070c16" stroke-width="1.5"/>
+            <text x="230" y="303" text-anchor="middle">Mandvi</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="195" cy="295" r="5" fill="#1A6B4A" stroke="#070c16" stroke-width="1"/>
+            <text x="195" y="310" text-anchor="middle">Pingleshwar</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="260" cy="295" r="5" fill="#1A6B4A" stroke="#070c16" stroke-width="1"/>
+            <text x="260" y="310" text-anchor="middle">Trambau</text>
+          </g>
+
+          <!-- Rann area markers -->
+          <g class="map-interactive-pin">
+            <circle cx="480" cy="120" r="6" fill="#8B4513" stroke="#070c16" stroke-width="1.5"/>
+            <text x="480" y="110" text-anchor="middle">Dholavira</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="430" cy="112" r="5" fill="#8B4513" stroke="#070c16" stroke-width="1"/>
+            <text x="430" y="102" text-anchor="middle">Flamingo City</text>
+          </g>
+          <g class="map-interactive-pin">
+            <circle cx="360" cy="118" r="5" fill="#8B4513" stroke="#070c16" stroke-width="1"/>
+            <text x="360" y="108" text-anchor="middle">Kalo Dungar</text>
+          </g>
+          
+          <!-- Compass rose -->
+          <g transform="translate(830,370)" opacity="0.6">
+            <circle cx="0" cy="0" r="18" fill="none" stroke="#E8B95A" stroke-width="1"/>
+            <text x="0" y="-7" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="900">N</text>
+            <polygon points="0,-14 3,-3 0,-7 -3,-3" fill="#C9933A"/>
+            <polygon points="0,14 3,3 0,7 -3,3" fill="rgba(255,255,255,0.3)"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Colors regions legend -->
+      <div class="map-regions-legend-bar">
+        <div class="legend-bar-item">
+          <div class="legend-bar-dot" style="background:#C9933A"></div>
+          <span class="legend-bar-text">Northern Kutch — Border & Forts</span>
+        </div>
+        <div class="legend-bar-item">
+          <div class="legend-bar-dot" style="background:#B5533C"></div>
+          <span class="legend-bar-text">Central Kutch — Craft Villages</span>
+        </div>
+        <div class="legend-bar-item">
+          <div class="legend-bar-dot" style="background:#E8B95A"></div>
+          <span class="legend-bar-text">Eastern Kutch — Fossil Sites</span>
+        </div>
+        <div class="legend-bar-item">
+          <div class="legend-bar-dot" style="background:#1A6B4A"></div>
+          <span class="legend-bar-text">Western Kutch — Secret Beaches</span>
+        </div>
+        <div class="legend-bar-item">
+          <div class="legend-bar-dot" style="background:#8B4513"></div>
+          <span class="legend-bar-text">Rann Area — Ancient Ruins</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

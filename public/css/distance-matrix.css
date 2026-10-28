@@ -1,0 +1,152 @@
+/* =========================================
+   DISTANCE-MATRIX PAGE SPECIFIC STYLES
+   ========================================= */
+
+.distance-matrix-page .page-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 8rem 0 4rem;
+    text-align: center;
+}
+
+
+
+.distance-matrix-page .page-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+
+.distance-matrix-page .page-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+
+.distance-matrix-page .search-container {
+    max-width: 600px;
+    margin: -2rem auto 2rem;
+    position: relative;
+    z-index: 10;
+    padding: 0 1rem;
+}
+
+
+
+.distance-matrix-page .search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+
+
+.distance-matrix-page .search-input:focus {
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+}
+
+
+
+.distance-matrix-page .table-container {
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 4rem;
+}
+
+
+
+.distance-matrix-page .distance-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+
+
+.distance-matrix-page .distance-table th {
+    background: #f8fafc;
+    padding: 1rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+
+
+.distance-matrix-page .distance-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    color: #334155;
+    vertical-align: middle;
+}
+
+
+
+.distance-matrix-page .distance-table tr:hover {
+    background-color: #f8fafc;
+}
+
+
+
+.distance-matrix-page .badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+
+
+.distance-matrix-page .dist-cell {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+
+
+.distance-matrix-page .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+@media (max-width: 768px) {
+    .distance-matrix-page .page-header {
+        padding: 6rem 0 3rem;
+    }
+
+
+
+    .distance-matrix-page .page-title {
+        font-size: 2rem;
+    }
+
+
+
+    .distance-matrix-page .distance-table th,
+    .distance-matrix-page .distance-table td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }

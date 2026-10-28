@@ -1,0 +1,67 @@
+---
+// Culture.astro
+
+const traditions = [
+  {
+    icon: "🎨",
+    title: "Ajrakh Block Printing",
+    text: "A 4,500-year-old resist-printing tradition using natural indigo, madder, and pomegranate dyes with carved wooden blocks. The geometric patterns encode cosmological alignments."
+  },
+  {
+    icon: "🧵",
+    title: "Rabari Embroidery",
+    text: "Kutch has 16+ distinct embroidery styles from different pastoral communities — Rabari, Ahir, Jat. Each community's needlework carries its own visual language and colors."
+  },
+  {
+    icon: "🏺",
+    title: "Rogan Art",
+    text: "Practiced by a single family in Nirona village, Rogan is a 400-year-old art form using boiled castor oil paint to create intricate patterns on fabric — without touching the cloth directly."
+  },
+  {
+    icon: "🏘️",
+    title: "Bhunga Architecture",
+    text: "The circular mud homes of Kutch — bhungas — are masterpieces of vernacular design. Their circular form withstands earthquakes, and their clay walls regulate temperature."
+  },
+  {
+    icon: "🎵",
+    title: "Kutchi Music",
+    text: "From the haunting bhajans of the Meghwal community to the Sufi qawwalis at Dhinodhar, Kutch's musical traditions are as diverse and expansive as its geography."
+  },
+  {
+    icon: "🕌",
+    title: "Sufi Heritage",
+    text: "Kutch has a profound Sufi tradition with dargahs dotted across the region. The Sufi saints preached unity across religions, drawing diverse communities."
+  },
+  {
+    icon: "🔔",
+    title: "Copper Bell Craft",
+    text: "Artisans in Nirona preserve the rare craft of hand-beaten copper and brass bells. Each bell is custom-tuned to a specific musical note without using any welding joints."
+  },
+  {
+    icon: "👘",
+    title: "Bandhani Tie-Dye",
+    text: "Bhuj's Khatri community has been creating Bandhani (tie-and-dye) textiles for over 500 years. A single sari may have 100,000 individually hand-tied knots."
+  }
+];
+---
+
+<section class="culture-sec" id="culture">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label">Living Traditions</span>
+      <h2 class="section-title-text">Culture & Heritage of Kutch</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc-text">Kutch is not just a place — it is a living civilization. Its crafts, music, and architecture have been shaped by trade, migration, and a landscape that demands resilience.</p>
+    </div>
+
+    <div class="culture-grid scroll-reveal">
+      {traditions.map(item => (
+        <div class="culture-card-trendy">
+          <div class="culture-card-icon">{item.icon}</div>
+          <h3 class="culture-card-title">{item.title}</h3>
+          <p class="culture-card-text">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

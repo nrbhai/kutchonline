@@ -1,0 +1,66 @@
+---
+// Festivals.astro
+
+const events = [
+  {
+    month: "Nov–Feb",
+    title: "Rann Utsav",
+    desc: "The flagship festival of Gujarat Tourism transforms the White Rann into a cultural extravaganza. Folk music, dance, craft exhibitions, camel rides, and full-moon nights on the salt desert. The defining Kutch experience for first-timers."
+  },
+  {
+    month: "Mar–Apr",
+    title: "Flamingo Festival",
+    desc: "Timed with the breeding season of flamingos at Flamingo City, this festival combines wildlife tourism with local cultural events. Boat trips, nature walks, and photography workshops in a stunning setting."
+  },
+  {
+    month: "Sep–Oct",
+    title: "Navratri at Mata no Madh",
+    desc: "The nine nights of Navratri at the temple of Ashapura Mata are a deeply authentic celebration. Thousands of local devotees perform traditional Garba dances in a setting utterly unlike the commercialised city celebrations."
+  },
+  {
+    month: "Jan 14",
+    title: "Kite Festival (Uttarayan)",
+    desc: "Makar Sankranti turns the skies of Kutch into a battlefield of kites. Bhuj's old rooftops are covered with families flying kites from dawn to dusk. The sense of joyful competition is infectious."
+  },
+  {
+    month: "Full Moon",
+    title: "Rann Moonrise (Year-round)",
+    desc: "On full moon nights between October and March, the salt desert glows white under the moon. This is not a scheduled festival — it is simply nature performing its greatest light show. Plan your visit around the lunar calendar."
+  },
+  {
+    month: "Variable",
+    title: "Urs at Dhinodhar",
+    desc: "The annual Urs (death anniversary celebration) at the Sufi dargah atop Dhinodhar Hill brings together qawwali singers, pilgrims of all faiths, and a celebration of Sufi mysticism that transcends religious boundaries."
+  }
+];
+---
+
+<section class="festivals-sec" id="festivals">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label">Celebrate Kutch</span>
+      <h2 class="section-title-text">Festivals & Events</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc-text">Kutch comes alive through its festivals. Each celebration is a window into the living culture, music, and identity of this extraordinary region.</p>
+    </div>
+
+    <div class="timeline-container scroll-reveal">
+      <div class="timeline-line"></div>
+      
+      {events.map((event, index) => (
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <span class="timeline-badge">{event.month}</span>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content-wrap">
+            <div class="timeline-card">
+              <h3>{event.title}</h3>
+              <p>{event.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,533 @@
+---
+// HiddenGems.astro
+import destinations from "../../data/destinations.json";
+
+const regions = [
+  { id: "north", name: "Northern Kutch", count: 10, icon: "⬆️" },
+  { id: "central", name: "Central Kutch", count: 10, icon: "🎯" },
+  { id: "east", name: "Eastern Kutch", count: 8, icon: "➡️" },
+  { id: "west", name: "Western Kutch", count: 7, icon: "⬅️" },
+  { id: "rann", name: "Rann Area", count: 7, icon: "🏜️" }
+];
+
+const gems = [
+  // NORTHERN KUTCH
+  {
+    id: 1,
+    region: "north",
+    name: "Lakhpat Fort & Gurudwara",
+    category: "Fort",
+    emoji: "🏰",
+    desc: "A ghost town enclosed in 7 km of intact fortified walls beside the dried-up Sindhu river. Once a thriving port city with 10,000 inhabitants, now hauntingly silent.",
+    whyVisit: "Witness an abandoned port city frozen in time. The Gurudwara inside was visited by Guru Nanak himself.",
+    gradient: "linear-gradient(135deg, #1A2E4A, #B5533C)"
+  },
+  {
+    id: 2,
+    region: "north",
+    name: "Narayan Sarovar",
+    category: "Sacred Lake",
+    emoji: "🌊",
+    desc: "One of the five sacred lakes in Hindu tradition, set at the edge of India where the land meets the Arabian Sea. A pilgrimage site of great antiquity and serene beauty.",
+    whyVisit: "One of Hinduism's Panch Sarovar. The sunsets here over the sacred waters are extraordinary.",
+    gradient: "linear-gradient(135deg, #2E4A6E, #1A6B4A)"
+  },
+  {
+    id: 3,
+    region: "north",
+    name: "Koteshwar Mahadev",
+    category: "Temple",
+    emoji: "🛕",
+    desc: "Ancient Shiva temple at India's westernmost tip, surrounded by the sea on three sides. According to legend, Ravana rested the Shivling here on his way from Kailash.",
+    whyVisit: "Mythological significance + dramatic coastal setting = one of Kutch's most powerful spiritual spots.",
+    gradient: "linear-gradient(135deg, #4A2E1A, #8B4513)"
+  },
+  {
+    id: 4,
+    region: "north",
+    name: "Chhari Dhandh Wetland",
+    category: "Wetland",
+    emoji: "🦩",
+    desc: "A remote, pristine wetland near the Indo-Pakistan border hosting thousands of migratory flamingos, pelicans, and waders every winter. A birdwatcher's paradise.",
+    whyVisit: "Witness tens of thousands of flamingos turning the wetland pink. Virtually crowd-free.",
+    gradient: "linear-gradient(135deg, #1A4A3A, #3A6E52)"
+  },
+  {
+    id: 5,
+    region: "north",
+    name: "Vrajvani Temple",
+    category: "Temple",
+    emoji: "🙏",
+    desc: "A serene hillside shrine with sweeping views of the Rann, dedicated to the local deity Vrajvani Mata. The rocky landscape creates a mystical, other-worldly atmosphere.",
+    whyVisit: "Spectacular views over the Rann of Kutch. Rarely visited by tourists outside of festivals.",
+    gradient: "linear-gradient(135deg, #4A3A1A, #C9933A)"
+  },
+  {
+    id: 6,
+    region: "north",
+    name: "Mata no Madh",
+    category: "Pilgrimage",
+    emoji: "🌺",
+    desc: "The main seat of Goddess Ashapura — the Kuldevi (clan goddess) of the Kutchi people. This ancient temple draws massive local pilgrimages that feel deeply authentic.",
+    whyVisit: "Experience a genuine local religious tradition not performed for tourists. The Navratri celebrations here are electric.",
+    gradient: "linear-gradient(135deg, #3A1A4A, #6E3A8B)"
+  },
+  {
+    id: 7,
+    region: "north",
+    name: "Desalpar (Harappan Site)",
+    category: "Archaeology",
+    emoji: "🏛️",
+    desc: "A little-known Harappan-era archaeological site with a freshwater lake beside it. The site predates Dholavira but sees only a fraction of the visitors. Surrounded by stark, beautiful desert.",
+    whyVisit: "Walk among 4,000-year-old ruins with almost no other visitors. The lake is stunning at dusk.",
+    gradient: "linear-gradient(135deg, #2A1A0A, #6B4226)"
+  },
+  {
+    id: 8,
+    region: "north",
+    name: "Gadhuli Border Point",
+    category: "Border",
+    emoji: "🚩",
+    desc: "A dramatic and emotional spot near the Indo-Pakistan border where BSF soldiers perform a flag-lowering ceremony at sunset, similar to but far less crowded than Wagah. Deeply stirring.",
+    whyVisit: "Experience the sunset flag ceremony without the Wagah crowds. A raw, patriotic experience.",
+    gradient: "linear-gradient(135deg, #1A2A4A, #2E4060)"
+  },
+  {
+    id: 9,
+    region: "north",
+    name: "Tera Village",
+    category: "Heritage Village",
+    emoji: "🏘️",
+    desc: "A living museum of traditional Kutchi architecture with centuries-old havelis adorned with intricate woodwork and mirror-work decorations. The earthquake of 2001 spared much of its ancient core.",
+    whyVisit: "Explore Kutch's architectural heritage with genuine local life happening all around you.",
+    gradient: "linear-gradient(135deg, #3A2A1A, #8B6A3A)"
+  },
+  {
+    id: 10,
+    region: "north",
+    name: "Naliya Grasslands",
+    category: "Wildlife",
+    emoji: "🦅",
+    desc: "One of the last habitats of the critically endangered Great Indian Bustard — the world's heaviest flying bird. These open grasslands near Naliya are a rare and precious ecosystem.",
+    whyVisit: "Spot one of the world's rarest birds. Fewer than 150 Great Indian Bustards survive — many live here.",
+    gradient: "linear-gradient(135deg, #1A3A2A, #2E7A52)"
+  },
+
+  // CENTRAL KUTCH
+  {
+    id: 11,
+    region: "central",
+    name: "Bhujiyo Fort",
+    category: "Fort",
+    emoji: "⛰️",
+    desc: "The guardian hill of Bhuj, topped by a ruined fort and a snake deity temple. The climb rewards you with 360° panoramic views of the entire Bhuj cityscape and surrounding plains.",
+    whyVisit: "Best panoramic view of Bhuj. The snake temple at the top adds a spiritual dimension to the trek.",
+    gradient: "linear-gradient(135deg, #2A2A4A, #4A4A8B)"
+  },
+  {
+    id: 12,
+    region: "central",
+    name: "Sharad Baug Palace",
+    category: "Palace",
+    emoji: "🏛️",
+    desc: "The last residence of Kutch's final ruler, Maharao Madansinghji. An intimate, garden-set palace that feels personal and unpolished compared to grander royal properties — which makes it more real.",
+    whyVisit: "Peek into the private life of Kutch's last maharao. The garden is a tranquil retreat within Bhuj.",
+    gradient: "linear-gradient(135deg, #3A1A2A, #8B3A6A)"
+  },
+  {
+    id: 13,
+    region: "central",
+    name: "Chattardi Cenotaphs",
+    category: "Heritage",
+    emoji: "🪦",
+    desc: "Ornate royal chhatris (cenotaphs) of the Kutch rulers, featuring exquisite fusion of Rajput, Islamic, and European architectural styles. Largely overlooked by visitors staying in Bhuj.",
+    whyVisit: "Stunning architectural fusion rarely seen elsewhere. Often completely empty of tourists.",
+    gradient: "linear-gradient(135deg, #1A1A2A, #3A3A6A)"
+  },
+  {
+    id: 14,
+    region: "central",
+    name: "Ramkund Stepwell",
+    category: "Stepwell",
+    emoji: "🪜",
+    desc: "An ancient vav (stepwell) with beautifully carved stone steps descending to sacred water. These geometric, architecturally complex structures were medieval masterpieces of water engineering.",
+    whyVisit: "A hidden gem of Kutchi craftsmanship. The geometry and stonework are remarkable up close.",
+    gradient: "linear-gradient(135deg, #1A3A4A, #2E7A8B)"
+  },
+  {
+    id: 15,
+    region: "central",
+    name: "Tapkeshwari Hills",
+    category: "Viewpoint",
+    emoji: "🌄",
+    desc: "A rocky hilltop temple complex with natural springs, caves, and sweeping desert vistas. Pilgrims come for the goddess; trekkers come for the dramatic landscape that unfolds from the summit.",
+    whyVisit: "Combines spiritual significance with a genuinely exciting rocky landscape and great views.",
+    gradient: "linear-gradient(135deg, #3A2A1A, #7A5A3A)"
+  },
+  {
+    id: 16,
+    region: "central",
+    name: "Bhujodi Weaving Village",
+    category: "Craft Village",
+    emoji: "🧵",
+    desc: "A whole village of master weavers producing Kutchi shawls and textiles on traditional looms. Walk into artisans' homes and see Nat weaving, Rabari embroidery, and Banni crafts being made.",
+    whyVisit: "Buy directly from the weaver's hands. No middlemen, no markups — and stories woven into every piece.",
+    gradient: "linear-gradient(135deg, #2A1A3A, #5A3A7A)"
+  },
+  {
+    id: 17,
+    region: "central",
+    name: "Ajrakhpur (Block Printing)",
+    category: "Craft Village",
+    emoji: "🖨️",
+    desc: "Founded by master block-printer Ismail Khatri after the 2001 earthquake, this planned artisan village is entirely devoted to Ajrakh — the ancient resist-printing tradition using wooden blocks.",
+    whyVisit: "Watch a 5,000-year-old textile technique being practiced by its finest living masters. UNESCO-recognized craft.",
+    gradient: "linear-gradient(135deg, #3A1A1A, #8B3A3A)"
+  },
+  {
+    id: 18,
+    region: "central",
+    name: "Rudramata Reservoir",
+    category: "Reservoir",
+    emoji: "💧",
+    desc: "A large, peaceful reservoir surrounded by migratory birds in winter. The quiet banks feel remote despite being close to Bhuj — locals come to fish; you come for the golden-hour reflections.",
+    whyVisit: "Excellent winter birding and spectacular sunset photography. A genuine local escape from the city.",
+    gradient: "linear-gradient(135deg, #1A3A2A, #3A6E5A)"
+  },
+  {
+    id: 20,
+    region: "central",
+    name: "Bani Grasslands",
+    category: "Grassland",
+    emoji: "🦬",
+    desc: "Vast rolling grasslands stretching towards the Rann, grazed by the cattle of semi-nomadic Rabari and Jat communities. In the monsoon, the grasslands turn a vivid, unexpected green.",
+    whyVisit: "See pastoral nomadic life unchanged for centuries. The monsoon greening of the Rann edge is magical.",
+    gradient: "linear-gradient(135deg, #1A2A3A, #2A4A6A)"
+  },
+
+  // EASTERN KUTCH
+  {
+    id: 21,
+    region: "east",
+    name: "Dhinodhar Hills",
+    category: "Hills",
+    emoji: "⛰️",
+    desc: "The highest point in Kutch (386m) crowned by a Sufi saint's dargah. The climb through scrub forest leads to panoramic views extending to the Little Rann and, on clear days, the sea.",
+    whyVisit: "Highest point in Kutch. The dargah at top is a beautiful example of Sufi culture blending with the landscape.",
+    gradient: "linear-gradient(135deg, #3A2A1A, #8B6A3A)"
+  },
+  {
+    id: 22,
+    region: "east",
+    name: "Koday Jain Temple",
+    category: "Jain Temple",
+    emoji: "🪐",
+    desc: "An ornate Jain temple in the eastern Kutch village of Koday, featuring remarkably detailed marble carvings and mirror work. A little-known jewel of Jain religious architecture in the region.",
+    whyVisit: "The marble carving quality rivals Rajasthan's famous Jain temples — but with virtually no visitors.",
+    gradient: "linear-gradient(135deg, #2A1A3A, #6A3A8B)"
+  },
+  {
+    id: 23,
+    region: "east",
+    name: "Roha Fort",
+    category: "Fort",
+    emoji: "🏰",
+    desc: "A dramatically ruined fort perched on a rocky outcrop in eastern Kutch, offering commanding views of the surrounding plains. Almost entirely unvisited and unrenovated — raw and authentic.",
+    whyVisit: "One of Kutch's most dramatic fort ruins. The isolation and silence make this a deeply contemplative experience.",
+    gradient: "linear-gradient(135deg, #1A1A3A, #3A3A7A)"
+  },
+  {
+    id: 24,
+    region: "east",
+    name: "Kanthkot Fort",
+    category: "Fort",
+    emoji: "🏯",
+    desc: "An ancient fort believed to be over 1,500 years old, with a curious legend linking it to the Pandavas. Its massive, deteriorating walls enclose a miniature abandoned town.",
+    whyVisit: "Mythological heritage plus superb archaeology. You can spend hours exploring the ruins within the walls.",
+    gradient: "linear-gradient(135deg, #3A1A1A, #7A3A3A)"
+  },
+  {
+    id: 25,
+    region: "east",
+    name: "Rapar Stepwells",
+    category: "Stepwells",
+    emoji: "🪜",
+    desc: "A cluster of intricately carved ancient stepwells around Rapar town — Gujarat's tradition of water architecture at its finest. The carved pillars show extraordinary medieval stonecraft.",
+    whyVisit: "Multiple stepwells in one area showing different eras of construction — a stepwell safari in one afternoon.",
+    gradient: "linear-gradient(135deg, #1A3A3A, #3A7A7A)"
+  },
+  {
+    id: 26,
+    region: "east",
+    name: "Kutch Fossil Park",
+    category: "Fossil Park",
+    emoji: "🗿",
+    desc: "An open-air fossil park preserving 40-million-year-old marine fossils in the middle of the desert — evidence that this entire region was once under the Tethys Sea.",
+    whyVisit: "Touch a 40-million-year-old fossil. This outdoor museum is one of India's most underrated geological sites.",
+    gradient: "linear-gradient(135deg, #2A3A1A, #5A7A3A)"
+  },
+  {
+    id: 27,
+    region: "east",
+    name: "Kutch Bustard Sanctuary",
+    category: "Sanctuary",
+    emoji: "🦜",
+    desc: "Established specifically to protect the critically endangered Great Indian Bustard, this sanctuary covers vast grasslands and scrub desert. Winter visits offer the best chance of sightings.",
+    whyVisit: "A rare chance to see a bird on the brink of extinction. This may be one of the last places on Earth where it survives.",
+    gradient: "linear-gradient(135deg, #1A2A1A, #3A5A3A)"
+  },
+  {
+    id: 28,
+    region: "east",
+    name: "Vrajvani Caves",
+    category: "Caves",
+    emoji: "🕳️",
+    desc: "Natural rock shelters and carved cave spaces nestled in the rocky eastern hills of Kutch. The caves contain ancient inscriptions and show signs of use by early communities.",
+    whyVisit: "Multi-religious history carved literally into rock. A short hike rewards with atmospheric cave spaces and ancient art.",
+    gradient: "linear-gradient(135deg, #3A2A2A, #7A5A5A)"
+  },
+
+  // WESTERN KUTCH
+  {
+    id: 29,
+    region: "west",
+    name: "Mandvi Shipbuilding Yard",
+    category: "Maritime",
+    emoji: "⛵",
+    desc: "Traditional wooden dhow boats are still hand-crafted here by master shipbuilders using techniques unchanged for 400 years. These boats were once the lifeline of Indian Ocean trade.",
+    whyVisit: "Watch a 400-year-old maritime tradition live. One of the last working traditional shipyards in India.",
+    gradient: "linear-gradient(135deg, #1A2A4A, #3A5A8B)"
+  },
+  {
+    id: 30,
+    region: "west",
+    name: "Vijay Vilas Palace Trails",
+    category: "Hidden Trails",
+    emoji: "🌿",
+    desc: "Beyond the famous Mandvi beach palace, the surrounding estate has forest trails leading to private coves, old wells, and royal pavilions that average visitors never discover.",
+    whyVisit: "Escape the crowds at the main palace and find your own private stretch of the Vijay Vilas estate.",
+    gradient: "linear-gradient(135deg, #3A3A1A, #8B8B3A)"
+  },
+  {
+    id: 31,
+    region: "west",
+    name: "Maska Village",
+    category: "Village",
+    emoji: "🏘️",
+    desc: "A quiet Kutchi village near the coast where traditional Kumbhar (potter) communities still practice terracotta craft and the old bhungas stand intact with their painted facades.",
+    whyVisit: "Authentic village life with traditional circular architecture. Meet potters whose families have worked clay for generations.",
+    gradient: "linear-gradient(135deg, #1A3A4A, #2E6A7A)"
+  },
+  {
+    id: 32,
+    region: "west",
+    name: "Trambau Beach",
+    category: "Beach",
+    emoji: "🏖️",
+    desc: "A pristine, completely undeveloped beach accessible via a rough track through casuarina forest. No hotels, no plastic chairs — just the Arabian Sea, waves, and silence.",
+    whyVisit: "One of India's last truly wild beaches. If you find it empty (you will), it's all yours.",
+    gradient: "linear-gradient(135deg, #1A2A3A, #2A4A6A)"
+  },
+  {
+    id: 33,
+    region: "west",
+    name: "Pingleshwar Beach",
+    category: "Beach",
+    emoji: "🌊",
+    desc: "A remote black-rock beach near the maritime boundary, framed by tidal pools and dramatic rock formations. A Shiva temple here adds spiritual weight to a stunning natural setting.",
+    whyVisit: "Black volcanic rock meeting turquoise sea — one of India's most dramatic and least-visited coastal landscapes.",
+    gradient: "linear-gradient(135deg, #2A1A3A, #5A3A7A)"
+  },
+  {
+    id: 34,
+    region: "west",
+    name: "Windmill Coastline",
+    category: "Landscape",
+    emoji: "💨",
+    desc: "Hundreds of towering wind turbines line the Kutch coastline creating a surreal, futuristic landscape where ancient fishing villages sit alongside clean energy infrastructure.",
+    whyVisit: "A photographer's dream — ancient fishing culture juxtaposed with a renewable energy future. Extraordinary at dusk.",
+    gradient: "linear-gradient(135deg, #1A3A1A, #3A7A3A)"
+  },
+  {
+    id: 35,
+    region: "west",
+    name: "Modhva Beach (Quiet Side)",
+    category: "Beach",
+    emoji: "🌅",
+    desc: "While Mandvi Beach draws the crowds, Modhva's quieter northern stretch remains empty. The beach is cleaner, the sunsets longer, and the atmosphere deeply peaceful.",
+    whyVisit: "The beach Kutch keeps for itself. Come at sunrise to have it entirely to yourself.",
+    gradient: "linear-gradient(135deg, #1A2A2A, #2A5A5A)"
+  },
+
+  // GREATER RANN & SURROUNDINGS
+  {
+    id: 36,
+    region: "rann",
+    name: "Dholavira (UNESCO)",
+    category: "UNESCO",
+    emoji: "🏛️",
+    desc: "One of the five largest cities of the Indus Valley Civilization, Dholavira predates Rome by 2,000 years. Its sophisticated water management system is a marvel of ancient urban planning.",
+    whyVisit: "Walk through a 5,000-year-old city. The scale and sophistication will reframe everything you think you know about ancient India.",
+    gradient: "linear-gradient(135deg, #2A1A1A, #6A3A2A)"
+  },
+  {
+    id: 37,
+    region: "rann",
+    name: "Fossil Park near Dholavira",
+    category: "Fossil Park",
+    emoji: "🦕",
+    desc: "A second, lesser-known fossil site near Dholavira preserving marine fossils in the desert rock — a reminder that this salt flat was once a tropical sea. Often skipped by tourists.",
+    whyVisit: "Combine with Dholavira for a day that spans from 40 million years ago to 5,000 years ago. Epic perspective.",
+    gradient: "linear-gradient(135deg, #3A3A2A, #7A7A5A)"
+  },
+  {
+    id: 38,
+    region: "rann",
+    name: "Khadir Bet Viewpoints",
+    category: "Viewpoint",
+    emoji: "🌍",
+    desc: "Khadir is an island in the Rann — an elevated plateau of hard rock surrounded by white salt. The viewpoints look across the shimmering desert expanse in a landscape that defies comprehension.",
+    whyVisit: "The best unobstructed views of the Great Rann without the Rann Utsav crowds. Sunrise here is otherworldly.",
+    gradient: "linear-gradient(135deg, #1A2A3A, #3A5A7A)"
+  },
+  {
+    id: 39,
+    region: "rann",
+    name: "Flamingo City (Seasonal)",
+    category: "Seasonal",
+    emoji: "🦩",
+    desc: "Between February and April, one of the world's largest flamingo breeding colonies assembles in the remote Rann. Up to a million birds create a shocking pink spectacle.",
+    whyVisit: "Possibly the world's largest flamingo gathering. One of India's great wildlife spectacles — still relatively unknown.",
+    gradient: "linear-gradient(135deg, #3A1A2A, #8B3A5A)"
+  },
+  {
+    id: 40,
+    region: "rann",
+    name: "Ekal ka Rann",
+    category: "Rann",
+    emoji: "🌕",
+    desc: "A remote corner of the Great Rann accessible only by 4x4, where the salt flats stretch uninterrupted and the silence is absolute. On full moon nights, the desert glows like moonlit snow.",
+    whyVisit: "The Rann in its purest, most silent form. No infrastructure, no tourists — just you and the infinite white.",
+    gradient: "linear-gradient(135deg, #2A2A1A, #6A6A3A)"
+  },
+  {
+    id: 41,
+    region: "rann",
+    name: "Kalo Dungar Hidden Trails",
+    category: "Viewpoint",
+    emoji: "🌑",
+    desc: "Beyond the famous main viewpoint of Kalo Dungar (Black Hill), walking trails lead to secondary ridges that are completely crowd-free. Views extend over both Ranns simultaneously.",
+    whyVisit: "Walk 10 minutes past the tourist viewpoint and find yourself completely alone with a 360° Rann panorama.",
+    gradient: "linear-gradient(135deg, #1A1A2A, #3A3A5A)"
+  },
+  {
+    id: 42,
+    region: "rann",
+    name: "India Bridge",
+    category: "Restricted Zone",
+    emoji: "🚩",
+    desc: "A strategic bridge at the edge of the Great Rann, accessible only with special permits due to its proximity to the border. The experience of standing at the frontier is unlike anything else.",
+    whyVisit: "Few experiences match standing at the physical frontier of India. Arrange permits in advance through official channels.",
+    gradient: "linear-gradient(135deg, #2A1A1A, #5A3A2A)"
+  }
+];
+
+// Helper function to find a matching detailed destination in the compiled JSON
+function getDestinationLink(gemName) {
+  const normGem = gemName.toLowerCase().replace(/ & /g, ' ').replace(/-/g, ' ').trim();
+  const match = destinations.find(d => {
+    const normTitle = d.heroTitle.toLowerCase().replace(/—/g, ' ').replace(/-/g, ' ').trim();
+    const normSlug = d.slug.toLowerCase().replace(/-/g, ' ').trim();
+    return normTitle.includes(normGem) || normGem.includes(normTitle) || normSlug.includes(normGem) || normGem.includes(normSlug);
+  });
+  return match ? `/explore/${match.slug}/` : null;
+}
+---
+
+<section class="gems-sec" id="hidden">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label">The Untold Kutch</span>
+      <h2 class="section-title-text">40+ Hidden & Underrated Places Across Kutch</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc-text">These are the places that don't trend on Instagram — yet. Discover Kutch the way locals know it, region by region.</p>
+    </div>
+
+    <!-- Region Selector Tabs -->
+    <div class="region-tabs-container scroll-reveal">
+      {regions.map((region, index) => (
+        <button 
+          class={`region-tab-btn ${index === 0 ? "active" : ""}`} 
+          data-region={region.id}
+        >
+          <span>{region.icon}</span>
+          <span>{region.name}</span>
+          <span class="region-tab-count">{region.count}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Places Grids -->
+    <div class="places-grid-wrap scroll-reveal">
+      {regions.map((region, index) => {
+        const regionGems = gems.filter(gem => gem.region === region.id);
+        return (
+          <div 
+            class={`region-view-block ${index === 0 ? "active" : ""}`} 
+            id={`region-${region.id}`}
+          >
+            {regionGems.map((gem) => {
+              const href = getDestinationLink(gem.name);
+              const CardTag = href ? 'a' : 'div';
+              const cardProps = href ? { href, class: "place-card-trendy clickable-card" } : { class: "place-card-trendy" };
+              
+              return (
+                <CardTag {...cardProps}>
+                  <div class="place-card-banner">
+                    <div class="place-card-banner-bg" style={`background: ${gem.gradient}`}></div>
+                    <div class="place-card-emoji-wrap">
+                      {gem.emoji}
+                    </div>
+                    <span class="place-card-no">#{String(gem.id).padStart(2, '0')}</span>
+                    <span class="place-card-badge">{gem.category}</span>
+                  </div>
+                  <div class="place-card-body">
+                    <h3 class="place-card-title">
+                      {gem.name}
+                      {href && <span class="card-link-arrow">→</span>}
+                    </h3>
+                    <p class="place-card-desc">{gem.desc}</p>
+                    <div class="place-card-why">
+                      <span class="place-card-why-label">
+                        ⭐ Why Visit
+                      </span>
+                      <p class="place-card-why-text">{gem.whyVisit}</p>
+                    </div>
+                  </div>
+                </CardTag>
+              );
+            })}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Clickable card elements */
+  .clickable-card {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .card-link-arrow {
+    margin-left: 0.5rem;
+    color: var(--gold-light);
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .clickable-card:hover .card-link-arrow {
+    transform: translateX(4px);
+  }
+</style>
+

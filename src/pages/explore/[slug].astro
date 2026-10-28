@@ -1,0 +1,638 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/home/Header.astro";
+import Footer from "../../components/home/Footer.astro";
+import "../../styles/home.css";
+
+export async function getStaticPaths() {
+  const destinations = (await import("../../data/destinations.json")).default;
+  return destinations.map((dest) => {
+    return {
+      params: { slug: dest.slug },
+      props: { dest, allDestinations: destinations }
+    };
+  });
+}
+
+const { dest, allDestinations } = Astro.props;
+
+// Helper to format nearby links cleanly
+function formatNearbyLink(linkStr) {
+  if (!linkStr) return '#';
+  // Strip any relative paths
+  let clean = linkStr.replace(/^\.\.\/destinations\//, '').replace(/^\/destinations\//, '').replace(/\.html$/, '').trim();
+  
+  // Normalize key slugs
+  if (clean === 'dhordo-white-rann') return '/explore/dhordo/';
+  if (clean === 'kadia-dhrow') return '/explore/kadiadhrow/';
+  if (clean === 'road-to-heaven') return '/explore/roadtoheaven/';
+  if (clean === 'mata-na-madh') return '/explore/matanamadh/';
+  if (clean === 'narayan-sarovar-koteshwar') return '/explore/narayansarovar/';
+  
+  return `/explore/${clean}/`;
+}
+---
+
+<Layout 
+  title={`${dest.heroTitle} Travel Guide — Kutch Explorer`}
+  theme="kutch"
+  description={dest.metaDesc}
+>
+  <div class="home-page">
+    <Header />
+    
+    <!-- ── EXPLORE HERO ─────────────────────────────────── -->
+    <section class="explore-hero-section" style={`background-image: linear-gradient(to bottom, rgba(7, 9, 14, 0.4) 0%, rgba(7, 9, 14, 0.95) 100%), url('${dest.heroImage}');`}>
+      <div class="explore-hero-container">
+        <!-- Breadcrumb -->
+        <nav class="explore-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="#hidden">Explore</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">{dest.heroTitle}</span>
+        </nav>
+        
+        <h1 class="explore-hero-title">{dest.heroTitle}</h1>
+        <p class="explore-hero-meta">Destination Guide</p>
+      </div>
+    </section>
+
+    <!-- ── EXPLORE CONTENT GRID ────────────────────────── -->
+    <div class="explore-content-sec">
+      <div class="explore-content-container">
+        <div class="explore-content-grid">
+          
+          <!-- LEFT COLUMN: Main Guide Details -->
+          <main class="explore-main-col">
+            <section class="explore-guide-block scroll-reveal active">
+              <p class="explore-lead-text">{dest.leadText}</p>
+            </section>
+            
+            {dest.landmarks && dest.landmarks.length > 0 && (
+              <section class="explore-guide-block scroll-reveal">
+                <h2 class="explore-h2">Landmarks & Heritage</h2>
+                <div class="explore-section-divider"></div>
+                <div class="explore-landmarks-grid">
+                  {dest.landmarks.map((landmark) => (
+                    <div class="explore-landmark-card glass-card">
+                      <div class="explore-landmark-card-img" style={`background-image: url('${landmark.img || '/assets/images/hero.webp'}');`}>
+                      </div>
+                      <div class="explore-landmark-card-body">
+                        <h3>{landmark.title}</h3>
+                        <p>{landmark.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {dest.eats && dest.eats.length > 0 && (
+              <section class="explore-guide-block scroll-reveal">
+                <h2 class="explore-h2">Local Eats & Delicacies</h2>
+                <div class="explore-section-divider"></div>
+                <ul class="explore-bullet-list">
+                  {dest.eats.map((eat) => (
+                    <li class="glass-card" set:html={eat}></li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {dest.shopping && dest.shopping.length > 0 && (
+              <section class="explore-guide-block scroll-reveal">
+                <h2 class="explore-h2">Shopping & Bazaars</h2>
+                <div class="explore-section-divider"></div>
+                <ul class="explore-bullet-list">
+                  {dest.shopping.map((shop) => (
+                    <li class="glass-card" set:html={shop}></li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {dest.itinerary && (
+              <section class="explore-guide-block scroll-reveal">
+                <h2 class="explore-h2">Suggested Itinerary</h2>
+                <div class="explore-section-divider"></div>
+                <div class="explore-itinerary-box glass-card" set:html={dest.itinerary}></div>
+              </section>
+            )}
+
+            {dest.gallery && dest.gallery.length > 0 && (
+              <section class="explore-guide-block scroll-reveal">
+                <h2 class="explore-h2">Photo Gallery</h2>
+                <div class="explore-section-divider"></div>
+                <div class="explore-gallery-grid" id="exploreGallery">
+                  {dest.gallery.map((photo) => (
+                    <div class="explore-gallery-item glass-card">
+                      <img src={photo.src} alt={photo.alt} loading="lazy" class="explore-gallery-img" />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </main>
+
+          <!-- RIGHT COLUMN: Sidebar Highlights & Transit -->
+          <aside class="explore-sidebar-col">
+            
+            {dest.whoShouldVisit && dest.whoShouldVisit.length > 0 && (
+              <div class="explore-sidebar-widget glass-card scroll-reveal">
+                <h3>Who Should Visit</h3>
+                <ul class="explore-sidebar-bullets">
+                  {dest.whoShouldVisit.map((visit) => (
+                    <li set:html={visit}></li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {dest.howToReach && dest.howToReach.length > 0 && (
+              <div class="explore-sidebar-widget glass-card scroll-reveal">
+                <h3>How to Reach</h3>
+                <ul class="explore-sidebar-bullets">
+                  {dest.howToReach.map((reach) => (
+                    <li set:html={reach}></li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {dest.whenToVisit && (
+              <div class="explore-sidebar-widget glass-card scroll-reveal">
+                <h3>When to Visit</h3>
+                <div class="explore-when-visit-text" set:html={dest.whenToVisit}></div>
+              </div>
+            )}
+
+            {dest.tips && dest.tips.length > 0 && (
+              <div class="explore-sidebar-widget glass-card scroll-reveal">
+                <h3>Curated Tips & Advice</h3>
+                <div class="explore-tips-vertical">
+                  {dest.tips.map((tip) => (
+                    <div class="explore-tip-vertical-item">
+                      <h4>{tip.title}</h4>
+                      <p>{tip.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {dest.mapIframe && (
+              <div class="explore-sidebar-widget glass-card scroll-reveal">
+                <h3>Location Map</h3>
+                <div class="explore-map-iframe-wrapper">
+                  <iframe src={dest.mapIframe} allowfullscreen="" loading="lazy" style="border:0; width:100%; height:280px; border-radius:12px;"></iframe>
+                </div>
+              </div>
+            )}
+
+            {dest.nearby && dest.nearby.length > 0 && (
+              <div class="explore-sidebar-widget glass-card scroll-reveal">
+                <h3>Nearby Attractions</h3>
+                <div class="explore-nearby-list">
+                  {dest.nearby.map((near) => (
+                    <a href={formatNearbyLink(near.link)} class="explore-nearby-card">
+                      <h4>{near.title}</h4>
+                      <p>{near.desc}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </aside>
+
+        </div>
+      </div>
+    </div>
+    
+    <!-- Dynamic Lightbox Modal -->
+    <div id="lightboxModal" class="explore-lightbox-modal">
+      <span class="explore-lightbox-close" id="lightboxClose">&times;</span>
+      <img class="explore-lightbox-content" id="lightboxModalImg" src="" alt="" />
+      <div id="lightboxCaption" class="explore-lightbox-caption"></div>
+    </div>
+
+    <Footer />
+  </div>
+</Layout>
+
+<script src="../../scripts/home.js"></script>
+
+<script>
+  // Lightbox implementation for gallery images
+  document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = document.querySelectorAll('.explore-gallery-item img');
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxModalImg');
+    const captionText = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('lightboxClose');
+
+    if (!modal || !modalImg || !galleryItems.length) return;
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        modal.style.display = "block";
+        (modalImg as HTMLImageElement).src = (item as HTMLImageElement).src;
+        captionText.innerHTML = (item as HTMLImageElement).alt || 'Kutch Gallery';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeModal = () => {
+      modal.style.display = "none";
+      document.body.style.overflow = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === "block") {
+        closeModal();
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  /* ── EXPLORE PAGES SPECIFIC STYLING ───────────────── */
+  .explore-hero-section {
+    padding-top: 180px;
+    padding-bottom: 90px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 1px solid rgba(201, 147, 58, 0.15);
+  }
+  .explore-hero-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .explore-breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--txt-muted);
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+  .explore-breadcrumb a {
+    color: var(--txt-muted);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+  }
+  .explore-breadcrumb a:hover {
+    color: var(--gold-light);
+  }
+  .explore-breadcrumb .breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.15);
+  }
+  .explore-breadcrumb .breadcrumb-current {
+    color: var(--gold-light);
+  }
+  .explore-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .explore-hero-meta {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-top: 0.5rem;
+  }
+
+  /* Content section details */
+  .explore-content-sec {
+    padding: 5.5rem 0;
+    background-color: var(--dark-bg);
+  }
+  .explore-content-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .explore-content-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 3.5rem;
+  }
+
+  /* Columns details */
+  .explore-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .explore-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+
+  /* Blocks elements */
+  .explore-guide-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .explore-lead-text {
+    font-size: 1.15rem;
+    color: var(--txt-secondary);
+    line-height: 1.8;
+  }
+  .explore-h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .explore-section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--terracotta));
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+
+  /* Landmarks block style */
+  .explore-landmarks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .explore-landmark-card {
+    display: flex;
+    overflow: hidden;
+    min-height: 180px;
+  }
+  .explore-landmark-card-img {
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border-right: 1px solid var(--dark-border);
+  }
+  .explore-landmark-card-body {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .explore-landmark-card-body h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .explore-landmark-card-body p {
+    font-size: 0.88rem;
+    color: var(--txt-muted);
+    line-height: 1.6;
+  }
+
+  /* Bullet Lists eats and shopping */
+  .explore-bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .explore-bullet-list li {
+    padding: 1.2rem 1.8rem;
+    font-size: 0.95rem;
+    color: var(--txt-secondary);
+    line-height: 1.6;
+  }
+  .explore-bullet-list li strong {
+    color: var(--gold-light);
+  }
+
+  /* Itinerary details */
+  .explore-itinerary-box {
+    padding: 2.2rem;
+    font-size: 0.95rem;
+    color: var(--txt-secondary);
+    line-height: 1.7;
+  }
+
+  /* Gallery Grid */
+  .explore-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .explore-gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .explore-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+  }
+  .explore-gallery-item:hover .explore-gallery-img {
+    transform: scale(1.06);
+  }
+
+  /* Sidebar widgets styles */
+  .explore-sidebar-widget {
+    padding: 2rem;
+  }
+  .explore-sidebar-widget h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 0.5rem;
+  }
+  .explore-sidebar-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-size: 0.85rem;
+    color: var(--txt-secondary);
+    line-height: 1.6;
+  }
+  .explore-sidebar-bullets li strong {
+    color: var(--white);
+  }
+  .explore-when-visit-text {
+    font-size: 0.85rem;
+    color: var(--txt-secondary);
+    line-height: 1.6;
+  }
+  .explore-when-visit-text strong {
+    color: var(--white);
+    display: block;
+    margin-top: 0.8rem;
+  }
+  .explore-when-visit-text strong:first-child {
+    margin-top: 0;
+  }
+
+  /* Tip Widget styles */
+  .explore-tips-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .explore-tip-vertical-item {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid var(--terracotta);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .explore-tip-vertical-item h4 {
+    font-size: 0.85rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .explore-tip-vertical-item p {
+    font-size: 0.8rem;
+    color: var(--txt-muted);
+    line-height: 1.5;
+  }
+
+  /* Nearby attractions cards widget */
+  .explore-nearby-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .explore-nearby-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 1rem;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+  }
+  .explore-nearby-card:hover {
+    background: rgba(201, 147, 58, 0.03);
+    border-color: rgba(201, 147, 58, 0.2);
+  }
+  .explore-nearby-card h4 {
+    font-size: 0.88rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .explore-nearby-card p {
+    font-size: 0.78rem;
+    color: var(--txt-muted);
+    line-height: 1.4;
+  }
+
+  /* ── LIGHTBOX MODAL STYLINGS ────────────────────── */
+  .explore-lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(7, 9, 14, 0.95);
+    backdrop-filter: blur(16px);
+  }
+  .explore-lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+  }
+  .explore-lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    font-weight: 700;
+    padding: 15px 0;
+    font-size: 1rem;
+  }
+  .explore-lightbox-close {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: var(--white);
+    font-size: 40px;
+    font-weight: 300;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+  .explore-lightbox-close:hover {
+    color: var(--gold);
+    transform: scale(1.1);
+  }
+
+  @keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Responsive styling definitions */
+  @media (max-width: 1024px) {
+    .explore-content-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .explore-landmark-card {
+      flex-direction: column;
+    }
+    .explore-landmark-card-img {
+      width: 100%;
+      height: 150px;
+      border-right: none;
+      border-bottom: 1px solid var(--dark-border);
+    }
+    .explore-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .explore-gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    .explore-lightbox-close {
+      right: 30px;
+      top: 30px;
+    }
+  }
+</style>

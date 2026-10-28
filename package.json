@@ -2,14 +2,16 @@
 	"name": "kutchonline",
 	"private": true,
 	"type": "module",
-	"engines": { "node": ">=22" },
+	"engines": {
+		"node": ">=22"
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"build": "node scripts/generate-sitemaps.js && astro build",
 		"deploy": "node scripts/generate-sitemaps.js && astro build && wrangler deploy"
 	},
 	"dependencies": {
-		"astro": "^6.4.2"
+		"astro": "^7.4.2"
 	},
 	"devDependencies": {
 		"wrangler": "^4.96.0"

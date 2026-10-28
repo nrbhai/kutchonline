@@ -1,0 +1,1228 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const destinations = [
+  {
+    id: "bhuj",
+    name: "Bhuj",
+    guName: "ભુજ",
+    description: "The historical heart of Kutch. Bhuj is a maze of ancient lanes, vibrant bazaars, and beautiful palaces. It served as the capital of the former Kingdom of Cutch and remains the cultural and administrative hub of the district.",
+    distance: "0 km (Central Hub)",
+    bestTime: "October to March",
+    attractions: ["Aina Mahal", "Prag Mahal", "Bhujia Fort", "Hamirsar Lake", "Kutch Museum"],
+    tip: "Climb Bhujia Hill in the late afternoon to witness a spectacular sunset over the city from the fort walls.",
+    link: "/bhuj/",
+    coords: { x: 58.2, y: 67.9 }
+  },
+  {
+    id: "mandvi",
+    name: "Mandvi",
+    guName: "માંડવી",
+    description: "A serene coastal town known for its golden sand beaches, 400-year-old active wooden shipbuilding yard, and the majestic Vijay Vilas Palace. It was once a major summer resort for the kings of Kutch.",
+    distance: "60 km South of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Vijay Vilas Palace", "Mandvi Beach", "Shipbuilding Yard", "Wind Farms"],
+    tip: "Visit the shipbuilding yard along the Rukmavati river to see local craftsmen construct massive wooden dhows by hand.",
+    link: "/explore/mandvi/",
+    coords: { x: 44.2, y: 95.9 }
+  },
+  {
+    id: "mundra",
+    name: "Mundra",
+    guName: "મુંદ્રા",
+    description: "Originally known for its salt and spice trade, Mundra has transformed into one of India's largest private ports and economic zones. Yet, it retains its old-town charm with historic stepwells and textile block-printing.",
+    distance: "53 km South of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Mundra Port", "Adani Port SEZ", "Historic Stepwells", "Dargah of Shah Murad Shah"],
+    tip: "Check out the local batik print workshops in the old bazaar areas to see traditional dyeing techniques.",
+    link: "/explore/mundra/",
+    coords: { x: 59.6, y: 95.9 }
+  },
+  {
+    id: "kadiadhrow",
+    name: "Kadia Dhrow",
+    guName: "ડિયા ધ્રો",
+    description: "Dubbed the 'Grand Canyon of India,' Kadia Dhrow is a hidden geological wonderland. It features breathtaking rock formations, deep river canyons, and colorful sandstone strata carved over millions of years by wind and water.",
+    distance: "38 km Northwest of Bhuj",
+    bestTime: "November to February",
+    attractions: ["River Canyon Walks", "Sandstone Cliffs", "Mamai Dev Temple", "Scenic Photography Spots"],
+    tip: "Hire a local guide from Kodki or Nakhatrana. The final 4km is completely off-road, so a high-clearance vehicle is recommended.",
+    link: "/explore/kadiadhrow/",
+    coords: { x: 49.7, y: 54.4 }
+  },
+  {
+    id: "roadtoheaven",
+    name: "Road to Heaven",
+    guName: "સ્વર્ગનો રસ્તો",
+    description: "A surreal 30 km highway cutting straight through the white salt desert of the Great Rann. Driving along this road feels like hovering over the water, with endless white salt flats stretching to the horizon on both sides.",
+    distance: "130 km Northeast of Bhuj",
+    bestTime: "November to March",
+    attractions: ["Rann Sunrise/Sunset", "Desert Reflections", "Scenic Pitstops", "Vigakot border access (with permits)"],
+    tip: "Drive during sunrise or sunset. The light reflects off the salt flats creating a mirror-like sky reflection that is incredibly photogenic.",
+    link: "/explore/roadtoheaven/",
+    coords: { x: 70.5, y: 25.1 }
+  },
+  {
+    id: "dholavira",
+    name: "Dholavira",
+    guName: "ધોળાવીરા",
+    description: "One of the most remarkable cities of the ancient Indus Valley Civilization (Harappan). Located on the island of Khadir Bet, it features state-of-the-art water harvesting reservoirs, stone architecture, and a fossil park.",
+    distance: "220 km Northeast of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Harappan Archaeological Ruins", "Rock-Cut Reservoirs", "Indus Valley Museum", "Wood Fossil Park"],
+    tip: "Visit the nearby Fossil Park to see 180-million-year-old petrified tree trunks from the Jurassic era.",
+    link: "/explore/dholavira/",
+    coords: { x: 81.2, y: 17.2 }
+  },
+  {
+    id: "anjar",
+    name: "Anjar",
+    guName: "અંજાર",
+    description: "One of the oldest cities in Kutch, founded in 1545 AD. Anjar is famous for its high-quality hand-forged iron metalcraft, block prints, and the tragic love story of local folk figures Jesal and Toral.",
+    distance: "40 km Southeast of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Jesal Toral Samadhi", "Iron Knife Workshops", "Ajaypal Temple", "Local Handicraft Bazaar"],
+    tip: "Pick up a signature hand-forged Kutchi pocket knife or nutcutter, a craft refined over hundreds of years in Anjar.",
+    link: "/explore/anjar/",
+    coords: { x: 74.8, y: 74.5 }
+  },
+  {
+    id: "gandhidham",
+    name: "Gandhidham",
+    guName: "ગાંધીધામ",
+    description: "The largest and most populated city in Kutch, Gandhidham was built in the late 1940s to resettle refugees from Sindh. Today, it is a bustling modern commercial center close to the major cargo port of Kandla.",
+    distance: "55 km East of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Deendayal Port (Kandla)", "Sindhi Cultural Museum", "Local Markets", "Swaminarayan Temple"],
+    tip: "It is a great base for shopping, premium dining, and transit to eastern Kutch destinations.",
+    link: "/explore/gandhidham/",
+    coords: { x: 79.8, y: 77.6 }
+  },
+  {
+    id: "jakhau",
+    name: "Jakhau",
+    guName: "જખૌ",
+    description: "A historical coastal port situated on the western tip of Kutch. Jakhau has a major fishing harbour and extensive salt manufacturing operations, surrounded by peaceful creeks and coastal wildlife.",
+    distance: "130 km West of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Jakhau Port", "Fishing Harbour", "Salt Pans", "Coastal Mangroves"],
+    tip: "Observe the salt harvesting process in the salt pans, which produce massive mounds of white salt resembling snow hills.",
+    link: "/explore/jakhau/",
+    coords: { x: 15.2, y: 67.1 }
+  },
+  {
+    id: "lakhpat",
+    name: "Lakhpat",
+    guName: "લખપત",
+    description: "A grand, sparsely populated ghost town surrounded by a 7 km loop of high fort walls. Historically a booming port at the mouth of the Indus River, it was abandoned after the river changed its course following the 1819 earthquake.",
+    distance: "135 km Northwest of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Lakhpat Fort Walls", "Gurudwara Pehli Patshahi", "Tomb of Ghaus Muhammad", "Creek View Point"],
+    tip: "Walk along the fort ramparts at the edge of the creek to look out towards the international border and vast tidal mudflats.",
+    link: "/explore/lakhpat/",
+    coords: { x: 17.5, y: 19.6 }
+  },
+  {
+    id: "matanamadh",
+    name: "Mata Na Madh",
+    guName: "માતાનો મઢ",
+    description: "A highly revered temple town dedicated to Ashapura Mata, the family deity of the former rulers of Kutch. Millions of pilgrims walk on foot to this shrine during the annual Navratri festival.",
+    distance: "95 km Northwest of Bhuj",
+    bestTime: "September to March",
+    attractions: ["Ashapura Mata Temple", "Chachra Kund", "Surrounding Volcanic Hills"],
+    tip: "Expect high crowds during Navratri. Try local Kutchi sweets and snacks sold in the temple bazaar.",
+    link: "/explore/matanamadh/",
+    coords: { x: 25.4, y: 41.2 }
+  },
+  {
+    id: "dhordo",
+    name: "Dhordo",
+    guName: "ધોરડો",
+    description: "The gateway to the Great Rann of Kutch and home to the world-renowned Rann Utsav. Dhordo is a scenic desert village celebrated for its traditional mud-brick houses (Bhunga) and exquisite embroidery.",
+    distance: "80 km North of Bhuj",
+    bestTime: "November to February",
+    attractions: ["Great White Rann", "Tent City Rann Utsav", "Traditional Bhungas", "Craft Villages (Hodka/Ludiya)"],
+    tip: "Visit on a full moon night. The white salt desert glows under the moonlight, creating an unforgettable, dreamlike scenery.",
+    link: "/explore/dhordo/",
+    coords: { x: 55.1, y: 29.8 }
+  },
+  {
+    id: "narayansarovar",
+    name: "Narayan Sarovar",
+    guName: "નારાયણ સરોવર",
+    description: "One of the five sacred lakes in Hindu mythology. Surrounded by temples and the Narayan Sarovar Sanctuary, it is situated at the edge of the desert and is an important sanctuary for local wildlife like Chinkaras.",
+    distance: "135 km West of Bhuj",
+    bestTime: "October to March",
+    attractions: ["Narayan Sarovar Holy Lake", "Trikamraiji Temple", "Chinkara Sanctuary", "Koteshwar Mahadev Temple (4km away)"],
+    tip: "Combine your visit with a trip to the nearby Koteshwar Temple, built on a cliff overlooking the Arabian Sea.",
+    link: "/explore/narayansarovar/",
+    coords: { x: 6.3, y: 29.0 }
+  }
+];
+---
+
+<Layout title="Interactive Map of Kutch – Explore KutchOnline" theme="kutch" description="Explore the beautiful Kutch district interactively. Click on iconic locations like Bhuj, Mandvi, Dholavira, Dhordo, Lakhpat, and Narayan Sarovar to learn more.">
+  <div class="map-explorer-container">
+    
+    <!-- Sidebar Control Panel -->
+    <aside class="explorer-sidebar">
+      <div class="sidebar-header">
+        <a href="/" class="back-home-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Back to Home</span>
+        </a>
+        <div class="logo-text-wrap">
+          <span class="logo-main">KUTCH</span><span class="logo-sub">EXPLORER</span>
+        </div>
+      </div>
+
+      <div class="dropdown-selector-container">
+        <label for="location-select" class="selector-label">Choose a Destination</label>
+        <div class="custom-select-wrap">
+          <select id="location-select">
+            <option value="none">-- Select Location --</option>
+            {destinations.map(dest => (
+              <option value={dest.id}>{dest.name} ({dest.guName})</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <!-- Location Details Panel -->
+      <div class="details-view-container">
+        
+        <!-- Welcome Card (shown initially) -->
+        <div id="welcome-card" class="details-card active">
+          <div class="welcome-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 20l-5.447-2.724A2 2 0 012.44 15.48l2-8A2 2 0 016.38 6h11.24a2 2 0 011.94 1.48l2 8a2 2 0 01-1.11 2.3L15 20M9 20l3-3 3 3M9 20h6M12 3v3"/>
+            </svg>
+          </div>
+          <h2>Explore Kutch</h2>
+          <p class="welcome-intro">
+            From the endless white salt deserts in the north to ancient fort walls and coastal shipyards, Kutch is a land of legends. 
+          </p>
+          <p class="welcome-hint">
+            Tap any of the glowing points on the map or select a destination from the dropdown to begin your journey.
+          </p>
+          
+          <div class="quick-facts-box">
+            <div class="fact-item">
+              <span class="fact-title">Largest District</span>
+              <span class="fact-value">In India (45,674 km²)</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-title">Unique Crafts</span>
+              <span class="fact-value">Lippan, Rogan, Ajrakh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Destination Cards -->
+        {destinations.map(dest => (
+          <div id={`card-${dest.id}`} class="details-card hidden">
+            <div class="card-title-group">
+              <span class="gujarati-title">{dest.guName}</span>
+              <h2>{dest.name}</h2>
+            </div>
+            
+            <div class="distance-strip">
+              <div class="info-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>{dest.distance}</span>
+              </div>
+              <div class="info-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>{dest.bestTime}</span>
+              </div>
+            </div>
+
+            <p class="destination-desc">{dest.description}</p>
+
+            <div class="attractions-section">
+              <h3>Key Attractions</h3>
+              <div class="attractions-grid">
+                {dest.attractions.map(att => (
+                  <span class="attraction-badge">{att}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="tip-box">
+              <div class="tip-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tip-icon">
+                  <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.5V20a2 2 0 01-2 2 2 2 0 01-2-2v-1.5c0-.827-.324-1.608-.902-2.182l-.548-.547z"/>
+                </svg>
+                <span>Travel Tip</span>
+              </div>
+              <p>{dest.tip}</p>
+            </div>
+
+            <div class="card-footer">
+              <a href={dest.link} class="explore-btn">
+                <span>Explore Destination</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Quick Tour Controls -->
+      <div class="tour-controls-bar">
+        <button id="prev-btn" class="tour-nav-btn" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+          <span>Prev</span>
+        </button>
+        <button id="reset-zoom-btn" class="tour-reset-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+          <span>Fit Map</span>
+        </button>
+        <button id="next-btn" class="tour-nav-btn">
+          <span>Next</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Map Viewport -->
+    <main class="map-viewport">
+      
+      <!-- Grid Overlay for tech effect -->
+      <div class="map-grid-layer"></div>
+      
+      <!-- Base Wrapper that scales and pans -->
+      <div class="map-image-wrapper" id="map-wrapper">
+        <img 
+          src="/assets/public/images/kutch-map.png" 
+          alt="Artistic high resolution Map of Kutch District" 
+          class="map-image"
+          draggable="false"
+        />
+
+        <!-- Clickable Pins -->
+        {destinations.map(dest => (
+          <button 
+            type="button" 
+            class="map-marker-pin"
+            id={`pin-${dest.id}`}
+            data-id={dest.id}
+            style={`left: ${dest.coords.x}%; top: ${dest.coords.y}%;`}
+            aria-label={`Select ${dest.name}`}
+          >
+            <span class="pin-ripple"></span>
+            <span class="pin-dot"></span>
+            <span class="pin-label">{dest.name}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Viewport Map Controls -->
+      <div class="viewport-controls">
+        <button id="map-zoom-in" class="control-circle-btn" aria-label="Zoom In">+</button>
+        <button id="map-zoom-out" class="control-circle-btn" aria-label="Zoom Out">-</button>
+        <span class="map-hint-text">Use dropdown or tap dots to explore</span>
+      </div>
+
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .map-explorer-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    background-color: #050811;
+    overflow: hidden;
+  }
+
+  /* ═══════════════════════════════════════════════
+     SIDEBAR
+     ═══════════════════════════════════════════════ */
+  .explorer-sidebar {
+    background-color: rgba(6, 11, 25, 0.95);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #8f9bb3;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+  }
+
+  .back-home-btn:hover {
+    color: var(--theme-accent);
+  }
+
+  .logo-text-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .logo-main {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+  }
+
+  .logo-sub {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--theme-accent);
+  }
+
+  .dropdown-selector-container {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .selector-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+  }
+
+  .custom-select-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .custom-select-wrap select {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #f4f4f5;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    transition: all 0.3s ease;
+  }
+
+  .custom-select-wrap select:focus {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 10px var(--theme-glow);
+  }
+
+  /* Select dropdown Arrow icon */
+  .custom-select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #8f9bb3;
+    pointer-events: none;
+  }
+
+  /* Details Panel View */
+  .details-view-container {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .details-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .details-card.hidden {
+    display: none !important;
+  }
+
+  /* Welcome Card */
+  #welcome-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 250px;
+  }
+
+  .welcome-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(217, 119, 6, 0.05);
+    color: var(--theme-accent);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  #welcome-card h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .welcome-intro {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .welcome-hint {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .quick-facts-box {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .fact-item {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .fact-title {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+  }
+
+  .fact-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #f1f5f9;
+  }
+
+  /* Location Card Detail */
+  .card-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .gujarati-title {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--theme-accent);
+    letter-spacing: 0.03em;
+  }
+
+  .details-card h2 {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .distance-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .info-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+
+  .info-pill svg {
+    color: var(--theme-accent);
+  }
+
+  .destination-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #94a3b8;
+  }
+
+  .attractions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .attractions-section h3 {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+  }
+
+  .attractions-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .attraction-badge {
+    background-color: rgba(59, 130, 246, 0.04);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+  }
+
+  .tip-box {
+    background-color: rgba(217, 119, 6, 0.02);
+    border: 1px solid rgba(217, 119, 6, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tip-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--theme-accent);
+  }
+
+  .tip-icon {
+    animation: sway 3s infinite ease-in-out;
+  }
+
+  .tip-box p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #cbd5e1;
+  }
+
+  .card-footer {
+    margin-top: 1rem;
+  }
+
+  .explore-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background-color: var(--theme-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .explore-btn:hover {
+    background-color: var(--theme-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px var(--theme-glow);
+  }
+
+  .explore-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .explore-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  /* Tour Controls */
+  .tour-controls-bar {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 0.5rem;
+    background-color: rgba(4, 8, 18, 0.5);
+  }
+
+  .tour-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.6rem 0.5rem;
+    color: #f1f5f9;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .tour-nav-btn:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .tour-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .tour-reset-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background-color: rgba(217, 119, 6, 0.08);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-radius: 6px;
+    color: var(--theme-accent);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .tour-reset-btn:hover {
+    background-color: rgba(217, 119, 6, 0.15);
+    border-color: rgba(217, 119, 6, 0.3);
+  }
+
+  /* ═══════════════════════════════════════════════
+     MAP VIEWPORT
+     ═══════════════════════════════════════════════ */
+  .map-viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #040812;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map-grid-layer {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .map-image-wrapper {
+    position: relative;
+    aspect-ratio: 1024 / 638;
+    width: 90%;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.85s cubic-bezier(0.25, 1, 0.3, 1);
+    transform-origin: center center;
+    z-index: 2;
+  }
+
+  .map-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7));
+  }
+
+  /* ═══════════════════════════════════════════════
+     MAP PINS
+     ═══════════════════════════════════════════════ */
+  .map-marker-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    outline: none;
+  }
+
+  .pin-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border: 2px solid var(--theme-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--theme-accent);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 3;
+  }
+
+  .pin-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid var(--theme-accent);
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 2;
+    animation: ripplePulse 2.4s infinite ease-out;
+  }
+
+  .pin-label {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(6, 11, 25, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #e2e8f0;
+    white-space: nowrap;
+    opacity: 0.65;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Hover States */
+  .map-marker-pin:hover .pin-dot {
+    background-color: var(--theme-accent);
+    border-color: #ffffff;
+    transform: translate(-50%, -50%) scale(1.3);
+    box-shadow: 0 0 15px #ffffff, 0 0 25px var(--theme-accent);
+  }
+
+  .map-marker-pin:hover .pin-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-3px);
+    color: #ffffff;
+    border-color: var(--theme-accent);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+  }
+
+  /* Selected / Active State */
+  .map-marker-pin.active .pin-dot {
+    background-color: #ffffff;
+    border-color: var(--theme-primary);
+    transform: translate(-50%, -50%) scale(1.4);
+    box-shadow: 0 0 15px var(--theme-primary), 0 0 25px #ffffff;
+  }
+
+  .map-marker-pin.active .pin-label {
+    opacity: 1;
+    color: #ffffff;
+    background-color: var(--theme-primary);
+    border-color: var(--theme-accent);
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 4px 15px var(--theme-glow);
+  }
+
+  /* Viewport Controls overlay */
+  .viewport-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .control-circle-btn {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(6, 11, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .control-circle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--theme-accent);
+    color: var(--theme-accent);
+  }
+
+  .map-hint-text {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+    backdrop-filter: blur(5px);
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+  }
+
+  /* Animations */
+  @keyframes ripplePulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.4);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.6);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(8deg); }
+  }
+
+  /* Responsive styling */
+  @media (max-width: 968px) {
+    .map-explorer-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 50vh 50vh;
+    }
+
+    .explorer-sidebar {
+      grid-row: 2;
+      border-right: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .map-viewport {
+      grid-row: 1;
+    }
+
+    .viewport-controls {
+      bottom: 1rem;
+      right: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Simple navigation tour
+  const destinations = [
+    "bhuj", "mandvi", "mundra", "kadiadhrow", "roadtoheaven", 
+    "dholavira", "anjar", "gandhidham", "jakhau", "lakhpat", 
+    "matanamadh", "dhordo", "narayansarovar"
+  ];
+  
+  // Destination Coordinates Object
+  const coordsMap = {
+    bhuj: { x: 58.2, y: 67.9 },
+    mandvi: { x: 44.2, y: 95.9 },
+    mundra: { x: 59.6, y: 95.9 },
+    kadiadhrow: { x: 49.7, y: 54.4 },
+    roadtoheaven: { x: 70.5, y: 25.1 },
+    dholavira: { x: 81.2, y: 17.2 },
+    anjar: { x: 74.8, y: 74.5 },
+    gandhidham: { x: 79.8, y: 77.6 },
+    jakhau: { x: 15.2, y: 67.1 },
+    lakhpat: { x: 17.5, y: 19.6 },
+    matanamadh: { x: 25.4, y: 41.2 },
+    dhordo: { x: 55.1, y: 29.8 },
+    narayansarovar: { x: 6.3, y: 29.0 }
+  };
+
+  let activeIndex = -1; // -1 means welcome card is active
+  let currentZoom = 1;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectEl = document.getElementById("location-select") as HTMLSelectElement | null;
+    const mapWrapper = document.getElementById("map-wrapper");
+    const welcomeCard = document.getElementById("welcome-card");
+    const prevBtn = document.getElementById("prev-btn") as HTMLButtonElement | null;
+    const nextBtn = document.getElementById("next-btn") as HTMLButtonElement | null;
+    const resetZoomBtn = document.getElementById("reset-zoom-btn");
+    const zoomInBtn = document.getElementById("map-zoom-in");
+    const zoomOutBtn = document.getElementById("map-zoom-out");
+
+    const pins = document.querySelectorAll(".map-marker-pin");
+
+    // helper to update UI elements based on selected destination id
+    function selectDestination(id: string | null) {
+      // 1. Reset all cards and pins
+      welcomeCard?.classList.add("hidden");
+      destinations.forEach(dId => {
+        const card = document.getElementById(`card-${dId}`);
+        const pin = document.getElementById(`pin-${dId}`);
+        card?.classList.add("hidden");
+        pin?.classList.remove("active");
+      });
+
+      if (!id || id === "none") {
+        activeIndex = -1;
+        welcomeCard?.classList.remove("hidden");
+        if (selectEl) selectEl.value = "none";
+        
+        // Reset map transforms
+        if (mapWrapper) {
+          mapWrapper.style.transformOrigin = "center center";
+          mapWrapper.style.transform = `translate(0, 0) scale(1)`;
+          currentZoom = 1;
+        }
+        
+        updateTourButtons();
+        return;
+      }
+
+      // 2. Activate target card and pin
+      const targetCard = document.getElementById(`card-${id}`);
+      const targetPin = document.getElementById(`pin-${id}`);
+      
+      targetCard?.classList.remove("hidden");
+      targetPin?.classList.add("active");
+
+      // 3. Sync dropdown select
+      if (selectEl) selectEl.value = id;
+
+      // 4. Update index
+      activeIndex = destinations.indexOf(id);
+
+      // 5. Center & Zoom Map on Pin Coordinates
+      const coords = coordsMap[id];
+      if (coords && mapWrapper) {
+        // We translate the container relative to its center
+        // target coordinates are in percentage (0 to 100).
+        // translate offset = (50% - X%) and (50% - Y%)
+        const translateX = 50 - coords.x;
+        const translateY = 50 - coords.y;
+        currentZoom = 1.6;
+        
+        // Apply scaling & translation with correct transform-origin to prevent drift
+        mapWrapper.style.transformOrigin = `${coords.x}% ${coords.y}%`;
+        mapWrapper.style.transform = `translate(${translateX}%, ${translateY}%) scale(${currentZoom})`;
+      }
+
+      updateTourButtons();
+    }
+
+    // Update disabled states of previous / next buttons
+    function updateTourButtons() {
+      if (!prevBtn || !nextBtn) return;
+      
+      if (activeIndex <= 0) {
+        prevBtn.disabled = true;
+      } else {
+        prevBtn.disabled = false;
+      }
+
+      if (activeIndex >= destinations.length - 1) {
+        nextBtn.disabled = true;
+      } else {
+        nextBtn.disabled = false;
+      }
+    }
+
+    // Dropdown Select Listener
+    selectEl?.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      selectDestination(target.value);
+    });
+
+    // Map Pin Click Listeners
+    pins.forEach(pin => {
+      pin.addEventListener("click", () => {
+        const id = pin.getAttribute("data-id");
+        selectDestination(id);
+      });
+    });
+
+    // Prev Tour Button Listener
+    prevBtn?.addEventListener("click", () => {
+      if (activeIndex > 0) {
+        const prevId = destinations[activeIndex - 1];
+        selectDestination(prevId);
+      }
+    });
+
+    // Next Tour Button Listener
+    nextBtn?.addEventListener("click", () => {
+      if (activeIndex < destinations.length - 1) {
+        const nextId = destinations[activeIndex + 1];
+        selectDestination(nextId);
+      } else if (activeIndex === -1) {
+        // Start tour from the first one
+        selectDestination(destinations[0]);
+      }
+    });
+
+    // Reset Map View Button Listener
+    resetZoomBtn?.addEventListener("click", () => {
+      selectDestination(null);
+    });
+
+    // Manual Viewport Zoom In Button
+    zoomInBtn?.addEventListener("click", () => {
+      if (mapWrapper) {
+        currentZoom = Math.min(currentZoom + 0.25, 3.5);
+        // keep translation if active
+        if (activeIndex !== -1) {
+          const coords = coordsMap[destinations[activeIndex]];
+          const translateX = 50 - coords.x;
+          const translateY = 50 - coords.y;
+          mapWrapper.style.transformOrigin = `${coords.x}% ${coords.y}%`;
+          mapWrapper.style.transform = `translate(${translateX}%, ${translateY}%) scale(${currentZoom})`;
+        } else {
+          mapWrapper.style.transformOrigin = "center center";
+          mapWrapper.style.transform = `translate(0, 0) scale(${currentZoom})`;
+        }
+      }
+    });
+
+    // Manual Viewport Zoom Out Button
+    zoomOutBtn?.addEventListener("click", () => {
+      if (mapWrapper) {
+        currentZoom = Math.max(currentZoom - 0.25, 0.85);
+        if (activeIndex !== -1) {
+          const coords = coordsMap[destinations[activeIndex]];
+          const translateX = 50 - coords.x;
+          const translateY = 50 - coords.y;
+          mapWrapper.style.transformOrigin = `${coords.x}% ${coords.y}%`;
+          mapWrapper.style.transform = `translate(${translateX}%, ${translateY}%) scale(${currentZoom})`;
+        } else {
+          mapWrapper.style.transformOrigin = "center center";
+          mapWrapper.style.transform = `translate(0, 0) scale(${currentZoom})`;
+        }
+      }
+    });
+
+  });
+</script>

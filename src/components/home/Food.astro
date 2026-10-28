@@ -1,0 +1,67 @@
+---
+// Food.astro
+
+const delicacies = [
+  {
+    emoji: "🍔",
+    name: "Kutchi Dabeli",
+    desc: "The original Dabeli was invented in Mandvi. Spiced potato filling, pomegranate seeds, and roasted peanuts inside a pav — a street food India fell in love with."
+  },
+  {
+    emoji: "🍲",
+    name: "Kutchi Khichdi",
+    desc: "A one-pot comforting meal of rice and lentils cooked with ghee and mild spices, elevated by the addition of dried local desert berries."
+  },
+  {
+    emoji: "🍠",
+    name: "Garadu (Yam Fry)",
+    desc: "A winter specialty — purple yam sliced and deep-fried with chatpata masala. Sold hot as street food in Bhuj during the cool months."
+  },
+  {
+    emoji: "🫙",
+    name: "Keri no Achaar",
+    desc: "Raw mango pickle made with local desert spices and camel-sourced mustard oil. Each household has its own secret recipe passed down for generations."
+  },
+  {
+    emoji: "🥘",
+    name: "Sev Tameta nu Shaak",
+    desc: "A simple, tangy Kutchi curry — crispy sev (gram flour noodles) simmered in a spiced tomato gravy. A home meal visitors talk about long after."
+  },
+  {
+    emoji: "🍮",
+    name: "Gur Papdi (Sukhdi)",
+    desc: "Sesame, wheat flour, and jaggery sweets made in winter — energy-dense, deeply flavored, and prepared to ward off the cold desert nights."
+  },
+  {
+    emoji: "🍆",
+    name: "Rotlo with Ringan",
+    desc: "Bajra (pearl millet) flatbread cooked directly on embers, served with smoky fire-roasted eggplant mash. Pastoral food at its most authentic."
+  },
+  {
+    emoji: "🍵",
+    name: "Kutchi Masala Chai",
+    desc: "Stronger, spicier, and sweeter than regular chai — brewed with extra ginger, cardamom, and black pepper. Served in clay cups (kulhads)."
+  }
+];
+---
+
+<section class="food-sec" id="food">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label">Taste Kutch</span>
+      <h2 class="section-title-text">Food of Kutch</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc-text">Kutchi food is both humble and extraordinary — shaped by a semi-arid landscape, pastoral communities, and centuries of trade-route influence.</p>
+    </div>
+
+    <div class="food-grid scroll-reveal">
+      {delicacies.map(item => (
+        <div class="food-card-trendy">
+          <div class="food-card-emoji">{item.emoji}</div>
+          <h3 class="food-card-name">{item.name}</h3>
+          <p class="food-card-desc">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

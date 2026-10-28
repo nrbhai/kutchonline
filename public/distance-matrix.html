@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kutch Distance Matrix | Travel Planner &amp; Distances from Bhuj</title>
+<meta content="Complete distance chart for Kutch tourism. Find distances from Bhuj to White Rann, Dholavira, Mandvi, and 60+ other destinations. Plan your road trip accurately." name="description"/>
+<meta content="Kutch, Kutch tourism, Gujarat, Kutch travel, visit Kutch, Kutch India" name="keywords"/>
+<link href="https://www.mykutch.org/distance-matrix.html" rel="canonical"/>
+<!-- Open Graph / Facebook -->
+<meta content="website" property="og:type"/>
+<meta content="https://www.mykutch.org/distance-matrix.html" property="og:url"/>
+<meta content="Kutch Distance Matrix | Travel Planner" property="og:title"/>
+<meta content="Plan your Kutch trip with our comprehensive distance chart. 60+ destinations listed with distances from Bhuj." property="og:description"/>
+<meta content="https://www.mykutch.org/assets/images/hero.webp" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://www.mykutch.org/distance-matrix.html" property="twitter:url"/>
+<meta content="Kutch Distance Matrix | Travel Planner" property="twitter:title"/>
+<meta content="Plan your Kutch trip with our comprehensive distance chart. 60+ destinations listed with distances from Bhuj." property="twitter:description"/>
+<meta content="https://www.mykutch.org/assets/images/hero.webp" property="twitter:image"/>
+<link href="assets/images/favicon.png" rel="icon" type="image/png"/>
+<link href="css/global.css" rel="stylesheet"/>
+<link href="css/distance-matrix.css" rel="stylesheet"/>
+<!-- Structured Data -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Kutch Tourist Places Distance Matrix",
+      "description": "A comprehensive list of distances from Bhuj to major tourist destinations in Kutch, Gujarat.",
+      "url": "https://www.mykutch.org/distance-matrix.html",
+      "creator": {
+        "@type": "Organization",
+        "name": "MyKutch.org"
+      },
+      "keywords": ["Kutch Tourism", "Distance Chart", "Bhuj Travel"],
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5WQBTM9EPH"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5WQBTM9EPH');
+    </script><meta content="index, follow" name="robots"/><meta content="MyKutch.org" name="author"/></head>
+<body class="distance-matrix-page">
+<!-- Navbar (Standardized) -->
+<nav aria-label="Main navigation" role="navigation">
+<div class="container nav-content">
+<a aria-label="MyKutch Home" class="logo" href="index.html"><img alt="MyKutch Travel Guide Logo" class="nav-logo" src="assets/images/logo.png"/></a>
+<button aria-label="Toggle navigation menu" class="mobile-toggle">☰</button>
+<div class="nav-links">
+<a data-i18n="nav.home" href="index.html">Home</a>
+<a data-i18n="nav.destinations" href="destinations.html">Destinations</a>
+<a data-i18n="nav.hidden_gems" href="hidden-gems.html">Hidden-Gems</a>
+<a data-i18n="nav.blog" href="blog.html">Blog</a>
+<a data-i18n="nav.history" href="history.html">History</a>
+<a data-i18n="nav.geography" href="geography.html">Geography</a>
+<a data-i18n="nav.crafts" href="crafts.html">Crafts</a>
+<a data-i18n="nav.distance_matrix" href="distance-matrix.html">Distance Matrix</a>
+<a data-i18n="nav.landscapes" href="landscapes.html">Landscapes</a>
+<a data-i18n="nav.bookings" href="bookings.html">Bookings</a>
+<a data-i18n="nav.about" href="about.html">About</a>
+</div>
+</div>
+</nav>
+<div class="container reveal" style="margin-top: 120px; margin-bottom: 2rem; text-align: center;">
+<h1 class="heading-bright-blue" style="font-size: 2.5rem; line-height: 1.2;">Destination distance from the capital Bhuj</h1>
+<p class="section-desc" style="margin-top: 1rem;">Find distances to popular destinations across Kutch.</p>
+</div>
+<div class="search-container">
+<input class="search-input" id="searchInput" placeholder="Search by Place, Specialty or Location..." type="text"/>
+</div>
+<main class="container" role="main">
+<div class="table-responsive table-container">
+<table class="distance-table" id="matrixTable">
+<thead>
+<tr>
+<th width="50">No.</th>
+<th>Place Name</th>
+<th>Specialty</th>
+<th>Distance (from Bhuj)</th>
+<th>Location / Via</th>
+<th>Contact</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<!-- Rows will be populated by JS -->
+</tbody>
+</table>
+</div>
+</main>
+<footer class="footer-main" role="contentinfo">
+<div class="container" style="text-align: center; padding: 2rem 0; opacity: 0.7;">
+<p>© 2026 MyKutch.org. All rights reserved.</p>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="js/global.js"></script>
+<script src="js/distance-matrix.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/distance_data.js"></script>
+<script>
+        const tableBody = document.getElementById('tableBody');
+        const searchInput = document.getElementById('searchInput');
+
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            
+            if (data.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding: 2rem; color: #64748b;">No matching places found.</td></tr>';
+                return;
+            }
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                
+                // Format specialty as badge if needed, or just text
+                const specialtyHtml = `<span class="badge">${item.specialty}</span>`;
+
+                row.innerHTML = `
+                    <td>${item.sr}</td>
+                    <td style="font-weight: 600;">${item.place}</td>
+                    <td>${specialtyHtml}</td>
+                    <td class="dist-cell">${item.distance}</td>
+                    <td>${item.location || '-'}</td>
+                    <td style="font-family: 'Roboto', sans-serif;">${item.contact ? '<a href="tel:' + item.contact + '" style="color:inherit;text-decoration:none;">' + item.contact + '</a>' : '-'}</td>
+                    <td style="font-size: 0.85rem; color: #64748b;">${item.remarks || ''}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Initial Render
+        renderTable(distanceData);
+
+        // Search Function
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = distanceData.filter(item => {
+                return (
+                    item.place.toLowerCase().includes(searchTerm) ||
+                    item.specialty.toLowerCase().includes(searchTerm) ||
+                    item.location.toLowerCase().includes(searchTerm) ||
+                    item.remarks.toLowerCase().includes(searchTerm)
+                );
+            });
+            renderTable(filtered);
+        });
+    </script>
+</body>
+</html>

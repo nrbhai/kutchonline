@@ -36,7 +36,7 @@ try {
   const fileContent = fs.readFileSync(DATA_PATH, 'utf8');
   const data = JSON.parse(fileContent);
   if (Array.isArray(data)) {
-    categories = data.map(cat => `${cat.id}-in-bhuj.html`);
+    categories = data.filter(cat => cat.providers && cat.providers.length).map(cat => `${cat.id}-in-bhuj.html`);
   } else {
     console.error('Error: data.json is not an array.');
   }

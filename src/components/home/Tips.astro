@@ -1,0 +1,67 @@
+---
+// Tips.astro
+
+const tips = [
+  {
+    num: "01",
+    title: "Best Season: Oct–March",
+    text: "Kutch is at its finest in winter when the Rann is dry and accessible, flamingos are present, and the daytime heat is bearable. Avoid April–June (45°C+)."
+  },
+  {
+    num: "02",
+    title: "Book Permits Early",
+    text: "Restricted zones like India Bridge and Flamingo City require advance permits from government offices. Apply at least a week before your visit."
+  },
+  {
+    num: "03",
+    title: "Hire a Local Guide",
+    text: "Many hidden gems have no road signs or mobile networks. A local guide is essential for reaching remote places safely. Ask at your homestay."
+  },
+  {
+    num: "04",
+    title: "Stay in Heritage Homestays",
+    text: "Kutch has exceptional homestays in traditional circular bhungas and havelis. Staying with local families gives access to authentic food."
+  },
+  {
+    num: "05",
+    title: "Carry Adequate Cash",
+    text: "Many villages and remote sites do not have ATMs or signal. Carry cash from Bhuj and download offline maps before heading into the Rann."
+  },
+  {
+    num: "06",
+    title: "Respect Sacred Spaces",
+    text: "Dress modestly at temples and Sufi dargahs. Remove footwear, cover your head at gurudwaras, and ask permission before taking photos."
+  },
+  {
+    num: "07",
+    title: "Buy Crafts at Source",
+    text: "Skip government emporia and visit Ajrakhpur, Bhujodi, and Nirona directly. Prices are lower, quality is higher, and funds go straight to artisans."
+  },
+  {
+    num: "08",
+    title: "Monsoon is Magical Too",
+    text: "July–September turns the dry Banni grasslands and Rann periphery into a vivid, unexpected green. Off-season means empty roads and lower prices."
+  }
+];
+---
+
+<section class="tips-sec" id="tips">
+  <div class="home-container">
+    <div class="section-header-center scroll-reveal">
+      <span class="section-label" style="color: rgba(255,255,255,0.7)">Travel Smart</span>
+      <h2 class="section-title-text" style="color: #ffffff">Essential Travel Tips</h2>
+      <div class="section-divider" style="background: linear-gradient(to right, #ffffff, var(--gold))"></div>
+      <p class="section-desc-text" style="color: rgba(255,255,255,0.85)">Follow these guidelines to plan a seamless, authentic, and respectful journey through the villages of Kutch.</p>
+    </div>
+
+    <div class="tips-grid scroll-reveal">
+      {tips.map(tip => (
+        <div class="tip-card-trendy">
+          <span class="tip-card-no">{tip.num}</span>
+          <h3 class="tip-card-title">{tip.title}</h3>
+          <p class="tip-card-text">{tip.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
